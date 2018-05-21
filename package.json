@@ -1,0 +1,57 @@
+{
+  "name": "react-native-bootstrap-styles",
+  "keywords": [
+    "react-component",
+    "react-native",
+    "bootstrap",
+    "style",
+    "responsive",
+    "scale",
+    "component",
+    "flex",
+    "grid",
+    "modal",
+    "form",
+    "button"
+  ],
+  "version": "0.0.1",
+  "description": "Bootstrap style library for React Native",
+  "author": "Savva Belloff (aka A. V.) <savva.belloff@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/savvaoff/react-native-swiper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/savvaoff/react-native-bootstrap-styles/issues"
+  },
+  "homepage": "https://github.com/savvaoff/react-native-bootstrap-styles#readme",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-native start",
+    "lint": "eslint . --ext .js,.jsx",
+    "lint-fix": "eslint . --ext .js,.jsx --fix",
+    "test": "npm run lint"
+  },
+  "pre-commit": {
+    "run": [
+      "precommit"
+    ],
+    "silent": true
+  },
+  "dependencies": {
+    "color": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "pre-commit": "^1.2.2"
+  }
+}
