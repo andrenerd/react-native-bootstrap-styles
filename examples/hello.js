@@ -1,11 +1,13 @@
-import BootstrapStyleSheet from '../index'; // 'react-native-bootstrap-styles'
+import React, { Component } from 'react';
+import BootstrapStyleSheet from 'react-native-bootstrap-styles';
+import { View, Text } from 'react-native';
 
 const
   REM = BootstrapStyleSheet.DIMENSIONS_WIDTH < 360 ? 14 : 16,
   BODY_COLOR = '#000022',
   TEXT_MUTED = '#888888';
 
-// custom contants
+// custom constants
 const constants = {
   REM,
   BODY_COLOR, TEXT_MUTED,
@@ -19,6 +21,19 @@ const classes = {
 };
 
 const bootstrapStyleSheet = new BootstrapStyleSheet(constants, classes);
+const s = styles = bootstrapStyleSheet.create();
+const c = constants = bootstrapStyleSheet.constants;
 
-let styles = bootstrapStyleSheet.create();
+class Hello extends Component {
 
+  render() {
+    return (
+      <View style={[s.body]}>
+        <View style={[s.container, s.h100, s.justifyContentCenter]}>
+          <Text style={[s.text, s.h3, s.textPrimary, s.myXs1, s.myMd3]}>Hello world!</Text>
+          <Text style={[s.text, s.py3, {fontSize: 5 * c.REM}]}>🤓🚀🚀🚀</Text>
+        </View>
+      </View>
+    );
+  }
+}
