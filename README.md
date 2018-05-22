@@ -1,5 +1,8 @@
 # react-native-bootstrap-styles
-Bootstrap style library for React Native 
+Bootstrap style library for React Native  
+
+Original class names are transformed from "dashed" to "camelcase" style, for example: `text-center` to `textCenter` and `my-sm-4` to 'mySm4'. Also all the contants (variables in terms of Bootstrap) could be accessible in templates. It helps to make custom tweaks preserving styling guidelines, for example: {fontSize: 10 * FONT_SIZE_BASE}.
+
 
 ```
 import React, { Component } from 'react';
@@ -12,7 +15,6 @@ const
 
 // custom constants
 const constants = {
-  REM,
   BODY_COLOR, TEXT_MUTED,
 };
 
