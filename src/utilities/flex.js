@@ -32,7 +32,7 @@ export default function getClasses(constants, classes) {
     alignContentEnd: {alignContent: 'flex-end'},
     alignContentCenter: {alignContent: 'center'},
     alignContentBetween: {alignContent: 'space-between'},
-    alignContentaround: {alignContent: 'space-around'},
+    alignContentAround: {alignContent: 'space-around'},
     alignContentStretch: {alignContent: 'stretch'},
 
     alignSelfAuto: {alignSelf: 'auto'},
@@ -44,8 +44,10 @@ export default function getClasses(constants, classes) {
   };
 
   // flex%screen%columns
+  // flex%screen (synonym to flex%screen1)
   SCREENS_INFIXES.forEach((itemScreen) => {
-    Array.from(Array(GRID_COLUMNS).keys()).forEach(item => _classes['flex' + itemScreen + (item + 1)] = {flex: item + 1});
+    Array.from(Array(GRID_COLUMNS + 1).keys()).forEach(item => _classes['flex' + itemScreen + (item + 1)] = {flex: item + 1});
+    _classes['flex' + itemScreen] = _classes['flex' + itemScreen + 1]; // experimental
   });
 
   return _classes;
