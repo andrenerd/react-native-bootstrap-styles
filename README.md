@@ -81,7 +81,7 @@ Links as default and outline buttons with some optional tweaks (see "underlayCol
 
 ## Card
 
-Basic modal (temporal approach, till higher level component added to the lib):
+Basic card:
 ```
 <View style={[s.card]}>
   <View style={[s.cardBody]}>
