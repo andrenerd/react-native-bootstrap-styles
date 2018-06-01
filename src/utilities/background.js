@@ -1,11 +1,4 @@
-import Color from 'color';
-
-const colorLevel = (constants, color = PRIMARY, level = 0) => (
-  Color(color).mix(
-    Color(level > 0 ? constants.BLACK : constants.WHITE),
-    Math.abs(level) * constants.THEME_COLOR_INTERVAL,
-  ).hex()
-);
+import { colorLevel } from '../mixins/functions';
 
 export default function getClasses(constants, classes) {
   const {

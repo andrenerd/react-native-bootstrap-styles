@@ -1,3 +1,5 @@
+import { colorLevel } from '../mixins/functions';
+
 export default function getClasses(constants, classes) {
   const {
     WHITE,
@@ -43,6 +45,14 @@ export default function getClasses(constants, classes) {
   Object.keys(THEME_COLORS).forEach((item) => {
     const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
     _classes['text' + classColor] = {color: THEME_COLORS[item]};
+
+    // custom
+    _classes['text' + classColor + 'Light'] = {color: colorLevel(constants, THEME_COLORS[item], -9)};
+    _classes['text' + classColor + 'Dark'] = {color: colorLevel(constants, THEME_COLORS[item], 9)};
+
+    // custom / experimental
+    _classes['text' + classColor + 'Lightest'] = {color: colorLevel(constants, THEME_COLORS[item], -11)};
+    _classes['text' + classColor + 'Darkest'] = {color: colorLevel(constants, THEME_COLORS[item], -11)};
   });
   // RESERVED / a#color%item: @include hover-focus { color: darken($color, 10%) !important; } // MIXIN_TEXT_EMPHASIS_VARIANT
 

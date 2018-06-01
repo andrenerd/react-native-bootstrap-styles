@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import BootstrapStyleSheet from 'react-native-bootstrap-styles';
 import { View, Text } from 'react-native';
+import BootstrapStyleSheet from 'react-native-bootstrap-styles';
 
 const
   REM = BootstrapStyleSheet.DIMENSIONS_WIDTH < 360 ? 14 : 16,

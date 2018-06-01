@@ -6,8 +6,8 @@ Original class names are transformed from "dashed" to "camelcase" style, for exa
 
 ```
 import React, { Component } from 'react';
-import BootstrapStyleSheet from 'react-native-bootstrap-styles';
 import { View, Text } from 'react-native';
+import BootstrapStyleSheet from 'react-native-bootstrap-styles';
 
 const
   BODY_COLOR = '#000022',
@@ -43,3 +43,80 @@ class Hello extends Component {
   }
 }
 ```
+
+Check the full list of contants in the source code:  
+[./src/constants.js](./src/constants.js)
+
+
+
+## Buttons
+
+
+TouchableHighlight as button:
+```
+<TouchableHighlight onPress={this.onPress} style=[{s.btnTouchable}]>
+  <View style={[s.btn, s.btnPrimary]}>
+    <Text style={[s.btnText, s.btnTextPrimary]}>Signup</Text>
+  </View>
+</TouchableHighlight>
+```
+
+Links as default and outline buttons with some optional tweaks (see "underlayColor"):
+```
+// import { Link } from 'react-router-native';
+<Link to="/submit" component={TouchableHighlight} underlayColor={c.PRIMARY} style={[s.btnTouchable]}>
+  <View style={[s.btn, s.btnPrimary]}>
+    <Text style={[s.btnText, s.btnTextPrimary]}>Submit</Text>
+  </View>
+</Link>
+
+<Link to="/cancel" component={TouchableHighlight} underlayColor={c.PRIMARY} style={[s.btnTouchable, s.mt3]}>
+  <View style={[s.btn, s.btnOutlinePrimary]}>
+    <Text style={[s.btnText, s.textPrimary]}>Cancel</Text>
+  </View>
+</Link>
+```
+
+
+
+## Card
+
+Basic modal (temporal approach, till higher level component added to the lib):
+```
+<View style={[s.card]}>
+  <View style={[s.cardBody]}>
+    <Text style={[s.text]}>Hello Card!</Text>
+  </View>
+</View>
+```
+
+
+
+## Modal
+
+Basic modal (temporal approach, till higher level component added to the lib):
+```
+<Modal
+  animationType={animationType}
+  transparent={transparent}
+  visible={this.state.modal}
+  onRequestClose={this.hide}
+  onShow={this.onShown}
+  onDismiss={this.onHidden}
+>
+  <View style={[s.modal]}>
+    <View style={[s.modalDialog]}>
+      <View style={[s.modalContent]}>
+        <Text style={[s.text]>Hello Modal!</Text>
+      </View>
+    </View>
+  </View>
+</Modal>
+```
+
+
+
+## Custom
+
+flex{screen} aka flex{screen}1  
+
