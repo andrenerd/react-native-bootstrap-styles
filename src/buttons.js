@@ -9,7 +9,8 @@ export default function getClasses(constants, classes) {
     FONT_SIZE_BASE,
     INPUT_BTN_LINE_HEIGHT,
     BTN_BORDER_RADIUS,
-    BTN_FONT_WEIGHT,
+    // OBSOLETED / BTN_FONT_WEIGHT,
+    BTN_FONT_FAMILY,
     BTN_OUTLINE_BACKGROUND_COLOR,
     INPUT_BTN_BORDER_WIDTH,
   } = constants;
@@ -66,7 +67,8 @@ export default function getClasses(constants, classes) {
 
     btnText: Object.assign({}, classes.text, {
       fontSize: FONT_SIZE_BASE,
-      fontWeight: BTN_FONT_WEIGHT,
+      fontFamily: BTN_FONT_FAMILY,
+      // OBSOLETED / fontWeight: BTN_FONT_WEIGHT,
       textAlign: 'center',
     }),
   };

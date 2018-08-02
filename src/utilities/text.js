@@ -31,9 +31,11 @@ export default function getClasses(constants, classes) {
     // textBlack50: {color: Color(BLACK).fade(0.5).rgb().string()},
     // textWhite50: {color: Color(WHITE).fade(0.5).rgb().string()},
 
+    textAuto: {textAlign: 'auto'},
     textLeft: {textAlign: 'left'},
     textRight: {textAlign: 'right'},
     textCenter: {textAlign: 'center'},
+    textJustify: {textAlign: 'justify'},
 
     // experimental
     textSmall: {fontSize: FONT_SIZE_BASE_SM},

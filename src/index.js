@@ -48,6 +48,11 @@ class BootstrapStyleSheet {
   constructor(constants, classes) {
     this._constructorConstants(constants);
     this._constructorClasses(classes);
+
+    // update dimensions on change
+    Dimensions.addEventListener('change', () => {
+      this._dimensions(Dimensions.get('window'));
+    });
   }
 
   create() {
@@ -57,10 +62,13 @@ class BootstrapStyleSheet {
   _constructorConstants(constants) {
     this.constants = getConstants(constants);
 
-    // set "dynamic" constants
-    this.constants.DIMENSIONS_WIDTH = this.constants.DIMENSIONS_WIDTH || this.constructor.DIMENSIONS_WIDTH;
-    this.constants.DIMENSIONS_HEIGHT = this.constants.DIMENSIONS_HEIGHT || this.constructor.DIMENSIONS_HEIGHT;
-    this.constants.DIMENSIONS_MAX = this.constants.DIMENSIONS_MAX || this.constructor.DIMENSIONS_MAX;
+    // save "forced" initial values
+    this.constants.DIMENSIONS_WIDTH && (this._DIMENSIONS_WIDTH = this.constants.DIMENSIONS_WIDTH);
+    this.constants.DIMENSIONS_HEIGHT && (this._DIMENSIONS_HEIGHT = this.constants.DIMENSIONS_HEIGHT);
+    this.constants.DIMENSIONS_MAX && (this._DIMENSIONS_MAX = this.constants.DIMENSIONS_MAX);
+
+    // TODO: move all the rest code into _dimensions method too
+    this._dimensions(Dimensions.get('window'));
 
     // experimental
     this.constants.SCREENS_HORIZONTAL = this.constants.SCREENS_HORIZONTAL || getScreens(this.constants.GRID_BREAKPOINTS_HORIZONTAL, this.constants.DIMENSIONS_WIDTH);
@@ -101,6 +109,19 @@ class BootstrapStyleSheet {
     });
 
     this.classes = Object.assign(this._classes, classes);
+  }
+
+  _dimensions(dimensions) {
+    this.DIMENSIONS_WIDTH = dimensions.width;
+    this.DIMENSIONS_HEIGHT = dimensions.height;
+    this.DIMENSIONS_MAX = Math.max(dimensions.width, dimensions.height);
+
+    // set "dynamic" constants
+    if (this.constants) {
+      this.constants.DIMENSIONS_WIDTH = this._DIMENSIONS_WIDTH || this.DIMENSIONS_WIDTH;
+      this.constants.DIMENSIONS_HEIGHT = this._DIMENSIONS_HEIGHT || this.DIMENSIONS_HEIGHT;
+      this.constants.DIMENSIONS_MAX = this._DIMENSIONS_MAX || this.DIMENSIONS_MAX;
+    }
   }
 
   static _dimensions(dimensions) {

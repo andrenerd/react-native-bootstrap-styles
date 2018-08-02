@@ -44,7 +44,7 @@ class Hello extends Component {
 }
 ```
 
-Check the full list of contants in the source code:  
+Check the full list of constants in the source code:  
 [./src/constants.js](./src/constants.js)
 
 
