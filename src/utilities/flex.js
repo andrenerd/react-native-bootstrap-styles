@@ -12,6 +12,8 @@ export default function getClasses(constants, classes) {
     flexRowReverse: {flexDirection: 'row-reverse'},
     flexColumnReverse: {flexDirection: 'column-reverse'},
 
+    flexGrow: {flexGrow: 1}, // custom / experimental
+
     // .flex#{$infix}-wrap         { flex-wrap: wrap !important; }
     // .flex#{$infix}-nowrap       { flex-wrap: nowrap !important; }
     // .flex#{$infix}-wrap-reverse { flex-wrap: wrap-reverse !important; }

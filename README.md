@@ -1,7 +1,7 @@
 # react-native-bootstrap-styles
 Bootstrap style library for React Native  
 
-Original class names are transformed from "dashed" to "camelcase" style, for example: `text-center` to `textCenter` and `my-sm-4` to 'mySm4'. Also all the contants (variables in terms of Bootstrap) could be accessible in templates. It helps to make custom tweaks preserving styling guidelines, for example: {fontSize: 10 * FONT_SIZE_BASE}.
+Original class names are transformed from "dashed" to "camelcase" style, for example: `text-center` to `textCenter` and `my-sm-4` to 'mySm4'. Also all the constants (variables in terms of Bootstrap) could be accessible in templates. It helps to make custom tweaks preserving styling guidelines, for example: {fontSize: 10 * FONT_SIZE_BASE}.
 
 
 ```
@@ -112,6 +112,17 @@ Basic modal (temporal approach, till higher level component added to the lib):
     </View>
   </View>
 </Modal>
+```
+
+
+
+## Progress bar
+
+Basic progress bar
+```
+<View style={[s.progress]}>
+  <View style={[s.progressBar, {width: `${progress * 100}%`}]} />
+</View>
 ```
 
 
