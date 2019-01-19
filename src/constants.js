@@ -2,7 +2,9 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 export default function getConstants(constants) {
   const {
+
     // Options
+
     ENABLE_ROUNDED = true,
     ENABLE_SHADOWS = true,
     // $enable-gradients:          false !default;
@@ -12,6 +14,7 @@ export default function getConstants(constants) {
     REM = 14,
 
     // Colors
+
     WHITE = '#fff',
     GRAY_100 = '#f8f9fa',
     GRAY_200 = '#e9ecef',
@@ -53,7 +56,7 @@ export default function getConstants(constants) {
     INFO = CYAN,
     WARNING = YELLOW,
     DANGER = RED,
-    LIGHT = GRAY_100,
+      = GRAY_100,
     DARK = GRAY_800,
 
     THEME_COLORS = {
@@ -70,6 +73,7 @@ export default function getConstants(constants) {
     THEME_COLOR_INTERVAL = 0.08, // 8%
 
     // Spacing
+
     SPACER = 1,
     SPACERS = {
       0: 0,
@@ -123,18 +127,22 @@ export default function getConstants(constants) {
     GRID_BREAKPOINTS = GRID_BREAKPOINTS_HORIZONTAL,
 
     // Body
+
     BODY_BG = WHITE,
     BODY_COLOR = GRAY_900,
 
     // Links
+
     LINK_COLOR = INFO,
     LINK_DECORATION = 'underline',
 
     // Grid
+
     GRID_COLUMNS = 12,
     GRID_GUTTER_WIDTH = SPACER * 1.5 * REM,
 
     // Components
+
     LINE_HEIGHT_LG = 1.5 * REM,
     LINE_HEIGHT_SM = 1.5 * REM,
 
@@ -150,11 +158,12 @@ export default function getConstants(constants) {
     SHADOW_OFFSET = {width: 0.1 * REM, height: 0.1 * REM}, // new / experimental
 
     // Fonts
-    FONT_FAMILY_SANS_SERIF = 'San Francisco', // TODO: set
-    FONT_FAMILY_MONOSPACE = 'SFMono-Regular', // TODO: set
+
+    FONT_FAMILY_SANS_SERIF = 'System', // iOS: 'San Francisco'
+    FONT_FAMILY_MONOSPACE = 'System', // iOS: 'SFMono-Regular',
     FONT_FAMILY_BASE = FONT_FAMILY_SANS_SERIF,
-    FONT_FAMILY_BASE_LIGHT = FONT_FAMILY_BASE, // TODO: set
-    FONT_FAMILY_BASE_BOLD = FONT_FAMILY_BASE, // TODO: set
+    FONT_FAMILY_BASE_LIGHT = FONT_FAMILY_SANS_SERIF,
+    FONT_FAMILY_BASE_BOLD = FONT_FAMILY_SANS_SERIF,
 
     FONT_SIZE_BASE = REM,
     FONT_SIZE_BASE_SM = 0.875 * REM,
@@ -182,6 +191,7 @@ export default function getConstants(constants) {
     TEXT_MUTED = GRAY_600,
 
     // Forms
+
     INPUT_BTN_PADDING_Y = 0.75 * REM,
     INPUT_BTN_PADDING_X = 1.5 * REM,
     INPUT_BTN_LINE_HEIGHT = LINE_HEIGHT_BASE,
@@ -201,6 +211,7 @@ export default function getConstants(constants) {
     INPUT_BTN_BORDER_WIDTH = BORDER_WIDTH,
 
     // Buttons
+
     BTN_PADDING_Y = INPUT_BTN_PADDING_Y,
     BTN_PADDING_X = INPUT_BTN_PADDING_X,
     BTN_LINE_HEIGHT = INPUT_BTN_LINE_HEIGHT,
@@ -224,6 +235,7 @@ export default function getConstants(constants) {
     BTN_OUTLINE_BACKGROUND_COLOR = BODY_BG, // 'transparent'
 
     // Forms
+
     LABEL_MARGIN_BOTTOM = 0.5 * REM,
 
     INPUT_PADDING_Y = INPUT_BTN_PADDING_Y,
@@ -287,6 +299,8 @@ export default function getConstants(constants) {
     // $input-group-addon-bg:                  $gray-200 !default;
     // $input-group-addon-border-color:        $input-border-color !default;
 
+    // Cards
+
     CARD_SPACER_Y = 0.75 * SPACER * REM,
     CARD_SPACER_X = 1.25 * SPACER * REM,
     CARD_BORDER_WIDTH = BORDER_WIDTH,
@@ -309,6 +323,8 @@ export default function getConstants(constants) {
     // $card-columns-count:                3 !default;
     // $card-columns-gap:                  1.25rem !default;
     // $card-columns-margin:               $card-spacer-y !default;
+
+    // Modals
 
     MODAL_INNER_PADDING = 1 * SPACER * REM,
 
@@ -342,6 +358,21 @@ export default function getConstants(constants) {
     // $modal-sm:                    300px !default;
 
     // $modal-transition:            transform .3s ease-out !default;
+
+    // Progress bars
+
+    PROGRESS_HEIGHT = 1 * REM,
+    PROGRESS_FONT_SIZE = 0.75 * FONT_SIZE_BASE,
+    PROGRESS_BG = GRAY_200,
+    PROGRESS_BORDER_RADIUS = BORDER_RADIUS,
+    PROGRESS_BOX_SHADOW_COLOR = SHADOW_COLOR,
+    PROGRESS_BOX_SHADOW_OFFSET = SHADOW_OFFSET,
+    PROGRESS_BOX_SHADOW_OPACITY = 0.5 * SHADOW_OPACITY, // 0.1
+    PROGRESS_BOX_SHADOW_RADIUS = PROGRESS_BORDER_RADIUS,
+    PROGRESS_BAR_COLOR = WHITE,
+    PROGRESS_BAR_BG = PRIMARY,
+    PROGRESS_BAR_ANIMATION_TIMING = 'placeholder', // 1s linear infinite !default;
+    PROGRESS_BAR_TRANSITION = 'placeholder', // width .6s ease !default;
 
   } = constants || {};
 
@@ -396,5 +427,11 @@ export default function getConstants(constants) {
     MODAL_CONTENT_SHADOW_COLOR, MODAL_CONTENT_SHADOW_OPACITY,
     MODAL_CONTENT_SHADOW_OFFSET, MODAL_CONTENT_SHADOW_RADIUS,
     MODAL_BACKDROP_BG, MODAL_BACKDROP_OPACITY,
+
+    PROGRESS_HEIGHT, PROGRESS_FONT_SIZE, PROGRESS_BG, PROGRESS_BORDER_RADIUS,
+    PROGRESS_BOX_SHADOW_COLOR, PROGRESS_BOX_SHADOW_OFFSET,
+    PROGRESS_BOX_SHADOW_OPACITY, PROGRESS_BOX_SHADOW_RADIUS,
+    PROGRESS_BAR_COLOR, PROGRESS_BAR_BG,
+    PROGRESS_BAR_ANIMATION_TIMING, PROGRESS_BAR_TRANSITION,
   };
 };

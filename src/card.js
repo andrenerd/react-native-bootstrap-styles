@@ -28,7 +28,7 @@ export default function getClasses(constants, classes) {
     ),
 
     cardBody: {
-      // flex: 1 1 auto,
+      flex: 1, // experimental
       paddingHorizontal: CARD_SPACER_X,
       paddingVertical: CARD_SPACER_Y,
     },

@@ -15,9 +15,9 @@
     "form",
     "button"
   ],
-  "version": "0.0.3",
+  "version": "0.0.7",
   "description": "Bootstrap style library for React Native",
-  "author": "Savva Belloff (aka A. V.) <savva.belloff@gmail.com>",
+  "author": "Andrei Vassin (aka Savva Belloff) <savva.belloff@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -35,10 +35,8 @@
     "test": "npm run lint"
   },
   "pre-commit": {
-    "run": [
-      "precommit"
-    ],
-    "silent": true
+    "run": [],
+    "silent": false
   },
   "dependencies": {
     "color": "^3.0.0"

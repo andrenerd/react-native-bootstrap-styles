@@ -93,5 +93,13 @@ export default function getClasses(constants, classes) {
     };
   });
 
+  // btnOutlineText%color / ex: btnOutlineTextPrimary
+  Object.keys(THEME_COLORS).forEach((item) => {
+    const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
+    classes['btnOutlineText' + classColor] = {
+      color: THEME_COLORS[item], // temporal
+    };
+  });
+
   return _classes;
 };
