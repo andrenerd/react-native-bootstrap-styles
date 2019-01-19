@@ -56,7 +56,7 @@ export default function getConstants(constants) {
     INFO = CYAN,
     WARNING = YELLOW,
     DANGER = RED,
-    LIGHT = GRAY_100,
+      = GRAY_100,
     DARK = GRAY_800,
 
     THEME_COLORS = {
@@ -159,11 +159,11 @@ export default function getConstants(constants) {
 
     // Fonts
 
-    FONT_FAMILY_SANS_SERIF = 'San Francisco', // TODO: set
-    FONT_FAMILY_MONOSPACE = 'SFMono-Regular', // TODO: set
+    FONT_FAMILY_SANS_SERIF = 'System', // iOS: 'San Francisco'
+    FONT_FAMILY_MONOSPACE = 'System', // iOS: 'SFMono-Regular',
     FONT_FAMILY_BASE = FONT_FAMILY_SANS_SERIF,
-    FONT_FAMILY_BASE_LIGHT = FONT_FAMILY_BASE, // TODO: set
-    FONT_FAMILY_BASE_BOLD = FONT_FAMILY_BASE, // TODO: set
+    FONT_FAMILY_BASE_LIGHT = FONT_FAMILY_SANS_SERIF,
+    FONT_FAMILY_BASE_BOLD = FONT_FAMILY_SANS_SERIF,
 
     FONT_SIZE_BASE = REM,
     FONT_SIZE_BASE_SM = 0.875 * REM,
