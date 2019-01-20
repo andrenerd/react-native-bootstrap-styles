@@ -56,7 +56,7 @@ export default function getConstants(constants) {
     INFO = CYAN,
     WARNING = YELLOW,
     DANGER = RED,
-      = GRAY_100,
+    LIGHT = GRAY_100,
     DARK = GRAY_800,
 
     THEME_COLORS = {
