@@ -5,6 +5,9 @@ export default function getClasses(constants, classes) {
     BORDER_COLOR,
     BORDER_WIDTH,
     BORDER_RADIUS,
+    BORDER_RADIUS_SM,
+    BORDER_RADIUS_LG,
+    ROUNDED_PILL,
   } = constants;
 
   const _classes = {
@@ -47,40 +50,57 @@ export default function getClasses(constants, classes) {
 
     borderWhite: {borderColor: WHITE},
 
+    // DEPRECATED
     borderRounded: {
       borderRadius: BORDER_RADIUS,
     },
 
-    // .rounded {
-    //   border-radius: $border-radius !important;
-    // }
-    // .rounded-top {
-    //   border-top-left-radius: $border-radius !important;
-    //   border-top-right-radius: $border-radius !important;
-    // }
-    // .rounded-right {
-    //   border-top-right-radius: $border-radius !important;
-    //   border-bottom-right-radius: $border-radius !important;
-    // }
-    // .rounded-bottom {
-    //   border-bottom-right-radius: $border-radius !important;
-    //   border-bottom-left-radius: $border-radius !important;
-    // }
-    // .rounded-left {
-    //   border-top-left-radius: $border-radius !important;
-    //   border-bottom-left-radius: $border-radius !important;
-    // }
+    roundedSm: {
+      borderRadius: BORDER_RADIUS_SM,
+    },
 
-    // .rounded-circle {
-    //   border-radius: 50% !important;
-    // }
+    rounded: {
+      borderRadius: BORDER_RADIUS,
+    },
 
-    // .rounded-0 {
-    //   border-radius: 0 !important;
-    // }
+    roundedTop: {
+      borderTopLeftRadius: BORDER_RADIUS,
+      borderTopRightRadius: BORDER_RADIUS,
+    },
+
+    roundedRight: {
+      borderTopRightRadius: BORDER_RADIUS,
+      borderBottomRightRadius: BORDER_RADIUS,
+    },
+
+    roundedBottom: {
+      borderBottomRightRadius: BORDER_RADIUS,
+      borderBottomLeftRadius: BORDER_RADIUS,
+    },
+
+    roundedLeft: {
+      borderTopLeftRadius: BORDER_RADIUS,
+      borderBottomLeftRadius: BORDER_RADIUS,
+    },
+
+    roundedLg: {
+      borderRadius: BORDER_RADIUS_LG,
+    },
+
+    roundedCircle: {
+      borderRadius: '50%',
+    },
+
+    roundedPill: {
+      borderRadius: ROUNDED_PILL,
+    },
+
+    rounded0: {
+      borderRadius: 0,
+    },
   };
 
-  // border%color / ex: bgPrimary
+  // border%color / ex: borderPrimary
   Object.keys(THEME_COLORS).forEach((item) => {
     const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
     _classes['border' + classColor] = {borderColor: THEME_COLORS[item]};

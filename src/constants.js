@@ -1,3 +1,4 @@
+// TODO: rename the file to "variables", keeping backward compatibility
 import { StyleSheet, Dimensions } from 'react-native';
 
 export default function getConstants(constants) {
@@ -152,6 +153,8 @@ export default function getConstants(constants) {
     BORDER_RADIUS = 0.25 * REM,
     BORDER_RADIUS_LG = 0.3 * REM,
     BORDER_RADIUS_SM = 0.2 * REM,
+
+    ROUNDED_PILL = 50 * REM,
 
     SHADOW_COLOR = BLACK, // new
     SHADOW_OPACITY = 0.2, // new
