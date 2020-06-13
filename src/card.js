@@ -53,7 +53,7 @@ export default function getClasses(constants, classes) {
     //   }
 
     //   + .card-link {
-    //     margin-left: $card-spacer-x;
+    //     margin-left: CARD_SPACER_X;
     //   }
     // }
 
@@ -86,6 +86,185 @@ export default function getClasses(constants, classes) {
       //   @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
       // }
     },
+
+    // //
+    // // Header navs
+    // //
+
+    cardHeaderTabs: {
+      marginRight: -CARD_SPACER_X / 2,
+      marginBottom: -CARD_SPACER_Y,
+      marginLeft: -CARD_SPACER_X / 2,
+      borderBottom: 0,
+    },
+
+    cardHeaderPills: {
+      marginRight: -CARD_SPACER_X / 2,
+      marginLeft: -CARD_SPACER_X / 2,
+    },
+
+    // // Card image
+    // .card-img-overlay {
+    //   position: absolute;
+    //   top: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   left: 0;
+    //   padding: $card-img-overlay-padding;
+    // }
+
+    // .card-img,
+    // .card-img-top,
+    // .card-img-bottom {
+    //   flex-shrink: 0; // For IE: https://github.com/twbs/bootstrap/issues/29396
+    //   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+    // }
+
+    // .card-img,
+    // .card-img-top {
+    //   @include border-top-radius($card-inner-border-radius);
+    // }
+
+    // .card-img,
+    // .card-img-bottom {
+    //   @include border-bottom-radius($card-inner-border-radius);
+    // }
+
+
+    // // Card deck
+
+    // .card-deck {
+    //   .card {
+    //     margin-bottom: $card-deck-margin;
+    //   }
+
+    //   @include media-breakpoint-up(sm) {
+    //     display: flex;
+    //     flex-flow: row wrap;
+    //     margin-right: -$card-deck-margin;
+    //     margin-left: -$card-deck-margin;
+
+    //     .card {
+    //       // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+    //       flex: 1 0 0%;
+    //       margin-right: $card-deck-margin;
+    //       margin-bottom: 0; // Override the default
+    //       margin-left: $card-deck-margin;
+    //     }
+    //   }
+    // }
+
+
+    // //
+    // // Card groups
+    // //
+
+    // .card-group {
+    //   // The child selector allows nested `.card` within `.card-group`
+    //   // to display properly.
+    //   > .card {
+    //     margin-bottom: $card-group-margin;
+    //   }
+
+    //   @include media-breakpoint-up(sm) {
+    //     display: flex;
+    //     flex-flow: row wrap;
+    //     // The child selector allows nested `.card` within `.card-group`
+    //     // to display properly.
+    //     > .card {
+    //       // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+    //       flex: 1 0 0%;
+    //       margin-bottom: 0;
+
+    //       + .card {
+    //         margin-left: 0;
+    //         border-left: 0;
+    //       }
+
+    //       // Handle rounded corners
+    //       @if $enable-rounded {
+    //         &:not(:last-child) {
+    //           @include border-right-radius(0);
+
+    //           .card-img-top,
+    //           .card-header {
+    //             // stylelint-disable-next-line property-blacklist
+    //             border-top-right-radius: 0;
+    //           }
+    //           .card-img-bottom,
+    //           .card-footer {
+    //             // stylelint-disable-next-line property-blacklist
+    //             border-bottom-right-radius: 0;
+    //           }
+    //         }
+
+    //         &:not(:first-child) {
+    //           @include border-left-radius(0);
+
+    //           .card-img-top,
+    //           .card-header {
+    //             // stylelint-disable-next-line property-blacklist
+    //             border-top-left-radius: 0;
+    //           }
+    //           .card-img-bottom,
+    //           .card-footer {
+    //             // stylelint-disable-next-line property-blacklist
+    //             border-bottom-left-radius: 0;
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+
+
+    // //
+    // // Columns
+    // //
+
+    // .card-columns {
+    //   .card {
+    //     margin-bottom: $card-columns-margin;
+    //   }
+
+    //   @include media-breakpoint-up(sm) {
+    //     column-count: $card-columns-count;
+    //     column-gap: $card-columns-gap;
+    //     orphans: 1;
+    //     widows: 1;
+
+    //     .card {
+    //       display: inline-block; // Don't let them vertically span multiple columns
+    //       width: 100%; // Don't let their width change
+    //     }
+    //   }
+    // }
+
+
+    // //
+    // // Accordion
+    // //
+
+    // .accordion {
+    //   > .card {
+    //     overflow: hidden;
+
+    //     &:not(:last-of-type) {
+    //       border-bottom: 0;
+    //       @include border-bottom-radius(0);
+    //     }
+
+    //     &:not(:first-of-type) {
+    //       @include border-top-radius(0);
+    //     }
+
+    //     > .card-header {
+    //       @include border-radius(0);
+    //       margin-bottom: -$card-border-width;
+    //     }
+    //   }
+    // }
+
   };
 
   return _classes;
