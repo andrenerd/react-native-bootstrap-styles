@@ -48,8 +48,10 @@ Check the full list of constants in the source code:
 [./src/constants.js](./src/constants.js)
 
 
+## Components
 
-## Buttons
+
+### Buttons
 
 
 TouchableHighlight as button:
@@ -61,7 +63,7 @@ TouchableHighlight as button:
 </TouchableHighlight>
 ```
 
-Links as default and outline buttons with some optional tweaks (see "underlayColor"):
+Links as default and outline buttons with some optional tweaks (see `underlayColor`):
 ```
 // import { Link } from 'react-router-native';
 <Link to="/submit" component={TouchableHighlight} underlayColor={c.PRIMARY} style={[s.btnTouchable]}>
@@ -79,7 +81,7 @@ Links as default and outline buttons with some optional tweaks (see "underlayCol
 
 
 
-## Card
+### Card
 
 Basic card:
 ```
@@ -92,7 +94,7 @@ Basic card:
 
 
 
-## Modal
+### Modal
 
 Basic modal (temporal approach, till higher level component added to the lib):
 ```
@@ -116,7 +118,7 @@ Basic modal (temporal approach, till higher level component added to the lib):
 
 
 
-## Progress bar
+### Progress bar
 
 Basic progress bar
 ```
@@ -127,7 +129,32 @@ Basic progress bar
 
 
 
-## Custom
+
+## Misc
+
+
+### Selectors (RFP)
+
+An attempt to mimic CSS selectors for group pseudo-classes, such as `:first-child`:
+```
+<View style={[s.flexRow]}>
+  {
+    group.map((item, index) => (
+      <View key={item} style={[s.flex4, s.selectorFirstChild(index, s.bgSuccess)]}>
+        {/* content */}
+      </View>
+    ))
+  }
+</View>
+```
+
+Some component classes have selector-based extensions, for example `cardHeaderFirstChild`:
+```
+tbd...
+```
+
+
+### Custom
 
 flex{screen} aka flex{screen}1  
 

@@ -1,5 +1,9 @@
 import { mixinBorderRadius } from './mixins/border-radius';
 import { mixinBoxShadow } from './mixins/box-shadow';
+import { selectorFirstChild,  } from './selectors';
+
+
+
 
 export default function getClasses(constants, classes) {
   const {
@@ -10,6 +14,7 @@ export default function getClasses(constants, classes) {
     CARD_BORDER_WIDTH,
     CARD_BORDER_COLOR,
     CARD_BORDER_RADIUS,
+    CARD_INNER_BORDER_RADIUS,
     CARD_SHADOW_COLOR,
     CARD_SHADOW_OFFSET,
     CARD_SHADOW_OPACITY,
@@ -64,15 +69,34 @@ export default function getClasses(constants, classes) {
       borderBottomWidth: CARD_BORDER_WIDTH,
       borderBottomColor: CARD_BORDER_COLOR,
 
+      // see cardHeaderFirstChild
       // &:first-child {
       //   @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
       // }
 
+      // see cardHeaderListGroupItemFirstChild
       // + .list-group {
       //   .list-group-item:first-child {
       //     border-top: 0;
       //   }
       // }
+    },
+
+    cardHeaderFirstChild: n => selectorFirstChild(n, Object.assign({},
+      // TODO: upgrade the mixin to accept 1, 2 (x/y) and 4 params
+      mixinBorderRadius(constants, CARD_INNER_BORDER_RADIUS, CARD_INNER_BORDER_RADIUS, 0, 0),
+    )),
+
+    cardHeaderListGroupItemFirstChild: (nListGroup, nListGroupItem) => selectorNextChild(nListGroup, (
+      selectorFirstChild(nListGroupItem, {
+        borderTop: 0,
+      })
+    )),
+
+    {
+      //   .list-group-item:first-child {
+      //     border-top: 0;
+      //   }
     },
 
     cardFooter: {
