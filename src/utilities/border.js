@@ -87,9 +87,8 @@ export default function getClasses(constants, classes) {
       borderRadius: BORDER_RADIUS_LG,
     },
 
-    roundedCircle: {
-      borderRadius: '50%',
-    },
+    // workaround / as can't be in percent (ie 50%)
+    roundedCircle: widthHeight => widthHeight / 2,
 
     roundedPill: {
       borderRadius: ROUNDED_PILL,

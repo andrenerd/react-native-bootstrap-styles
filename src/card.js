@@ -93,12 +93,6 @@ export default function getClasses(constants, classes) {
       })
     )),
 
-    {
-      //   .list-group-item:first-child {
-      //     border-top: 0;
-      //   }
-    },
-
     cardFooter: {
       paddingVertical: CARD_SPACER_Y,
       paddingHorizontal: CARD_SPACER_X,
@@ -119,7 +113,7 @@ export default function getClasses(constants, classes) {
       marginRight: -CARD_SPACER_X / 2,
       marginBottom: -CARD_SPACER_Y,
       marginLeft: -CARD_SPACER_X / 2,
-      borderBottom: 0,
+      borderBottomWidth: 0,
     },
 
     cardHeaderPills: {

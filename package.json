@@ -32,7 +32,7 @@
     "start": "react-native start",
     "lint": "eslint . --ext .js,.jsx",
     "lint-fix": "eslint . --ext .js,.jsx --fix",
-    "test": "npm run lint"
+    "test": "jest"
   },
   "pre-commit": {
     "run": [],
@@ -42,15 +42,26 @@
     "color": "^3.1.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-flow": "^7.10.1",
     "babel-eslint": "^8.2.6",
+    "babel-jest": "^26.0.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
+    "bbbabel-preset-expo": "~8.1.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
-    "pre-commit": "^1.2.2"
+    "expo": "~37.0.3",
+    "jest": "^26.0.1",
+    "pre-commit": "^1.2.2",
+    "react-native": "^0.62.2",
+    "rrreact": "~16.9.0",
+    "rrreact-dom": "~16.9.0",
+    "rrreact-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
+    "rrreact-native-web": "~0.11.7"
   }
 }
