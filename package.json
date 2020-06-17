@@ -15,42 +15,46 @@
     "form",
     "button"
   ],
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Bootstrap style library for React Native",
-  "author": "Andrei Vassin (aka Savva Belloff) <savva.belloff@gmail.com>",
+  "author": "Andrei Vasin (aka Savva) <andreid.31415@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/savvaoff/react-native-swiper.git"
+    "url": "git+https://github.com/andrenerd/react-native-bootstrap-styles.git"
   },
   "bugs": {
-    "url": "https://github.com/savvaoff/react-native-bootstrap-styles/issues"
+    "url": "https://github.com/andrenerd/react-native-bootstrap-styles/issues"
   },
-  "homepage": "https://github.com/savvaoff/react-native-bootstrap-styles#readme",
+  "homepage": "https://github.com/andrenerd/react-native-bootstrap-styles#readme",
   "main": "index.js",
   "scripts": {
     "start": "react-native start",
     "lint": "eslint . --ext .js,.jsx",
     "lint-fix": "eslint . --ext .js,.jsx --fix",
-    "test": "npm run lint"
+    "test": "jest"
   },
   "pre-commit": {
     "run": [],
     "silent": false
   },
   "dependencies": {
-    "color": "^3.0.0"
+    "color": "^3.1.2"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.2",
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-flow": "^7.10.1",
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "^26.0.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.10.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0",
-    "pre-commit": "^1.2.2"
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "jest": "^26.0.1",
+    "pre-commit": "^1.2.2",
+    "react-native": "^0.62.2"
   }
 }
