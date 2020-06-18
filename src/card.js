@@ -1,9 +1,6 @@
 import { mixinBorderRadius } from './mixins/border-radius';
 import { mixinBoxShadow } from './mixins/box-shadow';
-import { selectorFirstChild,  } from './selectors';
-
-
-
+import { selectorFirstChild } from './selectors';
 
 export default function getClasses(constants, classes) {
   const {
@@ -83,7 +80,6 @@ export default function getClasses(constants, classes) {
     },
 
     cardHeaderFirstChild: n => selectorFirstChild(n, Object.assign({},
-      // TODO: upgrade the mixin to accept 1, 2 (x/y) and 4 params
       mixinBorderRadius(constants, CARD_INNER_BORDER_RADIUS, CARD_INNER_BORDER_RADIUS, 0, 0),
     )),
 
@@ -100,10 +96,15 @@ export default function getClasses(constants, classes) {
       borderTopWidth: CARD_BORDER_WIDTH,
       borderTopColor: CARD_BORDER_COLOR,
 
+      // see cardFooterLastChild
       // &:last-child {
       //   @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
       // }
     },
+
+    cardFooterLastChild: n => selectorLastChild(n, Object.assign({},
+      mixinBorderRadius(constants, 0, 0, CARD_INNER_BORDER_RADIUS, CARD_INNER_BORDER_RADIUS),
+    )),
 
     // //
     // // Header navs
