@@ -318,14 +318,14 @@ export default function getConstants(constants) {
     CARD_SHADOW_OFFSET = SHADOW_OFFSET,
     CARD_SHADOW_RADIUS = CARD_BORDER_RADIUS,
 
-    // $card-img-overlay-padding:          1.25rem !default;
+    CARD_IMG_OVERLAY_PADDING = 1.25 * REM,
 
-    // $card-group-margin:                 ($grid-gutter-width / 2) !default;
-    // $card-deck-margin:                  $card-group-margin !default;
+    CARD_GROUP_MARGIN = GRID_GUTTER_WIDTH / 2,
+    CARD_DECK_MARGIN = CARD_GROUP_MARGIN,
 
-    // $card-columns-count:                3 !default;
-    // $card-columns-gap:                  1.25rem !default;
-    // $card-columns-margin:               $card-spacer-y !default;
+    CARD_COLUMNS_COUNT = 3,
+    CARD_COLUMNS_GAP = 1.25 * REM,
+    CARD_COLUMNS_MARGIN = CARD_SPACER_Y,
 
     // Modals
 
@@ -422,6 +422,9 @@ export default function getConstants(constants) {
     CARD_BORDER_WIDTH, CARD_BORDER_RADIUS, CARD_BORDER_COLOR,
     CARD_INNER_BORDER_RADIUS, CARD_CAP_BG, CARD_BG,
     CARD_SHADOW_COLOR, CARD_SHADOW_OPACITY, CARD_SHADOW_OFFSET, CARD_SHADOW_RADIUS,
+    CARD_IMG_OVERLAY_PADDING,
+    CARD_GROUP_MARGIN,CARD_DECK_MARGIN,
+    CARD_COLUMNS_COUNT, CARD_COLUMNS_GAP, CARD_COLUMNS_MARGIN,
 
     MODAL_INNER_PADDING, MODAL_DIALOG_MARGIN,
 

@@ -1,4 +1,4 @@
-import { getDefined } from './functions';
+import { getDefined } from './helpers';
 
 export const mixinBorderRadius = (
   constants,
@@ -16,3 +16,19 @@ export const mixinBorderRadius = (
     borderBottomLeftRadius: getDefined(bottomLeftRadius, constants.BORDER_RADIUS),
   }
 ) : {});
+
+export const mixinBorderTopRadius = (
+  constants,
+  radius,
+) => (constants.ENABLE_ROUNDED ? {
+    borderTopLeftRadius: getDefined(radius, constants.BORDER_RADIUS),
+    borderTopRightRadius: getDefined(radius, constants.BORDER_RADIUS),
+} : {});
+
+export const mixinBorderBottomRadius = (
+  constants,
+  radius,
+) => (constants.ENABLE_ROUNDED ? {
+    borderBottomLeftRadius: getDefined(radius, constants.BORDER_RADIUS),
+    borderBottomRightRadius: getDefined(radius, constants.BORDER_RADIUS),
+} : {});

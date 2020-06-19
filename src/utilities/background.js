@@ -1,4 +1,4 @@
-import { colorLevel } from '../mixins/functions';
+import { colorLevel } from '../mixins/helpers';
 
 export default function getClasses(constants, classes) {
   const {

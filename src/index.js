@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-import { getScreens } from './mixins/functions';
+import { getScreens } from './mixins/helpers';
 import getConstants from './constants';
 
 import getClassesText from './utilities/text';
