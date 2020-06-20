@@ -21,8 +21,8 @@ const classes = {
 };
 
 const bootstrapStyleSheet = new BootstrapStyleSheet(constants, classes);
-const s = styles = bootstrapStyleSheet.create();
-const c = constants = bootstrapStyleSheet.constants;
+const s = bootstrapStyleSheet.create(); // styles
+const c = bootstrapStyleSheet.constants; // constants
 
 class Hello extends Component {
 

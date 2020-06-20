@@ -17,6 +17,11 @@ export default function getClasses(constants, classes) {
     CARD_SHADOW_OPACITY,
     CARD_SHADOW_RADIUS,
     CARD_IMG_OVERLAY_PADDING,
+    CARD_GROUP_MARGIN,
+    CARD_DECK_MARGIN,
+    CARD_COLUMNS_COUNT,
+    CARD_COLUMNS_GAP,
+    CARD_COLUMNS_MARGIN,
   } = constants;
 
   const _classes = {
@@ -151,12 +156,33 @@ export default function getClasses(constants, classes) {
       alignSelf: 'stretch', // TEST / width: 100%
     }, mixinBorderBottomRadius(constants, CARD_INNER_BORDER_RADIUS)),
 
-    // // Card deck
+    // Card deck
 
+    // see cardDeckCard,
     // .card-deck {
     //   .card {
     //     margin-bottom: $card-deck-margin;
     //   }
+
+    //   @include media-breakpoint-up(sm) {
+    //     display: flex;
+    //     flex-flow: row wrap;
+    //     margin-right: -$card-deck-margin;
+    //     margin-left: -$card-deck-margin;
+
+    //     .card {
+    //       // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+    //       flex: 1 0 0%;
+    //       margin-right: $card-deck-margin;
+    //       margin-bottom: 0; // Override the default
+    //       margin-left: $card-deck-margin;
+    //     }
+    //   }
+    // }
+
+    cardDeckCard: {
+      marginBottom: CARD_DECK_MARGIN,
+    },
 
     //   @include media-breakpoint-up(sm) {
     //     display: flex;

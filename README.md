@@ -26,8 +26,8 @@ const classes = {
 };
 
 const bootstrapStyleSheet = new BootstrapStyleSheet(constants, classes);
-const s = styles = bootstrapStyleSheet.create();
-const c = constants = bootstrapStyleSheet.constants;
+const s = bootstrapStyleSheet.create(); // styles
+const c = bootstrapStyleSheet.constants; // constants
 
 class Hello extends Component {
 
@@ -44,11 +44,22 @@ class Hello extends Component {
 }
 ```
 
+
+
+
+## Constants
+
+Bootstrap renamed `constants` to `variables` some time ago.  
+No renaming here for now. See actual example above.  
+
 Check the full list of constants in the source code:  
 [./src/constants.js](./src/constants.js)
 
 
+
+
 ## Components
+
 
 
 ### Buttons
