@@ -1,5 +1,9 @@
 import Color from 'color';
 
+// aka helpers
+
+export const getDefined = (v, d) => v === undefined ? d : v;
+
 export const getScreens = (breakpoints, size) => (
   // ascending list of screens ("active" breakpoints)
   Object.keys(breakpoints)

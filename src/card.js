@@ -1,9 +1,6 @@
-import { mixinBorderRadius } from './mixins/border-radius';
+import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius } from './mixins/border-radius';
 import { mixinBoxShadow } from './mixins/box-shadow';
-import { selectorFirstChild,  } from './selectors';
-
-
-
+import { selectorFirstChild } from './selectors';
 
 export default function getClasses(constants, classes) {
   const {
@@ -19,6 +16,12 @@ export default function getClasses(constants, classes) {
     CARD_SHADOW_OFFSET,
     CARD_SHADOW_OPACITY,
     CARD_SHADOW_RADIUS,
+    CARD_IMG_OVERLAY_PADDING,
+    CARD_GROUP_MARGIN,
+    CARD_DECK_MARGIN,
+    CARD_COLUMNS_COUNT,
+    CARD_COLUMNS_GAP,
+    CARD_COLUMNS_MARGIN,
   } = constants;
 
   const _classes = {
@@ -29,6 +32,8 @@ export default function getClasses(constants, classes) {
       borderColor: CARD_BORDER_COLOR,
     },
       mixinBorderRadius(constants, CARD_BORDER_RADIUS),
+      mixinBorderTopRadius(constants, CARD_BORDER_RADIUS),
+      mixinBorderBottomRadius(constants, CARD_BORDER_RADIUS),
       mixinBoxShadow(constants, CARD_SHADOW_COLOR, CARD_SHADOW_OFFSET, CARD_SHADOW_OPACITY, CARD_SHADOW_RADIUS),
     ),
 
@@ -83,7 +88,6 @@ export default function getClasses(constants, classes) {
     },
 
     cardHeaderFirstChild: n => selectorFirstChild(n, Object.assign({},
-      // TODO: upgrade the mixin to accept 1, 2 (x/y) and 4 params
       mixinBorderRadius(constants, CARD_INNER_BORDER_RADIUS, CARD_INNER_BORDER_RADIUS, 0, 0),
     )),
 
@@ -100,10 +104,15 @@ export default function getClasses(constants, classes) {
       borderTopWidth: CARD_BORDER_WIDTH,
       borderTopColor: CARD_BORDER_COLOR,
 
+      // see cardFooterLastChild
       // &:last-child {
       //   @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
       // }
     },
+
+    cardFooterLastChild: n => selectorLastChild(n, Object.assign({},
+      mixinBorderRadius(constants, 0, 0, CARD_INNER_BORDER_RADIUS, CARD_INNER_BORDER_RADIUS),
+    )),
 
     // //
     // // Header navs
@@ -121,40 +130,59 @@ export default function getClasses(constants, classes) {
       marginLeft: -CARD_SPACER_X / 2,
     },
 
-    // // Card image
-    // .card-img-overlay {
-    //   position: absolute;
-    //   top: 0;
-    //   right: 0;
-    //   bottom: 0;
-    //   left: 0;
-    //   padding: $card-img-overlay-padding;
-    // }
+    // Card image
 
-    // .card-img,
-    // .card-img-top,
-    // .card-img-bottom {
-    //   flex-shrink: 0; // For IE: https://github.com/twbs/bootstrap/issues/29396
-    //   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
-    // }
+    cardImgOverlay: {
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      padding: CARD_IMG_OVERLAY_PADDING,
+    },
 
-    // .card-img,
-    // .card-img-top {
-    //   @include border-top-radius($card-inner-border-radius);
-    // }
+    cardImg: Object.assign({
+      flexShrink: 0, // TEST / flex-shrink: 0
+      alignSelf: 'stretch', // TEST / width: 100%
+    }, mixinBorderRadius(constants, CARD_INNER_BORDER_RADIUS)),
 
-    // .card-img,
-    // .card-img-bottom {
-    //   @include border-bottom-radius($card-inner-border-radius);
-    // }
+    cardImgTop: Object.assign({
+      flexShrink: 0, // TEST / flex-shrink: 0
+      alignSelf: 'stretch', // TEST / width: 100%
+    }, mixinBorderTopRadius(constants, CARD_INNER_BORDER_RADIUS)),
 
+    cardImgBottom: Object.assign({
+      flexShrink: 0, // TEST / flex-shrink: 0
+      alignSelf: 'stretch', // TEST / width: 100%
+    }, mixinBorderBottomRadius(constants, CARD_INNER_BORDER_RADIUS)),
 
-    // // Card deck
+    // Card deck
 
+    // see cardDeckCard,
     // .card-deck {
     //   .card {
     //     margin-bottom: $card-deck-margin;
     //   }
+
+    //   @include media-breakpoint-up(sm) {
+    //     display: flex;
+    //     flex-flow: row wrap;
+    //     margin-right: -$card-deck-margin;
+    //     margin-left: -$card-deck-margin;
+
+    //     .card {
+    //       // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+    //       flex: 1 0 0%;
+    //       margin-right: $card-deck-margin;
+    //       margin-bottom: 0; // Override the default
+    //       margin-left: $card-deck-margin;
+    //     }
+    //   }
+    // }
+
+    cardDeckCard: {
+      marginBottom: CARD_DECK_MARGIN,
+    },
 
     //   @include media-breakpoint-up(sm) {
     //     display: flex;
