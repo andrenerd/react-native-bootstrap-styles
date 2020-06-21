@@ -180,6 +180,10 @@ export default function getClasses(constants, classes) {
     //   }
     // }
 
+    cardDeck: {
+      // TODO
+    },
+
     cardDeckCard: {
       marginBottom: CARD_DECK_MARGIN,
     },

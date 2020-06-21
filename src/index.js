@@ -47,6 +47,10 @@ class BootstrapStyleSheet {
     getClassesReboot,
   ]
 
+  // TODO:
+  // orientation
+  // dimentions
+  // theme (light/dark)
   constructor(constants, classes) {
     this._constructorConstants(constants);
     this._constructorClasses(classes);

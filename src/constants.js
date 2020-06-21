@@ -1,5 +1,6 @@
 // TODO: rename the file to "variables", keeping backward compatibility
 import { StyleSheet, Dimensions } from 'react-native';
+import Color from 'color';
 
 export default function getConstants(constants) {
   const {
@@ -8,8 +9,8 @@ export default function getConstants(constants) {
 
     ENABLE_ROUNDED = true,
     ENABLE_SHADOWS = true,
-    // $enable-gradients:          false !default;
-    // $enable-transitions:        true !default;
+    // $enable-gradients:          false,
+    // $enable-transitions:        true,
     ENABLE_GRID_CLASSES = true,
 
     REM = 14,
@@ -156,6 +157,13 @@ export default function getConstants(constants) {
 
     ROUNDED_PILL = 50 * REM,
 
+    // $box-shadow-sm:               0 .125rem .25rem rgba($black, .075) !default;
+    // $box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
+    // $box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
+
+    COMPONENT_ACTIVE_COLOR = WHITE,
+    COMPONENT_ACTIVE_BG = PRIMARY,
+
     SHADOW_COLOR = BLACK, // new
     SHADOW_OPACITY = 0.2, // new
     SHADOW_OFFSET = {width: 0.1 * REM, height: 0.1 * REM}, // new / experimental
@@ -199,17 +207,19 @@ export default function getConstants(constants) {
     INPUT_BTN_PADDING_X = 1.5 * REM,
     INPUT_BTN_LINE_HEIGHT = LINE_HEIGHT_BASE,
 
-    // $input-btn-focus-width:       .2rem !default;
-    // $input-btn-focus-color:       rgba($component-active-bg, .25) !default;
-    // $input-btn-focus-box-shadow:  0 0 0 $input-btn-focus-width $input-btn-focus-color !default;
+    INPUT_BTN_FOCUS_WIDTH = .2 * REM,
+    INPUT_BTN_FOCUS_COLOR = Color(COMPONENT_ACTIVE_BG).fade(0.25).rgb().string(),
+    // TODO: replace
+    INPUT_BTN_FOCUS_BOX_SHADOW = false,
+    // INPUT_BTN_FOCUS_BOX_SHADOW = 0 0 0 INPUT_BTN_FOCUS_WIDTH INPUT_BTN_FOCUS_COLOR,
 
-    // $input-btn-padding-y-sm:      .25rem !default;
-    // $input-btn-padding-x-sm:      .5rem !default;
-    // $input-btn-line-height-sm:    $line-height-sm !default;
+    // $input-btn-padding-y-sm:      .25rem,
+    // $input-btn-padding-x-sm:      .5rem,
+    // $input-btn-line-height-sm:    $line-height-sm,
 
-    // $input-btn-padding-y-lg:      .5rem !default;
-    // $input-btn-padding-x-lg:      1rem !default;
-    // $input-btn-line-height-lg:    $line-height-lg !default;
+    // $input-btn-padding-y-lg:      .5rem,
+    // $input-btn-padding-x-lg:      1rem,
+    // $input-btn-line-height-lg:    $line-height-lg,
 
     INPUT_BTN_BORDER_WIDTH = BORDER_WIDTH,
 
@@ -245,13 +255,13 @@ export default function getConstants(constants) {
     INPUT_PADDING_X = INPUT_BTN_PADDING_X,
     INPUT_LINE_HEIGHT = INPUT_BTN_LINE_HEIGHT,
 
-    // $input-padding-y-sm:                    $input-btn-padding-y-sm !default;
-    // $input-padding-x-sm:                    $input-btn-padding-x-sm !default;
-    // $input-line-height-sm:                  $input-btn-line-height-sm !default;
+    // $input-padding-y-sm:                    $input-btn-padding-y-sm,
+    // $input-padding-x-sm:                    $input-btn-padding-x-sm,
+    // $input-line-height-sm:                  $input-btn-line-height-sm,
 
-    // $input-padding-y-lg:                    $input-btn-padding-y-lg !default;
-    // $input-padding-x-lg:                    $input-btn-padding-x-lg !default;
-    // $input-line-height-lg:                  $input-btn-line-height-lg !default;
+    // $input-padding-y-lg:                    $input-btn-padding-y-lg,
+    // $input-padding-x-lg:                    $input-btn-padding-x-lg,
+    // $input-line-height-lg:                  $input-btn-line-height-lg,
 
     INPUT_BG = WHITE,
     INPUT_DISABLED_BG = GRAY_200,
@@ -259,48 +269,79 @@ export default function getConstants(constants) {
     INPUT_COLOR = GRAY_700,
     INPUT_BORDER_COLOR = GRAY_400,
     INPUT_BORDER_WIDTH = INPUT_BTN_BORDER_WIDTH,
-    // $input-box-shadow:                      inset 0 1px 1px rgba($black, .075) !default;
+    // $input-box-shadow:                      inset 0 1px 1px rgba($black, .075),
 
     INPUT_BORDER_RADIUS = BORDER_RADIUS,
     INPUT_BORDER_RADIUS_LG = BORDER_RADIUS_LG,
     INPUT_BORDER_RADIUS_SM = BORDER_RADIUS_SM,
 
-    // $input-focus-bg:                        $input-bg !default;
-    // $input-focus-border-color:              lighten($component-active-bg, 25%) !default;
-    // $input-focus-color:                     $input-color !default;
-    // $input-focus-width:                     $input-btn-focus-width !default;
-    // $input-focus-box-shadow:                $input-btn-focus-box-shadow !default;
+    // $input-focus-bg:                        $input-bg,
+    // $input-focus-border-color:              lighten($component-active-bg, 25%),
+    // $input-focus-color:                     $input-color,
+    // $input-focus-width:                     INPUT_BTN_FOCUS_width,
+    // $input-focus-box-shadow:                INPUT_BTN_FOCUS_box-shadow,
 
     INPUT_PLACEHOLDER_COLOR = GRAY_600,
     INPUT_PLAINTEXT_COLOR = BODY_COLOR,
 
     INPUT_HEIGHT_BORDER = INPUT_BORDER_WIDTH * 2,
 
-    // $input-height-inner:                    ($font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2) !default;
-    // $input-height:                          calc(#{$input-height-inner} + #{$input-height-border}) !default;
+    // $input-height-inner:                    ($font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2),
+    // $input-height:                          calc(#{$input-height-inner} + #{$input-height-border}),
 
-    // $input-height-inner-sm:                 ($font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2) !default;
-    // $input-height-sm:                       calc(#{$input-height-inner-sm} + #{$input-height-border}) !default;
+    // $input-height-inner-sm:                 ($font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2),
+    // $input-height-sm:                       calc(#{$input-height-inner-sm} + #{$input-height-border}),
 
-    // $input-height-inner-lg:                 ($font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2) !default;
-    // $input-height-lg:                       calc(#{$input-height-inner-lg} + #{$input-height-border}) !default;
+    // $input-height-inner-lg:                 ($font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2),
+    // $input-height-lg:                       calc(#{$input-height-inner-lg} + #{$input-height-border}),
 
-    // $input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+    // $input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out,
 
-    // $form-text-margin-top:                  .25rem !default;
+    // $form-text-margin-top:                  .25rem,
 
-    // $form-check-input-gutter:               1.25rem !default;
-    // $form-check-input-margin-y:             .3rem !default;
-    // $form-check-input-margin-x:             .25rem !default;
+    // $form-check-input-gutter:               1.25rem,
+    // $form-check-input-margin-y:             .3rem,
+    // $form-check-input-margin-x:             .25rem,
 
-    // $form-check-inline-margin-x:            .75rem !default;
-    // $form-check-inline-input-margin-x:      .3125rem !default;
+    // $form-check-inline-margin-x:            .75rem,
+    // $form-check-inline-input-margin-x:      .3125rem,
 
-    // $form-group-margin-bottom:              1rem !default;
+    // $form-group-margin-bottom:              1rem,
 
-    // $input-group-addon-color:               $input-color !default;
-    // $input-group-addon-bg:                  $gray-200 !default;
-    // $input-group-addon-border-color:        $input-border-color !default;
+    // $input-group-addon-color:               $input-color,
+    // $input-group-addon-bg:                  $gray-200,
+    // $input-group-addon-border-color:        $input-border-color,
+
+    // Pagination
+
+    PAGINATION_PADDING_Y =.5 * REM,
+    PAGINATION_PADDING_X =.75 * REM,
+    PAGINATION_PADDING_Y_SM = .25 * REM,
+    PAGINATION_PADDING_X_SM = .5 * REM,
+    PAGINATION_PADDING_Y_LG = .75 * REM,
+    PAGINATION_PADDING_X_LG = 1.5 * REM,
+    PAGINATION_LINE_HEIGHT = 1.25,
+
+    PAGINATION_COLOR = LINK_COLOR,
+    PAGINATION_BG = WHITE,
+    PAGINATION_BORDER_WIDTH = BORDER_WIDTH,
+    PAGINATION_BORDER_COLOR = GRAY_300,
+
+    PAGINATION_FOCUS_BOX_SHADOW = INPUT_BTN_FOCUS_BOX_SHADOW,
+    PAGINATION_FOCUS_OUTLINE = 0,
+
+    // not applicable
+    // $pagination-hover-color:            $link-hover-color !default;
+    // $pagination-hover-bg:               $gray-200 !default;
+    // $pagination-hover-border-color:     $gray-300 !default;
+
+    PAGINATION_ACTIVE_COLOR = COMPONENT_ACTIVE_COLOR,
+    PAGINATION_ACTIVE_BG = COMPONENT_ACTIVE_BG,
+    PAGINATION_ACTIVE_BORDER_COLOR = PAGINATION_ACTIVE_BG,
+
+    PAGINATION_DISABLED_COLOR = GRAY_600,
+    PAGINATION_DISABLED_BG = WHITE,
+    PAGINATION_DISABLED_BORDER_COLOR = GRAY_300,
 
     // Cards
 
@@ -332,9 +373,9 @@ export default function getConstants(constants) {
     MODAL_INNER_PADDING = 1 * SPACER * REM,
 
     MODAL_DIALOG_MARGIN = 1 * SPACER * REM,
-    // $modal-dialog-margin-y-sm-up: 30px !default;
+    // $modal-dialog-margin-y-sm-up: 30px,
 
-    // $modal-title-line-height:     $line-height-base !default;
+    // $modal-title-line-height:     $line-height-base,
 
     MODAL_CONTENT_BG = WHITE,
     MODAL_CONTENT_BORDER_COLOR = 'transparent', // Color(BLACK).fate(0.2)
@@ -345,22 +386,22 @@ export default function getConstants(constants) {
     MODAL_CONTENT_SHADOW_OPACITY = SHADOW_OPACITY,
     MODAL_CONTENT_SHADOW_OFFSET = {width: SHADOW_OFFSET.width * 2, height: SHADOW_OFFSET.height * 2},
     MODAL_CONTENT_SHADOW_RADIUS = MODAL_CONTENT_BORDER_RADIUS,
-    // $modal-content-box-shadow-xs:       0 .25rem .5rem rgba($black, .5) !default;
-    // $modal-content-box-shadow-sm-up:    0 .5rem 1rem rgba($black, .5) !default;
+    // $modal-content-box-shadow-xs:       0 .25rem .5rem rgba($black, .5),
+    // $modal-content-box-shadow-sm-up:    0 .5rem 1rem rgba($black, .5),
 
     MODAL_BACKDROP_BG = BLACK,
     MODAL_BACKDROP_OPACITY = 0.5, // for compatibilty
-    // $modal-header-border-color:         $gray-200 !default;
-    // $modal-footer-border-color:         $modal-header-border-color !default;
-    // $modal-header-border-width:         $modal-content-border-width !default;
-    // $modal-footer-border-width:         $modal-header-border-width !default;
-    // $modal-header-padding:              1rem !default;
+    // $modal-header-border-color:         $gray-200,
+    // $modal-footer-border-color:         $modal-header-border-color,
+    // $modal-header-border-width:         $modal-content-border-width,
+    // $modal-footer-border-width:         $modal-header-border-width,
+    // $modal-header-padding:              1rem,
 
-    // $modal-lg:                    800px !default;
-    // $modal-md:                    500px !default;
-    // $modal-sm:                    300px !default;
+    // $modal-lg:                    800px,
+    // $modal-md:                    500px,
+    // $modal-sm:                    300px,
 
-    // $modal-transition:            transform .3s ease-out !default;
+    // $modal-transition:            transform .3s ease-out,
 
     // Progress bars
 
@@ -374,8 +415,8 @@ export default function getConstants(constants) {
     PROGRESS_BOX_SHADOW_RADIUS = PROGRESS_BORDER_RADIUS,
     PROGRESS_BAR_COLOR = WHITE,
     PROGRESS_BAR_BG = PRIMARY,
-    PROGRESS_BAR_ANIMATION_TIMING = 'placeholder', // 1s linear infinite !default;
-    PROGRESS_BAR_TRANSITION = 'placeholder', // width .6s ease !default;
+    PROGRESS_BAR_ANIMATION_TIMING = 'placeholder', // 1s linear infinite,
+    PROGRESS_BAR_TRANSITION = 'placeholder', // width .6s ease,
 
   } = constants || {};
 
@@ -398,6 +439,8 @@ export default function getConstants(constants) {
     BORDER_WIDTH, BORDER_COLOR, BORDER_RADIUS, BORDER_RADIUS_LG, BORDER_RADIUS_SM,
     SHADOW_COLOR, SHADOW_OPACITY, SHADOW_OFFSET,
 
+    COMPONENT_ACTIVE_COLOR, COMPONENT_ACTIVE_BG,
+
     FONT_FAMILY_SANS_SERIF, FONT_FAMILY_MONOSPACE,
     FONT_FAMILY_BASE, FONT_FAMILY_BASE_LIGHT, FONT_FAMILY_BASE_BOLD,
     FONT_SIZE_BASE, FONT_SIZE_BASE_SM, FONT_SIZE_BASE_LG,
@@ -417,6 +460,16 @@ export default function getConstants(constants) {
     INPUT_BORDER_COLOR, INPUT_BORDER_WIDTH,
     INPUT_BORDER_RADIUS, INPUT_BORDER_RADIUS_LG, INPUT_BORDER_RADIUS_SM,
     INPUT_PLACEHOLDER_COLOR, INPUT_PLAINTEXT_COLOR, INPUT_HEIGHT_BORDER,
+
+    PAGINATION_PADDING_Y, PAGINATION_PADDING_X,
+    PAGINATION_PADDING_Y_SM, PAGINATION_PADDING_X_SM,
+    PAGINATION_PADDING_Y_LG, PAGINATION_PADDING_X_LG,
+    PAGINATION_LINE_HEIGHT,
+    PAGINATION_COLOR, PAGINATION_BG,
+    PAGINATION_BORDER_WIDTH, PAGINATION_BORDER_COLOR,
+    PAGINATION_FOCUS_BOX_SHADOW, PAGINATION_FOCUS_OUTLINE,
+    PAGINATION_ACTIVE_COLOR, PAGINATION_ACTIVE_BG, PAGINATION_ACTIVE_BORDER_COLOR,
+    PAGINATION_DISABLED_COLOR, PAGINATION_DISABLED_BG, PAGINATION_DISABLED_BORDER_COLOR,
 
     CARD_SPACER_Y, CARD_SPACER_X,
     CARD_BORDER_WIDTH, CARD_BORDER_RADIUS, CARD_BORDER_COLOR,
