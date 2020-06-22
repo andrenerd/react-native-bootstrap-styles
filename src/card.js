@@ -12,10 +12,10 @@ export default function getClasses(constants, classes) {
     CARD_BORDER_COLOR,
     CARD_BORDER_RADIUS,
     CARD_INNER_BORDER_RADIUS,
-    CARD_SHADOW_COLOR,
-    CARD_SHADOW_OFFSET,
-    CARD_SHADOW_OPACITY,
-    CARD_SHADOW_RADIUS,
+    // OBSOLETED / CARD_SHADOW_COLOR,
+    // OBSOLETED / CARD_SHADOW_OFFSET,
+    // OBSOLETED / CARD_SHADOW_OPACITY,
+    // OBSOLETED / CARD_SHADOW_RADIUS,
     CARD_IMG_OVERLAY_PADDING,
     CARD_GROUP_MARGIN,
     CARD_DECK_MARGIN,
@@ -32,9 +32,9 @@ export default function getClasses(constants, classes) {
       borderColor: CARD_BORDER_COLOR,
     },
       mixinBorderRadius(constants, CARD_BORDER_RADIUS),
-      mixinBorderTopRadius(constants, CARD_BORDER_RADIUS),
-      mixinBorderBottomRadius(constants, CARD_BORDER_RADIUS),
-      mixinBoxShadow(constants, CARD_SHADOW_COLOR, CARD_SHADOW_OFFSET, CARD_SHADOW_OPACITY, CARD_SHADOW_RADIUS),
+      // OBSOLETED / mixinBorderTopRadius(constants, CARD_BORDER_RADIUS),
+      // OBSOLETED / mixinBorderBottomRadius(constants, CARD_BORDER_RADIUS),
+      // OBSOLETED / mixinBoxShadow(constants, CARD_SHADOW_COLOR, CARD_SHADOW_OFFSET, CARD_SHADOW_OPACITY, CARD_SHADOW_RADIUS),
     ),
 
     cardBody: {
@@ -179,6 +179,10 @@ export default function getClasses(constants, classes) {
     //     }
     //   }
     // }
+
+    cardDeck: {
+      // TODO
+    },
 
     cardDeckCard: {
       marginBottom: CARD_DECK_MARGIN,
