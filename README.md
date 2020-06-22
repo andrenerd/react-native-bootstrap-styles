@@ -58,6 +58,51 @@ Check the full list of constants in the source code:
 
 
 
+## Events
+
+Styles containing "media queries" are automatically updated on dimentions, orientaion and mode changes. But that's not enough to update views accordingly. Components should be forced to re-render with the updated styles. That's when the events could be helpful:  
+- addDimensionsListener
+- addOrientationListener (portrait/landscape)
+- addModeListener (light/dark)
+
+check the example:
+
+```
+class App extends Component {
+
+  componentDidMount() {
+    bootstrapStyleSheet.addDimensionsListener(data => {
+      // params are accessible
+      // const dimensions = data;
+
+      // direct call
+      // this.forceUpdate();
+
+      // or via state change
+      // this.setState({update: me})
+
+      // or via redux state change
+      // dispatch('NAME', {update: me})
+    });
+  }
+
+  render() {
+    // poor pattern, supposed to be passed in state or props
+    const width = bootstrapStyleSheet.DIMENSIONS_WIDTH
+
+    return (
+      <View style={s.container}>
+        <Text style={[s.mediaDependentClass]}>Screen width: {width}</Text>
+      </View>
+    );
+  }
+}
+
+```
+
+
+
+
 ## Components
 
 

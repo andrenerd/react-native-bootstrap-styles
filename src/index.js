@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import { EventEmitter } from 'events';
 
 import { getScreens } from './mixins/helpers';
 import getConstants from './constants';
@@ -55,15 +56,33 @@ class BootstrapStyleSheet {
     this._constructorConstants(constants);
     this._constructorClasses(classes);
 
+    // experimental
+    this._dimensionsEventEmitter = new EventEmitter();
+    // this._orientationEventEmitter = new EventEmitter();
+    // this._modeEventEmitter = new EventEmitter();
+
     // update dimensions on change
     Dimensions.addEventListener('change', () => {
-      this._dimensions(Dimensions.get('window'));
+      const dimensions = Dimensions.get('window');
+      this._dimensions(dimensions);
+      this._dimensionsEventEmitter.emit('change', dimensions);
     });
   }
 
   create() {
     return StyleSheet.create(this._classes);
   }
+
+  addDimensionsListener(handler) {
+    this._dimensionsEventEmitter.addListener('change', handler);
+  }
+
+  removeDimensionsListener(handler) {
+    this._dimensionsEventEmitter.removeListener('change', handler);
+  }
+
+  // addOrientationEventListener()
+  // addModeEventListener()
 
   _constructorConstants(constants) {
     this.constants = getConstants(constants);
