@@ -60,12 +60,12 @@ Check the full list of constants in the source code:
 
 ## Events
 
-Styles containing "media queries" are automatically updated on dimentions, orientaion and mode changes. But that's not enough to update views accordingly. Components should be forced to re-render with the updated styles. That's when the events could be helpful:  
+Styles, containing "media queries", are automatically updated on dimentions, orientaion and mode changes. There is nothing to bother about, except one little thing. Components should be forced to re-render with the updated styles. That's where the events could be helpful:  
 - addDimensionsListener
 - addOrientationListener (portrait/landscape)
 - addModeListener (light/dark)
 
-check the example:
+Here is an example:
 
 ```
 class App extends Component {
