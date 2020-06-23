@@ -26,11 +26,9 @@ const classes = {
 };
 
 const bootstrapStyleSheet = new BootstrapStyleSheet(constants, classes);
-const s = bootstrapStyleSheet.create(); // styles
-const c = bootstrapStyleSheet.constants; // constants
+const {styles: s, constants: c} = bootstrapStyleSheet;
 
 class Hello extends Component {
-
   render() {
     return (
       <View style={[s.body]}>
