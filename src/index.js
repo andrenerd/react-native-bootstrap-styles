@@ -25,6 +25,8 @@ class BootstrapStyleSheet {
   static DIMENSIONS_WIDTH;
   static DIMENSIONS_HEIGHT;
   static DIMENSIONS_MAX;
+  static ORIENTATION_PORTRAIT;
+  static ORIENTATION_LANDSCAPE;
 
   constants;
   classes;
@@ -50,27 +52,32 @@ class BootstrapStyleSheet {
 
   // TODO:
   // orientation
-  // dimentions
-  // theme (light/dark)
+  // dimensions
+  // mode (light/dark)
   constructor(constants, classes) {
+    this._dimensions(Dimensions.get('window'));
     this._constructorConstants(constants);
     this._constructorClasses(classes);
 
     // experimental
     this._dimensionsEventEmitter = new EventEmitter();
-    // this._orientationEventEmitter = new EventEmitter();
+    this._orientationEventEmitter = new EventEmitter();
     // this._modeEventEmitter = new EventEmitter();
 
     // update dimensions on change
-    Dimensions.addEventListener('change', () => {
-      const dimensions = Dimensions.get('window');
-      this._dimensions(dimensions);
-      this._dimensionsEventEmitter.emit('change', dimensions);
+    Dimensions.addEventListener('change', (allDimensions) => {
+      this._dimensions(allDimensions.window);
+      this._createConstants();
+      this._createClasses();
+
+      this._dimensionsEventEmitter.emit('change', allDimensions.window);
+      this._orientationEventEmitter.emit('change', allDimensions.window); // or what?
     });
   }
 
+  // DEPRECATED
   create() {
-    return StyleSheet.create(this._classes);
+    return this.styles;
   }
 
   addDimensionsListener(handler) {
@@ -81,59 +88,91 @@ class BootstrapStyleSheet {
     this._dimensionsEventEmitter.removeListener('change', handler);
   }
 
-  // addOrientationEventListener()
+  addOrientationListener(handler) {
+    this._orientationEventEmitter.addListener('change', handler);
+  }
+
+  removeOrientationListener(handler) {
+    this._orientationEventEmitter.removeListener('change', handler);
+  }
+
   // addModeEventListener()
 
+  dimensionsWidth = () => this.DIMENSIONS_WIDTH
+  dimensionsHeight = () => this.DIMENSIONS_HEIGHT
+  dimensionsMax = () => this.DIMENSIONS_MAX
+  orientationPortrait = () => this.ORIENTATION_PORTRAIT
+  orientationLandscape = () => this.ORIENTATION_LANDSCAPE
+
   _constructorConstants(constants) {
-    this.constants = getConstants(constants);
-
-    // save "forced" initial values
-    this.constants.DIMENSIONS_WIDTH && (this._DIMENSIONS_WIDTH = this.constants.DIMENSIONS_WIDTH);
-    this.constants.DIMENSIONS_HEIGHT && (this._DIMENSIONS_HEIGHT = this.constants.DIMENSIONS_HEIGHT);
-    this.constants.DIMENSIONS_MAX && (this._DIMENSIONS_MAX = this.constants.DIMENSIONS_MAX);
-
-    // TODO: move all the rest code into _dimensions method too
-    this._dimensions(Dimensions.get('window'));
-
-    // experimental
-    this.constants.SCREENS_HORIZONTAL = this.constants.SCREENS_HORIZONTAL || getScreens(this.constants.GRID_BREAKPOINTS_HORIZONTAL, this.constants.DIMENSIONS_WIDTH);
-    this.constants.SCREEN_HORIZONTAL = this.constants.SCREEN_HORIZONTAL || this.constants.SCREENS_HORIZONTAL.slice(-1).pop();
-    // this.constants.SCREENS_HORIZONTAL_INFIXES = [''].concat(this.constants.SCREENS_HORIZONTAL); // infixes
-
-    // experimental
-    this.constants.SCREENS_VERTICAL = this.constants.SCREENS_VERTICAL || getScreens(this.constants.GRID_BREAKPOINTS_VERTICAL, this.constants.DIMENSIONS_HEIGHT);
-    this.constants.SCREEN_VERTICAL = this.constants.SCREEN_VERTICAL || this.constants.SCREENS_VERTICAL.slice(-1).pop();
-    // this.constants.SCREENS_VERTICAL_INFIXES = [''].concat(this.constants.SCREENS_VERTICAL); // infixes
-
-    // experimental
-    this.constants.SCREENS = this.constants.SCREENS_HORIZONTAL;
-    this.constants.SCREENS_INFIXES = [''].concat(this.constants.SCREENS);
-    this.constants.SCREEN = this.constants.SCREEN_HORIZONTAL;
-
-    // temporal / highly experimental
-    // TODO: move somewhere
-    const
-      screens = this.constants.SCREENS,
-      lastIndex = screens.length - 1;
-
-    Object.keys(this.constants.GRID_BREAKPOINTS).forEach((item) => {
-      const itemIndex = screens.indexOf(item);
-      this.constants['SCREEN_UP_' + item.toUpperCase()] = itemIndex > -1;
-      this.constants['SCREEN_DOWN_' + item.toUpperCase()] = itemIndex == -1 || itemIndex == lastIndex;
-    });
+    this._constants = getConstants(constants);
+    this._createConstants();
   }
 
   _constructorClasses(classes) {
+    const customModule = typeof classes == 'function' ? classes : () => classes;
+    this._modules.push(customModule);
+    this._createClasses();
+  }
+
+  _createConstants() {
+    const _constants = this._constants;
+    const { GRID_BREAKPOINTS_HORIZONTAL, GRID_BREAKPOINTS_VERTICAL } = _constants;
+
+    const DIMENSIONS_WIDTH = _constants._DIMENSIONS_WIDTH || this.DIMENSIONS_WIDTH;
+    const DIMENSIONS_HEIGHT = _constants._DIMENSIONS_HEIGHT || this.DIMENSIONS_HEIGHT;
+    const DIMENSIONS_MAX = _constants._DIMENSIONS_MAX || this.DIMENSIONS_MAX;
+    const ORIENTATION_PORTRAIT = _constants._ORIENTATION_PORTRAIT || this.ORIENTATION_PORTRAIT;
+    const ORIENTATION_LANDSCAPE = _constants._ORIENTATION_LANDSCAPE || this.ORIENTATION_LANDSCAPE;
+
+    const SCREENS_HORIZONTAL = _constants.SCREENS_HORIZONTAL || getScreens(GRID_BREAKPOINTS_HORIZONTAL, this.DIMENSIONS_WIDTH);
+    const SCREEN_HORIZONTAL = _constants.SCREEN_HORIZONTAL || SCREENS_HORIZONTAL.slice(-1).pop();
+    // const SCREENS_HORIZONTAL_INFIXES = [''].concat(SCREENS_HORIZONTAL), // infixes
+    const SCREENS_VERTICAL = _constants.SCREENS_VERTICAL || getScreens(GRID_BREAKPOINTS_VERTICAL, this.DIMENSIONS_HEIGHT);
+    const SCREEN_VERTICAL = _constants.SCREEN_VERTICAL || SCREENS_VERTICAL.slice(-1).pop();
+    // const SCREENS_VERTICAL_INFIXES = [''].concat(SCREENS_VERTICAL), // infixes
+    const SCREENS = SCREENS_HORIZONTAL;
+    const SCREENS_INFIXES = [''].concat(SCREENS);
+    const SCREEN = SCREEN_HORIZONTAL;
+
+    // preserve initially created object
+    this.constants = Object.assign(this.constants || {}, _constants, {
+      DIMENSIONS_WIDTH,
+      DIMENSIONS_HEIGHT,
+      DIMENSIONS_MAX,
+      ORIENTATION_PORTRAIT,
+      ORIENTATION_LANDSCAPE,
+      SCREENS_HORIZONTAL,
+      SCREEN_HORIZONTAL,
+      SCREENS_VERTICAL,
+      SCREEN_VERTICAL,
+      SCREENS,
+      SCREENS_INFIXES,
+      SCREEN,
+   });
+
+    // experimental
+    Object.keys(this.constants.GRID_BREAKPOINTS).forEach(item => {
+      const itemIndex = SCREENS.indexOf(item);
+      this.constants['SCREEN_UP_' + item.toUpperCase()] = itemIndex > -1;
+      this.constants['SCREEN_DOWN_' + item.toUpperCase()] = itemIndex == -1 || itemIndex == SCREENS.length - 1;
+    });
+  }
+
+  _createClasses() {
     this._classes = {};
 
-    this._modules.forEach((itemGetClasses) => {
+    this._modules.forEach(itemGetClasses => {
       this._classes = Object.assign(
         this._classes,
         itemGetClasses(this.constants, this._classes),
       );
     });
 
-    this.classes = Object.assign(this._classes, classes);
+    // preserve initially created object
+    this.styles = Object.assign(this.styles || {},
+      StyleSheet.create(this._classes),
+    );
   }
 
   _dimensions(dimensions) {
@@ -141,26 +180,28 @@ class BootstrapStyleSheet {
     this.DIMENSIONS_HEIGHT = dimensions.height;
     this.DIMENSIONS_MAX = Math.max(dimensions.width, dimensions.height);
 
-    // set "dynamic" constants
-    if (this.constants) {
-      this.constants.DIMENSIONS_WIDTH = this._DIMENSIONS_WIDTH || this.DIMENSIONS_WIDTH;
-      this.constants.DIMENSIONS_HEIGHT = this._DIMENSIONS_HEIGHT || this.DIMENSIONS_HEIGHT;
-      this.constants.DIMENSIONS_MAX = this._DIMENSIONS_MAX || this.DIMENSIONS_MAX;
-    }
+    this.ORIENTATION_PORTRAIT = dimensions.height > dimensions.width;
+    this.ORIENTATION_LANDSCAPE = dimensions.width > dimensions.height;
   }
 
+  // experimental
   static _dimensions(dimensions) {
     this.DIMENSIONS_WIDTH = dimensions.width;
     this.DIMENSIONS_HEIGHT = dimensions.height;
     this.DIMENSIONS_MAX = Math.max(dimensions.width, dimensions.height);
+
+    this.ORIENTATION_PORTRAIT = dimensions.height > dimensions.width;
+    this.ORIENTATION_LANDSCAPE = dimensions.width > dimensions.height;
   }
 }
 
-// set dimensions on init and on view port change
-Dimensions.addEventListener('change', () => {
-  BootstrapStyleSheet._dimensions(Dimensions.get('window'));
+// set dimensions for the class on changes
+Dimensions.addEventListener('change', allDimensions => {
+  BootstrapStyleSheet._dimensions(allDimensions.window);
 });
 
+// set dimensions for the class
 BootstrapStyleSheet._dimensions(Dimensions.get('window'));
 
 export default BootstrapStyleSheet;
+
