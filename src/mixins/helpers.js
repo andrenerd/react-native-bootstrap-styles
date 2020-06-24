@@ -19,3 +19,13 @@ export const colorLevel = (constants, color, level = 0) => (
     Math.abs(level) * constants.THEME_COLOR_INTERVAL,
   ).hex()
 );
+
+// experimental
+export const mediaBreakpointUp = (screen, screens = [], styles = {}) => (
+  screens.indexOf(screen) > - 1 ? styles : {}
+);
+
+// experimental
+export const mediaBreakpointDown = (screen, screens = [], styles = {}) => (
+  screens.indexOf(screen) > - 1 && screens.indexOf(screen) < screens.length - 1 ? {} : styles
+);
