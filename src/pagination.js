@@ -1,3 +1,4 @@
+import { mixinPaginationSize } from './mixins/pagination';
 import { mixinBorderRadius } from './mixins/border-radius';
 // import { mixinBoxShadow } from './mixins/box-shadow';
 
@@ -92,13 +93,15 @@ export default function getClasses(constants, classes) {
     // // Sizing
     // //
 
-    // .pagination-lg {
-    //   @include pagination-size($pagination-padding-y-lg, $pagination-padding-x-lg, $font-size-lg, $line-height-lg, $border-radius-lg);
-    // }
+    paginationLg: {
+      // TODO
+      // mixinPaginationSize($pagination-padding-y-lg, $pagination-padding-x-lg, $font-size-lg, $line-height-lg, $border-radius-lg);
+    },
 
-    // .pagination-sm {
-    //   @include pagination-size($pagination-padding-y-sm, $pagination-padding-x-sm, $font-size-sm, $line-height-sm, $border-radius-sm);
-    // }
+    paginationSm: {
+      // TODO
+      // mixinPaginationSize($pagination-padding-y-sm, $pagination-padding-x-sm, $font-size-sm, $line-height-sm, $border-radius-sm);
+    },
   };
 
   return _classes;
