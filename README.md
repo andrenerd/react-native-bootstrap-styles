@@ -53,6 +53,18 @@ No renaming here for now. See actual example above.
 Check the full list of constants in the source code:  
 [./src/constants.js](./src/constants.js)
 
+Extra dynamic parameters available as contants or properties of the BootstrapStyleSheet object:
+```
+DIMENSIONS_WIDTH, // ex. 750
+DIMENSIONS_HEIGHT, //  ex. 1334
+DIMENSIONS_MAX, //  ex. 1334
+ORIENTATION_PORTRAIT, // ex. true
+ORIENTATION_LANDSCAPE, // ex. false
+MODE_LIGHT, // ex. false
+MODE_DARK, // ex. true
+SCREENS, // ['Xs', 'Md'] / experimental
+SCREEN, // ex. 'Md' / experimental
+```
 
 
 
@@ -61,7 +73,7 @@ Check the full list of constants in the source code:
 Styles, containing "media queries", are automatically updated on dimentions, orientaion and mode changes. There is nothing to bother about, except one little thing. Components should be forced to re-render with the updated styles. That's where the events could be helpful:  
 - addDimensionsListener
 - addOrientationListener (portrait/landscape)
-- addModeListener (light/dark)
+- addModeListener (light/dark)**
 
 Here is an example:
 
@@ -98,10 +110,12 @@ class App extends Component {
 
 ```
 
+** extra package should be installed: [react-native-appearance](https://github.com/expo/react-native-appearance).
 
 
+## Elements
 
-## Components
+Bootstrap calls them components. The term is changed to not mess with React components.
 
 
 

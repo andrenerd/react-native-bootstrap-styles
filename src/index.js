@@ -1,6 +1,16 @@
 import { StyleSheet, Dimensions } from 'react-native';
 import { EventEmitter } from 'events';
 
+// experimental
+let Appearance;
+
+try {
+  ReactNativeAppearance = require.call(null, 'react-native-appearance');
+  Appearance = ReactNativeAppearance.Appearance;
+} catch (e) {
+  // no dark/light mode listener
+}
+
 import { getScreens } from './mixins/helpers';
 import getConstants from './constants';
 
@@ -27,6 +37,8 @@ class BootstrapStyleSheet {
   static DIMENSIONS_MAX;
   static ORIENTATION_PORTRAIT;
   static ORIENTATION_LANDSCAPE;
+  static MODE_LIGHT;
+  static MODE_DARK;
 
   constants;
   classes;
@@ -73,6 +85,11 @@ class BootstrapStyleSheet {
       this._dimensionsEventEmitter.emit('change', allDimensions.window);
       this._orientationEventEmitter.emit('change', allDimensions.window); // or what?
     });
+
+    // update mode on change
+    Appearance && Appearance.addChangeListener(({colorScheme: mode}) => {
+      this._appearance(mode);
+    });
   }
 
   // DEPRECATED
@@ -96,13 +113,23 @@ class BootstrapStyleSheet {
     this._orientationEventEmitter.removeListener('change', handler);
   }
 
-  // addModeEventListener()
+  addModeListener(handler) {
+    // TODO
+    // this._modeEventEmitter.addListener('change', handler);
+  }
+
+  removeModeListener(handler) {
+    // TODO
+    // this._modeEventEmitter.removeListener('change', handler);
+  }
 
   dimensionsWidth = () => this.DIMENSIONS_WIDTH
   dimensionsHeight = () => this.DIMENSIONS_HEIGHT
   dimensionsMax = () => this.DIMENSIONS_MAX
-  orientationPortrait = () => this.ORIENTATION_PORTRAIT
-  orientationLandscape = () => this.ORIENTATION_LANDSCAPE
+  orientationPortrait = () => !!this.ORIENTATION_PORTRAIT
+  orientationLandscape = () => !!this.ORIENTATION_LANDSCAPE
+  modeLight = () => !!this.MODE_LIGHT
+  modeDark = () => !!this.MODE_DARK
 
   _constructorConstants(constants) {
     this._constants = getConstants(constants);
@@ -135,6 +162,9 @@ class BootstrapStyleSheet {
     const SCREENS_INFIXES = [''].concat(SCREENS);
     const SCREEN = SCREEN_HORIZONTAL;
 
+    const MODE_LIGHT = this.MODE_LIGHT;
+    const MODE_DARK = this.MODE_DARK;
+
     // preserve initially created object
     this.constants = Object.assign(this.constants || {}, _constants, {
       DIMENSIONS_WIDTH,
@@ -142,6 +172,8 @@ class BootstrapStyleSheet {
       DIMENSIONS_MAX,
       ORIENTATION_PORTRAIT,
       ORIENTATION_LANDSCAPE,
+      MODE_LIGHT,
+      MODE_DARK,
       SCREENS_HORIZONTAL,
       SCREEN_HORIZONTAL,
       SCREENS_VERTICAL,
@@ -193,6 +225,17 @@ class BootstrapStyleSheet {
     this.ORIENTATION_PORTRAIT = dimensions.height > dimensions.width;
     this.ORIENTATION_LANDSCAPE = dimensions.width > dimensions.height;
   }
+
+  _appearance(mode) {
+    this.MODE_LIGHT = mode == 'light';
+    this.MODE_DARK = mode == 'dark';
+  }
+
+  // experimental
+  static _appearance(mode) {
+    this.MODE_LIGHT = mode == 'light';
+    this.MODE_DARK = mode == 'dark';
+  }
 }
 
 // set dimensions for the class on changes
@@ -203,5 +246,12 @@ Dimensions.addEventListener('change', allDimensions => {
 // set dimensions for the class
 BootstrapStyleSheet._dimensions(Dimensions.get('window'));
 
-export default BootstrapStyleSheet;
+// set mode for the class on changes
+Appearance && Appearance.addChangeListener(({colorScheme: mode}) => {
+  this._appearance(mode);
+});
 
+// set mode for the class
+Appearance && BootstrapStyleSheet._appearance(Appearance.getColorScheme());
+
+export default BootstrapStyleSheet;

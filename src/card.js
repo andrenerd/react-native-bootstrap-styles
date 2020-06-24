@@ -1,9 +1,13 @@
+import { mediaBreakpointUp, mediaBreakpointDown } from './mixins/helpers';
 import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius } from './mixins/border-radius';
 import { mixinBoxShadow } from './mixins/box-shadow';
 import { selectorFirstChild } from './selectors';
 
 export default function getClasses(constants, classes) {
   const {
+    SCREENS,
+    SCREENS_INFIXES,
+
     CARD_BG,
     CARD_CAP_BG,
     CARD_SPACER_X,
@@ -184,26 +188,22 @@ export default function getClasses(constants, classes) {
       // TODO
     },
 
-    cardDeckCard: {
+    cardDeckCard: Object.assign({
       marginBottom: CARD_DECK_MARGIN,
-    },
+    }, mediaBreakpointUp('Sm', SCREENS, {
+        // flex-flow: row wrap;
+        marginRight: -CARD_DECK_MARGIN,
+        marginLeft: -CARD_DECK_MARGIN,
 
-    //   @include media-breakpoint-up(sm) {
-    //     display: flex;
-    //     flex-flow: row wrap;
-    //     margin-right: -$card-deck-margin;
-    //     margin-left: -$card-deck-margin;
-
-    //     .card {
-    //       // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
-    //       flex: 1 0 0%;
-    //       margin-right: $card-deck-margin;
-    //       margin-bottom: 0; // Override the default
-    //       margin-left: $card-deck-margin;
-    //     }
-    //   }
-    // }
-
+        // TODO
+        // .card {
+        //   // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+        //   flex: 1 0 0%;
+        //   margin-right: $card-deck-margin;
+        //   margin-bottom: 0; // Override the default
+        //   margin-left: $card-deck-margin;
+        // }
+    })),
 
     // //
     // // Card groups
