@@ -1,3 +1,5 @@
+import { mediaBreakpointUp, mediaBreakpointDown } from '../mixins/helpers';
+
 export default function getClasses(constants, classes) {
   const {
     SCREENS_INFIXES,
