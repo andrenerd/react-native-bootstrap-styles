@@ -113,9 +113,41 @@ class App extends Component {
 ** extra package should be installed: [react-native-appearance](https://github.com/expo/react-native-appearance).
 
 
+
+
+## Utilities
+
+Check the related chapter in the Bootstrap [documentation](https://getbootstrap.com/docs/4.5/utilities/) to get the list of all the utilities.
+
+What's implemented or near to: 
+- align 
+- background 
+- borders 
+- display 
+- flex 
+- sizing 
+- spacing 
+- text  
+
+also: 
+- grid 
+- text 
+
+
+
 ## Elements
 
 Bootstrap calls them components. The term is changed to not mess with React components.
+Check the related chapter in the Bootstrap [documentation](https://getbootstrap.com/docs/4.5/components/) to get the list of all the elements (ie components).
+
+What's implemented or neat to: 
+- buttons 
+- cards 
+- forms (far from) 
+- modal 
+- pagination 
+- progress 
+
 
 
 
