@@ -1,9 +1,15 @@
-import { mixinPaginationSize } from './mixins/pagination';
-import { mixinBorderRadius } from './mixins/border-radius';
+import { mixinPaginationSizePageLink } from './mixins/pagination';
+import { mixinBorderRadius, mixinBorderLeftRadius, mixinBorderRightRadius } from './mixins/border-radius';
 // import { mixinBoxShadow } from './mixins/box-shadow';
 
 export default function getClasses(constants, classes) {
   const {
+    FONT_SIZE_BASE_SM,
+    FONT_SIZE_BASE_LG,
+    LINE_HEIGHT_SM,
+    LINE_HEIGHT_LG,
+    BORDER_RADIUS_SM,
+    BORDER_RADIUS_LG,
     LINK_DECORATION,
     PAGINATION_PADDING_Y, PAGINATION_PADDING_X,
     PAGINATION_PADDING_Y_SM, PAGINATION_PADDING_X_SM,
@@ -94,14 +100,30 @@ export default function getClasses(constants, classes) {
     // //
 
     paginationLg: {
-      // TODO
-      // mixinPaginationSize($pagination-padding-y-lg, $pagination-padding-x-lg, $font-size-lg, $line-height-lg, $border-radius-lg);
+      // pass
+      // see paginationLgPageLink, etc
     },
 
+    paginationLgPageLink: mixinPaginationSizePageLink(PAGINATION_PADDING_Y_LG, PAGINATION_PADDING_X_LG, FONT_SIZE_BASE_LG, LINE_HEIGHT_LG),
+    paginationLgPageItemFirstChildPageLink: n => selectorFirstChild(n, Object.assign({},
+      mixinBorderLeftRadius(constants, BORDER_RADIUS_LG),
+    )),
+    paginationLgPageItemLastChildPageLink: n => selectorLastChild(n, Object.assign({},
+      mixinBorderRightRadius(constants, BORDER_RADIUS_LG),
+    )),
+
     paginationSm: {
-      // TODO
-      // mixinPaginationSize($pagination-padding-y-sm, $pagination-padding-x-sm, $font-size-sm, $line-height-sm, $border-radius-sm);
+      // pass
+      // see paginationSmPageLink, etc
     },
+
+    paginationSmPageLink: mixinPaginationSizePageLink(PAGINATION_PADDING_Y_SM, PAGINATION_PADDING_X_SM, FONT_SIZE_BASE_SM, LINE_HEIGHT_SM),
+    paginationSmPageItemFirstChildPageLink: n => selectorFirstChild(n, Object.assign({},
+      mixinBorderLeftRadius(constants, BORDER_RADIUS_SM),
+    )),
+    paginationSmPageItemLastChildPageLink: n => selectorLastChild(n, Object.assign({},
+      mixinBorderRightRadius(constants, BORDER_RADIUS_SM),
+    )),
   };
 
   return _classes;
