@@ -32,3 +32,19 @@ export const mixinBorderBottomRadius = (
     borderBottomLeftRadius: getDefined(radius, constants.BORDER_RADIUS),
     borderBottomRightRadius: getDefined(radius, constants.BORDER_RADIUS),
 } : {});
+
+export const mixinBorderLeftRadius = (
+  constants,
+  radius,
+) => (constants.ENABLE_ROUNDED ? {
+    borderTopLeftRadius: getDefined(radius, constants.BORDER_RADIUS),
+    borderBottomLeftRadius: getDefined(radius, constants.BORDER_RADIUS),
+} : {});
+
+export const mixinBorderRightRadius = (
+  constants,
+  radius,
+) => (constants.ENABLE_ROUNDED ? {
+    borderTopRightRadius: getDefined(radius, constants.BORDER_RADIUS),
+    borderBottomRightRadius: getDefined(radius, constants.BORDER_RADIUS),
+} : {});

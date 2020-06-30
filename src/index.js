@@ -19,7 +19,8 @@ import getClassesBackground from './utilities/background';
 import getClassesFlex from './utilities/flex';
 import getClassesSizing from './utilities/sizing';
 import getClassesSpacing from './utilities/spacing';
-import getClassesBorder from './utilities/border';
+import getClassesBorders from './utilities/borders';
+import getClassesDisplay from './utilities/display';
 
 import getClassesType from './type';
 import getClassesGrid from './grid';
@@ -50,7 +51,8 @@ class BootstrapStyleSheet {
     getClassesFlex,
     getClassesSizing,
     getClassesSpacing,
-    getClassesBorder,
+    getClassesBorders,
+    getClassesDisplay,
 
     getClassesType,
     getClassesGrid,

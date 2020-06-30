@@ -1,9 +1,15 @@
-import { mixinPaginationSize } from './mixins/pagination';
-import { mixinBorderRadius } from './mixins/border-radius';
-// import { mixinBoxShadow } from './mixins/box-shadow';
+import { mixinPaginationSizePageLink } from './mixins/pagination';
+import { mixinBorderRadius, mixinBorderLeftRadius, mixinBorderRightRadius } from './mixins/border-radius';
+import { selectorFirstChild, selectorLastChild, selectorCondition } from './selectors';
 
 export default function getClasses(constants, classes) {
   const {
+    FONT_SIZE_BASE_SM,
+    FONT_SIZE_BASE_LG,
+    LINE_HEIGHT_SM,
+    LINE_HEIGHT_LG,
+    BORDER_RADIUS_SM,
+    BORDER_RADIUS_LG,
     LINK_DECORATION,
     PAGINATION_PADDING_Y, PAGINATION_PADDING_X,
     PAGINATION_PADDING_Y_SM, PAGINATION_PADDING_X_SM,
@@ -24,8 +30,8 @@ export default function getClasses(constants, classes) {
     pagination: Object.assign({
       flexDirection: 'row', // TODO: to constant?
     },
-      // @include list-unstyled();
       mixinBorderRadius(constants),
+      // SKIPPED / @include list-unstyled();
     ),
 
     pageLink: {
@@ -50,7 +56,7 @@ export default function getClasses(constants, classes) {
       //   border-color: $pagination-hover-border-color;
       // }
 
-      // RESEREVED
+      // RESERVED
       // &:focus {
       //   z-index: 3;
       //   outline: $pagination-focus-outline;
@@ -58,50 +64,56 @@ export default function getClasses(constants, classes) {
       // }
     },
 
-    // .page-item {
-    //   &:first-child {
-    //     .page-link {
-    //       margin-left: 0;
-    //       @include border-left-radius($border-radius);
-    //     }
-    //   }
-    //   &:last-child {
-    //     .page-link {
-    //       @include border-right-radius($border-radius);
-    //     }
-    //   }
+    pageItemFirstChildPageLink: n => selectorFirstChild(n, Object.assign({
+      marginLeft: 0,
+    },
+      mixinBorderLeftRadius(constants, BORDER_RADIUS),
+    )),
 
-    //   &.active .page-link {
-    //     z-index: 3;
-    //     color: $pagination-active-color;
-    //     background-color: $pagination-active-bg;
-    //     border-color: $pagination-active-border-color;
-    //   }
+    pageItemLastChildPageLink: n => selectorLastChild(n, Object.assign({},
+      mixinBorderRightRadius(constants, BORDER_RADIUS),
+    )),
 
-    //   &.disabled .page-link {
-    //     color: $pagination-disabled-color;
-    //     pointer-events: none;
-    //     // Opinionated: remove the "hand" cursor set previously for .page-link
-    //     cursor: auto;
-    //     background-color: $pagination-disabled-bg;
-    //     border-color: $pagination-disabled-border-color;
-    //   }
-    // }
+    pageItemActivePageLink: e => selectorCondition(e, {
+      zIndex: 3,
+      color: PAGINATION_ACTIVE_COLOR,
+      backgroundColor: PAGINATION_ACTIVE_BG,
+      borderColor: PAGINATION_ACTIVE_BORDER_COLOR,
+    }),
 
+    pageItemDisabledPageLink: e => selectorCondition(e, {
+      color: PAGINATION_DISABLED_COLOR,
+      backgroundColor: PAGINATION_DISABLED_BG,
+      borderColor: PAGINATION_DISABLED_BORDER_COLOR,
+    }),
 
     // //
     // // Sizing
     // //
 
     paginationLg: {
-      // TODO
-      // mixinPaginationSize($pagination-padding-y-lg, $pagination-padding-x-lg, $font-size-lg, $line-height-lg, $border-radius-lg);
+      // see paginationLgPageLink, etc
     },
 
+    paginationLgPageLink: mixinPaginationSizePageLink(PAGINATION_PADDING_Y_LG, PAGINATION_PADDING_X_LG, FONT_SIZE_BASE_LG, LINE_HEIGHT_LG),
+    paginationLgPageItemFirstChildPageLink: n => selectorFirstChild(n, Object.assign({},
+      mixinBorderLeftRadius(constants, BORDER_RADIUS_LG),
+    )),
+    paginationLgPageItemLastChildPageLink: n => selectorLastChild(n, Object.assign({},
+      mixinBorderRightRadius(constants, BORDER_RADIUS_LG),
+    )),
+
     paginationSm: {
-      // TODO
-      // mixinPaginationSize($pagination-padding-y-sm, $pagination-padding-x-sm, $font-size-sm, $line-height-sm, $border-radius-sm);
+      // see paginationSmPageLink, etc
     },
+
+    paginationSmPageLink: mixinPaginationSizePageLink(PAGINATION_PADDING_Y_SM, PAGINATION_PADDING_X_SM, FONT_SIZE_BASE_SM, LINE_HEIGHT_SM),
+    paginationSmPageItemFirstChildPageLink: n => selectorFirstChild(n, Object.assign({},
+      mixinBorderLeftRadius(constants, BORDER_RADIUS_SM),
+    )),
+    paginationSmPageItemLastChildPageLink: n => selectorLastChild(n, Object.assign({},
+      mixinBorderRightRadius(constants, BORDER_RADIUS_SM),
+    )),
   };
 
   return _classes;

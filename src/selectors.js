@@ -1,6 +1,10 @@
 // TODO: move the file
 // selectors accept raw loop param(s) or booleans
 
+export const selectorCondition = (condition, styleTrue = {}, styleFalse = {}) => (
+  condition ? styleTrue : styleFalse
+);
+
 // TODO: let style param be an array of styles too
 export const selectorFirstChild = (indexOrBool, style = {}) => (
   typeof value === 'boolean' ? (

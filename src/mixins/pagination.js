@@ -1,31 +1,12 @@
-export const mixinPaginationSize = (
+export const mixinPaginationSizePageLink = (
   constants,
   paddingY,
   paddingX,
   fontSize,
   lineHeight,
-  borderRadius,
-) => (
-  {}
-);
-
-// @mixin pagination-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
-//   .page-link {
-//     padding: $padding-y $padding-x;
-//     @include font-size($font-size);
-//     line-height: $line-height;
-//   }
-
-//   .page-item {
-//     &:first-child {
-//       .page-link {
-//         @include border-left-radius($border-radius);
-//       }
-//     }
-//     &:last-child {
-//       .page-link {
-//         @include border-right-radius($border-radius);
-//       }
-//     }
-//   }
-// }
+) => Object.assign({
+  paddingVertical: paddingY,
+  paddingHorizontal: paddingX,
+  fontSize: fontSize,
+  lineHeight: lineHeight,
+});
