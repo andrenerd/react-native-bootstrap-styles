@@ -1,5 +1,11 @@
-# react-native-bootstrap-styles
-Bootstrap style library for React Native  
+# React Native Bootstrap Styles  
+
+
+<br>
+<img title="React Native Bootstrap Styles" alt="React Native Bootstrap Styles" src="./docs/logo.svg" width="20%">  
+<br><br>
+
+Bootstrap style library for React Native.  
 
 Original class names are transformed from "dashed" to "camelcase" style, for example: `text-center` to `textCenter` and `my-sm-4` to 'mySm4'. Also all the constants (variables in terms of Bootstrap) could be accessible in templates. It helps to make custom tweaks preserving styling guidelines, for example: {fontSize: 10 * FONT_SIZE_BASE}.
 
@@ -53,7 +59,7 @@ No renaming here for now. See actual example above.
 Check the full list of constants in the source code:  
 [./src/constants.js](./src/constants.js)
 
-Extra dynamic parameters available as contants or properties of the BootstrapStyleSheet object:
+Extra dynamic parameters available as `contants` or properties of the `bootstrapStyleSheet` object:
 ```
 DIMENSIONS_WIDTH, // ex. 750
 DIMENSIONS_HEIGHT, //  ex. 1334
