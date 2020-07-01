@@ -30,6 +30,7 @@ export default function getClasses(constants, classes) {
 
   const _classes = {
     card: Object.assign({
+      flex: 1, // experimental
       flexDirection: 'column',
       backgroundColor: CARD_BG,
       borderWidth: CARD_BORDER_WIDTH,
