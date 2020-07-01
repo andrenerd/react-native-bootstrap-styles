@@ -118,6 +118,7 @@ export default function getConstants(constants) {
       Xl: 1024, // iPad Pro
     },
 
+    // experimental
     GRID_BREAKPOINTS_VERTICAL = {
       Xs: 0, // should start at zero
       Sm: 640,
@@ -127,6 +128,14 @@ export default function getConstants(constants) {
     },
 
     GRID_BREAKPOINTS = GRID_BREAKPOINTS_HORIZONTAL,
+
+    // GRID_BREAKPOINTS_HORIZONTAL * 0.9375
+    CONTAINER_MAX_WIDTHS = {
+      Sm: 338,
+      Md: 385,
+      Lg: 720,
+      Xl: 960,
+    },
 
     // Body
 
@@ -142,6 +151,7 @@ export default function getConstants(constants) {
 
     GRID_COLUMNS = 12,
     GRID_GUTTER_WIDTH = SPACER * 1.5 * REM,
+    GRID_ROW_COLUMNS = 6,
 
     // Components
 
@@ -430,6 +440,7 @@ export default function getConstants(constants) {
     REM,
     SPACER, SPACERS, SIZES,
     GRID_BREAKPOINTS, GRID_BREAKPOINTS_HORIZONTAL, GRID_BREAKPOINTS_VERTICAL,
+    CONTAINER_MAX_WIDTHS,
 
     WHITE, BLACK,
     BLUE, CYAN, RED, YELLOW, GREEN,
@@ -438,7 +449,7 @@ export default function getConstants(constants) {
     THEME_COLORS, THEME_COLOR_INTERVAL,
     BODY_BG, BODY_COLOR, LINK_COLOR, LINK_DECORATION,
 
-    GRID_COLUMNS, GRID_GUTTER_WIDTH,
+    GRID_COLUMNS, GRID_GUTTER_WIDTH, GRID_ROW_COLUMNS,
     LINE_HEIGHT_LG, LINE_HEIGHT_SM,
     BORDER_WIDTH, BORDER_COLOR, BORDER_RADIUS, BORDER_RADIUS_LG, BORDER_RADIUS_SM,
     SHADOW_COLOR, SHADOW_OPACITY, SHADOW_OFFSET,

@@ -1,60 +1,37 @@
-import { mixinMakeContainer } from './mixins/grid';
-// import { mixinMakeContainerMaxWidth } from './mixins/xxx';
+import { mixinMakeContainer, mixinMakeContainerMaxWidths } from './mixins/grid';
+import { mixinMakeRow } from './mixins/grid';
 
 export default function getClasses(constants, classes) {
-  // const {
-  // } = constants;
+  const {
+    ENABLE_GRID_CLASSES,
+    CONTAINER_MAX_WIDTHS,
+    SCREENS,
+    SCREEN,
+  } = constants;
 
-  const _classes = {
-    container: Object.assign({
-      // pass
-    },
+  const _classes = ENABLE_GRID_CLASSES ? {
+    container: Object.assign({},
       mixinMakeContainer(constants),
-      // mixinMakeContainerMaxWidth(constants, CARD_SHADOW_COLOR, CARD_SHADOW_OFFSET, CARD_SHADOW_OPACITY, CARD_SHADOW_RADIUS),
+      mixinMakeContainerMaxWidths(constants),
     ),
 
-    // // Set the container width, and override it for fixed navbars in media queries.
+    containerFluid: Object.assign({},
+      mixinMakeContainer(constants),
+    ),
 
-    // @if $enable-grid-classes {
-    //   .container {
-    //     @include make-container();
-    //     @include make-container-max-widths();
-    //   }
-    // }
+    row: Object.assign({},
+      mixinMakeRow(constants),
+    ),
 
-    // // Fluid container
-    // //
-    // // Utilizes the mixin meant for fixed width containers, but with 100% width for
-    // // fluid, full width layouts.
+    noGutters: {
+      marginRight: 0,
+      marginLeft: 0,
+    },
 
-    // @if $enable-grid-classes {
-    //   .container-fluid {
-    //     @include make-container();
-    //   }
-    // }
-
-    // // Row
-    // //
-    // // Rows contain and clear the floats of your columns.
-
-    // @if $enable-grid-classes {
-    //   .row {
-    //     @include make-row();
-    //   }
-
-    //   // Remove the negative margin from default .row, then the horizontal padding
-    //   // from all immediate children columns (to prevent runaway style inheritance).
-    //   .no-gutters {
-    //     margin-right: 0;
-    //     margin-left: 0;
-
-    //     > .col,
-    //     > [class*="col-"] {
-    //       padding-right: 0;
-    //       padding-left: 0;
-    //     }
-    //   }
-    // }
+    noGuttersCol: {
+      paddingRight: 0,
+      paddingLeft: 0,
+    },
 
     // // Columns
     // //
@@ -63,7 +40,17 @@ export default function getClasses(constants, classes) {
     // @if $enable-grid-classes {
     //   @include make-grid-columns();
     // }
-  };
+
+  } : {};
+
+  // container%screen / ex: containerMd
+  ENABLE_GRID_CLASSES && SCREENS.forEach((item) => {
+    _classes['container' + item] = Object.assign({},
+      mixinMakeContainer(constants),
+      mixinMakeContainerMaxWidths(constants, item),
+    );
+  });
+
 
   return _classes;
 };

@@ -1,9 +1,10 @@
 # React Native Bootstrap Styles  
 
 
-<br>
+<p>  
 <img title="React Native Bootstrap Styles" alt="React Native Bootstrap Styles" src="./docs/logo.svg" width="20%">  
-<br><br>
+</p>  
+
 
 Bootstrap style library for React Native.  
 
@@ -262,5 +263,6 @@ tbd...
 
 ### Custom
 
-flex{screen} aka flex{screen}1  
+- `flex` is an alias for `flex1`, and the same for `flex{screen}`  
+- some styles contain undocumented, but supported by [Yoga](https://yogalayout.com/), instructions, such as `width: 100%`. React Native uses Yoga as a layout engine.  
 
