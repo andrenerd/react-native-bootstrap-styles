@@ -4,6 +4,7 @@ import { EventEmitter } from 'events';
 // experimental
 let Appearance;
 
+// TODO: make it work for Expo, etc
 try {
   ReactNativeAppearance = require.call(null, 'react-native-appearance');
   Appearance = ReactNativeAppearance.Appearance;
@@ -64,10 +65,7 @@ class BootstrapStyleSheet {
     getClassesReboot,
   ]
 
-  // TODO:
-  // orientation
-  // dimensions
-  // mode (light/dark)
+  // TODO: test "mode" (light/dark)
   constructor(constants, classes) {
     this._dimensions(Dimensions.get('window'));
     this._constructorConstants(constants);
@@ -80,12 +78,15 @@ class BootstrapStyleSheet {
 
     // update dimensions on change
     Dimensions.addEventListener('change', (allDimensions) => {
+      const orientationLandscapeOld = this.ORIENTATION_LANDSCAPE;
+
       this._dimensions(allDimensions.window);
       this._createConstants();
       this._createClasses();
 
       this._dimensionsEventEmitter.emit('change', allDimensions.window);
-      this._orientationEventEmitter.emit('change', allDimensions.window); // or what?
+      orientationLandscapeOld != this.ORIENTATION_LANDSCAPE &&
+        this._orientationEventEmitter.emit('change', allDimensions.window); // or what?
     });
 
     // update mode on change
@@ -242,7 +243,7 @@ class BootstrapStyleSheet {
 
 // set dimensions for the class on changes
 Dimensions.addEventListener('change', allDimensions => {
-  BootstrapStyleSheet._dimensions(allDimensions.window);
+ BootstrapStyleSheet._dimensions(allDimensions.window);
 });
 
 // set dimensions for the class

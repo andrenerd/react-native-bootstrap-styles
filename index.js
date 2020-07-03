@@ -1,2 +1,2 @@
 import BootstrapStyleSheet from './src/';
-export default BootstrapStyleSheet
+export default BootstrapStyleSheet;
