@@ -3,7 +3,7 @@
 export const mixinMakeContainer = (
   constants,
 ) => (constants.ENABLE_GRID_CLASSES ? {
-  flex: 1, // experimental
+  // flex: 1, // experimental
   width: '100%', // experimental
   flexDirection: 'row',
   paddingRight: constants.GRID_GUTTER_WIDTH / 2,
@@ -21,23 +21,25 @@ export const mixinMakeContainerMaxWidths = (
 
 export const mixinMakeRow = (
   constants,
+  columns = null,
   gutter = null,
 ) => (constants.ENABLE_GRID_CLASSES ? {
-  flex: 1,
+  flex: columns || constants.GRID_COLUMNS, // experimental
+  flexDirection: 'row',
   flexWrap: 'wrap',
   marginRight: -(gutter || constants.GRID_GUTTER_WIDTH) / 2,
   marginLeft: -(gutter || constants.GRID_GUTTER_WIDTH) / 2,
 } : {});
 
-// @mixin make-col-ready($gutter: $grid-gutter-width) {
-//   position: relative;
-//   // Prevent columns from becoming too narrow when at smaller grid tiers by
-//   // always setting `width: 100%;`. This works because we use `flex` values
-//   // later on to override this initial width.
-//   width: 100%;
-//   padding-right: $gutter / 2;
-//   padding-left: $gutter / 2;
-// }
+export const mixinMakeColReady = (
+  constants,
+  gutter = null,
+) => (constants.ENABLE_GRID_CLASSES ? {
+  flex: 1,
+  width: '100%', // experimental
+  paddingRight: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
+  paddingLeft: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
+} : {});
 
 // @mixin make-col($size, $columns: $grid-columns) {
 //   flex: 0 0 percentage($size / $columns);
@@ -69,3 +71,15 @@ export const mixinMakeRow = (
 //     max-width: 100% / $count;
 //   }
 // }
+
+// experimental
+export const mixinMakeCol = (
+  constants,
+  fraction = 1,
+  gutter = null,
+) => (constants.ENABLE_GRID_CLASSES ? {
+  flex: fraction, // experimental
+  width: '100%', // experimental
+  paddingRight: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
+  paddingLeft: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
+} : {});

@@ -60,7 +60,7 @@ No renaming here for now. See actual example above.
 Check the full list of constants in the source code:  
 [./src/constants.js](./src/constants.js)
 
-Extra dynamic parameters available as `contants` or properties of the `bootstrapStyleSheet` object:
+Extra dynamic parameters available as `constants` or properties of the `bootstrapStyleSheet` object:
 ```
 DIMENSIONS_WIDTH, // ex. 750
 DIMENSIONS_HEIGHT, //  ex. 1334
@@ -264,5 +264,5 @@ tbd...
 ### Custom
 
 - `flex` is an alias for `flex1`, and the same for `flex{screen}`  
-- some styles contain undocumented, but supported by [Yoga](https://yogalayout.com/), instructions, such as `width: 100%`. React Native uses Yoga as a layout engine.  
+- some styles contain undocumented, but supported by [Yoga](https://yogalayout.com/), instructions, such as `width: '100%'`. React Native uses Yoga as a layout engine.  
 
