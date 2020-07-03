@@ -15,7 +15,7 @@
     "form",
     "button"
   ],
-  "version": "0.4.5-0-a",
+  "version": "0.4.5-0-c",
   "description": "Bootstrap style library for React Native",
   "author": "Andrei Vasin (aka Savva) <andreid.31415@gmail.com>",
   "license": "MIT",
@@ -39,7 +39,12 @@
     "silent": false
   },
   "dependencies": {
-    "color": "^3.1.2"
+    "color": "^3.1.2",
+    "events": "latest"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
@@ -54,7 +59,6 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "jest": "^26.0.1",
-    "pre-commit": "^1.2.2",
-    "react-native": "^0.62.2"
+    "pre-commit": "^1.2.2"
   }
 }

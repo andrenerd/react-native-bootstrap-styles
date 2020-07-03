@@ -1,10 +1,12 @@
 import { mixinMakeContainer, mixinMakeContainerMaxWidths } from './mixins/grid';
-import { mixinMakeRow } from './mixins/grid';
+import { mixinMakeRow, mixinMakeCol } from './mixins/grid';
 
 export default function getClasses(constants, classes) {
   const {
     ENABLE_GRID_CLASSES,
-    CONTAINER_MAX_WIDTHS,
+    GRID_COLUMNS,
+    GRID_GUTTER_WIDTH,
+    SCREENS_INFIXES,
     SCREENS,
     SCREEN,
   } = constants;
@@ -20,7 +22,7 @@ export default function getClasses(constants, classes) {
     ),
 
     row: Object.assign({},
-      mixinMakeRow(constants),
+      mixinMakeRow(constants, GRID_COLUMNS, GRID_GUTTER_WIDTH),
     ),
 
     noGutters: {
@@ -32,25 +34,29 @@ export default function getClasses(constants, classes) {
       paddingRight: 0,
       paddingLeft: 0,
     },
-
-    // // Columns
-    // //
-    // // Common styles for small and large grid columns
-
-    // @if $enable-grid-classes {
-    //   @include make-grid-columns();
-    // }
-
   } : {};
 
   // container%screen / ex: containerMd
-  ENABLE_GRID_CLASSES && SCREENS.forEach((item) => {
-    _classes['container' + item] = Object.assign({},
-      mixinMakeContainer(constants),
-      mixinMakeContainerMaxWidths(constants, item),
-    );
-  });
+  if (ENABLE_GRID_CLASSES) {
+    SCREENS.forEach((item) => {
+      _classes['container' + item] = Object.assign({},
+        mixinMakeContainer(constants),
+        mixinMakeContainerMaxWidths(constants, item),
+      );
+    });
+  }
 
+  // Columns
+
+  if (ENABLE_GRID_CLASSES) {
+    const gridColumnsArray = Array.from(Array(GRID_COLUMNS).keys());
+
+    SCREENS_INFIXES.forEach((itemScreen) => {
+      gridColumnsArray.forEach(item => {
+        _classes['col' + itemScreen + (item || '')] = mixinMakeCol(constants, item || 1, GRID_GUTTER_WIDTH);
+      });
+    });
+  }
 
   return _classes;
 };

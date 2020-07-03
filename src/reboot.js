@@ -34,6 +34,7 @@ export default function getClasses(constants, classes) {
     },
 
     body: {
+      flex: 1, // experimental
       backgroundColor: BODY_BG,
     },
   };
