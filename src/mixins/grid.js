@@ -3,9 +3,8 @@
 export const mixinMakeContainer = (
   constants,
 ) => (constants.ENABLE_GRID_CLASSES ? {
-  // flex: 1, // experimental
   width: '100%', // experimental
-  flexDirection: 'row',
+  flexDirection: 'column',
   paddingRight: constants.GRID_GUTTER_WIDTH / 2,
   paddingLeft: constants.GRID_GUTTER_WIDTH / 2,
   marginRight: 'auto', // experimental
@@ -21,26 +20,37 @@ export const mixinMakeContainerMaxWidths = (
 
 export const mixinMakeRow = (
   constants,
-  columns = null,
   gutter = null,
 ) => (constants.ENABLE_GRID_CLASSES ? {
-  flex: columns || constants.GRID_COLUMNS, // experimental
-  flexDirection: 'row',
-  flexWrap: 'wrap',
+  flexDirection: 'column',
   marginRight: -(gutter || constants.GRID_GUTTER_WIDTH) / 2,
   marginLeft: -(gutter || constants.GRID_GUTTER_WIDTH) / 2,
 } : {});
 
-export const mixinMakeColReady = (
+// RESERVED
+// export const mixinMakeColReady = (
+//   constants,
+//   gutter = null,
+// ) => (constants.ENABLE_GRID_CLASSES ? {
+//   paddingRight: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
+//   paddingLeft: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
+// } : {});
+
+// experimental
+export const mixinMakeCol = (
   constants,
   gutter = null,
 ) => (constants.ENABLE_GRID_CLASSES ? {
-  flex: 1,
-  width: '100%', // experimental
+  flexDirection: 'row', // critical / TODO: document it
   paddingRight: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
   paddingLeft: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
+  // OBSOLETED / flexBasis: 0, // harmful
+  flexGrow: 1, // excessive?
+  minWidth: 0, // excessive?
+  maxWidth: '100%', // excessive?
 } : {});
 
+// RESERVED
 // @mixin make-col($size, $columns: $grid-columns) {
 //   flex: 0 0 percentage($size / $columns);
 //   // Add a `max-width` to ensure content within each column does not blow out
@@ -49,17 +59,20 @@ export const mixinMakeColReady = (
 //   max-width: percentage($size / $columns);
 // }
 
+// RESERVED
 // @mixin make-col-auto() {
 //   flex: 0 0 auto;
 //   width: auto;
 //   max-width: 100%; // Reset earlier grid tiers
 // }
 
+// SKIPPED
 // @mixin make-col-offset($size, $columns: $grid-columns) {
 //   $num: $size / $columns;
 //   margin-left: if($num == 0, 0, percentage($num));
 // }
 
+// SKIPPED
 // // Row columns
 // //
 // // Specify on a parent element(e.g., .row) to force immediate children into NN
@@ -71,15 +84,3 @@ export const mixinMakeColReady = (
 //     max-width: 100% / $count;
 //   }
 // }
-
-// experimental
-export const mixinMakeCol = (
-  constants,
-  fraction = 1,
-  gutter = null,
-) => (constants.ENABLE_GRID_CLASSES ? {
-  flex: fraction, // experimental
-  width: '100%', // experimental
-  paddingRight: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
-  paddingLeft: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
-} : {});
