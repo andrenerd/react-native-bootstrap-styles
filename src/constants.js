@@ -211,6 +211,38 @@ export default function getConstants(constants) {
 
     TEXT_MUTED = GRAY_600,
 
+    // Tables
+
+    TABLE_CELL_PADDING = .75 * REM,
+    TABLE_CELL_PADDING_SM = .3 * REM,
+
+    TABLE_COLOR = BODY_COLOR,
+    TABLE_BG = null,
+    TABLE_ACCENT_BG = Color(BLACK).fade(0.05).rgb().string(),
+    TABLE_HOVER_COLOR = TABLE_COLOR,
+    TABLE_HOVER_BG = Color(BLACK).fade(0.075).rgb().string(),
+    TABLE_ACTIVE_BG = TABLE_HOVER_BG,
+
+    TABLE_BORDER_WIDTH = BORDER_WIDTH,
+    TABLE_BORDER_COLOR = BORDER_COLOR,
+
+    TABLE_HEAD_BG = GRAY_200,
+    TABLE_HEAD_COLOR = GRAY_700,
+
+    TABLE_DARK_COLOR = WHITE,
+    TABLE_DARK_BG = GRAY_800,
+    TABLE_DARK_ACCENT_BG = Color(WHITE).fade(0.05).rgb().string(),
+    TABLE_DARK_HOVER_COLOR = TABLE_DARK_COLOR,
+    TABLE_DARK_HOVER_BG = Color(WHITE).fade(0.075).rgb().string(),
+    TABLE_DARK_BORDER_COLOR = Color(TABLE_DARK_BG).lighten(0.075).rgb().string(),
+
+    // TABLE_STRIPED_ORDER = 'odd',
+
+    TABLE_CAPTION_COLOR = TEXT_MUTED,
+
+    // TABLE_BG_LEVEL = -9,
+    // TABLE_BORDER_LEVEL = -6,
+
     // Forms
 
     INPUT_BTN_PADDING_Y = 0.75 * REM,
@@ -224,12 +256,12 @@ export default function getConstants(constants) {
     INPUT_BTN_FOCUS_BOX_SHADOW_OFFSET = {width: 0, height: 0},
     INPUT_BTN_FOCUS_BOX_SHADOW_RADIUS = INPUT_BTN_FOCUS_WIDTH,
 
-    // $input-btn-padding-y-sm:      .25rem,
-    // $input-btn-padding-x-sm:      .5rem,
+    // $input-btn-padding-y-sm:      .25* REM,
+    // $input-btn-padding-x-sm:      .5* REM,
     // $input-btn-line-height-sm:    $line-height-sm,
 
-    // $input-btn-padding-y-lg:      .5rem,
-    // $input-btn-padding-x-lg:      1rem,
+    // $input-btn-padding-y-lg:      .5* REM,
+    // $input-btn-padding-x-lg:      1* REM,
     // $input-btn-line-height-lg:    $line-height-lg,
 
     INPUT_BTN_BORDER_WIDTH = BORDER_WIDTH,
@@ -308,16 +340,16 @@ export default function getConstants(constants) {
 
     // $input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out,
 
-    // $form-text-margin-top:                  .25rem,
+    // $form-text-margin-top:                  .25* REM,
 
-    // $form-check-input-gutter:               1.25rem,
-    // $form-check-input-margin-y:             .3rem,
-    // $form-check-input-margin-x:             .25rem,
+    // $form-check-input-gutter:               1.25* REM,
+    // $form-check-input-margin-y:             .3* REM,
+    // $form-check-input-margin-x:             .25* REM,
 
-    // $form-check-inline-margin-x:            .75rem,
-    // $form-check-inline-input-margin-x:      .3125rem,
+    // $form-check-inline-margin-x:            .75* REM,
+    // $form-check-inline-input-margin-x:      .3125* REM,
 
-    // $form-group-margin-bottom:              1rem,
+    // $form-group-margin-bottom:              1* REM,
 
     // $input-group-addon-color:               $input-color,
     // $input-group-addon-bg:                  $gray-200,
@@ -409,7 +441,7 @@ export default function getConstants(constants) {
     // $modal-footer-border-color:         $modal-header-border-color,
     // $modal-header-border-width:         $modal-content-border-width,
     // $modal-footer-border-width:         $modal-header-border-width,
-    // $modal-header-padding:              1rem,
+    // $modal-header-padding:              1* REM,
 
     // $modal-lg:                    800px,
     // $modal-md:                    500px,
@@ -464,6 +496,16 @@ export default function getConstants(constants) {
     H1_FONT_SIZE, H2_FONT_SIZE, H3_FONT_SIZE, H4_FONT_SIZE, H5_FONT_SIZE, H6_FONT_SIZE,
     HEADINGS_MARGIN_BOTTOM, HEADINGS_FONT_FAMILY, HEADINGS_FONT_WEIGHT, HEADINGS_COLOR,
     TEXT_MUTED,
+
+    TABLE_CELL_PADDING, TABLE_CELL_PADDING_SM,
+    TABLE_COLOR, TABLE_BG, TABLE_ACCENT_BG, TABLE_HOVER_COLOR,
+    TABLE_HOVER_BG, TABLE_ACTIVE_BG,
+    TABLE_BORDER_WIDTH, TABLE_BORDER_COLOR,
+    TABLE_HEAD_BG, TABLE_HEAD_COLOR,
+    TABLE_DARK_COLOR, TABLE_DARK_BG,
+    TABLE_DARK_ACCENT_BG, TABLE_DARK_HOVER_COLOR,
+    TABLE_DARK_HOVER_BG, TABLE_DARK_BORDER_COLOR,
+    TABLE_CAPTION_COLOR,
 
     INPUT_BTN_PADDING_Y, INPUT_BTN_PADDING_X, INPUT_BTN_LINE_HEIGHT, INPUT_BTN_BORDER_WIDTH,
     BTN_PADDING_Y, BTN_PADDING_X, BTN_LINE_HEIGHT,

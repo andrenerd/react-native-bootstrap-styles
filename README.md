@@ -69,8 +69,8 @@ ORIENTATION_PORTRAIT, // ex. true
 ORIENTATION_LANDSCAPE, // ex. false
 MODE_LIGHT, // ex. false
 MODE_DARK, // ex. true
-SCREENS, // ['Xs', 'Md'] / experimental
-SCREEN, // ex. 'Md' / experimental
+SCREENS, // ['Xs', 'Md']
+SCREEN, // ex. 'Md'
 ```
 
 

@@ -31,6 +31,7 @@ import getClassesCard from './card';
 import getClassesModal from './modal';
 import getClassesProgress from './progress';
 import getClassesReboot from './reboot';
+import getClassesTables from './tables';
 
 class BootstrapStyleSheet {
 
@@ -63,6 +64,7 @@ class BootstrapStyleSheet {
     getClassesModal,
     getClassesProgress,
     getClassesReboot,
+    getClassesTables,
   ]
 
   // TODO: test "mode" (light/dark)
