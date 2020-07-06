@@ -7,6 +7,8 @@ export default function getClasses(constants, classes) {
     TABLE_BG,
     TABLE_BORDER_WIDTH,
     TABLE_BORDER_COLOR,
+    TABLE_HEAD_BG,
+    TABLE_HEAD_COLOR,
     TABLE_CELL_PADDING,
     TABLE_CELL_PADDING_SM,
   } = constants;
