@@ -11,6 +11,7 @@ export default function getClasses(constants, classes) {
     TABLE_HEAD_COLOR,
     TABLE_CELL_PADDING,
     TABLE_CELL_PADDING_SM,
+    TABLE_CAPTION_COLOR,
   } = constants;
 
   const _classes = {
