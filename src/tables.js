@@ -61,6 +61,16 @@ export default function getClasses(constants, classes) {
     },
   };
 
+  // lets do full copy
+  tableSmTbodyTd = Object.assign({}, tableTbodyTd, {
+    padding: TABLE_CELL_PADDING_SM,
+  });
+
+  // lets do full copy
+  tableSmTheadTh = Object.assign({}, tableTheadTh, {
+    padding: TABLE_CELL_PADDING_SM,
+  });
+
   // aliases
   _classes.tableTh = _classes.tableTheadTh;
   _classes.tableTr = _classes.tableTbodyTr;
@@ -69,9 +79,11 @@ export default function getClasses(constants, classes) {
   // aliases
   _classes.tableHead = _classes.tableThead;
   _classes.tableHeadCol = _classes.tableTheadTh;
+  _classes.tableSmHeadCol = _classes.tableSmTheadTh;
   _classes.tableBody = _classes.tableTbody;
   _classes.tableRow = _classes.tableTbodyTr;
   _classes.tableCol = _classes.tableTbodyTd;
+  _classes.tableSmCol = _classes.tableSmTbodyTd;
 
   return _classes;
 };
