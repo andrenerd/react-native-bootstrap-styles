@@ -3,7 +3,7 @@ import { mixinButtonSize, mixinButtonVariant, mixinButtonOutlineVariant } from '
 export default function getClasses(constants, classes) {
   const {
     SPACER,
-    TABLE_COLOR,
+    // SKIPPED / TABLE_COLOR,
     TABLE_BG,
     TABLE_BORDER_WIDTH,
     TABLE_BORDER_COLOR,
@@ -19,35 +19,59 @@ export default function getClasses(constants, classes) {
     table: {
       width: '100%',
       marginBottom: SPACER,
-      color: TABLE_COLOR, // TODO: check
       backgroundColor: TABLE_BG,
+      // SKIPPED / color: TABLE_COLOR,
     },
 
-    tableTh: {
+    tableTheadTh: {
+      flex: 1,
+      padding: TABLE_CELL_PADDING,
+      justifyContent: 'flex-end',
+      borderStyle: 'solid',
+      borderTopWidth: TABLE_BORDER_WIDTH,
+      borderTopColor: TABLE_BORDER_COLOR,
+      borderBottomWidth: (2 * TABLE_BORDER_WIDTH),
+      borderBottomColor: TABLE_BORDER_COLOR,
+    },
+
+    tableTbodyTd: {
+      flex: 1,
       padding: TABLE_CELL_PADDING,
       justifyContent: 'flex-start',
+      borderStyle: 'solid',
       borderTopWidth: TABLE_BORDER_WIDTH,
       borderTopColor: TABLE_BORDER_COLOR,
     },
 
-    tableTd: {
-      padding: TABLE_CELL_PADDING,
-      justifyContent: 'flex-start',
-      borderTopWidth: TABLE_BORDER_WIDTH,
+    // experimental
+    tableTbodyTbody: {
+      borderStyle: 'solid',
+      borderTopWidth: (2 * TABLE_BORDER_WIDTH),
       borderTopColor: TABLE_BORDER_COLOR,
     },
 
-    // table: {
-    //   // thead th {
-    //   //   vertical-align: bottom;
-    //   //   border-bottom: (2 * $table-border-width) solid $table-border-color;
-    //   // }
+    // TODO: clarify
+    tableThead: {
+      flexDirection: 'row',
+    },
 
-    //   // tbody + tbody {
-    //   //   border-top: (2 * $table-border-width) solid $table-border-color;
-    //   // }
-    // }
+    // TODO: clarify
+    tableTbodyTr: {
+      flexDirection: 'row',
+    },
   };
+
+  // aliases
+  _classes.tableTh = _classes.tableTheadTh;
+  _classes.tableTr = _classes.tableTbodyTr;
+  _classes.tableTd = _classes.tableTbodyTd;
+
+  // aliases
+  _classes.tableHead = _classes.tableThead;
+  _classes.tableHeadCol = _classes.tableTheadTh;
+  _classes.tableBody = _classes.tableTbody;
+  _classes.tableRow = _classes.tableTbodyTr;
+  _classes.tableCol = _classes.tableTbodyTd;
 
   return _classes;
 };
