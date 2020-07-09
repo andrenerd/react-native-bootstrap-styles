@@ -240,24 +240,28 @@ Basic progress bar
 ## Misc
 
 
-### Selectors (RFP)
+### Selectors  
 
-An attempt to mimic CSS selectors for group pseudo-classes, such as `:first-child`:
+An attempt to mimic CSS selectors for group pseudo-classes, such as `:first-child` and media queries:
 ```
 <View style={[s.flexRow]}>
   {
     group.map((item, index) => (
-      <View key={item} style={[s.flex4, s.selectorFirstChild(index, s.bgSuccess)]}>
-        {/* content */}
+      <View key={index} style={[s.selectorFirstChild(index, s.bgLight)]}>
+        <Text style={[s.selectorMediaUpMd([s.text, s.textPrimary])>Colored for Md+</Text>
+        <Text style={[s.selectorMediaLandscape([s.text, s.textPrimary])>Colored for Lanscape</Text>
       </View>
     ))
   }
 </View>
 ```
 
-Some component classes have selector-based extensions, for example `cardHeaderFirstChild`:
+Check the full list of constants in the source code:  
+[./src/mixins/selectors.js](./src/mixins/selectors.js)
+
+Some element classes have selector-based extensions, for example `cardHeaderFirstChild`:
 ```
-tbd...
+provide an example...
 ```
 
 

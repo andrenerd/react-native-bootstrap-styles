@@ -1,6 +1,6 @@
 import { mixinPaginationSizePageLink } from './mixins/pagination';
 import { mixinBorderRadius, mixinBorderLeftRadius, mixinBorderRightRadius } from './mixins/border-radius';
-import { selectorFirstChild, selectorLastChild, selectorCondition } from './selectors';
+import { selectorFirstChild, selectorLastChild, selectorCondition } from './mixins/selectors';
 
 export default function getClasses(constants, classes) {
   const {
