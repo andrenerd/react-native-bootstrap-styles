@@ -13,7 +13,9 @@ try {
 }
 
 import { getScreens } from './mixins/helpers';
+import { getSelectors } from './mixins/selectors';
 import getConstants from './constants';
+console.log('!!!SELECTORS', getSelectors);
 
 import getClassesText from './utilities/text';
 import getClassesBackground from './utilities/background';
@@ -48,6 +50,8 @@ class BootstrapStyleSheet {
   styles;
 
   _modules = [
+    getSelectors,
+
     getClassesText,
     getClassesBackground,
     getClassesFlex,

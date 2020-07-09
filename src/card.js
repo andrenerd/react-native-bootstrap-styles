@@ -1,7 +1,7 @@
 import { mediaBreakpointUp, mediaBreakpointDown } from './mixins/helpers';
 import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius } from './mixins/border-radius';
 import { mixinBoxShadow } from './mixins/box-shadow';
-import { selectorFirstChild } from './selectors';
+import { selectorFirstChild } from './mixins/selectors';
 
 export default function getClasses(constants, classes) {
   const {
