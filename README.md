@@ -2,13 +2,13 @@
 
 
 <p>  
-<img title="React Native Bootstrap Styles" alt="React Native Bootstrap Styles" src="./docs/logo.svg" width="20%">  
+<img title="React Native Bootstrap Styles" alt="React Native Bootstrap Styles" src="./assets/logo.svg" width="20%">  
 </p>  
 
 
 Bootstrap style library for React Native.  
 
-Original class names are transformed from "dashed" to "camelcase" style, for example: `text-center` to `textCenter` and `my-sm-4` to 'mySm4'. Also all the constants (variables in terms of Bootstrap) could be accessible in templates. It helps to make custom tweaks preserving styling guidelines, for example: {fontSize: 10 * FONT_SIZE_BASE}.
+Original class names are transformed from "dashed" to "camelcase" format, for example: `text-center` to `textCenter` and `my-sm-4` to 'mySm4'. Also all the constants (variables in terms of Bootstrap) could be accessible in templates. It helps to make custom tweaks preserving styling guidelines, for example: {fontSize: 10 * FONT_SIZE_BASE}.
 
 
 ```
@@ -139,6 +139,7 @@ What's implemented or near to:
 also: 
 - grid 
 - text 
+
 
 
 

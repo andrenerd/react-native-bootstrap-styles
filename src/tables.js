@@ -61,6 +61,8 @@ export default function getClasses(constants, classes) {
     },
 
     // Border versions
+    // experimental
+
     tableBordered: {
       borderStyle: 'solid',
       borderTopWidth: TABLE_BORDER_WIDTH,
@@ -83,6 +85,22 @@ export default function getClasses(constants, classes) {
       borderRightWidth: TABLE_BORDER_WIDTH,
       borderRightColor: TABLE_BORDER_COLOR,
     },
+
+    tableBorderless: {
+      borderWidth: 0,
+    },
+
+    tableBorderlessTbodyTd: {
+      borderWidth: 0,
+    },
+
+    tableBorderlessTheadTh: {
+      borderWidth: 0,
+    },
+
+    tableBorderlessTbodyTbody: {
+      borderWidth: 0,
+    },
   };
 
   // lets make full copy
@@ -101,12 +119,15 @@ export default function getClasses(constants, classes) {
   _classes.tableTd = _classes.tableTbodyTd;
   _classes.tableBorderedTh = _classes.tableBorderedTheadTh;
   _classes.tableBorderedTd = _classes.tableBorderedTbodyTd;
+  _classes.tableBorderlessTh = _classes.tableBorderlessTheadTh;
+  _classes.tableBorderlessTd = _classes.tableBorderlessTbodyTd;
 
   // aliases
   _classes.tableHead = _classes.tableThead;
   _classes.tableHeadCol = _classes.tableTheadTh;
   _classes.tableSmHeadCol = _classes.tableSmTheadTh;
   _classes.tableBorderedHeadCol = _classes.tableBorderedTheadTh;
+  _classes.tableBorderlessHeadCol = _classes.tableBorderlessTheadTh;
 
   _classes.tableBody = _classes.tableTbody;
   _classes.tableRow = _classes.tableTbodyTr;
@@ -114,6 +135,7 @@ export default function getClasses(constants, classes) {
 
   _classes.tableSmCol = _classes.tableSmTbodyTd;
   _classes.tableBorderedCol = _classes.tableBorderedTbodyTd;
+  _classes.tableBorderlessCol = _classes.tableBorderlessTbodyTd;
 
   return _classes;
 };
