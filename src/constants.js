@@ -3,31 +3,33 @@ import { StyleSheet, Dimensions } from 'react-native';
 import Color from 'color';
 
 export default function getConstants(constants) {
+  const _ = (name, value) => constants[name] == undefined ? value : constants[name];
+
   const {
 
     // Options
 
-    ENABLE_ROUNDED = true,
-    ENABLE_SHADOWS = true,
+    ENABLE_ROUNDED = _('ENABLE_ROUNDED', true),
+    ENABLE_SHADOWS = _('ENABLE_SHADOWS', true),
     // $enable-gradients:          false,
     // $enable-transitions:        true,
-    ENABLE_GRID_CLASSES = true,
+    ENABLE_GRID_CLASSES = _('ENABLE_GRID_CLASSES', true),
 
-    REM = 14,
+    REM = _('REM', 14),
 
     // Colors
 
-    WHITE = '#fff',
-    GRAY_100 = '#f8f9fa',
-    GRAY_200 = '#e9ecef',
-    GRAY_300 = '#dee2e6',
-    GRAY_400 = '#ced4da',
-    GRAY_500 = '#adb5bd',
-    GRAY_600 = '#6c757d',
-    GRAY_700 = '#495057',
-    GRAY_800 = '#343a40',
-    GRAY_900 = '#212529',
-    BLACK = '#000',
+    WHITE = _('WHITE', '#fff'),
+    GRAY_100 = _('GRAY_100', '#f8f9fa'),
+    GRAY_200 = _('GRAY_200', '#e9ecef'),
+    GRAY_300 = _('GRAY_300', '#dee2e6'),
+    GRAY_400 = _('GRAY_400', '#ced4da'),
+    GRAY_500 = _('GRAY_500', '#adb5bd'),
+    GRAY_600 = _('GRAY_600', '#6c757d'),
+    GRAY_700 = _('GRAY_700', '#495057'),
+    GRAY_800 = _('GRAY_800', '#343a40'),
+    GRAY_900 = _('GRAY_900', '#212529'),
+    BLACK = _('BLACK', '#000'),
 
     GRAYS = {
       '100': GRAY_100,
@@ -41,25 +43,25 @@ export default function getConstants(constants) {
       '900': GRAY_900,
     },
 
-    BLUE = '#007bff',
-    CYAN = '#17a2b8',
-    RED = '#dc3545',
-    YELLOW = '#ffc107',
-    GREEN = '#28a745',
-    INDIGO = '#6610f2',
-    PYRPLE = '#6f42c1',
-    PINK = '#e83e8c',
-    ORANGE = '#fd7e14',
-    TEAL = '#20c997',
+    BLUE = _('BLUE', '#007bff'),
+    CYAN = _('CYAN', '#17a2b8'),
+    RED = _('RED', '#dc3545'),
+    YELLOW = _('YELLOW', '#ffc107'),
+    GREEN = _('GREEN', '#28a745'),
+    INDIGO = _('INDIGO', '#6610f2'),
+    PYRPLE = _('PYRPLE', '#6f42c1'),
+    PINK = _('PINK', '#e83e8c'),
+    ORANGE = _('ORANGE', '#fd7e14'),
+    TEAL = _('TEAL', '#20c997'),
 
-    PRIMARY = BLUE,
-    SECONDARY = GRAY_600,
-    SUCCESS = GREEN,
-    INFO = CYAN,
-    WARNING = YELLOW,
-    DANGER = RED,
-    LIGHT = GRAY_100,
-    DARK = GRAY_800,
+    PRIMARY = _('PRIMARY', BLUE),
+    SECONDARY = _('SECONDARY', GRAY_600),
+    SUCCESS = _('SUCCESS', GREEN),
+    INFO = _('INFO', CYAN),
+    WARNING = _('WARNING', YELLOW),
+    DANGER = _('DANGER', RED),
+    LIGHT = _('LIGHT', GRAY_100),
+    DARK = _('DARK', GRAY_800),
 
     THEME_COLORS = {
       PRIMARY: PRIMARY,
@@ -76,17 +78,17 @@ export default function getConstants(constants) {
 
     // Spacing
 
-    SPACER = 1,
-    SPACERS = {
+    SPACER = _('SPACER', 1),
+    SPACERS = _('SPACERS', {
       0: 0,
       1: (SPACER * 0.25),
       2: (SPACER * 0.5),
       3: (SPACER * 1),
       4: (SPACER * 1.5),
       5: (SPACER * 3),
-    },
+    }),
 
-    SIZES = {
+    SIZES =_('SIZES', {
       5: '5%',
       10: '20%',
       15: '15%',
@@ -108,49 +110,49 @@ export default function getConstants(constants) {
       95: '95%',
       100: '100%',
       Auto: 'auto', // what??
-    },
+    }),
 
-    GRID_BREAKPOINTS_HORIZONTAL = {
+    GRID_BREAKPOINTS_HORIZONTAL = _('GRID_BREAKPOINTS_HORIZONTAL', {
       Xs: 0, // should start at zero
       Sm: 360, // Samsung / 375 for iPhone
       Md: 411, // Google / 414 for iPhone
       Lg: 768, // iPad and Nexus
       Xl: 1024, // iPad Pro
-    },
+    }),
 
     // experimental
-    GRID_BREAKPOINTS_VERTICAL = {
+    GRID_BREAKPOINTS_VERTICAL = _('GRID_BREAKPOINTS_VERTICAL', {
       Xs: 0, // should start at zero
       Sm: 640,
       Md: 768,
       Lg: 1024,
       Xl: 1280,
-    },
+    }),
 
     GRID_BREAKPOINTS = GRID_BREAKPOINTS_HORIZONTAL,
 
     // GRID_BREAKPOINTS_HORIZONTAL * 0.9375
-    CONTAINER_MAX_WIDTHS = {
+    CONTAINER_MAX_WIDTHS = _('CONTAINER_MAX_WIDTHS', {
       Sm: 338,
       Md: 385,
       Lg: 720,
       Xl: 960,
-    },
+    }),
 
     // Body
 
-    BODY_BG = WHITE,
-    BODY_COLOR = GRAY_900,
+    BODY_BG = _('BODY_BG', WHITE),
+    BODY_COLOR = _('BODY_COLOR', GRAY_900),
 
     // Links
 
-    LINK_COLOR = INFO,
+    LINK_COLOR = _('LINK_COLOR', INFO),
     LINK_DECORATION = 'underline',
 
     // Grid
 
     GRID_COLUMNS = 12,
-    GRID_GUTTER_WIDTH = SPACER * 1.5 * REM,
+    GRID_GUTTER_WIDTH = _('GRID_GUTTER_WIDTH', SPACER * 1.5 * REM),
     GRID_ROW_COLUMNS = 6,
 
     // Components
@@ -158,12 +160,12 @@ export default function getConstants(constants) {
     LINE_HEIGHT_LG = 1.5 * REM,
     LINE_HEIGHT_SM = 1.5 * REM,
 
-    BORDER_WIDTH = StyleSheet.hairlineWidth, // 1
-    BORDER_COLOR = GRAY_300,
+    BORDER_WIDTH = _('BORDER_WIDTH', StyleSheet.hairlineWidth), // 1
+    BORDER_COLOR = _('BORDER_COLOR', GRAY_300),
 
-    BORDER_RADIUS = 0.25 * REM,
-    BORDER_RADIUS_LG = 0.3 * REM,
-    BORDER_RADIUS_SM = 0.2 * REM,
+    BORDER_RADIUS = _('BORDER_RADIUS', 0.25 * REM),
+    BORDER_RADIUS_LG = _('BORDER_RADIUS_LG', 0.3 * REM),
+    BORDER_RADIUS_SM = _('BORDER_RADIUS_SM', 0.2 * REM),
 
     ROUNDED_PILL = 50 * REM,
 
@@ -171,31 +173,32 @@ export default function getConstants(constants) {
     // $box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
     // $box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
 
-    COMPONENT_ACTIVE_COLOR = WHITE,
-    COMPONENT_ACTIVE_BG = PRIMARY,
+    COMPONENT_ACTIVE_COLOR =_('COMPONENT_ACTIVE_COLOR', WHITE),
+    COMPONENT_ACTIVE_BG = _('COMPONENT_ACTIVE_BG', PRIMARY),
 
-    SHADOW_COLOR = BLACK, // new
-    SHADOW_OPACITY = 0.2, // new
-    SHADOW_OFFSET = {width: 0.1 * REM, height: 0.1 * REM}, // new / experimental
+    SHADOW_COLOR = _('SHADOW_COLOR', BLACK),
+    SHADOW_OPACITY = _('SHADOW_OPACITY', 0.2),
+    SHADOW_OFFSET = _('SHADOW_OFFSET', {width: 0.1 * REM, height: 0.1 * REM}), // experimental
+    // RESERVED / SHADOW_RADIUS = ...
 
     // Fonts
 
-    FONT_FAMILY_SANS_SERIF = 'System', // iOS: 'San Francisco'
-    FONT_FAMILY_MONOSPACE = 'System', // iOS: 'SFMono-Regular',
-    FONT_FAMILY_BASE = FONT_FAMILY_SANS_SERIF,
-    FONT_FAMILY_BASE_LIGHT = FONT_FAMILY_SANS_SERIF,
-    FONT_FAMILY_BASE_BOLD = FONT_FAMILY_SANS_SERIF,
+    FONT_FAMILY_SANS_SERIF = _('FONT_FAMILY_SANS_SERIF', 'System'), // iOS: 'San Francisco'
+    FONT_FAMILY_MONOSPACE = _('FONT_FAMILY_MONOSPACE', 'System'), // iOS: 'SFMono-Regular',
+    FONT_FAMILY_BASE = _('FONT_FAMILY_BASE', FONT_FAMILY_SANS_SERIF),
+    FONT_FAMILY_BASE_LIGHT = _('FONT_FAMILY_BASE_LIGHT', FONT_FAMILY_SANS_SERIF),
+    FONT_FAMILY_BASE_BOLD = _('FONT_FAMILY_BASE_BOLD', FONT_FAMILY_SANS_SERIF),
 
-    FONT_SIZE_BASE = REM,
-    FONT_SIZE_BASE_SM = 0.875 * REM,
-    FONT_SIZE_BASE_LG = 1.25 * REM,
+    FONT_SIZE_BASE = _('FONT_SIZE_BASE', REM),
+    FONT_SIZE_BASE_SM = _('FONT_SIZE_BASE_SM', 0.875 * REM),
+    FONT_SIZE_BASE_LG = _('FONT_SIZE_BASE_LG', 1.25 * REM),
 
-    FONT_WEIGHT_LIGHT = '300',
-    FONT_WEIGHT_NORMAL = '400',
-    FONT_WEIGHT_BOLD = '700',
+    FONT_WEIGHT_LIGHT = _('FONT_WEIGHT_LIGHT', '300'),
+    FONT_WEIGHT_NORMAL = _('FONT_WEIGHT_NORMAL', '400'),
+    FONT_WEIGHT_BOLD = _('FONT_WEIGHT_BOLD', '700'),
 
-    FONT_WEIGHT_BASE = FONT_WEIGHT_NORMAL,
-    LINE_HEIGHT_BASE = 1.5 * REM, // ???
+    FONT_WEIGHT_BASE = _('FONT_WEIGHT_BASE', FONT_WEIGHT_NORMAL),
+    LINE_HEIGHT_BASE = _('LINE_HEIGHT_BASE', 1.5 * REM), // ???
 
     H1_FONT_SIZE = 2.5 * REM,
     H2_FONT_SIZE = 2 * REM,
@@ -209,18 +212,18 @@ export default function getConstants(constants) {
     HEADINGS_FONT_WEIGHT = FONT_WEIGHT_BASE,
     HEADINGS_COLOR = BODY_COLOR,
 
-    TEXT_MUTED = GRAY_600,
+    TEXT_MUTED = _('TEXT_MUTED', GRAY_600),
 
     // Tables
 
     TABLE_CELL_PADDING = .75 * REM,
     TABLE_CELL_PADDING_SM = .3 * REM,
 
-    TABLE_COLOR = BODY_COLOR,
+    TABLE_COLOR = _('TABLE_COLOR', BODY_COLOR),
     TABLE_BG = null,
     TABLE_ACCENT_BG = Color(BLACK).fade(0.05).rgb().string(),
-    TABLE_HOVER_COLOR = TABLE_COLOR,
-    TABLE_HOVER_BG = Color(BLACK).fade(0.075).rgb().string(),
+    TABLE_HOVER_COLOR = TABLE_COLOR, // not in use
+    TABLE_HOVER_BG = Color(BLACK).fade(0.075).rgb().string(), // not in use
     TABLE_ACTIVE_BG = TABLE_HOVER_BG,
 
     TABLE_BORDER_WIDTH = BORDER_WIDTH,
@@ -229,11 +232,11 @@ export default function getConstants(constants) {
     TABLE_HEAD_BG = GRAY_200,
     TABLE_HEAD_COLOR = GRAY_700,
 
-    TABLE_DARK_COLOR = WHITE,
-    TABLE_DARK_BG = GRAY_800,
+    TABLE_DARK_COLOR = _('TABLE_DARK_COLOR', WHITE),
+    TABLE_DARK_BG = _('TABLE_DARK_BG', GRAY_800),
     TABLE_DARK_ACCENT_BG = Color(WHITE).fade(0.05).rgb().string(),
-    TABLE_DARK_HOVER_COLOR = TABLE_DARK_COLOR,
-    TABLE_DARK_HOVER_BG = Color(WHITE).fade(0.075).rgb().string(),
+    TABLE_DARK_HOVER_COLOR = TABLE_DARK_COLOR, // not in use
+    TABLE_DARK_HOVER_BG = Color(WHITE).fade(0.075).rgb().string(), // not in use
     TABLE_DARK_BORDER_COLOR = Color(TABLE_DARK_BG).lighten(0.075).rgb().string(),
 
     // TABLE_STRIPED_ORDER = 'odd',
@@ -245,16 +248,16 @@ export default function getConstants(constants) {
 
     // Forms
 
-    INPUT_BTN_PADDING_Y = 0.75 * REM,
-    INPUT_BTN_PADDING_X = 1.5 * REM,
-    INPUT_BTN_LINE_HEIGHT = LINE_HEIGHT_BASE,
+    INPUT_BTN_PADDING_Y = _('INPUT_BTN_PADDING_Y', 0.75 * REM),
+    INPUT_BTN_PADDING_X = _('INPUT_BTN_PADDING_X', 1.5 * REM),
+    INPUT_BTN_LINE_HEIGHT = _('INPUT_BTN_LINE_HEIGHT', LINE_HEIGHT_BASE),
 
-    INPUT_BTN_FOCUS_WIDTH = .2 * REM,
-    INPUT_BTN_FOCUS_COLOR = Color(COMPONENT_ACTIVE_BG).fade(0.25).rgb().string(),
-    INPUT_BTN_FOCUS_BOX_SHADOW_COLOR = INPUT_BTN_FOCUS_COLOR,
-    INPUT_BTN_FOCUS_BOX_SHADOW_OPACITY = SHADOW_OPACITY,
-    INPUT_BTN_FOCUS_BOX_SHADOW_OFFSET = {width: 0, height: 0},
-    INPUT_BTN_FOCUS_BOX_SHADOW_RADIUS = INPUT_BTN_FOCUS_WIDTH,
+    INPUT_BTN_FOCUS_WIDTH = _('INPUT_BTN_FOCUS_WIDTH', .2 * REM),
+    INPUT_BTN_FOCUS_COLOR = _('INPUT_BTN_FOCUS_COLOR', Color(COMPONENT_ACTIVE_BG).fade(0.25).rgb().string()),
+    INPUT_BTN_FOCUS_BOX_SHADOW_COLOR = _('INPUT_BTN_FOCUS_BOX_SHADOW_COLOR', INPUT_BTN_FOCUS_COLOR),
+    INPUT_BTN_FOCUS_BOX_SHADOW_OPACITY = _('INPUT_BTN_FOCUS_BOX_SHADOW_OPACITY', SHADOW_OPACITY),
+    INPUT_BTN_FOCUS_BOX_SHADOW_OFFSET = _('INPUT_BTN_FOCUS_BOX_SHADOW_OFFSET', {width: 0, height: 0}),
+    INPUT_BTN_FOCUS_BOX_SHADOW_RADIUS = _('INPUT_BTN_FOCUS_BOX_SHADOW_RADIUS', INPUT_BTN_FOCUS_WIDTH),
 
     // $input-btn-padding-y-sm:      .25* REM,
     // $input-btn-padding-x-sm:      .5* REM,
@@ -264,7 +267,7 @@ export default function getConstants(constants) {
     // $input-btn-padding-x-lg:      1* REM,
     // $input-btn-line-height-lg:    $line-height-lg,
 
-    INPUT_BTN_BORDER_WIDTH = BORDER_WIDTH,
+    INPUT_BTN_BORDER_WIDTH = _('INPUT_BTN_BORDER_WIDTH', BORDER_WIDTH),
 
     // Buttons
 
@@ -288,7 +291,7 @@ export default function getConstants(constants) {
     BTN_BORDER_RADIUS_LG = BORDER_RADIUS_LG,
     BTN_BORDER_RADIUS_SM = BORDER_RADIUS_SM,
 
-    BTN_OUTLINE_BACKGROUND_COLOR = BODY_BG, // 'transparent'
+    BTN_OUTLINE_BACKGROUND_COLOR = BODY_BG, // origin: 'transparent'
 
     // Forms
 
@@ -382,7 +385,7 @@ export default function getConstants(constants) {
     // $pagination-hover-border-color:     $gray-300 !default;
 
     PAGINATION_ACTIVE_COLOR = COMPONENT_ACTIVE_COLOR,
-    PAGINATION_ACTIVE_BG = COMPONENT_ACTIVE_BG,
+    PAGINATION_ACTIVE_BG = _('PAGINATION_ACTIVE_BG', COMPONENT_ACTIVE_BG),
     PAGINATION_ACTIVE_BORDER_COLOR = PAGINATION_ACTIVE_BG,
 
     PAGINATION_DISABLED_COLOR = GRAY_600,
@@ -391,10 +394,10 @@ export default function getConstants(constants) {
 
     // Cards
 
-    CARD_SPACER_Y = 0.75 * SPACER * REM,
-    CARD_SPACER_X = 1.25 * SPACER * REM,
-    CARD_BORDER_WIDTH = BORDER_WIDTH,
-    CARD_BORDER_RADIUS = BORDER_RADIUS,
+    CARD_SPACER_Y = _('CARD_SPACER_Y', 0.75 * SPACER * REM),
+    CARD_SPACER_X = _('CARD_SPACER_X', 1.25 * SPACER * REM),
+    CARD_BORDER_WIDTH = _('CARD_BORDER_WIDTH', BORDER_WIDTH),
+    CARD_BORDER_RADIUS = _('CARD_BORDER_RADIUS', BORDER_RADIUS),
     CARD_BORDER_COLOR = BORDER_COLOR, // rgba($black, .125)
     CARD_INNER_BORDER_RADIUS = CARD_BORDER_RADIUS - CARD_BORDER_WIDTH,
     CARD_CAP_BG = GRAY_100, // rgba($black, .03)
@@ -407,7 +410,7 @@ export default function getConstants(constants) {
 
     CARD_IMG_OVERLAY_PADDING = 1.25 * REM,
 
-    CARD_GROUP_MARGIN = GRID_GUTTER_WIDTH / 2,
+    CARD_GROUP_MARGIN = _('CARD_GROUP_MARGIN', GRID_GUTTER_WIDTH / 2),
     CARD_DECK_MARGIN = CARD_GROUP_MARGIN,
 
     CARD_COLUMNS_COUNT = 3,
@@ -417,7 +420,6 @@ export default function getConstants(constants) {
     // Modals
 
     MODAL_INNER_PADDING = 1 * SPACER * REM,
-
     MODAL_DIALOG_MARGIN = 1 * SPACER * REM,
     // $modal-dialog-margin-y-sm-up: 30px,
 
@@ -458,7 +460,7 @@ export default function getConstants(constants) {
     PROGRESS_BOX_SHADOW_COLOR = SHADOW_COLOR,
     PROGRESS_BOX_SHADOW_OFFSET = SHADOW_OFFSET,
     PROGRESS_BOX_SHADOW_OPACITY = 0.5 * SHADOW_OPACITY, // 0.1
-    PROGRESS_BOX_SHADOW_RADIUS = PROGRESS_BORDER_RADIUS,
+    PROGRESS_BOX_SHADOW_RADIUS = _('PROGRESS_BOX_SHADOW_RADIUS', PROGRESS_BORDER_RADIUS),
     PROGRESS_BAR_COLOR = WHITE,
     PROGRESS_BAR_BG = PRIMARY,
     PROGRESS_BAR_ANIMATION_TIMING = 'placeholder', // 1s linear infinite,
@@ -484,6 +486,7 @@ export default function getConstants(constants) {
     GRID_COLUMNS, GRID_GUTTER_WIDTH, GRID_ROW_COLUMNS,
     LINE_HEIGHT_LG, LINE_HEIGHT_SM,
     BORDER_WIDTH, BORDER_COLOR, BORDER_RADIUS, BORDER_RADIUS_LG, BORDER_RADIUS_SM,
+    ROUNDED_PILL,
     SHADOW_COLOR, SHADOW_OPACITY, SHADOW_OFFSET,
 
     COMPONENT_ACTIVE_COLOR, COMPONENT_ACTIVE_BG,
