@@ -212,7 +212,30 @@ export default function getConstants(constants) {
     HEADINGS_FONT_WEIGHT = FONT_WEIGHT_BASE,
     HEADINGS_COLOR = BODY_COLOR,
 
+    // $lead-font-size:              $font-size-base * 1.25 !default;
+    // $lead-font-weight:            300 !default;
+
+    // $small-font-size = _('LINE_HEIGHT_BASE', 0.8);
+
     TEXT_MUTED = _('TEXT_MUTED', GRAY_600),
+
+    // BLOCKQUOTE_SMALL_COLOR = GRAY_600,
+    // BLOCKQUOTE_SMALL_FONT_SIZE = SMALL_FONT_SIZE,
+    BLOCKQUOTE_FONT_SIZE = FONT_SIZE_BASE * 1.25 * REM,
+
+    HR_BORDER_COLOR =  Color(BLACK).fade(0.1).rgb().string(),
+    HR_BORDER_WIDTH =  BORDER_WIDTH,
+
+    MARK_PADDING = 0.2 * REM,
+
+    // $dt-font-weight:              $font-weight-bold !default;
+
+    // $kbd-box-shadow:              inset 0 -.1rem 0 rgba($black, .25) !default;
+    // $nested-kbd-font-weight:      $font-weight-bold !default;
+
+    LIST_INLINE_PADDING = 0.5 * REM,
+    MARK_BG = '#fcf8e3',
+    HR_MARGIN_Y = SPACER,
 
     // Tables
 
@@ -330,7 +353,7 @@ export default function getConstants(constants) {
     INPUT_PLACEHOLDER_COLOR = GRAY_600,
     INPUT_PLAINTEXT_COLOR = BODY_COLOR,
 
-    INPUT_HEIGHT_BORDER = INPUT_BORDER_WIDTH * 2,
+    INPUT_HEIGHR_BORDER = INPUT_BORDER_WIDTH * 2,
 
     // $input-height-inner:                    ($font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2),
     // $input-height:                          calc(#{$input-height-inner} + #{$input-height-border}),
@@ -498,7 +521,12 @@ export default function getConstants(constants) {
     FONT_WEIGHT_BASE, LINE_HEIGHT_BASE,
     H1_FONT_SIZE, H2_FONT_SIZE, H3_FONT_SIZE, H4_FONT_SIZE, H5_FONT_SIZE, H6_FONT_SIZE,
     HEADINGS_MARGIN_BOTTOM, HEADINGS_FONT_FAMILY, HEADINGS_FONT_WEIGHT, HEADINGS_COLOR,
+
     TEXT_MUTED,
+    BLOCKQUOTE_FONT_SIZE,
+    HR_BORDER_COLOR, HR_BORDER_WIDTH,
+    MARK_PADDING, LIST_INLINE_PADDING, MARK_BG,
+    HR_MARGIN_Y,
 
     TABLE_CELL_PADDING, TABLE_CELL_PADDING_SM,
     TABLE_COLOR, TABLE_BG, TABLE_ACCENT_BG, TABLE_HOVER_COLOR,
@@ -519,7 +547,7 @@ export default function getConstants(constants) {
     INPUT_BG, INPUT_DISABLED_BG, INPUT_COLOR,
     INPUT_BORDER_COLOR, INPUT_BORDER_WIDTH,
     INPUT_BORDER_RADIUS, INPUT_BORDER_RADIUS_LG, INPUT_BORDER_RADIUS_SM,
-    INPUT_PLACEHOLDER_COLOR, INPUT_PLAINTEXT_COLOR, INPUT_HEIGHT_BORDER,
+    INPUT_PLACEHOLDER_COLOR, INPUT_PLAINTEXT_COLOR, INPUT_HEIGHR_BORDER,
 
     PAGINATION_PADDING_Y, PAGINATION_PADDING_X,
     PAGINATION_PADDING_Y_SM, PAGINATION_PADDING_X_SM,

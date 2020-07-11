@@ -1,5 +1,8 @@
+import { mixinListUnstyled } from './mixins/lists';
+
 export default function getClasses(constants, classes) {
   const {
+    SPACER,
     H1_FONT_SIZE,
     H2_FONT_SIZE,
     H3_FONT_SIZE,
@@ -11,10 +14,80 @@ export default function getClasses(constants, classes) {
     HEADINGS_FONT_FAMILY,
     HEADINGS_FONT_WEIGHT,
     HEADINGS_COLOR,
+
+    HR_MARGIN_Y,
+    HR_BORDER_WIDTH,
+    HR_BORDER_COLOR,
+    MARK_PADDING, MARK_BG,
+    BLOCKQUOTE_FONT_SIZE,
   } = constants;
 
   const _classes = {
-    // pass
+
+    // Horizontal rules
+
+    hr: {
+      marginTop: HR_MARGIN_Y,
+      marginBottom: HR_MARGIN_Y,
+      borderWidth: 0,
+      borderTopWidth: HR_BORDER_WIDTH,
+      borderTopColor: HR_BORDER_COLOR,
+      borderStyle: 'solid',
+    },
+
+    // Emphasis
+
+    // TODO: Could be a selector or not to be at all
+    // small,
+    // .small {
+    //   @include font-size($small-font-size);
+    //   font-weight: $font-weight-normal;
+    // }
+
+    mark: {
+      padding: MARK_PADDING,
+      backgroundColor: MARK_BG,
+    },
+
+    // Lists
+
+    listUnstyled: Object.assign({},
+      mixinListUnstyled,
+    ),
+
+    // Inline turns list items into inline-block
+    // .list-inline {
+    //   @include list-unstyled();
+    // }
+    // .list-inline-item {
+    //   display: inline-block;
+
+    //   &:not(:last-child) {
+    //     margin-right: $list-inline-padding;
+    //   }
+    // }
+
+    // Misc
+
+    // .initialism {
+    //   @include font-size(90%);
+    //   text-transform: uppercase;
+    // }
+
+    blockquote: {
+      marginBottom: SPACER,
+      fontSize: BLOCKQUOTE_FONT_SIZE,
+    },
+
+    // blockquoteFooter {
+    //   display: block;
+    //   @include font-size($blockquote-small-font-size);
+    //   color: $blockquote-small-color;
+
+    //   &::before {
+    //     content: "\2014\00A0"; // em dash, nbsp
+    //   }
+    // },
   };
 
   // h1, h2, h3, ...
