@@ -101,6 +101,15 @@ export default function getClasses(constants, classes) {
     tableBorderlessTbodyTbody: {
       borderWidth: 0,
     },
+
+    // Zebra-striping
+
+    // .table-striped {
+    //   tbody tr:nth-of-type(#{$table-striped-order}) {
+    //     background-color: $table-accent-bg;
+    //   }
+    // }
+
   };
 
   // lets make full copy
