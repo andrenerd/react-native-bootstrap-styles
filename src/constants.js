@@ -223,7 +223,7 @@ export default function getConstants(constants) {
     // BLOCKQUOTE_SMALL_FONT_SIZE = SMALL_FONT_SIZE,
     BLOCKQUOTE_FONT_SIZE = FONT_SIZE_BASE * 1.25 * REM,
 
-    HR_BORDER_COLOR =  Color(BLACK).fade(0.1).rgb().string(),
+    HR_BORDER_COLOR =  Color(BLACK).alpha(0.1).rgb().string(),
     HR_BORDER_WIDTH =  BORDER_WIDTH,
 
     MARK_PADDING = 0.2 * REM,
@@ -244,9 +244,9 @@ export default function getConstants(constants) {
 
     TABLE_COLOR = _('TABLE_COLOR', BODY_COLOR),
     TABLE_BG = null,
-    TABLE_ACCENT_BG = Color(BLACK).fade(0.05).rgb().string(),
+    TABLE_ACCENT_BG = Color(BLACK).alpha(0.05).rgb().string(),
     TABLE_HOVER_COLOR = TABLE_COLOR, // not in use
-    TABLE_HOVER_BG = Color(BLACK).fade(0.075).rgb().string(), // not in use
+    TABLE_HOVER_BG = Color(BLACK).alpha(0.075).rgb().string(), // not in use
     TABLE_ACTIVE_BG = TABLE_HOVER_BG,
 
     TABLE_BORDER_WIDTH = BORDER_WIDTH,
@@ -257,9 +257,9 @@ export default function getConstants(constants) {
 
     TABLE_DARK_COLOR = _('TABLE_DARK_COLOR', WHITE),
     TABLE_DARK_BG = _('TABLE_DARK_BG', GRAY_800),
-    TABLE_DARK_ACCENT_BG = Color(WHITE).fade(0.05).rgb().string(),
+    TABLE_DARK_ACCENT_BG = Color(WHITE).alpha(0.05).rgb().string(),
     TABLE_DARK_HOVER_COLOR = TABLE_DARK_COLOR, // not in use
-    TABLE_DARK_HOVER_BG = Color(WHITE).fade(0.075).rgb().string(), // not in use
+    TABLE_DARK_HOVER_BG = Color(WHITE).alpha(0.075).rgb().string(), // not in use
     TABLE_DARK_BORDER_COLOR = Color(TABLE_DARK_BG).lighten(0.075).rgb().string(),
 
     // TABLE_STRIPED_ORDER = 'odd',
@@ -276,7 +276,7 @@ export default function getConstants(constants) {
     INPUT_BTN_LINE_HEIGHT = _('INPUT_BTN_LINE_HEIGHT', LINE_HEIGHT_BASE),
 
     INPUT_BTN_FOCUS_WIDTH = _('INPUT_BTN_FOCUS_WIDTH', .2 * REM),
-    INPUT_BTN_FOCUS_COLOR = _('INPUT_BTN_FOCUS_COLOR', Color(COMPONENT_ACTIVE_BG).fade(0.25).rgb().string()),
+    INPUT_BTN_FOCUS_COLOR = _('INPUT_BTN_FOCUS_COLOR', Color(COMPONENT_ACTIVE_BG).alpha(0.25).rgb().string()),
     INPUT_BTN_FOCUS_BOX_SHADOW_COLOR = _('INPUT_BTN_FOCUS_BOX_SHADOW_COLOR', INPUT_BTN_FOCUS_COLOR),
     INPUT_BTN_FOCUS_BOX_SHADOW_OPACITY = _('INPUT_BTN_FOCUS_BOX_SHADOW_OPACITY', SHADOW_OPACITY),
     INPUT_BTN_FOCUS_BOX_SHADOW_OFFSET = _('INPUT_BTN_FOCUS_BOX_SHADOW_OFFSET', {width: 0, height: 0}),
@@ -449,7 +449,7 @@ export default function getConstants(constants) {
     // $modal-title-line-height:     $line-height-base,
 
     MODAL_CONTENT_BG = WHITE,
-    MODAL_CONTENT_BORDER_COLOR = 'transparent', // Color(BLACK).fate(0.2)
+    MODAL_CONTENT_BORDER_COLOR = 'transparent', // Color(BLACK).alpha(0.2)
     MODAL_CONTENT_BORDER_WIDTH = 0, // BORDER_WIDTH,
     MODAL_CONTENT_BORDER_RADIUS = BORDER_RADIUS * 3, // BORDER_RADIUS_LG,
 

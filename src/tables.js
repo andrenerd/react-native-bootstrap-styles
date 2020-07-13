@@ -1,4 +1,5 @@
 import { mixinButtonSize, mixinButtonVariant, mixinButtonOutlineVariant } from './mixins/buttons';
+import { selectorCondition } from './mixins/selectors';
 
 export default function getClasses(constants, classes) {
   const {
@@ -12,6 +13,7 @@ export default function getClasses(constants, classes) {
     TABLE_CELL_PADDING,
     TABLE_CELL_PADDING_SM,
     TABLE_CAPTION_COLOR,
+    TABLE_ACCENT_BG,
   } = constants;
 
   const _classes = {
@@ -104,11 +106,7 @@ export default function getClasses(constants, classes) {
 
     // Zebra-striping
 
-    // .table-striped {
-    //   tbody tr:nth-of-type(#{$table-striped-order}) {
-    //     background-color: $table-accent-bg;
-    //   }
-    // }
+    tableStripedTbodyTr: n => n % 2 == 1 ? {backgroundColor: TABLE_ACCENT_BG} : {},
 
   };
 
@@ -145,6 +143,7 @@ export default function getClasses(constants, classes) {
   _classes.tableSmCol = _classes.tableSmTbodyTd;
   _classes.tableBorderedCol = _classes.tableBorderedTbodyTd;
   _classes.tableBorderlessCol = _classes.tableBorderlessTbodyTd;
+  _classes.tableStripedRow = _classes.tableStripedTbodyTr;
 
   return _classes;
 };
