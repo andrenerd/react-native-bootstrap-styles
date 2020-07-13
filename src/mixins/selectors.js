@@ -1,9 +1,5 @@
 // selectors accept raw loop param(s) or booleans
 
-export const selectorCondition = (condition, styleTrue = {}, styleFalse = {}) => (
-  condition ? styleTrue : styleFalse
-);
-
 export const selectorFirstChild = (indexOrBool, style = {}) => (
   typeof value === 'boolean' ? (
     indexOrBool ? style : {}
@@ -35,6 +31,11 @@ export const selectorPreviousChild = (indexOrBool, lengthOrStyle = {}, style = {
     indexOrBool < lengthOrStyle - 1 ? style : {}
   )
 );
+
+// RESERVED
+// export const selectorCondition = (bool, styleTrue = {}, styleFalse = {}) => (
+//   bool ? styleTrue : styleFalse
+// );
 
 // OBSOLETED
 // bool makes no sense here, in fact
@@ -76,7 +77,6 @@ export function getSelectors(constants, classes) {
   _selectors['selectorMediaLandscape'] = ORIENTATION_LANDSCAPE ? style => style : style => {};
 
   return {
-    selectorCondition,
     selectorFirstChild,
     selectorLastChild,
     selectorNextChild,
