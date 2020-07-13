@@ -1,7 +1,7 @@
 // selectors accept raw loop param(s) or booleans
 
 export const selectorFirstChild = (indexOrBool, style = {}) => (
-  typeof value === 'boolean' ? (
+  typeof indexOrBool === 'boolean' ? (
     indexOrBool ? style : {}
   ) : (
     indexOrBool == 0 ? style : {}
@@ -12,12 +12,16 @@ export const selectorLastChild = (indexOrBool, lengthOrStyle = {}, style = {}) =
   arguments.length < 3 ? (
     indexOrBool ? style : {}
   ) : (
-    indexOrBool == lengthOrStyle - 1 ? style : {}
+    typeof indexOrBool === 'boolean' ? (
+      indexOrBool ? style : {}
+    ) : (
+      indexOrBool == lengthOrStyle - 1 ? style : {}
+    )
   )
 );
 
 export const selectorNextChild = (indexOrBool, style = {}) => (
-  typeof value === 'boolean' ? (
+  typeof indexOrBool === 'boolean' ? (
     indexOrBool ? style : {}
   ) : (
     indexOrBool > 0 ? style : {}
@@ -28,7 +32,11 @@ export const selectorPreviousChild = (indexOrBool, lengthOrStyle = {}, style = {
   arguments.length < 3 ? (
     indexOrBool ? lengthOrStyle : {}
   ) : (
-    indexOrBool < lengthOrStyle - 1 ? style : {}
+    typeof indexOrBool === 'boolean' ? (
+      indexOrBool ? style : {}
+    ) : (
+      indexOrBool < lengthOrStyle - 1 ? style : {}
+    )
   )
 );
 

@@ -92,10 +92,11 @@ export default function getClasses(constants, classes) {
       // }
     },
 
-    cardHeaderFirstChild: n => selectorFirstChild(n, Object.assign({},
+    cardHeaderFirstChild: nOrBool => selectorFirstChild(nOrBool, Object.assign({},
       mixinBorderRadius(constants, CARD_INNER_BORDER_RADIUS, CARD_INNER_BORDER_RADIUS, 0, 0),
     )),
 
+    // TODO: check later (bools?)
     cardHeaderListGroupItemFirstChild: (nListGroup, nListGroupItem) => selectorNextChild(nListGroup, (
       selectorFirstChild(nListGroupItem, {
         borderTop: 0,
@@ -115,7 +116,7 @@ export default function getClasses(constants, classes) {
       // }
     },
 
-    cardFooterLastChild: n => selectorLastChild(n, Object.assign({},
+    cardFooterLastChild: (nOrBool, lengthOrNone) => selectorLastChild(nOrBool, lengthOrNone, Object.assign({},
       mixinBorderRadius(constants, 0, 0, CARD_INNER_BORDER_RADIUS, CARD_INNER_BORDER_RADIUS),
     )),
 
