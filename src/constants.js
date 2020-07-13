@@ -147,7 +147,11 @@ export default function getConstants(constants) {
     // Links
 
     LINK_COLOR = _('LINK_COLOR', INFO),
-    LINK_DECORATION = 'underline',
+    LINK_DECORATION = 'none',
+    // $link-hover-color:                        darken($link-color, 15%) !default;
+    // $link-hover-decoration:                   underline !default;
+    // // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+    // $emphasized-link-hover-darken-percentage: 15% !default;
 
     // Grid
 
@@ -489,6 +493,31 @@ export default function getConstants(constants) {
     PROGRESS_BAR_ANIMATION_TIMING = 'placeholder', // 1s linear infinite,
     PROGRESS_BAR_TRANSITION = 'placeholder', // width .6s ease,
 
+    // List group
+
+    LIST_GROUP_COLOR = null,
+    LIST_GROUP_BG = _('LIST_GROUP_BG', WHITE),
+    LIST_GROUP_BORDER_COLOR = Color(BLACK).alpha(0.125).rgb().string(),
+    LIST_GROUP_BORDER_WIDTH = BORDER_WIDTH,
+    LIST_GROUP_BORDER_RADIUS = BORDER_RADIUS,
+
+    LIST_GROUP_ITEM_PADDING_Y = 0.75 * REM,
+    LIST_GROUP_ITEM_PADDING_X = 1.25 * REM,
+
+    // RESERVED / LIST_GROUP_HOVER_BG = GRAY_100,
+    LIST_GROUP_ACTIVE_COLOR = COMPONENT_ACTIVE_COLOR,
+    LIST_GROUP_ACTIVE_BG = _('LIST_GROUP_ACTIVE_BG', COMPONENT_ACTIVE_BG),
+    LIST_GROUP_ACTIVE_BORDER_COLOR = LIST_GROUP_ACTIVE_BG,
+
+    LIST_GROUP_DISABLED_COLOR = GRAY_600,
+    LIST_GROUP_DISABLED_BG = LIST_GROUP_BG,
+
+    LIST_GROUP_ACTION_COLOR = _('LIST_GROUP_ACTION_COLOR', GRAY_700),
+    LIST_GROUP_ACTION_HOVER_COLOR = LIST_GROUP_ACTION_COLOR,
+
+    LIST_GROUP_ACTION_ACTIVE_COLOR = BODY_COLOR,
+    LIST_GROUP_ACTION_ACTIVE_BG = GRAY_200,
+
   } = constants || {};
 
   return {
@@ -582,5 +611,13 @@ export default function getConstants(constants) {
     PROGRESS_BOX_SHADOW_OPACITY, PROGRESS_BOX_SHADOW_RADIUS,
     PROGRESS_BAR_COLOR, PROGRESS_BAR_BG,
     PROGRESS_BAR_ANIMATION_TIMING, PROGRESS_BAR_TRANSITION,
+
+    LIST_GROUP_COLOR,LIST_GROUP_BG,
+    LIST_GROUP_BORDER_COLOR, LIST_GROUP_BORDER_WIDTH, LIST_GROUP_BORDER_RADIUS,
+    LIST_GROUP_ITEM_PADDING_Y, LIST_GROUP_ITEM_PADDING_X,
+    LIST_GROUP_ACTIVE_COLOR, LIST_GROUP_ACTIVE_BG, LIST_GROUP_ACTIVE_BORDER_COLOR,
+    LIST_GROUP_DISABLED_COLOR, LIST_GROUP_DISABLED_BG,
+    LIST_GROUP_ACTION_COLOR, LIST_GROUP_ACTION_HOVER_COLOR,
+    LIST_GROUP_ACTION_ACTIVE_COLOR, LIST_GROUP_ACTION_ACTIVE_BG,
   };
 };

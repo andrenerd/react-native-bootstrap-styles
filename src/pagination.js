@@ -64,13 +64,13 @@ export default function getClasses(constants, classes) {
       // }
     },
 
-    pageItemFirstChildPageLink: n => selectorFirstChild(n, Object.assign({
+    pageItemFirstChildPageLink: nOrBool => selectorFirstChild(nOrBool, Object.assign({
       marginLeft: 0,
     },
       mixinBorderLeftRadius(constants, BORDER_RADIUS),
     )),
 
-    pageItemLastChildPageLink: n => selectorLastChild(n, Object.assign({},
+    pageItemLastChildPageLink: (nOrBool, lengthOrNone) => selectorLastChild(nOrBool, lengthOrNone, Object.assign({},
       mixinBorderRightRadius(constants, BORDER_RADIUS),
     )),
 
@@ -96,10 +96,10 @@ export default function getClasses(constants, classes) {
     },
 
     paginationLgPageLink: mixinPaginationSizePageLink(PAGINATION_PADDING_Y_LG, PAGINATION_PADDING_X_LG, FONT_SIZE_BASE_LG, LINE_HEIGHT_LG),
-    paginationLgPageItemFirstChildPageLink: n => selectorFirstChild(n, Object.assign({},
+    paginationLgPageItemFirstChildPageLink: nOrBool => selectorFirstChild(nOrBool, Object.assign({},
       mixinBorderLeftRadius(constants, BORDER_RADIUS_LG),
     )),
-    paginationLgPageItemLastChildPageLink: n => selectorLastChild(n, Object.assign({},
+    paginationLgPageItemLastChildPageLink: (nOrBool, lengthOrNone) => selectorLastChild(nOrBool, lengthOrNone, Object.assign({},
       mixinBorderRightRadius(constants, BORDER_RADIUS_LG),
     )),
 
@@ -108,10 +108,10 @@ export default function getClasses(constants, classes) {
     },
 
     paginationSmPageLink: mixinPaginationSizePageLink(PAGINATION_PADDING_Y_SM, PAGINATION_PADDING_X_SM, FONT_SIZE_BASE_SM, LINE_HEIGHT_SM),
-    paginationSmPageItemFirstChildPageLink: n => selectorFirstChild(n, Object.assign({},
+    paginationSmPageItemFirstChildPageLink: nOrBool => selectorFirstChild(nOrBool, Object.assign({},
       mixinBorderLeftRadius(constants, BORDER_RADIUS_SM),
     )),
-    paginationSmPageItemLastChildPageLink: n => selectorLastChild(n, Object.assign({},
+    paginationSmPageItemLastChildPageLink: (nOrBool, lengthOrNone) => selectorLastChild(nOrBool, lengthOrNone, Object.assign({},
       mixinBorderRightRadius(constants, BORDER_RADIUS_SM),
     )),
   };

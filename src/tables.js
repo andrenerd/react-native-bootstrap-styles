@@ -106,7 +106,7 @@ export default function getClasses(constants, classes) {
 
     // Zebra-striping
 
-    tableStripedTbodyTr: n => n % 2 == 1 ? {backgroundColor: TABLE_ACCENT_BG} : {},
+    tableStripedTbodyTr: n => n % 2 == 0 ? {backgroundColor: TABLE_ACCENT_BG} : {},
 
   };
 

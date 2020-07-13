@@ -29,6 +29,7 @@ import getClassesGrid from './grid';
 import getClassesButtons from './buttons';
 import getClassesForms from './forms';
 import getClassesCard from './card';
+import getClassesListGroup from './list-group';
 import getClassesModal from './modal';
 import getClassesProgress from './progress';
 import getClassesReboot from './reboot';
@@ -64,6 +65,7 @@ class BootstrapStyleSheet {
     getClassesButtons,
     getClassesForms,
     getClassesCard,
+    getClassesListGroup,
     getClassesModal,
     getClassesProgress,
     getClassesReboot,

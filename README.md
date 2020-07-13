@@ -121,12 +121,20 @@ class App extends Component {
 
 
 
+## Layout
 
-## Utilities
+Simplified version of the original layout classes.
+Any ideas how to extend grid classes are welcome.
+
+Among non-impelemented features: `.row-cols-*`, `.offset-*-*`, `.order-*-*`.
+
+
+
+## Content and Utilities
 
 Check the related chapter in the Bootstrap [documentation](https://getbootstrap.com/docs/4.5/utilities/) to get the list of all the utilities.
 
-What's implemented or near to: 
+What's implemented or near to:  
 - align 
 - background 
 - borders 
@@ -136,9 +144,8 @@ What's implemented or near to:
 - spacing 
 - text  
 
-also: 
-- grid 
-- text 
+also:  
+- tables
 
 
 
