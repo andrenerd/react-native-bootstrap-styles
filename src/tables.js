@@ -1,8 +1,10 @@
 import { mixinButtonSize, mixinButtonVariant, mixinButtonOutlineVariant } from './mixins/buttons';
 import { selectorCondition } from './mixins/selectors';
+import { colorLevel } from './mixins/helpers';
 
 export default function getClasses(constants, classes) {
   const {
+    THEME_COLORS,
     SPACER,
     // SKIPPED / TABLE_COLOR,
     TABLE_BG,
@@ -14,6 +16,8 @@ export default function getClasses(constants, classes) {
     TABLE_CELL_PADDING_SM,
     TABLE_CAPTION_COLOR,
     TABLE_ACCENT_BG,
+    TABLE_BG_LEVEL,
+    TABLE_BORDER_LEVEL,
   } = constants;
 
   const _classes = {
@@ -62,9 +66,7 @@ export default function getClasses(constants, classes) {
       flexDirection: 'row',
     },
 
-    // Border versions
     // experimental
-
     tableBordered: {
       borderStyle: 'solid',
       borderTopWidth: TABLE_BORDER_WIDTH,
@@ -104,8 +106,6 @@ export default function getClasses(constants, classes) {
       borderWidth: 0,
     },
 
-    // Zebra-striping
-
     tableStripedTbodyTr: n => n % 2 == 0 ? {backgroundColor: TABLE_ACCENT_BG} : {},
 
   };
@@ -119,6 +119,43 @@ export default function getClasses(constants, classes) {
   tableSmTheadTh = Object.assign({}, _classes.tableTheadTh, {
     padding: TABLE_CELL_PADDING_SM,
   });
+
+  // table%colorTd / ex: listGroupItemPrimary
+  Object.keys(THEME_COLORS).forEach((item) => {
+    const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
+
+    _classes['table' + classColor + 'TBodyTd'] = {
+      backgroundColor: colorLevel(constants, THEME_COLORS[item], TABLE_BG_LEVEL),
+      borderColor: colorLevel(constants, THEME_COLORS[item], TABLE_BORDER_LEVEL),
+    };
+
+    _classes['table' + classColor + 'TheadTh'] = _classes['table' + classColor + 'TBodyTd'];
+    _classes['table' + classColor + 'Td'] = _classes['table' + classColor + 'TBodyTd'];
+    _classes['table' + classColor + 'Th'] = _classes['table' + classColor + 'TheadTh'];
+    _classes['table' + classColor + 'Col'] = _classes['table' + classColor + 'Td'];
+    _classes['table' + classColor + 'HeadCol'] = _classes['table' + classColor + 'Th'];
+
+    // TODO: add later
+    // // Hover states for `.table-hover`
+    // // Note: this is not available for cells or rows within `thead` or `tfoot`.
+    // .table-hover {
+    //   $hover-background: darken($background, 5%);
+
+    //   .table-#{$state} {
+    //     @include hover() {
+    //       background-color: $hover-background;
+
+    //       > td,
+    //       > th {
+    //         background-color: $hover-background;
+    //       }
+    //     }
+    //   }
+    // }
+  });
+
+  // TODO: add later
+  // @include table-row-variant(active, $table-active-bg);
 
   // aliases
   _classes.tableTh = _classes.tableTheadTh;
