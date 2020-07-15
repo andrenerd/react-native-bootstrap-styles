@@ -1,9 +1,14 @@
 import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius } from './mixins/border-radius';
-import { selectorFirstChild, selectorLastChild } from './mixins/selectors';
+import { mixinBorderTopRightRadius, mixinBorderBottomLeftRadius } from './mixins/border-radius';
+import { selectorFirstChild, selectorLastChild, selectorNextChild } from './mixins/selectors';
+import { selectorMediaUp } from './mixins/selectors';
 
 export default function getClasses(constants, classes) {
   const {
     LINK_DECORATION,
+    GRID_BREAKPOINTS,
+    SCREENS_INFIXES,
+    SCREENS,
 
     LIST_GROUP_COLOR,
     LIST_GROUP_BG,
@@ -68,35 +73,31 @@ export default function getClasses(constants, classes) {
       borderStyle: 'solid',
       color: LIST_GROUP_COLOR,
       textDecorationLine: LINK_DECORATION,
+    },
 
-      // &.disabled,
-      // &:disabled {
-      //   color: $list-group-disabled-color;
-      //   pointer-events: none;
-      //   background-color: $list-group-disabled-bg;
-      // }
+    listGroupItemDisabled: {
+      color: LIST_GROUP_DISABLED_COLOR,
+      backgroundColor: LIST_GROUP_DISABLED_BG,
+    },
 
-      // // Include both here for `<a>`s and `<button>`s
-      // &.active {
-      //   z-index: 2; // Place active items above their siblings for proper border styling
-      //   color: $list-group-active-color;
-      //   background-color: $list-group-active-bg;
-      //   border-color: $list-group-active-border-color;
-      // }
-
-      // & + & {
-      //   border-top-width: 0;
-
-      //   &.active {
-      //     margin-top: -$list-group-border-width;
-      //     border-top-width: $list-group-border-width;
-      //   }
-      // }
+    listGroupItemActive: {
+      zIndex: 2, // make sense?
+      color: LIST_GROUP_ACTIVE_COLOR,
+      backgroundColor: LIST_GROUP_ACTIVE_BG,
+      borderColor: LIST_GROUP_ACTIVE_BORDER_COLOR,
     },
 
     listGroupItemText: {
       color: LIST_GROUP_COLOR,
       textDecorationLine: LINK_DECORATION,
+    },
+
+    listGroupItemDisabledText: {
+      color: LIST_GROUP_DISABLED_COLOR,
+    },
+
+    listGroupItemActiveText: {
+      color: LIST_GROUP_ACTIVE_COLOR,
     },
 
     listGroupItemFirstChild: nOrBool => selectorFirstChild(nOrBool,
@@ -110,64 +111,26 @@ export default function getClasses(constants, classes) {
       }, mixinBorderBottomRadius(constants, LIST_GROUP_BORDER_RADIUS)],
     ),
 
-    // // Horizontal
-    // //
-    // // Change the layout of list group items from vertical (default) to horizontal.
+    // experimental
+    listGroupItemActiveNextChild: nOrBool => selectorNextChild(nOrBool, {
+      marginTop: -LIST_GROUP_BORDER_WIDTH,
+      borderTopWidth: LIST_GROUP_BORDER_WIDTH, // make sense?
+    }),
 
-    // @each $breakpoint in map-keys($grid-breakpoints) {
-    //   @include media-breakpoint-up($breakpoint) {
-    //     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    listGroupFlush: Object.assign({
+      // pass
+    },
+      mixinBorderRadius(0),
+    ),
 
-    //     .list-group-horizontal#{$infix} {
-    //       flex-direction: row;
+    listGroupFlushItem: {
+      borderLeftWidth: 0,
+      borderRightWidth: 0,
+    },
 
-    //       > .list-group-item {
-    //         &:first-child {
-    //           @include border-bottom-left-radius($list-group-border-radius);
-    //           @include border-top-right-radius(0);
-    //         }
-
-    //         &:last-child {
-    //           @include border-top-right-radius($list-group-border-radius);
-    //           @include border-bottom-left-radius(0);
-    //         }
-
-    //         &.active {
-    //           margin-top: 0;
-    //         }
-
-    //         & + .list-group-item {
-    //           border-top-width: $list-group-border-width;
-    //           border-left-width: 0;
-
-    //           &.active {
-    //             margin-left: -$list-group-border-width;
-    //             border-left-width: $list-group-border-width;
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-
-
-    // // Flush list items
-    // //
-    // // Remove borders and border-radius to keep list group items edge-to-edge. Most
-    // // useful within other components (e.g., cards).
-
-    // .list-group-flush {
-    //   @include border-radius(0);
-
-    //   > .list-group-item {
-    //     border-width: 0 0 $list-group-border-width;
-
-    //     &:last-child {
-    //       border-bottom-width: 0;
-    //     }
-    //   }
-    // }
-
+    listGroupFlushItemLastChild: (nOrBool, lengthOrNone) => selectorLastChild(nOrBool, lengthOrNone, {
+      borderBottomWidth: 0,
+    }),
 
     // // Contextual variants
     // //
@@ -179,6 +142,53 @@ export default function getClasses(constants, classes) {
     // }
 
   };
+
+  const SCREENS_INFIXES_ALL = [''].concat(Object.keys(GRID_BREAKPOINTS));
+
+  SCREENS_INFIXES_ALL.forEach((itemScreen) => {
+    _classes['listGroupHorizontal' + itemScreen] = selectorMediaUp(itemScreen, SCREENS, {
+      flexDirection: 'row',
+      // more?
+    });
+
+    _classes['listGroupHorizontal' + itemScreen + 'Item'] = (
+      selectorMediaUp(itemScreen, SCREENS, {
+        borderBottomWidth: LIST_GROUP_BORDER_WIDTH,
+        borderRightWidth: 0,
+      })
+    );
+
+    _classes['listGroupHorizontal' + itemScreen + 'ItemFirstChild'] = nOrBool => selectorFirstChild(nOrBool,
+      selectorMediaUp(itemScreen, SCREENS, Object.assign({},
+        mixinBorderBottomLeftRadius(constants, LIST_GROUP_BORDER_RADIUS),
+        mixinBorderTopRightRadius(constants, 0),
+      ))
+    );
+
+    _classes['listGroupHorizontal' + itemScreen + 'ItemLastChild'] = (nOrBool, lengthOrNone) => selectorLastChild(nOrBool, lengthOrNone,
+      selectorMediaUp(itemScreen, SCREENS, Object.assign({
+        borderRightWidth: LIST_GROUP_BORDER_WIDTH,
+      },
+        mixinBorderBottomLeftRadius(constants, 0),
+        mixinBorderTopRightRadius(constants, LIST_GROUP_BORDER_RADIUS),
+      ))
+    );
+
+    // experimental
+    _classes['listGroupHorizontal' + itemScreen + 'ItemActive'] = (
+      selectorMediaUp(itemScreen, SCREENS, {
+        marginTop: 0,
+      })
+    );
+
+    // experimental
+    _classes['listGroupHorizontal' + itemScreen + 'ItemActiveNextChild'] = nOrBool => selectorNextChild(nOrBool,
+      selectorMediaUp(itemScreen, SCREENS, {
+        marginLeft: -LIST_GROUP_BORDER_WIDTH,
+        borderLeftWidth: LIST_GROUP_BORDER_WIDTH,
+      })
+    );
+  });
 
   return _classes;
 };

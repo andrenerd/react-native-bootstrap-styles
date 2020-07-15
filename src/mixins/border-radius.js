@@ -1,5 +1,7 @@
 import { getDefined } from './helpers';
 
+// TODO: think to drop "constants" as param for all the mixins
+
 export const mixinBorderRadius = (
   constants,
   allOrTopLeftRadius,
@@ -46,5 +48,33 @@ export const mixinBorderRightRadius = (
   radius,
 ) => (constants.ENABLE_ROUNDED ? {
     borderTopRightRadius: getDefined(radius, constants.BORDER_RADIUS),
+    borderBottomRightRadius: getDefined(radius, constants.BORDER_RADIUS),
+} : {});
+
+export const mixinBorderTopLeftRadius = (
+  constants,
+  radius,
+) => (constants.ENABLE_ROUNDED ? {
+    borderTopLeftRadius: getDefined(radius, constants.BORDER_RADIUS),
+} : {});
+
+export const mixinBorderTopRightRadius = (
+  constants,
+  radius,
+) => (constants.ENABLE_ROUNDED ? {
+    borderTopRightRadius: getDefined(radius, constants.BORDER_RADIUS),
+} : {});
+
+export const mixinBorderBottomLeftRadius = (
+  constants,
+  radius,
+) => (constants.ENABLE_ROUNDED ? {
+    borderBottomLeftRadius: getDefined(radius, constants.BORDER_RADIUS),
+} : {});
+
+export const mixinBorderBottomRightRadius = (
+  constants,
+  radius,
+) => (constants.ENABLE_ROUNDED ? {
     borderBottomRightRadius: getDefined(radius, constants.BORDER_RADIUS),
 } : {});
