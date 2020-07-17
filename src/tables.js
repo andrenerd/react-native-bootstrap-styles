@@ -1,5 +1,5 @@
 import { mixinButtonSize, mixinButtonVariant, mixinButtonOutlineVariant } from './mixins/buttons';
-import { selectorCondition, selectorMediaUp, selectorMediaDown } from './mixins/selectors';
+import { selectorFirstChild, selectorMediaUp, selectorMediaDown } from './mixins/selectors';
 import { colorLevel } from './mixins/helpers';
 
 export default function getClasses(constants, classes) {
@@ -16,7 +16,6 @@ export default function getClasses(constants, classes) {
     TABLE_HEAD_COLOR,
     TABLE_CELL_PADDING,
     TABLE_CELL_PADDING_SM,
-    TABLE_CAPTION_COLOR,
     TABLE_ACCENT_BG,
     TABLE_BG_LEVEL,
     TABLE_BORDER_LEVEL,
@@ -115,36 +114,20 @@ export default function getClasses(constants, classes) {
       color: TABLE_HEAD_COLOR,
     },
 
-    // .table-dark {
-    //   &.table-bordered {
-    //     border: 0;
-    //   }
+    // RESERVED / not in use
+    // tableDarkBordered: {
+    // },
 
-    //   &.table-striped {
-    //     tbody tr:nth-of-type(#{$table-striped-order}) {
-    //       background-color: $table-dark-accent-bg;
-    //     }
-    //   }
-
-    //   &.table-hover {
-    //     tbody tr {
-    //       @include hover() {
-    //         color: $table-dark-hover-color;
-    //         background-color: $table-dark-hover-bg;
-    //       }
-    //     }
-    //   }
-    // }
+    // RESERVED / not in use
+    // tableBordered: {
+    //   borderStyle: 'solid',
+    //   borderTopWidth: TABLE_BORDER_WIDTH,
+    //   borderTopColor: TABLE_BORDER_COLOR,
+    //   borderLeftWidth: TABLE_BORDER_WIDTH,
+    //   borderLeftColor: TABLE_BORDER_COLOR,
+    // },
 
     // experimental
-    tableBordered: {
-      borderStyle: 'solid',
-      borderTopWidth: TABLE_BORDER_WIDTH,
-      borderTopColor: TABLE_BORDER_COLOR,
-      borderLeftWidth: TABLE_BORDER_WIDTH,
-      borderLeftColor: TABLE_BORDER_COLOR,
-    },
-
     tableBorderedTbodyTd: {
       borderStyle: 'solid',
       borderBottomWidth: TABLE_BORDER_WIDTH,
@@ -153,12 +136,32 @@ export default function getClasses(constants, classes) {
       borderRightColor: TABLE_BORDER_COLOR,
     },
 
-    tableBorderedTheadTh: {
+    tableBorderedTbodyTdFirstChild:  {
       borderStyle: 'solid',
-      borderBottomWidth: 2 * TABLE_BORDER_WIDTH,
+      borderBottomWidth: TABLE_BORDER_WIDTH,
+      borderBottomColor: TABLE_BORDER_COLOR,
       borderRightWidth: TABLE_BORDER_WIDTH,
       borderRightColor: TABLE_BORDER_COLOR,
     },
+
+    tableBorderedTbodyTdFirstChild: nOrBool => selectorFirstChild(nOrBool, {
+      borderLeftWidth: TABLE_BORDER_WIDTH,
+      borderLeftColor: TABLE_BORDER_COLOR,
+    }),
+
+    // experimental
+    tableBorderedTheadTh: {
+      borderStyle: 'solid',
+      borderRightWidth: TABLE_BORDER_WIDTH,
+      borderRightColor: TABLE_BORDER_COLOR,
+    },
+
+    // experimental
+    tableBorderedTheadThFirstChild: nOrBool => selectorFirstChild(nOrBool, {
+      borderStyle: 'solid',
+      borderLeftWidth: TABLE_BORDER_WIDTH,
+      borderLeftColor: TABLE_BORDER_COLOR,
+    }),
 
     tableBorderless: {
       borderWidth: 0,
@@ -177,7 +180,7 @@ export default function getClasses(constants, classes) {
     },
 
     tableStripedTbodyTr: n => n % 2 == 0 ? {backgroundColor: TABLE_ACCENT_BG} : {},
-
+    tableDarkStripedTbodyTr: n => n % 2 == 0 ? {backgroundColor: TABLE_DARK_ACCENT_BG} : {},
   };
 
   // lets make full copy
@@ -241,7 +244,9 @@ export default function getClasses(constants, classes) {
   _classes.tableTd = _classes.tableTbodyTd;
   _classes.tableTdText = _classes.tableTbodyTdText;
   _classes.tableBorderedTh = _classes.tableBorderedTheadTh;
+  _classes.tableBorderedThFirstChild = _classes.tableBorderedTheadThFirstChild;
   _classes.tableBorderedTd = _classes.tableBorderedTbodyTd;
+  _classes.tableBorderedTdFirstChild = _classes.tableBorderedTbodyTdFirstChild;
   _classes.tableBorderlessTh = _classes.tableBorderlessTheadTh;
   _classes.tableBorderlessTd = _classes.tableBorderlessTbodyTd;
 
@@ -250,16 +255,18 @@ export default function getClasses(constants, classes) {
   _classes.tableDarkTheadTh = _classes.tableDarkTbodyTd;
   _classes.tableDarkTheadThText = _classes.tableDarkTbodyTdText;
 
-  // aliases
+  // more aliases
   _classes.tableHead = _classes.tableThead;
   _classes.tableHeadCol = _classes.tableTheadTh;
   _classes.tableHeadColText = _classes.tableTheadThText;
   _classes.tableSmHeadCol = _classes.tableSmTheadTh;
   _classes.tableBorderedHeadCol = _classes.tableBorderedTheadTh;
+  _classes.tableBorderedHeadColFirstChild = _classes.tableBorderedTheadThFirstChild;
   _classes.tableBorderlessHeadCol = _classes.tableBorderlessTheadTh;
   _classes.tableDarkHeadCol = _classes.tableDarkTheadTh;
   _classes.tableDarkHeadColText = _classes.tableDarkTheadThText;
 
+  // much more aliases
   _classes.tableBody = _classes.tableTbody;
   _classes.tableRow = _classes.tableTbodyTr;
   _classes.tableCol = _classes.tableTbodyTd;
@@ -267,8 +274,10 @@ export default function getClasses(constants, classes) {
 
   _classes.tableSmCol = _classes.tableSmTbodyTd;
   _classes.tableBorderedCol = _classes.tableBorderedTbodyTd;
+  _classes.tableBorderedColFirstChild = _classes.tableBorderedTbodyTdFirstChild;
   _classes.tableBorderlessCol = _classes.tableBorderlessTbodyTd;
   _classes.tableStripedRow = _classes.tableStripedTbodyTr;
+  _classes.tableDarkStripedRow = _classes.tableDarkStripedTbodyTr;
   _classes.tableDarkCol = _classes.tableDarkTbodyTd;
   _classes.tableDarkColText = _classes.tableDarkTbodyTdText;
 
