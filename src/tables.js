@@ -1,12 +1,14 @@
 import { mixinButtonSize, mixinButtonVariant, mixinButtonOutlineVariant } from './mixins/buttons';
-import { selectorCondition } from './mixins/selectors';
+import { selectorCondition, selectorMediaUp, selectorMediaDown } from './mixins/selectors';
 import { colorLevel } from './mixins/helpers';
 
 export default function getClasses(constants, classes) {
   const {
     THEME_COLORS,
+    GRID_BREAKPOINTS,
     SPACER,
-    // SKIPPED / TABLE_COLOR,
+    SCREENS,
+    TABLE_COLOR, // aka text color
     TABLE_BG,
     TABLE_BORDER_WIDTH,
     TABLE_BORDER_COLOR,
@@ -18,6 +20,12 @@ export default function getClasses(constants, classes) {
     TABLE_ACCENT_BG,
     TABLE_BG_LEVEL,
     TABLE_BORDER_LEVEL,
+    TABLE_DARK_COLOR,
+    TABLE_DARK_BG,
+    TABLE_DARK_ACCENT_BG,
+    TABLE_DARK_HOVER_COLOR,
+    TABLE_DARK_HOVER_BG,
+    TABLE_DARK_BORDER_COLOR,
   } = constants;
 
   const _classes = {
@@ -26,7 +34,6 @@ export default function getClasses(constants, classes) {
       width: '100%',
       marginBottom: SPACER,
       backgroundColor: TABLE_BG,
-      // SKIPPED / color: TABLE_COLOR,
     },
 
     tableTheadTh: {
@@ -40,6 +47,10 @@ export default function getClasses(constants, classes) {
       borderBottomColor: TABLE_BORDER_COLOR,
     },
 
+    tableTheadThText: {
+      color: TABLE_COLOR,
+    },
+
     tableTbodyTd: {
       flex: 1,
       padding: TABLE_CELL_PADDING,
@@ -47,6 +58,10 @@ export default function getClasses(constants, classes) {
       borderStyle: 'solid',
       borderTopWidth: TABLE_BORDER_WIDTH,
       borderTopColor: TABLE_BORDER_COLOR,
+    },
+
+    tableTbodyTdText: {
+      color: TABLE_COLOR,
     },
 
     // experimental
@@ -65,6 +80,61 @@ export default function getClasses(constants, classes) {
     tableTbodyTr: {
       flexDirection: 'row',
     },
+
+    tableDark: {
+      color: TABLE_DARK_COLOR,
+      backgroundColor: TABLE_DARK_BORDER_COLOR,
+    },
+
+    tableDarkTbodyTd: {
+      color: TABLE_DARK_COLOR,
+      borderColor: TABLE_DARK_BORDER_COLOR,
+    },
+
+    tableDarkTbodyTdText: {
+      color: TABLE_DARK_COLOR,
+    },
+
+    tableTheadDarkTh: {
+      color: TABLE_DARK_COLOR,
+      backgroundColor: TABLE_DARK_BG,
+      borderColor: TABLE_DARK_BORDER_COLOR,
+    },
+
+    tableTheadDarkThText: {
+      color: TABLE_DARK_COLOR,
+    },
+
+    tableTheadLightTh: {
+      color: TABLE_HEAD_COLOR,
+      backgroundColor: TABLE_HEAD_BG,
+      borderColor: TABLE_BORDER_COLOR,
+    },
+
+    tableTheadLightThText: {
+      color: TABLE_HEAD_COLOR,
+    },
+
+    // .table-dark {
+    //   &.table-bordered {
+    //     border: 0;
+    //   }
+
+    //   &.table-striped {
+    //     tbody tr:nth-of-type(#{$table-striped-order}) {
+    //       background-color: $table-dark-accent-bg;
+    //     }
+    //   }
+
+    //   &.table-hover {
+    //     tbody tr {
+    //       @include hover() {
+    //         color: $table-dark-hover-color;
+    //         background-color: $table-dark-hover-bg;
+    //       }
+    //     }
+    //   }
+    // }
 
     // experimental
     tableBordered: {
@@ -154,33 +224,53 @@ export default function getClasses(constants, classes) {
     // }
   });
 
+
+  // RESERVED
+  // const SCREENS_INFIXES_ALL = [''].concat(Object.keys(GRID_BREAKPOINTS));
+  // SCREENS_INFIXES_ALL.forEach((itemScreen) => {
+  //   _classes['tableResponsive' + itemScreen] = !selectorMediaUp(itemScreen, SCREENS, true);
+  // });
+
   // TODO: add later
   // @include table-row-variant(active, $table-active-bg);
 
   // aliases
   _classes.tableTh = _classes.tableTheadTh;
+  _classes.tableThText = _classes.tableTheadThText;
   _classes.tableTr = _classes.tableTbodyTr;
   _classes.tableTd = _classes.tableTbodyTd;
+  _classes.tableTdText = _classes.tableTbodyTdText;
   _classes.tableBorderedTh = _classes.tableBorderedTheadTh;
   _classes.tableBorderedTd = _classes.tableBorderedTbodyTd;
   _classes.tableBorderlessTh = _classes.tableBorderlessTheadTh;
   _classes.tableBorderlessTd = _classes.tableBorderlessTbodyTd;
 
+  _classes.tableDarkTd = _classes.tableDarkTbodyTd;
+  _classes.tableDarkTh = _classes.tableDarkTbodyTd;
+  _classes.tableDarkTheadTh = _classes.tableDarkTbodyTd;
+  _classes.tableDarkTheadThText = _classes.tableDarkTbodyTdText;
+
   // aliases
   _classes.tableHead = _classes.tableThead;
   _classes.tableHeadCol = _classes.tableTheadTh;
+  _classes.tableHeadColText = _classes.tableTheadThText;
   _classes.tableSmHeadCol = _classes.tableSmTheadTh;
   _classes.tableBorderedHeadCol = _classes.tableBorderedTheadTh;
   _classes.tableBorderlessHeadCol = _classes.tableBorderlessTheadTh;
+  _classes.tableDarkHeadCol = _classes.tableDarkTheadTh;
+  _classes.tableDarkHeadColText = _classes.tableDarkTheadThText;
 
   _classes.tableBody = _classes.tableTbody;
   _classes.tableRow = _classes.tableTbodyTr;
   _classes.tableCol = _classes.tableTbodyTd;
+  _classes.tableColText = _classes.tableTbodyTdText;
 
   _classes.tableSmCol = _classes.tableSmTbodyTd;
   _classes.tableBorderedCol = _classes.tableBorderedTbodyTd;
   _classes.tableBorderlessCol = _classes.tableBorderlessTbodyTd;
   _classes.tableStripedRow = _classes.tableStripedTbodyTr;
+  _classes.tableDarkCol = _classes.tableDarkTbodyTd;
+  _classes.tableDarkColText = _classes.tableDarkTbodyTdText;
 
   return _classes;
 };

@@ -1,4 +1,5 @@
 // selectors accept raw loop param(s) or booleans
+// TODO: how about returning FALSE, instead of empty dict?
 
 export const selectorFirstChild = (indexOrBool, style = {}) => (
   typeof indexOrBool === 'boolean' ? (
@@ -42,12 +43,12 @@ export const selectorPreviousChild = (indexOrBool, lengthOrStyle = {}, style = {
 
 // experimental
 export const selectorMediaUp = (screen, screens, style = {}) => (
-  !screen || screens.indexOf(screen) > -1 ? style : {}
+  !screen || screens.indexOf(screen) > -1 ? style : false
 );
 
 // experimental
 export const selectorMediaDown = (screen, screens, style = {}) => (
-  !screen || screens.indexOf(screen) == -1 ? style : {}
+  !screen || screens.indexOf(screen) == -1 ? style : false
 );
 
 // RESERVED
