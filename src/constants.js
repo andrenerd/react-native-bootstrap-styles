@@ -246,7 +246,7 @@ export default function getConstants(constants) {
     TABLE_CELL_PADDING = .75 * REM,
     TABLE_CELL_PADDING_SM = .3 * REM,
 
-    TABLE_COLOR = _('TABLE_COLOR', BODY_COLOR),
+    TABLE_COLOR = _('TABLE_COLOR', BODY_COLOR), // aka text color
     TABLE_BG = null,
     TABLE_ACCENT_BG = Color(BLACK).alpha(0.05).rgb().string(),
     TABLE_HOVER_COLOR = TABLE_COLOR, // not in use
@@ -269,9 +269,8 @@ export default function getConstants(constants) {
     // TABLE_STRIPED_ORDER = 'odd',
 
     TABLE_CAPTION_COLOR = TEXT_MUTED,
-
-    // TABLE_BG_LEVEL = -9,
-    // TABLE_BORDER_LEVEL = -6,
+    TABLE_BG_LEVEL = -9,
+    TABLE_BORDER_LEVEL = -6,
 
     // Forms
 
@@ -566,6 +565,7 @@ export default function getConstants(constants) {
     TABLE_DARK_ACCENT_BG, TABLE_DARK_HOVER_COLOR,
     TABLE_DARK_HOVER_BG, TABLE_DARK_BORDER_COLOR,
     TABLE_CAPTION_COLOR,
+    TABLE_BG_LEVEL, TABLE_BORDER_LEVEL,
 
     INPUT_BTN_PADDING_Y, INPUT_BTN_PADDING_X, INPUT_BTN_LINE_HEIGHT, INPUT_BTN_BORDER_WIDTH,
     BTN_PADDING_Y, BTN_PADDING_X, BTN_LINE_HEIGHT,

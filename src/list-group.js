@@ -2,9 +2,11 @@ import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius } from
 import { mixinBorderTopRightRadius, mixinBorderBottomLeftRadius } from './mixins/border-radius';
 import { selectorFirstChild, selectorLastChild, selectorNextChild } from './mixins/selectors';
 import { selectorMediaUp } from './mixins/selectors';
+import { colorLevel } from './mixins/helpers';
 
 export default function getClasses(constants, classes) {
   const {
+    THEME_COLORS,
     LINK_DECORATION,
     GRID_BREAKPOINTS,
     SCREENS_INFIXES,
@@ -38,6 +40,7 @@ export default function getClasses(constants, classes) {
       mixinBorderRadius(LIST_GROUP_BORDER_RADIUS),
     ),
 
+    // TODO: add later
     // // Interactive list items
     // //
     // // Use anchor or button elements instead of `li`s or `div`s to create interactive
@@ -188,6 +191,34 @@ export default function getClasses(constants, classes) {
         borderLeftWidth: LIST_GROUP_BORDER_WIDTH,
       })
     );
+  });
+
+  // listGroupItem%color / ex: listGroupItemPrimary
+  Object.keys(THEME_COLORS).forEach((item) => {
+    const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
+
+    _classes['listGroupItem' + classColor] = {
+      color: THEME_COLORS[item],
+      backgroundColor: colorLevel(constants, THEME_COLORS[item], -9),
+    };
+
+    _classes['listGroupItem' + classColor + 'Text'] = {
+      color: THEME_COLORS[item],
+    };
+
+    // TODO: add later
+    // &.list-group-item-action {
+    //   @include hover-focus() {
+    //     color: $color;
+    //     background-color: darken($background, 5%);
+    //   }
+
+    //   &.active {
+    //     color: $white;
+    //     background-color: $color;
+    //     border-color: $color;
+    //   }
+    // }
   });
 
   return _classes;
