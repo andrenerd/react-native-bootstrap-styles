@@ -188,7 +188,7 @@ export default function getConstants(constants) {
     // Fonts
 
     FONT_FAMILY_SANS_SERIF = _('FONT_FAMILY_SANS_SERIF', 'System'), // iOS: 'San Francisco'
-    FONT_FAMILY_MONOSPACE = _('FONT_FAMILY_MONOSPACE', 'System'), // iOS: 'SFMono-Regular',
+    FONT_FAMILY_MONOSPACE = _('FONT_FAMILY_MONOSPACE', 'Courier New'), // iOS: 'Courier New',
     FONT_FAMILY_BASE = _('FONT_FAMILY_BASE', FONT_FAMILY_SANS_SERIF),
     FONT_FAMILY_BASE_LIGHT = _('FONT_FAMILY_BASE_LIGHT', FONT_FAMILY_SANS_SERIF),
     FONT_FAMILY_BASE_BOLD = _('FONT_FAMILY_BASE_BOLD', FONT_FAMILY_SANS_SERIF),

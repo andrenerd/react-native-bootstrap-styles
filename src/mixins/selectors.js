@@ -88,7 +88,7 @@ export function getSelectors(constants, classes) {
 
   SCREENS_INFIXES_ALL.forEach((item) => {
     _selectors['selectorMediaDown' + item] = (
-      SCREENS.indexOf(item) > - 1 && SCREENS.indexOf(item) < SCREENS.length - 1 ? style => style : style => {}
+      SCREENS.indexOf(item) == - 1 || SCREENS.indexOf(item) == SCREENS.length - 1 ? style => style : style => {}
     );
   });
 
