@@ -10,6 +10,7 @@ export default function getClasses(constants, classes) {
     FONT_FAMILY_BASE,
     FONT_FAMILY_BASE_LIGHT, // experimental
     FONT_FAMILY_BASE_BOLD, // experimental
+    FONT_FAMILY_MONOSPACE,
     FONT_WEIGHT_NORMAL,
     FONT_WEIGHT_LIGHT,
     FONT_WEIGHT_BOLD,
@@ -41,6 +42,8 @@ export default function getClasses(constants, classes) {
     textSmall: {fontSize: FONT_SIZE_BASE_SM},
     textLarge: {fontSize: FONT_SIZE_BASE_LG},
     textSpaced: {letterSpacing: FONT_SIZE_BASE * 0.075},
+
+    textMonospace: {fontFamily: FONT_FAMILY_MONOSPACE},
   };
 
   // text%color / ex: textPrimary
