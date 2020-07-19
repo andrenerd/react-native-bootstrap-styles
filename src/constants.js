@@ -274,8 +274,10 @@ export default function getConstants(constants) {
 
     // Forms
 
-    INPUT_BTN_PADDING_Y = _('INPUT_BTN_PADDING_Y', 0.75 * REM),
-    INPUT_BTN_PADDING_X = _('INPUT_BTN_PADDING_X', 1.5 * REM),
+    INPUT_BTN_PADDING_Y = _('INPUT_BTN_PADDING_Y', 0.375 * REM),
+    INPUT_BTN_PADDING_X = _('INPUT_BTN_PADDING_X', 0.75 * REM),
+    INPUT_BTN_FONT_FAMILY = _('INPUT_BTN_FONT_FAMILY', FONT_FAMILY_BASE),
+    INPUT_BTN_FONT_SIZE = _('INPUT_BTN_FONT_SIZE', FONT_SIZE_BASE),
     INPUT_BTN_LINE_HEIGHT = _('INPUT_BTN_LINE_HEIGHT', LINE_HEIGHT_BASE),
 
     INPUT_BTN_FOCUS_WIDTH = _('INPUT_BTN_FOCUS_WIDTH', .2 * REM),
@@ -299,7 +301,10 @@ export default function getConstants(constants) {
 
     BTN_PADDING_Y = INPUT_BTN_PADDING_Y,
     BTN_PADDING_X = INPUT_BTN_PADDING_X,
+    BTN_FONT_FAMILY = INPUT_BTN_FONT_FAMILY,
+    BTN_FONT_SIZE = INPUT_BTN_FONT_SIZE,
     BTN_LINE_HEIGHT = INPUT_BTN_LINE_HEIGHT,
+    // BTN_WHITE_SPACE = 'null' / reserved
 
     // BTN_PADDING_Y_SM = INPUT_BTN_PADDING_Y_SM,
     // BTN_PADDING_X_SM = INPUT_BTN_PADDING_X_SM,
@@ -310,8 +315,17 @@ export default function getConstants(constants) {
     // BTN_LINE_HEIGHT_LG = INPUT_BTN_LINE_HEIGHT_LG,
 
     BTN_BORDER_WIDTH = INPUT_BTN_BORDER_WIDTH,
-    BTN_FONT_FAMILY = FONT_FAMILY_BASE,
-    // BTN_FONT_WEIGHT = FONT_WEIGHT_NORMAL, // TODO: makes no sense?
+
+    BTN_FONT_WEIGHT = FONT_WEIGHT_NORMAL,
+    // BTN_box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+    // BTN_focus-width:             $input-btn-focus-width !default;
+    // BTN_focus-box-shadow:        $input-btn-focus-box-shadow !default;
+    BTN_DISABLED_OPACITY = .65,
+    // BTN_active-box-shadow:       inset 0 3px 5px rgba($black, .125) !default;
+
+    // BTN_link-disabled-color:     $gray-600 !default;
+
+    // BTN_block-spacing-y:         .5rem !default;
 
     BTN_BORDER_RADIUS = BORDER_RADIUS,
     BTN_BORDER_RADIUS_LG = BORDER_RADIUS_LG,
@@ -586,9 +600,15 @@ export default function getConstants(constants) {
     TABLE_CAPTION_COLOR,
     TABLE_BG_LEVEL, TABLE_BORDER_LEVEL,
 
-    INPUT_BTN_PADDING_Y, INPUT_BTN_PADDING_X, INPUT_BTN_LINE_HEIGHT, INPUT_BTN_BORDER_WIDTH,
-    BTN_PADDING_Y, BTN_PADDING_X, BTN_LINE_HEIGHT,
-    BTN_BORDER_WIDTH, BTN_FONT_FAMILY,
+    INPUT_BTN_PADDING_Y, INPUT_BTN_PADDING_X,
+    INPUT_BTN_FONT_FAMILY, INPUT_BTN_FONT_SIZE, INPUT_BTN_LINE_HEIGHT,
+    INPUT_BTN_BORDER_WIDTH,
+
+    BTN_PADDING_Y, BTN_PADDING_X,
+    BTN_FONT_FAMILY, BTN_FONT_SIZE, BTN_LINE_HEIGHT,
+    BTN_BORDER_WIDTH,
+    BTN_FONT_WEIGHT,
+    BTN_DISABLED_OPACITY,
     BTN_BORDER_RADIUS, BTN_BORDER_RADIUS_LG, BTN_BORDER_RADIUS_SM,
 
     LABEL_MARGIN_BOTTOM, INPUT_PADDING_Y, INPUT_PADDING_X, INPUT_LINE_HEIGHT,

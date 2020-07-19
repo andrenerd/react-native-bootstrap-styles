@@ -1,4 +1,5 @@
 import { mixinButtonSize, mixinButtonVariant, mixinButtonOutlineVariant } from './mixins/buttons';
+import { mixinBoxShadow } from './mixins/box-shadow';
 
 export default function getClasses(constants, classes) {
   const {
@@ -6,13 +7,14 @@ export default function getClasses(constants, classes) {
     THEME_COLORS,
     INPUT_BTN_PADDING_Y,
     INPUT_BTN_PADDING_X,
-    FONT_SIZE_BASE,
     INPUT_BTN_LINE_HEIGHT,
-    BTN_BORDER_RADIUS,
-    // OBSOLETED / BTN_FONT_WEIGHT,
-    BTN_FONT_FAMILY,
-    BTN_OUTLINE_BACKGROUND_COLOR,
     INPUT_BTN_BORDER_WIDTH,
+    BTN_FONT_FAMILY,
+    BTN_FONT_SIZE,
+    BTN_BORDER_RADIUS,
+    BTN_FONT_WEIGHT,
+    BTN_DISABLED_OPACITY,
+    BTN_OUTLINE_BACKGROUND_COLOR,
   } = constants;
 
   const _classes = {
@@ -40,13 +42,6 @@ export default function getClasses(constants, classes) {
       //   box-shadow: $btn-focus-box-shadow;
       // }
 
-      // // Disabled comes first so active can properly restyle
-      // &.disabled,
-      // &:disabled {
-      //   opacity: .65;
-      //   @include box-shadow(none);
-      // }
-
       // &:active,
       // &.active {
       //   background-image: none;
@@ -56,8 +51,14 @@ export default function getClasses(constants, classes) {
       mixinButtonSize(
         constants,
         INPUT_BTN_PADDING_Y, INPUT_BTN_PADDING_X,
-        FONT_SIZE_BASE, INPUT_BTN_LINE_HEIGHT, BTN_BORDER_RADIUS,
+        BTN_FONT_SIZE, INPUT_BTN_LINE_HEIGHT, BTN_BORDER_RADIUS,
       ),
+    ),
+
+    btnDisabled: Object.assign({
+      opacity: BTN_DISABLED_OPACITY,
+    },
+      mixinBoxShadow('none'),
     ),
 
     btnTouchable: { // experimental
@@ -66,9 +67,9 @@ export default function getClasses(constants, classes) {
     },
 
     btnText: Object.assign({}, classes.text, {
-      fontSize: FONT_SIZE_BASE,
+      fontSize: BTN_FONT_SIZE,
       fontFamily: BTN_FONT_FAMILY,
-      // OBSOLETED / fontWeight: BTN_FONT_WEIGHT,
+      fontWeight: BTN_FONT_WEIGHT,
       textAlign: 'center',
     }),
   };
