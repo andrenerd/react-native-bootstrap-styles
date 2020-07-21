@@ -113,30 +113,30 @@ export default function getConstants(constants) {
     }),
 
     GRID_BREAKPOINTS_HORIZONTAL = _('GRID_BREAKPOINTS_HORIZONTAL', {
-      Xs: 0, // should start at zero
-      Sm: 360, // Samsung / 375 for iPhone
-      Md: 411, // Google / 414 for iPhone
-      Lg: 768, // iPad and Nexus
-      Xl: 1024, // iPad Pro
+      Xs: 0, // should start at zero / watchs and other micro gadgets
+      Sm: 480, // small phones
+      Md: 768, // medium phones
+      Lg: 1024, // large phones and small tablets
+      Xl: 1536, // tablets and other gadgets
     }),
 
     // experimental
     GRID_BREAKPOINTS_VERTICAL = _('GRID_BREAKPOINTS_VERTICAL', {
       Xs: 0, // should start at zero
       Sm: 640,
-      Md: 768,
-      Lg: 1024,
-      Xl: 1280,
+      Md: 1024,
+      Lg: 1536,
+      Xl: 2048,
     }),
 
     GRID_BREAKPOINTS = GRID_BREAKPOINTS_HORIZONTAL,
 
     // GRID_BREAKPOINTS_HORIZONTAL * 0.9375
     CONTAINER_MAX_WIDTHS = _('CONTAINER_MAX_WIDTHS', {
-      Sm: 338,
-      Md: 385,
-      Lg: 720,
-      Xl: 960,
+      Sm: 450,
+      Md: 720,
+      Lg: 960,
+      Xl: 1440,
     }),
 
     // Body
