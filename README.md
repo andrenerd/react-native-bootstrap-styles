@@ -1,10 +1,11 @@
+<p>  
+<img title="React Native Bootstrap Styles" alt="React Native Bootstrap Styles" src="./assets/logo.svg" width="15%">  
+</p>  
+
 # React Native Bootstrap Styles  
 
 
-<p>  
-<img title="React Native Bootstrap Styles" alt="React Native Bootstrap Styles" src="./assets/logo.svg" width="20%">  
-</p>  
-
+[![npm version](https://img.shields.io/npm/v/react-native-bootstrap-styles.svg)](https://www.npmjs.com/package/react-native-bootstrap-styles)
 
 Bootstrap style library for React Native.  
 
