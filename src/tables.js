@@ -35,6 +35,15 @@ export default function getClasses(constants, classes) {
       backgroundColor: TABLE_BG,
     },
 
+    // optional
+    tableTbody: {
+      flexDirection: 'column',
+    },
+
+    tableThead: {
+      flexDirection: 'row',
+    },
+
     tableTheadTh: {
       flex: 1,
       padding: TABLE_CELL_PADDING,
@@ -68,11 +77,6 @@ export default function getClasses(constants, classes) {
       borderStyle: 'solid',
       borderTopWidth: (2 * TABLE_BORDER_WIDTH),
       borderTopColor: TABLE_BORDER_COLOR,
-    },
-
-    // TODO: clarify
-    tableThead: {
-      flexDirection: 'row',
     },
 
     // TODO: clarify
