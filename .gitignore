@@ -1,8 +1,6 @@
 *test.*
-
 .npmignore
 node_modules/
-.expo/
 npm-debug.*
 *.jks
 *.p8
@@ -19,4 +17,3 @@ yarn-error.log*
 server.js
 server.mjs
 .DS_Store
-

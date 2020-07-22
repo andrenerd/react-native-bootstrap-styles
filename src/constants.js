@@ -244,7 +244,7 @@ export default function getConstants(constants) {
     // Tables
 
     TABLE_CELL_PADDING = .75 * REM,
-    TABLE_CELL_PADDING_SM = .3 * REM,
+    TABLE_CELL_PADDING_SM = 0.3 * REM,
 
     TABLE_COLOR = _('TABLE_COLOR', BODY_COLOR), // aka text color
     TABLE_BG = null,
