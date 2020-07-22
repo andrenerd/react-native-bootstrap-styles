@@ -184,12 +184,12 @@ export default function getClasses(constants, classes) {
   };
 
   // lets make full copy
-  tableSmTbodyTd = Object.assign({}, _classes.tableTbodyTd, {
+  _classes.tableSmTbodyTd = Object.assign({}, _classes.tableTbodyTd, {
     padding: TABLE_CELL_PADDING_SM,
   });
 
   // lets make full copy
-  tableSmTheadTh = Object.assign({}, _classes.tableTheadTh, {
+  _classes.tableSmTheadTh = Object.assign({}, _classes.tableTheadTh, {
     padding: TABLE_CELL_PADDING_SM,
   });
 

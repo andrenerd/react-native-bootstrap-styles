@@ -3,8 +3,9 @@ export default function getClasses(constants, classes) {
     BODY_BG,
     BODY_COLOR,
     FONT_FAMILY_BASE,
-    FONT_WEIGHT_NORMAL,
+    FONT_WEIGHT_BASE,
     FONT_SIZE_BASE,
+    LINE_HEIGHT_BASE,
     LINK_COLOR,
     LINK_DECORATION,
   } = constants;
@@ -13,20 +14,19 @@ export default function getClasses(constants, classes) {
     text: {
       fontFamily: FONT_FAMILY_BASE,
       fontSize: FONT_SIZE_BASE,
-      fontWeight: FONT_WEIGHT_NORMAL,
-      // lineHeight: 1.5,
+      fontWeight: FONT_WEIGHT_BASE,
+      lineHeight: LINE_HEIGHT_BASE,
       color: BODY_COLOR,
     },
 
-    // experimental
-    link: {
-      // pass
-    },
-
-    // experimental
     linkText: Object.assign({}, classes.text, {
       color: LINK_COLOR,
       textDecorationLine: LINK_DECORATION,
+
+      // @include hover() {
+      //   color: $link-hover-color;
+      //   text-decoration: $link-hover-decoration;
+      // }
     }),
 
     image: {
@@ -37,7 +37,15 @@ export default function getClasses(constants, classes) {
       flex: 1, // experimental
       backgroundColor: BODY_BG,
     },
+
+    hidden: {
+      display: 'none',
+    },
   };
+
+  // aliases
+  _classes.link = _classes.linkText;
+  _classes.a = _classes.linkText;
 
   return _classes;
 };
