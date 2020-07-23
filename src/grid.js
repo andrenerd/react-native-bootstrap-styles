@@ -7,13 +7,14 @@ export default function getClasses(constants, classes) {
     ENABLE_GRID_CLASSES,
     GRID_BREAKPOINTS,
     GRID_COLUMNS,
-    // OBSOLETED / GRID_GUTTER_WIDTH,
+    GRID_GUTTER_WIDTH,
     SCREENS_INFIXES,
     // OBSOLETED / SCREEN,
   } = constants;
 
   const _classes = ENABLE_GRID_CLASSES ? {
-    // OBSOLETED
+
+    // TODO: add later
     // container: Object.assign({},
     //   mixinMakeContainer(constants),
     //   mixinMakeContainerMaxWidths(constants),
@@ -23,11 +24,6 @@ export default function getClasses(constants, classes) {
       mixinMakeContainer(constants),
     ),
 
-    // OBSOLETED
-    // row: Object.assign({},
-    //   mixinMakeRow(constants, GRID_GUTTER_WIDTH),
-    // ),
-
     noGutters: {
       marginRight: 0,
       marginLeft: 0,
@@ -36,6 +32,18 @@ export default function getClasses(constants, classes) {
     noGuttersCol: {
       paddingRight: 0,
       paddingLeft: 0,
+    },
+
+    // experimental / in use
+    Gutters: {
+      marginRight: -GRID_GUTTER_WIDTH / 2,
+      marginLeft: -GRID_GUTTER_WIDTH / 2,
+    },
+
+    // experimental / in use
+    GuttersCol: {
+      paddingRight: GRID_GUTTER_WIDTH / 2,
+      paddingLeft: GRID_GUTTER_WIDTH / 2,
     },
   } : {};
 
@@ -48,8 +56,6 @@ export default function getClasses(constants, classes) {
       );
     });
   }
-
-  // Columns
 
   if (ENABLE_GRID_CLASSES) {
     const SCREENS_INFIXES_ALL = [''].concat(Object.keys(GRID_BREAKPOINTS));
