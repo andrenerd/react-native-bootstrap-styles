@@ -2,11 +2,12 @@
 
 export const mixinMakeContainer = (
   constants,
+  gutter = null,
 ) => (constants.ENABLE_GRID_CLASSES ? {
   width: '100%', // experimental
   flexDirection: 'column',
-  paddingRight: constants.GRID_GUTTER_WIDTH / 2,
-  paddingLeft: constants.GRID_GUTTER_WIDTH / 2,
+  paddingRight: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
+  paddingLeft: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
   marginRight: 'auto', // experimental
   marginLeft: 'auto', // experimental
 } : {});
@@ -22,7 +23,7 @@ export const mixinMakeRow = (
   constants,
   gutter = null,
 ) => (constants.ENABLE_GRID_CLASSES ? {
-  flexDirection: 'column',
+  flexDirection: 'row',
   marginRight: -(gutter || constants.GRID_GUTTER_WIDTH) / 2,
   marginLeft: -(gutter || constants.GRID_GUTTER_WIDTH) / 2,
 } : {});
@@ -41,11 +42,11 @@ export const mixinMakeCol = (
   constants,
   gutter = null,
 ) => (constants.ENABLE_GRID_CLASSES ? {
-  flexDirection: 'row', // critical / TODO: document it
+  flexDirection: 'column', // critical / why? / TODO: document it
+  // OBSOLETED / flexBasis: 0, // harmful
+  // OBSOLETED / flexGrow: 1, // harmful
   paddingRight: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
   paddingLeft: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
-  // OBSOLETED / flexBasis: 0, // harmful
-  flexGrow: 1, // excessive?
   minWidth: 0, // excessive?
   maxWidth: '100%', // excessive?
 } : {});
