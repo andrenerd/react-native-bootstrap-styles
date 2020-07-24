@@ -462,12 +462,10 @@ export default function getConstants(constants) {
     MODAL_INNER_PADDING = 1 * SPACER * REM,
     MODAL_DIALOG_MARGIN = 1 * SPACER * REM,
     // $modal-dialog-margin-y-sm-up: 30px,
-
-    // $modal-title-line-height:     $line-height-base,
-
+    MODAL_TITLE_LINE_HEIGHT = LINE_HEIGHT_BASE,
     MODAL_CONTENT_BG = WHITE,
-    MODAL_CONTENT_BORDER_COLOR = 'transparent', // Color(BLACK).alpha(0.2)
-    MODAL_CONTENT_BORDER_WIDTH = 0, // BORDER_WIDTH,
+    MODAL_CONTENT_BORDER_COLOR = Color(BLACK).alpha(0.2).rgb().string(),
+    MODAL_CONTENT_BORDER_WIDTH = _('MODAL_CONTENT_BORDER_WIDTH', BORDER_WIDTH),
     MODAL_CONTENT_BORDER_RADIUS = BORDER_RADIUS * 3, // BORDER_RADIUS_LG,
 
     MODAL_CONTENT_SHADOW_COLOR = SHADOW_COLOR,
@@ -479,11 +477,13 @@ export default function getConstants(constants) {
 
     MODAL_BACKDROP_BG = BLACK,
     MODAL_BACKDROP_OPACITY = 0.5, // for compatibilty
-    // $modal-header-border-color:         $gray-200,
-    // $modal-footer-border-color:         $modal-header-border-color,
-    // $modal-header-border-width:         $modal-content-border-width,
-    // $modal-footer-border-width:         $modal-header-border-width,
-    // $modal-header-padding:              1* REM,
+    MODAL_HEADER_BORDER_COLOR = _('MODAL_HEADER_BORDER_COLOR', GRAY_200),
+    MODAL_FOOTER_BORDER_COLOR = MODAL_HEADER_BORDER_COLOR,
+    MODAL_HEADER_BORDER_WIDTH = _('MODAL_HEADER_BORDER_WIDTH', MODAL_CONTENT_BORDER_WIDTH),
+    MODAL_FOOTER_BORDER_WIDTH = MODAL_HEADER_BORDER_WIDTH,
+    MODAL_HEADER_PADDING_X = 1 * REM,
+    MODAL_HEADER_PADDING_Y = 1 * REM,
+    // DROPPED / MODAL_HEADER_PADDING
 
     // $modal-lg:                    800px,
     // $modal-md:                    500px,
@@ -638,12 +638,15 @@ export default function getConstants(constants) {
     CARD_COLUMNS_COUNT, CARD_COLUMNS_GAP, CARD_COLUMNS_MARGIN,
 
     MODAL_INNER_PADDING, MODAL_DIALOG_MARGIN,
-
+    MODAL_TITLE_LINE_HEIGHT,
     MODAL_CONTENT_BG, MODAL_CONTENT_BORDER_COLOR,
     MODAL_CONTENT_BORDER_WIDTH, MODAL_CONTENT_BORDER_RADIUS,
     MODAL_CONTENT_SHADOW_COLOR, MODAL_CONTENT_SHADOW_OPACITY,
     MODAL_CONTENT_SHADOW_OFFSET, MODAL_CONTENT_SHADOW_RADIUS,
     MODAL_BACKDROP_BG, MODAL_BACKDROP_OPACITY,
+    MODAL_HEADER_BORDER_COLOR, MODAL_FOOTER_BORDER_COLOR,
+    MODAL_HEADER_BORDER_WIDTH, MODAL_FOOTER_BORDER_WIDTH,
+    MODAL_HEADER_PADDING_X, MODAL_HEADER_PADDING_Y,
 
     ALERT_PADDING_Y, ALERT_PADDING_X, ALERT_MARGIN_BOTTOM,
     ALERT_BORDER_RADIUS, ALERT_LINK_FONT_WEIGHT, ALERT_BORDER_WIDTH,
