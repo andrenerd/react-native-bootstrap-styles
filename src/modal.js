@@ -81,11 +81,13 @@ export default function getClasses(constants, classes) {
     },
 
     modalFooter: {
-      // display: flex;
-      // align-items: center; // vertically center
-      // justify-content: flex-end; // Right align buttons with flex property because text-align doesn't work on flex items
-      // padding: $modal-inner-padding;
-      // border-top: $modal-footer-border-width solid $modal-footer-border-color;
+      // display: flex,
+      alignItems: 'center',
+      justifyContent: 'flex-end', // Right align buttons with flex property because text-align doesn't work on flex items
+      padding: MODAL_INNER_PADDING,
+      borderTopWidth: MODAL_FOOTER_BORDER_WIDTH,
+      borderTopColor: MODAL_FOOTER_BORDER_COLOR,
+      borderStyle: 'solid',
 
       // // Easily place margin between footer elements
       // > :not(:first-child) { margin-left: .25rem; }
