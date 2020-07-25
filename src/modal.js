@@ -1,6 +1,6 @@
 import Color from 'color';
 
-import { mixinBorderRadius } from './mixins/border-radius';
+import { mixinBorderRadius, mixinBorderTopRadius } from './mixins/border-radius';
 import { mixinBoxShadow } from './mixins/box-shadow';
 
 export default function getClasses(constants, classes) {
@@ -9,6 +9,7 @@ export default function getClasses(constants, classes) {
     MODAL_BACKDROP_BG,
     MODAL_BACKDROP_OPACITY,
     MODAL_DIALOG_MARGIN,
+    MODAL_TITLE_LINE_HEIGHT,
     MODAL_CONTENT_BG,
     MODAL_CONTENT_BORDER_WIDTH,
     MODAL_CONTENT_BORDER_COLOR,
@@ -17,6 +18,12 @@ export default function getClasses(constants, classes) {
     MODAL_CONTENT_SHADOW_OFFSET,
     MODAL_CONTENT_SHADOW_OPACITY,
     MODAL_CONTENT_SHADOW_RADIUS,
+    MODAL_HEADER_BORDER_COLOR,
+    MODAL_FOOTER_BORDER_COLOR,
+    MODAL_HEADER_BORDER_WIDTH,
+    MODAL_FOOTER_BORDER_WIDTH,
+    MODAL_HEADER_PADDING_X,
+    MODAL_HEADER_PADDING_Y,
   } = constants;
 
   const _classes = {
@@ -41,27 +48,32 @@ export default function getClasses(constants, classes) {
       mixinBoxShadow(constants, MODAL_CONTENT_SHADOW_COLOR, MODAL_CONTENT_SHADOW_OFFSET, MODAL_CONTENT_SHADOW_OPACITY, MODAL_CONTENT_SHADOW_RADIUS),
     ),
 
-    modalClose: {
-      position: 'absolute',
-      right: MODAL_INNER_PADDING / 2, // temporal
-      top: 0, // MODAL_INNER_PADDING / 4, // temporal
-      zIndex: 1, // temporal
-      // padding: $modal-header-padding;
-      // margin: (-$modal-header-padding) (-$modal-header-padding) (-$modal-header-padding) auto;
-    },
+    modalHeader: Object.assign({
+      // display: flex,
+      alignItems: 'flex-start', // so the close btn always stays on the upper right corner
+      justifyContent: 'space-between', // Put modal header elements (title and dismiss) on opposite ends
+      paddingVertical: MODAL_HEADER_PADDING_Y,
+      paddingHorizontal: MODAL_HEADER_PADDING_X,
+      borderBottomWidth: MODAL_HEADER_BORDER_WIDTH,
+      borderBottomColor: MODAL_HEADER_BORDER_COLOR,
+      borderStyle: 'solid',
+    }, 
+      mixinBorderTopRadius(constants, MODAL_CONTENT_BORDER_RADIUS),
+    ),
 
-    modalHeader: {
-      // display: flex;
-      // align-items: flex-start; // so the close btn always stays on the upper right corner
-      // justify-content: space-between; // Put modal header elements (title and dismiss) on opposite ends
-      // padding: $modal-header-padding;
-      // border-bottom: $modal-header-border-width solid $modal-header-border-color;
-      // @include border-top-radius($modal-content-border-radius);
+    // experimental
+    modalHeaderClose: {
+      position: 'absolute',
+      right: MODAL_HEADER_PADDING_X,
+      top: MODAL_HEADER_PADDING_Y,
+      zIndex: 1,
+      // RESERVED / padding: $modal-header-padding;
+      // RESERVED / margin: (-$modal-header-padding) (-$modal-header-padding) (-$modal-header-padding) auto;
     },
 
     modalTitle: {
-      // margin-bottom: 0;
-      // line-height: $modal-title-line-height;
+      marginBottom: 0,
+      lineHeight: MODAL_TITLE_LINE_HEIGHT,
     },
 
     modalBody: {
@@ -69,11 +81,13 @@ export default function getClasses(constants, classes) {
     },
 
     modalFooter: {
-      // display: flex;
-      // align-items: center; // vertically center
-      // justify-content: flex-end; // Right align buttons with flex property because text-align doesn't work on flex items
-      // padding: $modal-inner-padding;
-      // border-top: $modal-footer-border-width solid $modal-footer-border-color;
+      // display: flex,
+      alignItems: 'center',
+      justifyContent: 'flex-end', // Right align buttons with flex property because text-align doesn't work on flex items
+      padding: MODAL_INNER_PADDING,
+      borderTopWidth: MODAL_FOOTER_BORDER_WIDTH,
+      borderTopColor: MODAL_FOOTER_BORDER_COLOR,
+      borderStyle: 'solid',
 
       // // Easily place margin between footer elements
       // > :not(:first-child) { margin-left: .25rem; }

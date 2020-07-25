@@ -269,7 +269,7 @@ An attempt to mimic CSS selectors for group pseudo-classes, such as `:first-chil
 </View>
 ```
 
-Check the full list of constants in the source code:  
+Check the full list of selectors in the source code:  
 [./src/mixins/selectors.js](./src/mixins/selectors.js)
 
 Some element classes have selector-based extensions, for example `cardHeaderFirstChild`:
