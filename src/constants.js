@@ -173,17 +173,23 @@ export default function getConstants(constants) {
 
     ROUNDED_PILL = 50 * REM,
 
-    // $box-shadow-sm:               0 .125rem .25rem rgba($black, .075) !default;
-    // $box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
-    // $box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
+    SHADOW_COLOR_SM = BLACK,
+    SHADOW_OPACITY_SM = 0.075,
+    SHADOW_OFFSET_SM = {width: 0, height: 0.125 * REM},
+    SHADOW_RADIUS_SM = 0.25 * REM,
+
+    SHADOW_COLOR = _('SHADOW_COLOR', BLACK),
+    SHADOW_OPACITY = _('SHADOW_OPACITY', 0.15),
+    SHADOW_OFFSET = _('SHADOW_OFFSET', {width: 0, height: 0.5 * REM}),
+    SHADOW_RADIUS = _('SHADOW_RADIUS', 1 * REM),
+
+    SHADOW_COLOR_LG = BLACK,
+    SHADOW_OPACITY_LG = 0.175,
+    SHADOW_OFFSET_LG = {width: 0, height: 1 * REM},
+    SHADOW_RADIUS_LG = 3 * REM,
 
     COMPONENT_ACTIVE_COLOR =_('COMPONENT_ACTIVE_COLOR', WHITE),
     COMPONENT_ACTIVE_BG = _('COMPONENT_ACTIVE_BG', PRIMARY),
-
-    SHADOW_COLOR = _('SHADOW_COLOR', BLACK),
-    SHADOW_OPACITY = _('SHADOW_OPACITY', 0.2),
-    SHADOW_OFFSET = _('SHADOW_OFFSET', {width: 0.1 * REM, height: 0.1 * REM}), // experimental
-    // RESERVED / SHADOW_RADIUS = ...
 
     // Fonts
 
@@ -571,7 +577,9 @@ export default function getConstants(constants) {
     LINE_HEIGHT_LG, LINE_HEIGHT_SM,
     BORDER_WIDTH, BORDER_COLOR, BORDER_RADIUS, BORDER_RADIUS_LG, BORDER_RADIUS_SM,
     ROUNDED_PILL,
-    SHADOW_COLOR, SHADOW_OPACITY, SHADOW_OFFSET,
+    SHADOW_COLOR, SHADOW_OPACITY, SHADOW_OFFSET, SHADOW_RADIUS,
+    SHADOW_COLOR_SM, SHADOW_OPACITY_SM, SHADOW_OFFSET_SM, SHADOW_RADIUS_SM,
+    SHADOW_COLOR_LG, SHADOW_OPACITY_LG, SHADOW_OFFSET_LG, SHADOW_RADIUS_LG,
 
     COMPONENT_ACTIVE_COLOR, COMPONENT_ACTIVE_BG,
 
