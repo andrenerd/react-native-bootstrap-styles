@@ -1,4 +1,5 @@
 import { colorLevel } from '../mixins/helpers';
+import { mediaBreakpointUp } from '../mixins/helpers';
 
 export default function getClasses(constants, classes) {
   const {
@@ -6,6 +7,7 @@ export default function getClasses(constants, classes) {
     BLACK,
     BODY_COLOR,
     THEME_COLORS,
+    SCREENS_INFIXES,
     TEXT_MUTED,
     FONT_FAMILY_BASE,
     FONT_FAMILY_BASE_LIGHT, // experimental
@@ -32,9 +34,9 @@ export default function getClasses(constants, classes) {
     // textBlack50: {color: Color(BLACK).fade(0.5).rgb().string()},
     // textWhite50: {color: Color(WHITE).fade(0.5).rgb().string()},
 
-    textAuto: {textAlign: 'auto'},
-    textLeft: {textAlign: 'left'},
-    textRight: {textAlign: 'right'},
+    //  textAuto: {textAlign: 'auto'},
+    // textLeft: {textAlign: 'left'},
+    // textRight: {textAlign: 'right'},
     textCenter: {textAlign: 'center'},
     textJustify: {textAlign: 'justify'},
 
@@ -45,6 +47,24 @@ export default function getClasses(constants, classes) {
 
     textMonospace: {fontFamily: FONT_FAMILY_MONOSPACE},
   };
+
+  const ALIGN_TYPES = {
+    'Auto': 'auto',
+    'Left': 'left',
+    'Right': 'right',
+    'Center': 'center',
+    'Justify': 'justify',
+  };
+
+  // text%value / ex: floatRight
+  // text%screen%value, / ex: floatLgRight
+  SCREENS_INFIXES.forEach((itemScreen) => {
+    Object.keys(ALIGN_TYPES).forEach(item => {
+      _classes['float' + itemScreen + item] = mediaBreakpointUp(itemScreen, SCREENS_INFIXES, {
+        textAlign: ALIGN_TYPES[item],
+      });
+    });
+  });
 
   // text%color / ex: textPrimary
   Object.keys(THEME_COLORS).forEach((item) => {
