@@ -4,8 +4,8 @@ import { selectorFirstChild, selectorLastChild, selectorCondition } from './mixi
 
 export default function getClasses(constants, classes) {
   const {
-    FONT_SIZE_BASE_SM,
-    FONT_SIZE_BASE_LG,
+    FONT_SIZE_SM,
+    FONT_SIZE_LG,
     LINE_HEIGHT_SM,
     LINE_HEIGHT_LG,
     BORDER_RADIUS_SM,
@@ -95,7 +95,7 @@ export default function getClasses(constants, classes) {
       // see paginationLgPageLink, etc
     },
 
-    paginationLgPageLink: mixinPaginationSizePageLink(PAGINATION_PADDING_Y_LG, PAGINATION_PADDING_X_LG, FONT_SIZE_BASE_LG, LINE_HEIGHT_LG),
+    paginationLgPageLink: mixinPaginationSizePageLink(PAGINATION_PADDING_Y_LG, PAGINATION_PADDING_X_LG, FONT_SIZE_LG, LINE_HEIGHT_LG),
     paginationLgPageItemFirstChildPageLink: nOrBool => selectorFirstChild(nOrBool, Object.assign({},
       mixinBorderLeftRadius(constants, BORDER_RADIUS_LG),
     )),
@@ -107,7 +107,7 @@ export default function getClasses(constants, classes) {
       // see paginationSmPageLink, etc
     },
 
-    paginationSmPageLink: mixinPaginationSizePageLink(PAGINATION_PADDING_Y_SM, PAGINATION_PADDING_X_SM, FONT_SIZE_BASE_SM, LINE_HEIGHT_SM),
+    paginationSmPageLink: mixinPaginationSizePageLink(PAGINATION_PADDING_Y_SM, PAGINATION_PADDING_X_SM, FONT_SIZE_SM, LINE_HEIGHT_SM),
     paginationSmPageItemFirstChildPageLink: nOrBool => selectorFirstChild(nOrBool, Object.assign({},
       mixinBorderLeftRadius(constants, BORDER_RADIUS_SM),
     )),

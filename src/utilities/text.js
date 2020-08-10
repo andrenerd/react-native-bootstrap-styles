@@ -17,8 +17,8 @@ export default function getClasses(constants, classes) {
     FONT_WEIGHT_LIGHT,
     FONT_WEIGHT_BOLD,
     FONT_SIZE_BASE,
-    FONT_SIZE_BASE_SM,
-    FONT_SIZE_BASE_LG,
+    FONT_SIZE_SM,
+    FONT_SIZE_LG,
   } = constants;
 
   const _classes = {
@@ -41,8 +41,8 @@ export default function getClasses(constants, classes) {
     textJustify: {textAlign: 'justify'},
 
     // experimental
-    textSmall: {fontSize: FONT_SIZE_BASE_SM},
-    textLarge: {fontSize: FONT_SIZE_BASE_LG},
+    textSmall: {fontSize: FONT_SIZE_SM},
+    textLarge: {fontSize: FONT_SIZE_LG},
     textSpaced: {letterSpacing: FONT_SIZE_BASE * 0.075},
 
     textMonospace: {fontFamily: FONT_FAMILY_MONOSPACE},
