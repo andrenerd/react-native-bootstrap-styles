@@ -89,7 +89,7 @@ export default function getClasses(constants, classes) {
       borderTopColor: MODAL_FOOTER_BORDER_COLOR,
       borderStyle: 'solid',
 
-      // // Easily place margin between footer elements
+      // Easily place margin between footer elements
       // > :not(:first-child) { margin-left: .25rem; }
       // > :not(:last-child) { margin-right: .25rem; }
     },
