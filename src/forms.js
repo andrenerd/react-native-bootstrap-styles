@@ -11,6 +11,8 @@ export default function getClasses(constants, classes) {
     INPUT_BORDER_COLOR,
     INPUT_BORDER_WIDTH,
     INPUT_BORDER_RADIUS,
+    INPUT_BORDER_RADIUS_SM,
+    INPUT_BORDER_RADIUS_LG,
     INPUT_SHADOW_COLOR,
     INPUT_SHADOW_OPACITY,
     INPUT_SHADOW_OFFSET,
@@ -27,6 +29,16 @@ export default function getClasses(constants, classes) {
     INPUT_PADDING_X_LG,
     INPUT_FONT_SIZE_LG,
     INPUT_LINE_HEIGHT_LG,
+    INPUT_PLAINTEXT_COLOR,
+    INPUT_PLACEHOLDER_COLOR,
+    FORM_TEXT_MARGIN_TOP,
+    FORM_CHECK_INPUT_GUTTER,
+    FORM_CHECK_INPUT_MARGIN_Y,
+    FORM_CHECK_INPUT_MARGIN_X,
+    FORM_CHECK_INLINE_MARGIN_X,
+    FORM_CHECK_INLINE_INPUT_MARGIN_X,
+    FORM_GRID_GUTTER_WIDTH,
+    FORM_GROUP_MARGIN_BOTTOM,
   } = constants;
 
   const _classes = {
@@ -118,6 +130,91 @@ export default function getClasses(constants, classes) {
       fontSize: INPUT_FONT_SIZE_SM,
     },
 
+    formControlPlaintext: {
+      width: '100%',
+      paddingVertical: INPUT_PADDING_Y,
+      paddingHorizontal: 0,
+      marginBottom: 0, // match inputs if this class comes on inputs with default margins
+      fontSize: INPUT_FONT_SIZE,
+      lineHeight: INPUT_LINE_HEIGHT,
+      color: INPUT_PLAINTEXT_COLOR,
+      backgroundColor: 'transparent',
+      borderStyle: 'solid',
+      borderColor: 'transparent',
+      borderTopWidth: INPUT_BORDER_WIDTH,
+      borderBottomWidth: INPUT_BORDER_WIDTH,
+      borderLeftWidth: 0,
+      borderRightWidth: 0,
+    },
+
+    formControlPlaintextFormControlSm: {
+      paddingRight: 0,
+      paddingLeft: 0,
+    },
+
+    formControlPlaintextFormControlLg: {
+      paddingRight: 0,
+      paddingLeft: 0,
+    },
+
+    formControlSm: Object.assign({
+      height: INPUT_LINE_HEIGHT_SM,
+      paddingVertical: INPUT_PADDING_Y_SM,
+      paddingHorizontal: INPUT_PADDING_X_SM,
+      fontSize: INPUT_FONT_SIZE_SM,
+      lineHeight: INPUT_LINE_HEIGHT_SM,
+    },
+      mixinBorderRadius(constants, INPUT_BORDER_RADIUS_SM),
+    ),
+
+    formControlLg: Object.assign({
+      height: INPUT_LINE_HEIGHT_LG,
+      paddingVertical: INPUT_PADDING_Y_LG,
+      paddingHorizontal: INPUT_PADDING_X_LG,
+      fontSize: INPUT_FONT_SIZE_LG,
+      lineHeight: INPUT_LINE_HEIGHT_LG,
+    },
+      mixinBorderRadius(constants, INPUT_BORDER_RADIUS_LG),
+    ),
+
+    // // stylelint-disable-next-line no-duplicate-selectors
+    // select.form-control {
+    //   &[size],
+    //   &[multiple] {
+    //     height: auto;
+    //   }
+    // }
+
+    // textarea.form-control {
+    //   height: auto;
+    // }
+
+    formGroup: {
+      marginBottom: FORM_GROUP_MARGIN_BOTTOM,
+    },
+
+    formText: {
+      // display: block;
+      marginTop: FORM_TEXT_MARGIN_TOP,
+    },
+
+    formRow: {
+      // display: flex;
+      flexWrap: 'wrap',
+      marginRight: -FORM_GRID_GUTTER_WIDTH / 2,
+      marginLeft: -FORM_GRID_GUTTER_WIDTH / 2,
+
+      // > .col,
+      // > [class*="col-"] {
+      //   padding-right: $form-grid-gutter-width / 2;
+      //   padding-left: $form-grid-gutter-width / 2;
+      // }
+    },
+
+    formCol: {
+      paddingRight: FORM_GRID_GUTTER_WIDTH / 2,
+      paddingLeft: FORM_GRID_GUTTER_WIDTH / 2,
+    },
   };
 
   return _classes;

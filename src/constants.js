@@ -386,7 +386,7 @@ export default function getConstants(constants) {
     INPUT_PLACEHOLDER_COLOR = GRAY_600,
     INPUT_PLAINTEXT_COLOR = BODY_COLOR,
 
-    INPUT_HEIGHR_BORDER = INPUT_BORDER_WIDTH * 2,
+    INPUT_HEIGHT_BORDER = INPUT_BORDER_WIDTH * 2,
 
     // $input-height-inner:                    ($font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2),
     // $input-height:                          calc(#{$input-height-inner} + #{$input-height-border}),
@@ -399,16 +399,17 @@ export default function getConstants(constants) {
 
     // $input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out,
 
-    // $form-text-margin-top:                  .25* REM,
+    FORM_TEXT_MARGIN_TOP = 0.25 * REM,
 
-    // $form-check-input-gutter:               1.25* REM,
-    // $form-check-input-margin-y:             .3* REM,
-    // $form-check-input-margin-x:             .25* REM,
+    FORM_CHECK_INPUT_GUTTER = 1.25 * REM,
+    FORM_CHECK_INPUT_MARGIN_Y = 0.3 * REM,
+    FORM_CHECK_INPUT_MARGIN_X = 0.25 * REM,
 
-    // $form-check-inline-margin-x:            .75* REM,
-    // $form-check-inline-input-margin-x:      .3125* REM,
+    FORM_CHECK_INLINE_MARGIN_X = 0.75 * REM,
+    FORM_CHECK_INLINE_INPUT_MARGIN_X = 0.3125 * REM,
 
-    // $form-group-margin-bottom:              1* REM,
+    FORM_GRID_GUTTER_WIDTH = 10,
+    FORM_GROUP_MARGIN_BOTTOM = 1 * REM,
 
     // $input-group-addon-color:               $input-color,
     // $input-group-addon-bg:                  $gray-200,
@@ -639,8 +640,11 @@ export default function getConstants(constants) {
     INPUT_BG, INPUT_DISABLED_BG, INPUT_COLOR,
     INPUT_BORDER_COLOR, INPUT_BORDER_WIDTH,
     INPUT_BORDER_RADIUS, INPUT_BORDER_RADIUS_LG, INPUT_BORDER_RADIUS_SM,
-    INPUT_PLACEHOLDER_COLOR, INPUT_PLAINTEXT_COLOR, INPUT_HEIGHR_BORDER,
+    INPUT_PLACEHOLDER_COLOR, INPUT_PLAINTEXT_COLOR, INPUT_HEIGHT_BORDER,
     INPUT_SHADOW_COLOR, INPUT_SHADOW_OPACITY, INPUT_SHADOW_OFFSET, INPUT_SHADOW_RADIUS,
+
+    FORM_TEXT_MARGIN_TOP, FORM_CHECK_INPUT_GUTTER, FORM_CHECK_INPUT_MARGIN_Y, FORM_CHECK_INPUT_MARGIN_X,
+    FORM_CHECK_INLINE_MARGIN_X, FORM_CHECK_INLINE_INPUT_MARGIN_X, FORM_GRID_GUTTER_WIDTH, FORM_GROUP_MARGIN_BOTTOM,
 
     PAGINATION_PADDING_Y, PAGINATION_PADDING_X,
     PAGINATION_PADDING_Y_SM, PAGINATION_PADDING_X_SM,
