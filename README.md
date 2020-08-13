@@ -131,7 +131,8 @@ class App extends Component {
 Simplified version of the original layout classes.
 Any ideas how to extend grid classes are welcome.
 
-Among non-impelemented features: `.row-cols-*`, `.offset-*-*`, `.order-*-*`.
+Impelemented features: `.container-*`, `.gutters-*`, `.no-gutters-*`. `.row-{screen}-{n}`, `.col-{screen}-{n}`.  
+Among non-impelemented features: `.row-cols-*`, `.offset-*-*`, `.order-*-*`.  
 
 
 
@@ -163,7 +164,7 @@ Check the related chapter in the Bootstrap [documentation](https://getbootstrap.
 What's implemented or neat to: 
 - buttons 
 - cards 
-- forms (far from) 
+- forms 
 - modal 
 - pagination 
 - progress 
@@ -255,7 +256,7 @@ Basic progress bar
 
 ### Selectors  
 
-An attempt to mimic CSS selectors for group pseudo-classes, such as `:first-child` and media queries:
+An attempt to mimic CSS selectors for group pseudo-classes, such as `:first-child`, and media queries:
 ```
 <View style={[s.flexRow]}>
   {

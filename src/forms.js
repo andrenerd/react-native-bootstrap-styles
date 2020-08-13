@@ -1,8 +1,10 @@
 import { mixinBorderRadius } from './mixins/border-radius';
 import { mixinBoxShadow } from './mixins/box-shadow';
+import { selectorMediaUp } from './mixins/selectors';
 
 export default function getClasses(constants, classes) {
   const {
+    SCREENS,
     INPUT_BG,
     INPUT_COLOR,
     INPUT_FONT_FAMILY,
@@ -215,6 +217,127 @@ export default function getClasses(constants, classes) {
       paddingRight: FORM_GRID_GUTTER_WIDTH / 2,
       paddingLeft: FORM_GRID_GUTTER_WIDTH / 2,
     },
+
+    // .form-check {
+    //   position: relative;
+    //   display: block;
+    //   padding-left: $form-check-input-gutter;
+    // }
+
+    // .form-check-input {
+    //   position: absolute;
+    //   margin-top: $form-check-input-margin-y;
+    //   margin-left: -$form-check-input-gutter;
+
+    //   // Use [disabled] and :disabled for workaround https://github.com/twbs/bootstrap/issues/28247
+    //   &[disabled] ~ .form-check-label,
+    //   &:disabled ~ .form-check-label {
+    //     color: $text-muted;
+    //   }
+    // }
+
+    // .form-check-label {
+    //   margin-bottom: 0; // Override default `<label>` bottom margin
+    // }
+
+    // .form-check-inline {
+    //   display: inline-flex;
+    //   align-items: center;
+    //   padding-left: 0; // Override base .form-check
+    //   margin-right: $form-check-inline-margin-x;
+
+    //   // Undo .form-check-input defaults and add some `margin-right`.
+    //   .form-check-input {
+    //     position: static;
+    //     margin-top: 0;
+    //     margin-right: $form-check-inline-input-margin-x;
+    //     margin-left: 0;
+    //   }
+    // }
+
+    // // Form validation
+    // //
+    // // Provide feedback to users when form field values are valid or invalid. Works
+    // // primarily for client-side validation via scoped `:invalid` and `:valid`
+    // // pseudo-classes but also includes `.is-invalid` and `.is-valid` classes for
+    // // server side validation.
+
+    // @each $state, $data in $form-validation-states {
+    //   @include form-validation-state($state, map-get($data, color), map-get($data, icon));
+    // }
+
+    formInline: {
+      display: 'flex',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      alignItems: 'center',  // Prevent shorter elements from growing to same height as others (e.g., small buttons growing to normal sized button height)
+    },
+ 
+    // todo check it later / useless?
+    formInlineFormCheck: {
+      width: '100%',
+    },
+
+    formInlineLabel: selectorMediaUp('Sm', SCREENS, {
+      // display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom: 0,
+    }),
+
+    formInlineFormGroup: selectorMediaUp('Sm', SCREENS, {
+      // display: 'flex',
+      flexGrow: 0,
+      flexShrink: 0,
+      flexBasis: 'auto',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      marginBottom: 0,
+    }),
+
+    formInlineFormControl: selectorMediaUp('Sm', SCREENS, {
+      // display: inline-block;
+      width: 'auto', // Prevent labels from stacking above inputs in `.form-group`
+      // verticalAlign: middle;
+    }),
+
+    formInlineFormControlPlaintext: selectorMediaUp('Sm', SCREENS, {
+      // display: inline-block;
+    }),
+
+    formInlineInputGroup: selectorMediaUp('Sm', SCREENS, {
+      width: 'auto',
+    }),
+
+    formInlineCustomSelect: selectorMediaUp('Sm', SCREENS, {
+      width: 'auto',
+    }),
+
+    formInlineFormCheck: selectorMediaUp('Sm', SCREENS, {
+      // display: flex;
+      alignItems: 'center',
+      justifyXontent: 'center',
+      width: 'auto',
+      paddingLeft: 0,
+    }),
+
+    formInlineFormCheckInput: selectorMediaUp('Sm', SCREENS, {
+      position: 'relative',
+      flexShrink: 0,
+      marginTop: 0,
+      marginRight: FORM_CHECK_INPUT_MARGIN_X,
+      marginLeft: 0,
+    }),
+
+    formInlineCustomControl: selectorMediaUp('Sm', SCREENS, {
+      alignItems: 'center',
+      justifyContent: 'center',
+    }),
+
+    formInlineCustomControlLabel: selectorMediaUp('Sm', SCREENS, {
+      marginBottom: 0,
+    }),
   };
 
   return _classes;
