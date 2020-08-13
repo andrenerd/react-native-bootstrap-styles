@@ -4,11 +4,14 @@ import { mixinBoxShadow } from './mixins/box-shadow';
 export default function getClasses(constants, classes) {
   const {
     WHITE,
+    BODY_COLOR,
     THEME_COLORS,
-    INPUT_BTN_PADDING_Y,
-    INPUT_BTN_PADDING_X,
-    INPUT_BTN_LINE_HEIGHT,
-    INPUT_BTN_BORDER_WIDTH,
+    FONT_WEIGHT_NORMAL,
+    LINK_COLOR,
+    BTN_PADDING_Y,
+    BTN_PADDING_X,
+    BTN_LINE_HEIGHT,
+    BTN_BORDER_WIDTH,
     BTN_FONT_FAMILY,
     BTN_FONT_SIZE,
     BTN_BORDER_RADIUS,
@@ -20,38 +23,57 @@ export default function getClasses(constants, classes) {
   const _classes = {
     btn: Object.assign({
       // display: inline-block;
-      // whiteSpace: 'nowrap',
-      // verticalAlign: 'middle',
-      // userSelect: 'none',
-      borderWidth: INPUT_BTN_BORDER_WIDTH,
+      // fontFamily: $btn-font-family; // see btnText
+      // fontWeight: $btn-font-weight; // see btnText
+      // color: $body-color; // see btnText
+      // text-align: center; // see btnText
+      // whiteSpace: 'nowrap', // use "numberOfLines={1}"
+      backgroundColor: 'transparent',
+      borderWidth: BTN_BORDER_WIDTH,
       borderStyle: 'solid',
       borderColor: 'transparent',
-
       overflow: 'hidden', // exprimental / important for rounded borders
-      justifyContent: 'center', // exprimental
+      justifyContent: 'center', // verticalAlign: 'middle',
+
+      // todo / text-decoration: if($link-decoration == none, null, none);
 
       // @include transition($btn-transition);
 
-      // // Share hover and focus styles
-      // @include hover-focus {
+      // @include hover() {
+      //   color: $body-color;
       //   text-decoration: none;
       // }
+
       // &:focus,
       // &.focus {
       //   outline: 0;
       //   box-shadow: $btn-focus-box-shadow;
       // }
 
-      // &:active,
-      // &.active {
-      //   background-image: none;
-      //   @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+      // // Disabled comes first so active can properly restyle
+      // &.disabled,
+      // &:disabled {
+      //   opacity: $btn-disabled-opacity;
+      //   @include box-shadow(none);
+      // }
+
+      // &:not(:disabled):not(.disabled) {
+      //   cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
+
+      //   &:active,
+      //   &.active {
+      //     @include box-shadow($btn-active-box-shadow);
+
+      //     &:focus {
+      //       @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+      //     }
+      //   }
       // }
     },
       mixinButtonSize(
         constants,
-        INPUT_BTN_PADDING_Y, INPUT_BTN_PADDING_X,
-        BTN_FONT_SIZE, INPUT_BTN_LINE_HEIGHT, BTN_BORDER_RADIUS,
+        BTN_PADDING_Y, BTN_PADDING_X,
+        BTN_FONT_SIZE, BTN_LINE_HEIGHT, BTN_BORDER_RADIUS,
       ),
     ),
 
@@ -70,8 +92,56 @@ export default function getClasses(constants, classes) {
       fontSize: BTN_FONT_SIZE,
       fontFamily: BTN_FONT_FAMILY,
       fontWeight: BTN_FONT_WEIGHT,
+      color: BODY_COLOR,
       textAlign: 'center',
     }),
+
+    btnLink: {
+      // font-weight: $font-weight-normal; // see btnLinkText
+      // color: $link-color; // see btnLinkText
+      // text-decoration: $link-decoration; // see btnLinkText
+
+      // todo
+      // @include hover() {
+      //   color: $link-hover-color;
+      //   text-decoration: $link-hover-decoration;
+      // }
+
+      // &:focus,
+      // &.focus {
+      //   text-decoration: $link-hover-decoration;
+      // }
+
+      // &:disabled,
+      // &.disabled {
+      //   color: $btn-link-disabled-color;
+      //   pointer-events: none;
+      // }
+      // No need for an active state here
+    },
+
+    btnLinkText: {
+      fontWeight: FONT_WEIGHT_NORMAL,
+      color: LINK_COLOR,
+      // textDecoration: $link-decoration;
+    },
+
+    // btnLg: Object.assign({
+    // },
+    //   mixinButtonSize(
+    //     constants,
+    //     BTN_PADDING_Y_LG, BTN_PADDING_X_LG,
+    //     BTN_FONT_SIZE_LG, BTN_LINE_HEIGHT_LG, BTN_BORDER_RADIUS_LG,
+    //   ),
+    // ),
+
+    // .btn-lg {
+    //   @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
+    // }
+
+    // .btn-sm {
+    //   @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+    // }
   };
 
   // btn%color / ex: btnPrimary
