@@ -126,14 +126,14 @@ export default function getClasses(constants, classes) {
       // textDecoration: $link-decoration;
     },
 
-    // btnLg: Object.assign({
-    // },
-    //   mixinButtonSize(
-    //     constants,
-    //     BTN_PADDING_Y_LG, BTN_PADDING_X_LG,
-    //     BTN_FONT_SIZE_LG, BTN_LINE_HEIGHT_LG, BTN_BORDER_RADIUS_LG,
-    //   ),
-    // ),
+    btnLg: Object.assign({
+    },
+      // mixinButtonSize(
+      //   constants,
+      //   BTN_PADDING_Y_LG, BTN_PADDING_X_LG,
+      //   BTN_FONT_SIZE_LG, BTN_LINE_HEIGHT_LG, BTN_BORDER_RADIUS_LG,
+      // ),
+    ),
 
     // .btn-lg {
     //   @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
