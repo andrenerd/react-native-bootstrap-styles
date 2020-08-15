@@ -14,10 +14,13 @@ export default function getClasses(constants, classes) {
     BTN_BORDER_WIDTH,
     BTN_FONT_FAMILY,
     BTN_FONT_SIZE,
-    BTN_BORDER_RADIUS,
     BTN_FONT_WEIGHT,
     BTN_DISABLED_OPACITY,
+    BTN_LINK_DISABLED_COLOR,
     BTN_OUTLINE_BACKGROUND_COLOR,
+    BTN_BORDER_RADIUS, BTN_BORDER_RADIUS_LG, BTN_BORDER_RADIUS_SM,
+    BTN_PADDING_Y_SM, BTN_PADDING_X_SM, BTN_FONT_SIZE_SM, BTN_LINE_HEIGHT_SM,
+    BTN_PADDING_Y_LG, BTN_PADDING_X_LG, BTN_FONT_SIZE_LG,BTN_LINE_HEIGHT_LG,
   } = constants;
 
   const _classes = {
@@ -111,13 +114,6 @@ export default function getClasses(constants, classes) {
       // &.focus {
       //   text-decoration: $link-hover-decoration;
       // }
-
-      // &:disabled,
-      // &.disabled {
-      //   color: $btn-link-disabled-color;
-      //   pointer-events: none;
-      // }
-      // No need for an active state here
     },
 
     btnLinkText: {
@@ -126,22 +122,22 @@ export default function getClasses(constants, classes) {
       // textDecoration: $link-decoration;
     },
 
-    btnLg: Object.assign({
+    btnLinkDisabledText: {
+      color: BTN_LINK_DISABLED_COLOR,
+      // pointer-events: none,
     },
-      // mixinButtonSize(
-      //   constants,
-      //   BTN_PADDING_Y_LG, BTN_PADDING_X_LG,
-      //   BTN_FONT_SIZE_LG, BTN_LINE_HEIGHT_LG, BTN_BORDER_RADIUS_LG,
-      // ),
+
+    btnLg: mixinButtonSize(
+      constants,
+      BTN_PADDING_Y_LG, BTN_PADDING_X_LG,
+      BTN_FONT_SIZE_LG, BTN_LINE_HEIGHT_LG, BTN_BORDER_RADIUS_LG,
     ),
 
-    // .btn-lg {
-    //   @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
-    // }
-
-    // .btn-sm {
-    //   @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
-    // }
+    btnSm: mixinButtonSize(
+      constants,
+      BTN_PADDING_Y_SM, BTN_PADDING_X_SM,
+      BTN_FONT_SIZE_SM, BTN_LINE_HEIGHT_SM, BTN_BORDER_RADIUS_SM,
+    ),
   };
 
   // btn%color / ex: btnPrimary
