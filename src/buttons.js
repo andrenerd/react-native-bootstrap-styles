@@ -1,4 +1,5 @@
-import { mixinButtonSize, mixinButtonVariant, mixinButtonOutlineVariant } from './mixins/buttons';
+import { mixinButtonSize, mixinButtonVariant, mixinButtonVariantDisabled } from './mixins/buttons';
+import { mixinButtonOutlineVariant } from './mixins/buttons';
 import { mixinBoxShadow } from './mixins/box-shadow';
 
 export default function getClasses(constants, classes) {
@@ -141,9 +142,11 @@ export default function getClasses(constants, classes) {
   };
 
   // btn%color / ex: btnPrimary
+  // btn%color / ex: btnPrimaryDisabled
   Object.keys(THEME_COLORS).forEach((item) => {
     const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
     classes['btn' + classColor] = mixinButtonVariant(constants, THEME_COLORS[item], THEME_COLORS[item]);
+    classes['btn' + classColor + 'Disabled'] = mixinButtonVariantDisabled(constants, THEME_COLORS[item], THEME_COLORS[item]);
   });
 
   // btnOutline%color / ex: btnOutlinePrimary

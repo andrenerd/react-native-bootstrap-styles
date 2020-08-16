@@ -21,6 +21,7 @@ export const mixinButtonVariant = (
   backgroundColor,
   borderColor,
 ) => ({
+  // todo: move to -Text classes / color: color-yiq($background);
   backgroundColor: backgroundColor,
   borderColor: borderColor,
 
@@ -41,14 +42,6 @@ export const mixinButtonVariant = (
   //   } @else {
   //     box-shadow: 0 0 0 $btn-focus-width rgba($border, .5);
   //   }
-  // }
-
-  // // Disabled comes first so active can properly restyle
-  // &.disabled,
-  // &:disabled {
-  //   color: color-yiq($background);
-  //   background-color: $background;
-  //   border-color: $border;
   // }
 
   // &:not(:disabled):not(.disabled):active,
@@ -72,12 +65,22 @@ export const mixinButtonVariant = (
   // }
 });
 
+export const mixinButtonVariantDisabled = (
+  constants,
+  backgroundColor,
+  borderColor,
+) => ({
+  // todo: move to -Text classes / color: color-yiq($background);
+  backgroundColor: backgroundColor,
+  borderColor: borderColor,
+});
+
 export const mixinButtonOutlineVariant = (
   constants,
   color,
   backgroundColor,
 ) => ({
-  // color: color;
+  // todo: move to -Text classes / color: color;
   borderColor: color,
   backgroundColor: backgroundColor,
 
