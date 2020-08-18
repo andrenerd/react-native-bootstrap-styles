@@ -1,4 +1,5 @@
-import { mixinButtonSize, mixinButtonVariant, mixinButtonVariantDisabled } from './mixins/buttons';
+import { mixinButtonSize, mixinButtonVariant, mixinButtonVariantText } from './mixins/buttons';
+import { mixinButtonVariantDisabled } from './mixins/buttons';
 import { mixinButtonOutlineVariant } from './mixins/buttons';
 import { mixinBoxShadow } from './mixins/box-shadow';
 
@@ -153,6 +154,7 @@ export default function getClasses(constants, classes) {
   Object.keys(THEME_COLORS).forEach((item) => {
     const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
     classes['btn' + classColor] = mixinButtonVariant(constants, THEME_COLORS[item], THEME_COLORS[item]);
+    classes['btn' + classColor + 'Text'] = mixinButtonVariantText(constants, THEME_COLORS[item]);
     classes['btn' + classColor + 'Disabled'] = mixinButtonVariantDisabled(constants, THEME_COLORS[item], THEME_COLORS[item]);
   });
 
@@ -166,10 +168,6 @@ export default function getClasses(constants, classes) {
   Object.keys(THEME_COLORS).forEach((item) => {
     const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
     // todo: add proper values
-    classes['btn' + classColor + 'Text'] = {
-      color: WHITE, // temporal
-    };
-
     classes['btn' + classColor + 'DisabledText'] = {
       color: WHITE, // temporal
     };

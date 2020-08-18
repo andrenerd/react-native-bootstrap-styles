@@ -1,4 +1,5 @@
 import { mixinBorderRadius } from './border-radius';
+import { colorYiq } from './helpers';
 
 export const mixinButtonSize = (
   constants,
@@ -63,6 +64,13 @@ export const mixinButtonVariant = (
   //     }
   //   }
   // }
+});
+
+export const mixinButtonVariantText = (
+  constants,
+  backgroundColor,
+) => ({
+  color: colorYiq(backgroundColor),
 });
 
 export const mixinButtonVariantDisabled = (
