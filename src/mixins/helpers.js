@@ -13,6 +13,13 @@ export const getScreens = (breakpoints, size) => (
     .map(item => item[0])
 );
 
+export const colorYiq = (constants, color, dark, light) => {
+  const c = Color(color);
+  const { YIG_CONTRASTED_THRESHOLD, YIG_TEXT_DARK, YIG_TEXT_LIGHT } = constants;
+  const yiq = ((c.red() * 299) + (c.green() * 587) + (c.blue() * 114)) / 1000;
+  return (yiq >= YIG_CONTRASTED_THRESHOLD) ? (dark || YIG_TEXT_DARK) : (light || YIG_TEXT_LIGHT);
+};
+
 export const colorLevel = (constants, color, level = 0) => (
   Color(color || constants.PRIMARY).mix(
     Color(level > 0 ? constants.BLACK : constants.WHITE),
