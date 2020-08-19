@@ -152,6 +152,10 @@ export default function getConstants(constants) {
 
     LINK_COLOR = _('LINK_COLOR', INFO),
     LINK_DECORATION = 'none',
+    LINK_DECORATION_LINE = LINK_DECORATION,
+    LINK_DECORATION_COLOR = LINK_COLOR,
+    LINK_DECORATION_STYLE = 'solid',
+
     // $link-hover-color:                        darken($link-color, 15%) !default;
     // $link-hover-decoration:                   underline !default;
     // // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
@@ -339,7 +343,7 @@ export default function getConstants(constants) {
 
     BTN_LINK_DISABLED_COLOR = GRAY_600,
 
-    // BTN_block-spacing-y:         .5rem !default;
+    BTN_BLOCK_SPACING_Y = 0.5 * REM,
 
     BTN_BORDER_RADIUS = BORDER_RADIUS,
     BTN_BORDER_RADIUS_LG = BORDER_RADIUS_LG,
@@ -589,6 +593,7 @@ export default function getConstants(constants) {
     PRIMARY, SECONDARY, SUCCESS, INFO, WARNING, DANGER, LIGHT, DARK,
     THEME_COLORS, THEME_COLOR_INTERVAL,
     BODY_BG, BODY_COLOR, LINK_COLOR, LINK_DECORATION,
+    LINK_DECORATION_LINE, LINK_DECORATION_COLOR, LINK_COLOR, LINK_DECORATION_STYLE,
     YIG_CONTRASTED_THRESHOLD, YIG_TEXT_DARK, YIG_TEXT_LIGHT,
 
     GRID_COLUMNS, GRID_GUTTER_WIDTH, GRID_ROW_COLUMNS,
@@ -638,7 +643,7 @@ export default function getConstants(constants) {
     BTN_PADDING_Y_LG, BTN_PADDING_X_LG, BTN_FONT_SIZE_LG,BTN_LINE_HEIGHT_LG,
     BTN_BORDER_WIDTH,
     BTN_FONT_WEIGHT,
-    BTN_DISABLED_OPACITY, BTN_LINK_DISABLED_COLOR,
+    BTN_DISABLED_OPACITY, BTN_LINK_DISABLED_COLOR, BTN_BLOCK_SPACING_Y,
     BTN_BORDER_RADIUS, BTN_BORDER_RADIUS_LG, BTN_BORDER_RADIUS_SM,
 
     LABEL_MARGIN_BOTTOM, INPUT_PADDING_Y, INPUT_PADDING_X, INPUT_LINE_HEIGHT,

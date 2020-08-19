@@ -10,6 +10,9 @@ export default function getClasses(constants, classes) {
     THEME_COLORS,
     FONT_WEIGHT_NORMAL,
     LINK_COLOR,
+    LINK_DECORATION_LINE,
+    LINK_DECORATION_COLOR,
+    LINK_DECORATION_STYLE,
     BTN_PADDING_Y,
     BTN_PADDING_X,
     BTN_LINE_HEIGHT,
@@ -23,6 +26,7 @@ export default function getClasses(constants, classes) {
     BTN_BORDER_RADIUS, BTN_BORDER_RADIUS_LG, BTN_BORDER_RADIUS_SM,
     BTN_PADDING_Y_SM, BTN_PADDING_X_SM, BTN_FONT_SIZE_SM, BTN_LINE_HEIGHT_SM,
     BTN_PADDING_Y_LG, BTN_PADDING_X_LG, BTN_FONT_SIZE_LG,BTN_LINE_HEIGHT_LG,
+    BTN_BLOCK_SPACING_Y,
   } = constants;
 
   const _classes = {
@@ -121,7 +125,9 @@ export default function getClasses(constants, classes) {
     btnLinkText: {
       fontWeight: FONT_WEIGHT_NORMAL,
       color: LINK_COLOR,
-      // textDecoration: $link-decoration;
+      textDecorationLine: LINK_DECORATION_LINE,
+      textDecorationColor: LINK_DECORATION_COLOR,
+      textDecorationStyle: LINK_DECORATION_STYLE,
     },
 
     btnLinkDisabledText: {
@@ -143,42 +149,33 @@ export default function getClasses(constants, classes) {
 
     btnBlock: {
       width: '100%',
-      // + .btn-block {
-      //   margin-top: $btn-block-spacing-y;
-      // }
-    }
+    },
+
+    // experimental
+    btnBlockNextChild: nOrBool => selectorNextChild(nOrBool, {
+      marginTop: BTN_BLOCK_SPACING_Y,
+    }),
+
   };
 
   // btn%color / ex: btnPrimary
   // btn%color / ex: btnPrimaryDisabled
+  // btn%colorText / ex: btnPrimaryText
+  // btn%colorDisabledText / ex: btnPrimaryDisabledText
   Object.keys(THEME_COLORS).forEach((item) => {
     const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
     classes['btn' + classColor] = mixinButtonVariant(constants, THEME_COLORS[item], THEME_COLORS[item]);
     classes['btn' + classColor + 'Text'] = mixinButtonVariantText(constants, THEME_COLORS[item]);
     classes['btn' + classColor + 'Disabled'] = mixinButtonVariantDisabled(constants, THEME_COLORS[item], THEME_COLORS[item]);
+    classes['btn' + classColor + 'DisabledText'] = mixinButtonVariantText(constants, THEME_COLORS[item]);
   });
 
   // btnOutline%color / ex: btnOutlinePrimary
-  Object.keys(THEME_COLORS).forEach((item) => {
-    const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
-    classes['btnOutline' + classColor] = mixinButtonOutlineVariant(constants, THEME_COLORS[item], BTN_OUTLINE_BACKGROUND_COLOR);
-  });
-
-  // btn%colorText / ex: btnPrimaryText
-  Object.keys(THEME_COLORS).forEach((item) => {
-    const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
-    // todo: add proper values
-    classes['btn' + classColor + 'DisabledText'] = {
-      color: WHITE, // temporal
-    };
-  });
-
   // btnOutline%colorText / ex: btnOutlinePrimaryText
   Object.keys(THEME_COLORS).forEach((item) => {
     const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
-    classes['btnOutline' + classColor + 'Text'] = {
-      color: THEME_COLORS[item], // temporal
-    };
+    classes['btnOutline' + classColor] = mixinButtonOutlineVariant(constants, THEME_COLORS[item], BTN_OUTLINE_BACKGROUND_COLOR);
+    classes['btnOutline' + classColor + 'Text'] = {color: THEME_COLORS[item]};
   });
 
   return _classes;

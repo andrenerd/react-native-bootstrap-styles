@@ -7,11 +7,12 @@ import { colorLevel } from './mixins/helpers';
 export default function getClasses(constants, classes) {
   const {
     THEME_COLORS,
-    LINK_DECORATION,
+    LINK_DECORATION_LINE,
+    LINK_DECORATION_COLOR,
+    LINK_DECORATION_STYLE,
     GRID_BREAKPOINTS,
     SCREENS_INFIXES,
     SCREENS,
-
     LIST_GROUP_COLOR,
     LIST_GROUP_BG,
     LIST_GROUP_BORDER_COLOR,
@@ -75,7 +76,9 @@ export default function getClasses(constants, classes) {
       borderColor: LIST_GROUP_BORDER_COLOR,
       borderStyle: 'solid',
       color: LIST_GROUP_COLOR,
-      textDecorationLine: LINK_DECORATION,
+      textDecorationLine: LINK_DECORATION_LINE,
+      textDecorationColor: LINK_DECORATION_COLOR,
+      textDecorationStyle: LINK_DECORATION_STYLE,
     },
 
     listGroupItemDisabled: {
@@ -92,7 +95,9 @@ export default function getClasses(constants, classes) {
 
     listGroupItemText: {
       color: LIST_GROUP_COLOR,
-      textDecorationLine: LINK_DECORATION,
+      textDecorationLine: LINK_DECORATION_LINE,
+      textDecorationColor: LINK_DECORATION_COLOR,
+      textDecorationStyle: LINK_DECORATION_STYLE,
     },
 
     listGroupItemDisabledText: {
