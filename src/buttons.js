@@ -1,6 +1,7 @@
 import { mixinButtonSize, mixinButtonVariant, mixinButtonVariantText } from './mixins/buttons';
-import { mixinButtonVariantDisabled } from './mixins/buttons';
-import { mixinButtonOutlineVariant } from './mixins/buttons';
+import { mixinButtonVariantDisabled, mixinButtonVariantDisabledText } from './mixins/buttons';
+import { mixinButtonOutlineVariant, mixinButtonOutlineVariantText } from './mixins/buttons';
+import { mixinButtonOutlineVariantDisabled, mixinButtonOutlineVariantDisabledText } from './mixins/buttons';
 import { mixinBoxShadow } from './mixins/box-shadow';
 
 export default function getClasses(constants, classes) {
@@ -13,6 +14,10 @@ export default function getClasses(constants, classes) {
     LINK_DECORATION_LINE,
     LINK_DECORATION_COLOR,
     LINK_DECORATION_STYLE,
+    LINK_HOVER_COLOR,
+    LINK_HOVER_DECORATION_LINE,
+    LINK_HOVER_DECORATION_COLOR,
+    LINK_HOVER_DECORATION_STYLE,
     BTN_PADDING_Y,
     BTN_PADDING_X,
     BTN_LINE_HEIGHT,
@@ -31,70 +36,59 @@ export default function getClasses(constants, classes) {
 
   const _classes = {
     btn: Object.assign({
-      // display: inline-block;
-      // fontFamily: $btn-font-family; // see btnText
-      // fontWeight: $btn-font-weight; // see btnText
-      // color: $body-color; // see btnText
-      // text-align: center; // see btnText
-      // whiteSpace: 'nowrap', // use "numberOfLines={1}"
+      // obsoleted / alignSelf: 'flex-start', // mimic: display: inline-block;
+      // see btnText / fontFamily: $btn-font-family;
+      // see btnText / fontWeight: $btn-font-weight;
+      // see btnText / color: $body-color;
+      // see btnText / text-align: center;
+      // use "numberOfLines={1}" / whiteSpace: 'nowrap',
       backgroundColor: 'transparent',
       borderWidth: BTN_BORDER_WIDTH,
       borderStyle: 'solid',
       borderColor: 'transparent',
       overflow: 'hidden', // exprimental / important for rounded borders
       justifyContent: 'center', // verticalAlign: 'middle',
-
-      // todo / text-decoration: if($link-decoration == none, null, none);
-
-      // @include transition($btn-transition);
-
-      // @include hover() {
-      //   color: $body-color;
-      //   text-decoration: none;
-      // }
-
-      // &:focus,
-      // &.focus {
-      //   outline: 0;
-      //   box-shadow: $btn-focus-box-shadow;
-      // }
-
-      // // Disabled comes first so active can properly restyle
-      // &.disabled,
-      // &:disabled {
-      //   opacity: $btn-disabled-opacity;
-      //   @include box-shadow(none);
-      // }
-
-      // &:not(:disabled):not(.disabled) {
-      //   cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
-
-      //   &:active,
-      //   &.active {
-      //     @include box-shadow($btn-active-box-shadow);
-
-      //     &:focus {
-      //       @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
-      //     }
-      //   }
-      // }
+      // reserved / @include transition($btn-transition);
     },
       mixinButtonSize(
         constants,
         BTN_PADDING_Y, BTN_PADDING_X,
         BTN_FONT_SIZE, BTN_LINE_HEIGHT, BTN_BORDER_RADIUS,
       ),
+      LINK_DECORATION_LINE == 'none' ? {textDecorationLine: 'none'} : {}, // yep
     ),
 
     btnDisabled: Object.assign({
       opacity: BTN_DISABLED_OPACITY,
     },
-      mixinBoxShadow('none'),
+      // reserved / mixinBoxShadow('none'),
     ),
 
-    btnTouchable: { // experimental
+    btnHover: {
+      color: BODY_COLOR,
+      textDecorationLine: 'none',
+    },
+
+    btnFocus: Object.assign({
+      // ignored / outline: 0,
+    },
+      // reserved / mixinBoxShadow($btn-focus-box-shadow),
+    ),
+
+    btnActive: Object.assign({
+      // pass
+    },
+      // reserved / mixinBoxShadow($btn-active-box-shadow),
+    ),
+
+    btnTouchable: {
+      // obsoleted / alignSelf: 'flex-start',
       borderRadius: BTN_BORDER_RADIUS,
-      overflow: 'hidden', // experimental x2
+      overflow: 'hidden', // experimental
+    },
+
+    btnTouchableBlock: {
+      // obsoleted / alignSelf: 'auto',
     },
 
     btnText: Object.assign({}, classes.text, {
@@ -106,16 +100,17 @@ export default function getClasses(constants, classes) {
     }),
 
     btnLink: {
-      // font-weight: $font-weight-normal; // see btnLinkText
-      // color: $link-color; // see btnLinkText
-      // text-decoration: $link-decoration; // see btnLinkText
+      // see btnLinkText / font-weight: $font-weight-normal;
+      // see btnLinkText / color: $link-color;
+      // see btnLinkText / text-decoration: $link-decoration;
 
-      // todo
+      // see btnLinkHoverText
       // @include hover() {
       //   color: $link-hover-color;
       //   text-decoration: $link-hover-decoration;
       // }
 
+      // see btnLinkFocusText
       // &:focus,
       // &.focus {
       //   text-decoration: $link-hover-decoration;
@@ -128,6 +123,19 @@ export default function getClasses(constants, classes) {
       textDecorationLine: LINK_DECORATION_LINE,
       textDecorationColor: LINK_DECORATION_COLOR,
       textDecorationStyle: LINK_DECORATION_STYLE,
+    },
+
+    btnLinkHoverText: {
+      color: LINK_HOVER_COLOR,
+      textDecorationLine: LINK_HOVER_DECORATION_LINE,
+      textDecorationColor: LINK_HOVER_DECORATION_COLOR,
+      textDecorationStyle: LINK_HOVER_DECORATION_STYLE,
+    },
+
+    btnLinkFocusText: {
+      textDecorationLine: LINK_HOVER_DECORATION_LINE, // yep, hover
+      textDecorationColor: LINK_HOVER_DECORATION_COLOR,
+      textDecorationStyle: LINK_HOVER_DECORATION_STYLE,
     },
 
     btnLinkDisabledText: {
@@ -148,6 +156,7 @@ export default function getClasses(constants, classes) {
     ),
 
     btnBlock: {
+      // obsoleted / alignSelf: 'auto', // reset btn:alignSelf
       width: '100%',
     },
 
@@ -164,10 +173,14 @@ export default function getClasses(constants, classes) {
   // btn%colorDisabledText / ex: btnPrimaryDisabledText
   Object.keys(THEME_COLORS).forEach((item) => {
     const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
-    classes['btn' + classColor] = mixinButtonVariant(constants, THEME_COLORS[item], THEME_COLORS[item]);
+    classes['btn' + classColor] = Object.assign(
+      mixinButtonVariant(constants, THEME_COLORS[item], THEME_COLORS[item]),
+      // reserved / no "inset" style / mixinBoxShadow(constants, BTN_BOX_SHADOW_COLOR, BTN_BOX_SHADOW_OFFSET, BTN_BOX_SHADOW_OPACITY, BTN_BOX_SHADOW_RADIUS),
+    );
+
     classes['btn' + classColor + 'Text'] = mixinButtonVariantText(constants, THEME_COLORS[item]);
     classes['btn' + classColor + 'Disabled'] = mixinButtonVariantDisabled(constants, THEME_COLORS[item], THEME_COLORS[item]);
-    classes['btn' + classColor + 'DisabledText'] = mixinButtonVariantText(constants, THEME_COLORS[item]);
+    classes['btn' + classColor + 'DisabledText'] = mixinButtonVariantDisabledText(constants, THEME_COLORS[item]);
   });
 
   // btnOutline%color / ex: btnOutlinePrimary
@@ -175,7 +188,9 @@ export default function getClasses(constants, classes) {
   Object.keys(THEME_COLORS).forEach((item) => {
     const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
     classes['btnOutline' + classColor] = mixinButtonOutlineVariant(constants, THEME_COLORS[item], BTN_OUTLINE_BACKGROUND_COLOR);
-    classes['btnOutline' + classColor + 'Text'] = {color: THEME_COLORS[item]};
+    classes['btnOutline' + classColor + 'Text'] = mixinButtonOutlineVariantText(constants, THEME_COLORS[item]);
+    classes['btnOutline' + classColor + 'Disabled'] = mixinButtonOutlineVariantDisabled(constants);
+    classes['btnOutline' + classColor + 'DisabledText'] = mixinButtonOutlineVariantDisabledText(constants, THEME_COLORS[item]);
   });
 
   return _classes;

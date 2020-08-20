@@ -156,8 +156,13 @@ export default function getConstants(constants) {
     LINK_DECORATION_COLOR = LINK_COLOR,
     LINK_DECORATION_STYLE = 'solid',
 
-    // $link-hover-color:                        darken($link-color, 15%) !default;
-    // $link-hover-decoration:                   underline !default;
+    // why hover?
+    // https://blog.expo.io/css-pseudo-class-effects-in-expo-for-web-56649f88eb6b
+    LINK_HOVER_COLOR = Color(LINK_COLOR).darken(0.15).rgb().string(),
+    LINK_HOVER_DECORATION = 'underline',
+    LINK_HOVER_DECORATION_LINE = LINK_HOVER_DECORATION,
+    LINK_HOVER_DECORATION_COLOR = LINK_HOVER_COLOR,
+    LINK_HOVER_DECORATION_STYLE = 'solid',
     // // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
     // $emphasized-link-hover-darken-percentage: 15% !default;
 
@@ -335,11 +340,22 @@ export default function getConstants(constants) {
     BTN_BORDER_WIDTH = INPUT_BTN_BORDER_WIDTH,
 
     BTN_FONT_WEIGHT = FONT_WEIGHT_NORMAL,
-    // BTN_box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
-    // BTN_focus-width:             $input-btn-focus-width !default;
-    // BTN_focus-box-shadow:        $input-btn-focus-box-shadow !default;
+    // btn-box-shadow: inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+    // BTN_BOX_SHADOW_COLOR = ...,
+    // BTN_BOX_SHADOW_OPACITY = ...,
+    // BTN_BOX_SHADOW_OFFSET = ...,
+    // BTN_BOX_SHADOW_RADIUS = ...,
+    BTN_FOCUS_WIDTH = INPUT_BTN_FOCUS_WIDTH,
+    // BTN_FOCUS_BOX_SHADOW_COLOR = INPUT_BTN_FOCUS_BOX_SHADOW_COLOR,
+    // BTN_FOCUS_BOX_SHADOW_OPACITY = INPUT_BTN_FOCUS_BOX_SHADOW_OPACITY,
+    // BTN_FOCUS_BOX_SHADOW_OFFSET = INPUT_BTN_FOCUS_BOX_SHADOW_OFFSET,
+    // BTN_FOCUS_BOX_SHADOW_RADIUS = INPUT_BTN_FOCUS_BOX_SHADOW_RADIUS,
     BTN_DISABLED_OPACITY = .65,
     // BTN_active-box-shadow:       inset 0 3px 5px rgba($black, .125) !default;
+    // BTN_ACTIVE_BOX_SHADOW_COLOR = ...,
+    // BTN_ACTIVE_BOX_SHADOW_OPACITY = ...,
+    // BTN_ACTIVE_BOX_SHADOW_OFFSET = ...,
+    // BTN_ACTIVE_BOX_SHADOW_RADIUS = ...,
 
     BTN_LINK_DISABLED_COLOR = GRAY_600,
 
@@ -593,7 +609,8 @@ export default function getConstants(constants) {
     PRIMARY, SECONDARY, SUCCESS, INFO, WARNING, DANGER, LIGHT, DARK,
     THEME_COLORS, THEME_COLOR_INTERVAL,
     BODY_BG, BODY_COLOR, LINK_COLOR, LINK_DECORATION,
-    LINK_DECORATION_LINE, LINK_DECORATION_COLOR, LINK_COLOR, LINK_DECORATION_STYLE,
+    LINK_DECORATION_LINE, LINK_DECORATION_COLOR, LINK_DECORATION_STYLE,
+    LINK_HOVER_COLOR, LINK_HOVER_DECORATION_LINE, LINK_HOVER_DECORATION_COLOR, LINK_HOVER_DECORATION_STYLE,
     YIG_CONTRASTED_THRESHOLD, YIG_TEXT_DARK, YIG_TEXT_LIGHT,
 
     GRID_COLUMNS, GRID_GUTTER_WIDTH, GRID_ROW_COLUMNS,

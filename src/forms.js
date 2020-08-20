@@ -317,7 +317,7 @@ export default function getClasses(constants, classes) {
     formInlineFormCheck: selectorMediaUp('Sm', SCREENS, {
       // display: flex;
       alignItems: 'center',
-      justifyXontent: 'center',
+      justifyContent: 'center',
       width: 'auto',
       paddingLeft: 0,
     }),

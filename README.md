@@ -179,7 +179,7 @@ TouchableHighlight as button:
 ```
 <TouchableHighlight onPress={this.onPress} style=[{s.btnTouchable}]>
   <View style={[s.btn, s.btnPrimary]}>
-    <Text style={[s.btnText, s.btnTextPrimary]}>Signup</Text>
+    <Text style={[s.btnText, s.btnPrimaryText]}>Signup</Text>
   </View>
 </TouchableHighlight>
 ```
@@ -187,15 +187,15 @@ TouchableHighlight as button:
 Links as default and outline buttons with some optional tweaks (see `underlayColor`):
 ```
 // import { Link } from 'react-router-native';
-<Link to="/submit" component={TouchableHighlight} underlayColor={c.PRIMARY} style={[s.btnTouchable]}>
+<Link to="/submit" component={TouchableHighlight} underlayColor={c.BLACK} style={[s.btnTouchable]}>
   <View style={[s.btn, s.btnPrimary]}>
-    <Text style={[s.btnText, s.btnTextPrimary]}>Submit</Text>
+    <Text style={[s.btnText, s.btnPrimaryText]}>Submit</Text>
   </View>
 </Link>
 
-<Link to="/cancel" component={TouchableHighlight} underlayColor={c.PRIMARY} style={[s.btnTouchable, s.mt3]}>
+<Link to="/cancel" component={TouchableHighlight} underlayColor={c.BLACK} style={[s.btnTouchable, s.mt3]}>
   <View style={[s.btn, s.btnOutlinePrimary]}>
-    <Text style={[s.btnText, s.textPrimary]}>Cancel</Text>
+    <Text style={[s.btnText, s.btnOutlinePrimaryText]}>Cancel</Text>
   </View>
 </Link>
 ```

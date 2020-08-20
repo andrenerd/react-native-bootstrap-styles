@@ -11,8 +11,8 @@ export const mixinButtonSize = (
 ) => (Object.assign({
   paddingHorizontal: paddingX,
   paddingVertical: paddingY,
-  // DON'T ADD / fontSize: fontSize,
-  // lineHeight: lineHeight,
+  // don't add / fontSize: fontSize,
+  // reserved / lineHeight: lineHeight,
 },
   mixinBorderRadius(constants, borderRadius),
 ));
@@ -21,13 +21,16 @@ export const mixinButtonVariant = (
   constants,
   backgroundColor,
   borderColor,
+  // hoverBackground,
+  // hoverColor,
+  // activeBackground,
+  // activeBorder,
 ) => ({
-  // todo: move to -Text classes / color: color-yiq($background);
+  // see mixinButtonVariantText / color: color-yiq($background);
   backgroundColor: backgroundColor,
   borderColor: borderColor,
 
   // @include gradient-bg($background);
-  // @include box-shadow($btn-box-shadow);
 
   // @include hover {
   //   color: color-yiq($hover-background);
@@ -70,7 +73,7 @@ export const mixinButtonVariantText = (
   constants,
   backgroundColor,
 ) => ({
-  color: colorYiq(backgroundColor),
+  color: colorYiq(constants, backgroundColor),
 });
 
 export const mixinButtonVariantDisabled = (
@@ -78,19 +81,27 @@ export const mixinButtonVariantDisabled = (
   backgroundColor,
   borderColor,
 ) => ({
-  // todo: move to -Text classes / color: color-yiq($background);
+  // see mixinButtonVariantText / color: color-yiq($background);
   backgroundColor: backgroundColor,
   borderColor: borderColor,
+  // reserved
+  // // Remove CSS gradients if they're enabled
+  // @if $enable-gradients {
+  //   background-image: none;
+  // }
 });
+
+export const mixinButtonVariantDisabledText = mixinButtonVariantText;
 
 export const mixinButtonOutlineVariant = (
   constants,
   color,
-  backgroundColor,
+  // colorHover,
+  // activeBackground,
+  // activeBorder,
 ) => ({
-  // todo: move to -Text classes / color: color;
+  // see mixinButtonOutlineVariantText / color: color;
   borderColor: color,
-  backgroundColor: backgroundColor,
 
   // &:hover {
   //   color: $color-hover;
@@ -101,12 +112,6 @@ export const mixinButtonOutlineVariant = (
   // &:focus,
   // &.focus {
   //   box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
-  // }
-
-  // &.disabled,
-  // &:disabled {
-  //   color: $color;
-  //   background-color: transparent;
   // }
 
   // &:not(:disabled):not(.disabled):active,
@@ -125,4 +130,24 @@ export const mixinButtonOutlineVariant = (
   //     }
   //   }
   // }
+});
+
+export const mixinButtonOutlineVariantText = (
+  constants,
+  color,
+) => ({
+  color: color,
+});
+
+export const mixinButtonOutlineVariantDisabled = (
+  constants,
+) => ({
+  backgroundColor: 'transparent',
+});
+
+export const mixinButtonOutlineVariantDisabledText = (
+  constants,
+  color,
+) => ({
+  color: color,
 });
