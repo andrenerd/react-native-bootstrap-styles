@@ -28,6 +28,7 @@ import getClassesDisplay from './utilities/display';
 import getClassesType from './type';
 import getClassesGrid from './grid';
 import getClassesAlert from './alert';
+import getClassesButtonGroup from './button-group';
 import getClassesButtons from './buttons';
 import getClassesForms from './forms';
 import getClassesCard from './card';
@@ -66,6 +67,7 @@ class BootstrapStyleSheet {
     getClassesType,
     getClassesGrid,
     getClassesAlert,
+    getClassesButtonGroup,
     getClassesButtons,
     getClassesForms,
     getClassesCard,

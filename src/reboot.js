@@ -8,6 +8,9 @@ export default function getClasses(constants, classes) {
     LINE_HEIGHT_BASE,
     LINK_COLOR,
     LINK_DECORATION,
+    LINK_DECORATION_LINE,
+    LINK_DECORATION_COLOR,
+    LINK_DECORATION_STYLE,
   } = constants;
 
   const _classes = {
@@ -21,7 +24,9 @@ export default function getClasses(constants, classes) {
 
     linkText: Object.assign({}, classes.text, {
       color: LINK_COLOR,
-      textDecorationLine: LINK_DECORATION,
+      textDecorationLine: LINK_DECORATION_LINE,
+      textDecorationColor: LINK_DECORATION_COLOR,
+      textDecorationStyle: LINK_DECORATION_STYLE,
 
       // @include hover() {
       //   color: $link-hover-color;

@@ -6,18 +6,6 @@ export default function getClasses(constants, classes) {
   } = constants;
 
   const _classes = {
-    // https://github.com/twbs/bootstrap/blob/7b766e1ad53b0c22de42dac04d2472f287334e2a/scss/utilities/_flex.scss
-    flexRow: {flexDirection: 'row'},
-    flexColumn: {flexDirection: 'column'},
-    flexRowReverse: {flexDirection: 'row-reverse'},
-    flexColumnReverse: {flexDirection: 'column-reverse'},
-
-    flexGrow: {flexGrow: 1}, // custom / experimental
-
-    // .flex#{$infix}-wrap         { flex-wrap: wrap !important; }
-    // .flex#{$infix}-nowrap       { flex-wrap: nowrap !important; }
-    // .flex#{$infix}-wrap-reverse { flex-wrap: wrap-reverse !important; }
-
     justifyContentStart: {justifyContent: 'flex-start'},
     justifyContentEnd: {justifyContent: 'flex-end'},
     justifyContentCenter: {justifyContent: 'center'},
@@ -50,6 +38,18 @@ export default function getClasses(constants, classes) {
   SCREENS_INFIXES.forEach((itemScreen) => {
     Array.from(Array(GRID_COLUMNS + 1).keys()).forEach(item => _classes['flex' + itemScreen + (item + 1)] = {flex: item + 1});
     _classes['flex' + itemScreen] = _classes['flex' + itemScreen + 1]; // experimental
+
+    _classes['flex' + itemScreen + 'Row'] = {flexDirection: 'row'};
+    _classes['flex' + itemScreen + 'Column'] = {flexDirection: 'column'};
+    _classes['flex' + itemScreen + 'RowReverse'] = {flexDirection: 'row-reverse'};
+    _classes['flex' + itemScreen + 'ColumnReverse'] = {flexDirection: 'column-reverse'};
+
+    _classes['flex' + itemScreen + 'Wrap'] = {flexWrap: 'wrap'};
+    _classes['flex' + itemScreen + 'Nowrap'] = {flexWrap: 'nowrap'};
+    // reserved / .flex#{$infix}-fill         { flex: 1 1 auto !important; }
+    _classes['flex' + itemScreen + 'Grow0'] = {flexGrow: 0};
+    _classes['flex' + itemScreen + 'Shrink0'] = {flexShrink: 0};
+    _classes['flex' + itemScreen + 'Shrink1'] = {flexShrink: 1};
   });
 
   return _classes;
