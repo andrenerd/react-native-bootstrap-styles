@@ -60,7 +60,7 @@ export default function getConstants(constants) {
     INFO = _('INFO', CYAN),
     WARNING = _('WARNING', YELLOW),
     DANGER = _('DANGER', RED),
-    LIGHT = _('LIGHT', GRAY_100),
+    LIGHT = _('LIGHT', GRAY_200), // originally: GRAY_100
     DARK = _('DARK', GRAY_800),
 
     THEME_COLORS = {
