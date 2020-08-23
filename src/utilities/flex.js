@@ -6,6 +6,7 @@ export default function getClasses(constants, classes) {
   } = constants;
 
   const _classes = {
+    // todo: make it "screen" aware
     justifyContentStart: {justifyContent: 'flex-start'},
     justifyContentEnd: {justifyContent: 'flex-end'},
     justifyContentCenter: {justifyContent: 'center'},
