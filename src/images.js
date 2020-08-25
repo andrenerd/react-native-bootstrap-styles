@@ -15,18 +15,16 @@ export default function getClasses(constants, classes) {
     //   @include img-fluid();
     // }
 
+    imgThumbnail: {
+      // padding: $thumbnail-padding;
+      // background-color: $thumbnail-bg;
+      // border: $thumbnail-border-width solid $thumbnail-border-color;
+      // @include border-radius($thumbnail-border-radius);
+      // @include box-shadow($thumbnail-box-shadow);
 
-    // // Image thumbnails
-    // .img-thumbnail {
-    //   padding: $thumbnail-padding;
-    //   background-color: $thumbnail-bg;
-    //   border: $thumbnail-border-width solid $thumbnail-border-color;
-    //   @include border-radius($thumbnail-border-radius);
-    //   @include box-shadow($thumbnail-box-shadow);
-
-    //   // Keep them at most 100% wide
-    //   @include img-fluid();
-    // }
+      // // Keep them at most 100% wide
+      // @include img-fluid();
+    },
 
     // //
     // // Figures
