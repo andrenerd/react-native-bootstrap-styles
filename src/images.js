@@ -1,6 +1,17 @@
+import { mixinBorderRadius } from './mixins/border-radius';
+import { mixinBoxShadow } from './mixins/box-shadow';
+
 export default function getClasses(constants, classes) {
   const {
-    // OBSOLETED / SCREEN,
+    THUMBNAIL_PADDING,
+    THUMBNAIL_BG,
+    THUMBNAIL_BORDER_WIDTH,
+    THUMBNAIL_BORDER_COLOR,
+    THUMBNAIL_BORDER_RADIUS,
+    THUMBNAIL_BOX_SHADOW_COLOR,
+    THUMBNAIL_BOX_SHADOW_OPACITY,
+    THUMBNAIL_BOX_SHADOW_OFFSET,
+    THUMBNAIL_BOX_SHADOW_RADIUS,
   } = constants;
 
   const _classes = {
@@ -15,16 +26,18 @@ export default function getClasses(constants, classes) {
     //   @include img-fluid();
     // }
 
-    imgThumbnail: {
-      // padding: $thumbnail-padding;
-      // background-color: $thumbnail-bg;
-      // border: $thumbnail-border-width solid $thumbnail-border-color;
-      // @include border-radius($thumbnail-border-radius);
-      // @include box-shadow($thumbnail-box-shadow);
-
+    imgThumbnail: Object.assign({
+      padding: THUMBNAIL_PADDING,
+      backgroundColor: THUMBNAIL_BG,
+      borderWidth: THUMBNAIL_BORDER_WIDTH,
+      borderColor: THUMBNAIL_BORDER_COLOR,
+      borderStyle: 'solid',
       // // Keep them at most 100% wide
       // @include img-fluid();
     },
+      mixinBorderRadius(constants, THUMBNAIL_BORDER_RADIUS),
+      mixinBoxShadow(constants, THUMBNAIL_BOX_SHADOW_COLOR, THUMBNAIL_BOX_SHADOW_OFFSET, THUMBNAIL_BOX_SHADOW_OPACITY, THUMBNAIL_BOX_SHADOW_RADIUS),
+    ),
 
     // //
     // // Figures
