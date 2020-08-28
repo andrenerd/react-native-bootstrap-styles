@@ -437,9 +437,9 @@ export default function getConstants(constants) {
     FORM_GRID_GUTTER_WIDTH = 10,
     FORM_GROUP_MARGIN_BOTTOM = 1 * REM,
 
-    // $input-group-addon-color:               $input-color,
-    // $input-group-addon-bg:                  $gray-200,
-    // $input-group-addon-border-color:        $input-border-color,
+    // INPUT_COLOR_ADDON_COLOR = INPUT_COLOR,
+    // INPUT_COLOR_ADDON_BG = _('INPUT_COLOR_ADDON_BG', GRAY_200),
+    // INPUT_COLOR_ADDON_BORDER_COLOR = INPUT_BORDER_COLOR,
 
     // Pagination
 
