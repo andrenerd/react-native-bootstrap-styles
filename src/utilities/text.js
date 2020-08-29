@@ -1,3 +1,4 @@
+import Color from 'color';
 import { colorLevel } from '../mixins/helpers';
 import { mediaBreakpointUp } from '../mixins/helpers';
 
@@ -31,8 +32,8 @@ export default function getClasses(constants, classes) {
     textWhite: {color: WHITE},
     textMuted: {color: TEXT_MUTED},
 
-    // textBlack50: {color: Color(BLACK).fade(0.5).rgb().string()},
-    // textWhite50: {color: Color(WHITE).fade(0.5).rgb().string()},
+    textBlack50: {color: Color(BLACK).fade(0.5).rgb().string()},
+    textWhite50: {color: Color(WHITE).fade(0.5).rgb().string()},
 
     //  textAuto: {textAlign: 'auto'},
     // textLeft: {textAlign: 'left'},

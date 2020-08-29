@@ -5,17 +5,25 @@ export const mixinButtonSize = (
   constants,
   paddingY,
   paddingX,
-  fontSize,
   lineHeight,
   borderRadius,
 ) => (Object.assign({
   paddingHorizontal: paddingX,
   paddingVertical: paddingY,
-  // don't add / fontSize: fontSize,
+  // see mixinButtonSizeText / fontSize: fontSize,
   // reserved / lineHeight: lineHeight,
 },
   mixinBorderRadius(constants, borderRadius),
 ));
+
+export const mixinButtonSizeText = (
+  constants,
+  fontSize,
+  lineHeight,
+) => ({
+  fontSize: fontSize,
+  lineHeight: lineHeight,
+});
 
 export const mixinButtonVariant = (
   constants,
