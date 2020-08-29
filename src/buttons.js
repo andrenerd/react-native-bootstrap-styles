@@ -1,4 +1,4 @@
-import { mixinButtonSize, mixinButtonVariant, mixinButtonVariantText } from './mixins/buttons';
+import { mixinButtonSize, mixinButtonSizeText, mixinButtonVariant, mixinButtonVariantText } from './mixins/buttons';
 import { mixinButtonVariantDisabled, mixinButtonVariantDisabledText } from './mixins/buttons';
 import { mixinButtonOutlineVariant, mixinButtonOutlineVariantText } from './mixins/buttons';
 import { mixinButtonOutlineVariantDisabled, mixinButtonOutlineVariantDisabledText } from './mixins/buttons';
@@ -53,7 +53,7 @@ export default function getClasses(constants, classes) {
       mixinButtonSize(
         constants,
         BTN_PADDING_Y, BTN_PADDING_X,
-        BTN_FONT_SIZE, BTN_LINE_HEIGHT, BTN_BORDER_RADIUS,
+        BTN_LINE_HEIGHT, BTN_BORDER_RADIUS,
       ),
       LINK_DECORATION_LINE == 'none' ? {textDecorationLine: 'none'} : {}, // yep
     ),
@@ -92,12 +92,13 @@ export default function getClasses(constants, classes) {
     },
 
     btnText: Object.assign({}, classes.text, {
-      fontSize: BTN_FONT_SIZE,
       fontFamily: BTN_FONT_FAMILY,
       fontWeight: BTN_FONT_WEIGHT,
       color: BODY_COLOR,
       textAlign: 'center',
-    }),
+    },
+      mixinButtonSizeText(constants, BTN_FONT_SIZE, BTN_LINE_HEIGHT),
+    ),
 
     btnLink: {
       // see btnLinkText / font-weight: $font-weight-normal;
@@ -145,14 +146,22 @@ export default function getClasses(constants, classes) {
 
     btnLg: mixinButtonSize(
       constants,
-      BTN_PADDING_Y_LG, BTN_PADDING_X_LG,
-      BTN_FONT_SIZE_LG, BTN_LINE_HEIGHT_LG, BTN_BORDER_RADIUS_LG,
+      BTN_PADDING_Y_LG, BTN_PADDING_X_LG, BTN_BORDER_RADIUS_LG,
+    ),
+
+    btnLgText: mixinButtonSizeText(
+      constants,
+      BTN_FONT_SIZE_LG, BTN_LINE_HEIGHT_LG,
     ),
 
     btnSm: mixinButtonSize(
       constants,
-      BTN_PADDING_Y_SM, BTN_PADDING_X_SM,
-      BTN_FONT_SIZE_SM, BTN_LINE_HEIGHT_SM, BTN_BORDER_RADIUS_SM,
+      BTN_PADDING_Y_SM, BTN_PADDING_X_SM, BTN_BORDER_RADIUS_SM,
+    ),
+
+    btnSmText: mixinButtonSizeText(
+      constants,
+      BTN_FONT_SIZE_SM, BTN_LINE_HEIGHT_SM
     ),
 
     btnBlock: {
@@ -168,9 +177,7 @@ export default function getClasses(constants, classes) {
   };
 
   // btn%color / ex: btnPrimary
-  // btn%color / ex: btnPrimaryDisabled
   // btn%colorText / ex: btnPrimaryText
-  // btn%colorDisabledText / ex: btnPrimaryDisabledText
   Object.keys(THEME_COLORS).forEach((item) => {
     const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
     classes['btn' + classColor] = Object.assign(
@@ -179,8 +186,8 @@ export default function getClasses(constants, classes) {
     );
 
     classes['btn' + classColor + 'Text'] = mixinButtonVariantText(constants, THEME_COLORS[item]);
-    classes['btn' + classColor + 'Disabled'] = mixinButtonVariantDisabled(constants, THEME_COLORS[item], THEME_COLORS[item]);
-    classes['btn' + classColor + 'DisabledText'] = mixinButtonVariantDisabledText(constants, THEME_COLORS[item]);
+    // obsoleted / classes['btn' + classColor + 'Disabled'] = mixinButtonVariantDisabled(constants, THEME_COLORS[item], THEME_COLORS[item]);
+    // obsoleted / classes['btn' + classColor + 'DisabledText'] = mixinButtonVariantDisabledText(constants, THEME_COLORS[item]);
   });
 
   // btnOutline%color / ex: btnOutlinePrimary
@@ -189,8 +196,8 @@ export default function getClasses(constants, classes) {
     const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
     classes['btnOutline' + classColor] = mixinButtonOutlineVariant(constants, THEME_COLORS[item], BTN_OUTLINE_BACKGROUND_COLOR);
     classes['btnOutline' + classColor + 'Text'] = mixinButtonOutlineVariantText(constants, THEME_COLORS[item]);
-    classes['btnOutline' + classColor + 'Disabled'] = mixinButtonOutlineVariantDisabled(constants);
-    classes['btnOutline' + classColor + 'DisabledText'] = mixinButtonOutlineVariantDisabledText(constants, THEME_COLORS[item]);
+    // obsoleted / classes['btnOutline' + classColor + 'Disabled'] = mixinButtonOutlineVariantDisabled(constants);
+    // obsoleted / classes['btnOutline' + classColor + 'DisabledText'] = mixinButtonOutlineVariantDisabledText(constants, THEME_COLORS[item]);
   });
 
   return _classes;
