@@ -21,11 +21,23 @@ export const selectorLastChild = (indexOrBool, lengthOrStyle = {}, style = {}) =
   )
 );
 
-export const selectorNextChild = (indexOrBool, style = {}) => (
+export const selectorNotFirstChild = (indexOrBool, style = {}) => (
   typeof indexOrBool === 'boolean' ? (
     indexOrBool ? style : {}
   ) : (
     indexOrBool > 0 ? style : {}
+  )
+);
+
+export const selectorNotLastChild = (indexOrBool, lengthOrStyle, style = {}) => (
+  arguments.length < 3 ? (
+    indexOrBool ? style : {}
+  ) : (
+    typeof indexOrBool === 'boolean' ? (
+      indexOrBool ? style : {}
+    ) : (
+      indexOrBool < lengthOrStyle - 1 ? style : {}
+    )
   )
 );
 
@@ -98,7 +110,7 @@ export function getSelectors(constants, classes) {
   return {
     selectorFirstChild,
     selectorLastChild,
-    selectorNextChild,
+    selectorNotFirstChild,
     selectorPreviousChild,
     ..._selectors
   }

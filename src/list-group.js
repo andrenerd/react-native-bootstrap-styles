@@ -1,6 +1,6 @@
 import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius } from './mixins/border-radius';
 import { mixinBorderTopRightRadius, mixinBorderBottomLeftRadius } from './mixins/border-radius';
-import { selectorFirstChild, selectorLastChild, selectorNextChild } from './mixins/selectors';
+import { selectorFirstChild, selectorLastChild, selectorNotFirstChild } from './mixins/selectors';
 import { selectorMediaUp } from './mixins/selectors';
 import { colorLevel } from './mixins/helpers';
 
@@ -120,7 +120,7 @@ export default function getClasses(constants, classes) {
     ),
 
     // experimental
-    listGroupItemActiveNextChild: nOrBool => selectorNextChild(nOrBool, {
+    listGroupItemActiveNextChild: nOrBool => selectorNotFirstChild(nOrBool, {
       marginTop: -LIST_GROUP_BORDER_WIDTH,
       borderTopWidth: LIST_GROUP_BORDER_WIDTH, // make sense?
     }),
@@ -190,7 +190,7 @@ export default function getClasses(constants, classes) {
     );
 
     // experimental
-    _classes['listGroupHorizontal' + itemScreen + 'ItemActiveNextChild'] = nOrBool => selectorNextChild(nOrBool,
+    _classes['listGroupHorizontal' + itemScreen + 'ItemActiveNextChild'] = nOrBool => selectorNotFirstChild(nOrBool,
       selectorMediaUp(itemScreen, SCREENS, {
         marginLeft: -LIST_GROUP_BORDER_WIDTH,
         borderLeftWidth: LIST_GROUP_BORDER_WIDTH,

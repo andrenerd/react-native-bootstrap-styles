@@ -1,5 +1,9 @@
+import { mixinBorderLeftRadius, mixinBorderRightRadius } from './mixins/border-radius';
+import { selectorNotFirstChild, selectorNotLastChild } from './mixins/selectors';
+
 export default function getClasses(constants, classes) {
   const {
+    BTN_BORDER_WIDTH,
   } = constants;
 
   const _classes = {
@@ -45,24 +49,13 @@ export default function getClasses(constants, classes) {
   //   }
   // }
 
-  // .btn-group {
-  //   // Prevent double borders when buttons are next to each other
-  //   > .btn:not(:first-child),
-  //   > .btn-group:not(:first-child) {
-  //     margin-left: -$btn-border-width;
-  //   }
-
-  //   // Reset rounded corners
-  //   > .btn:not(:last-child):not(.dropdown-toggle),
-  //   > .btn-group:not(:last-child) > .btn {
-  //     @include border-right-radius(0);
-  //   }
-
-  //   > .btn:not(:first-child),
-  //   > .btn-group:not(:first-child) > .btn {
-  //     @include border-left-radius(0);
-  //   }
-  // }
+  btnGroupBtn: (n, length) => Object.assign({},
+    selectorNotFirstChild(n, length, {
+      marginLeft: -BTN_BORDER_WIDTH,
+    }),
+    selectorNotFirstChild(n, mixinBorderLeftRadius(constants, 0)),
+    selectorNotLastChild(n, length, mixinBorderRightRadius(constants, 0)),
+  ),
 
   // // Sizing
   // //

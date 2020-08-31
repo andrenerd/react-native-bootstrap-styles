@@ -1,6 +1,7 @@
 import { mixinButtonSize, mixinButtonSizeText, mixinButtonVariant, mixinButtonVariantText } from './mixins/buttons';
 import { mixinButtonVariantActive, mixinButtonOutlineVariant, mixinButtonOutlineVariantText } from './mixins/buttons';
 import { mixinBoxShadow } from './mixins/box-shadow';
+import { selectorNotFirstChild } from './mixins/selectors';
 
 export default function getClasses(constants, classes) {
   const {
@@ -169,7 +170,7 @@ export default function getClasses(constants, classes) {
     },
 
     // experimental
-    btnBlockNextChild: nOrBool => selectorNextChild(nOrBool, {
+    btnBlockNextChild: nOrBool => selectorNotFirstChild(nOrBool, {
       marginTop: BTN_BLOCK_SPACING_Y,
     }),
   };

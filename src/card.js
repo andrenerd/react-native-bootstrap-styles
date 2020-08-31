@@ -1,7 +1,7 @@
 import { mediaBreakpointUp, mediaBreakpointDown } from './mixins/helpers';
 import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius } from './mixins/border-radius';
 import { mixinBoxShadow } from './mixins/box-shadow';
-import { selectorFirstChild } from './mixins/selectors';
+import { selectorFirstChild, selectorNotFirstChild } from './mixins/selectors';
 
 export default function getClasses(constants, classes) {
   const {
@@ -97,7 +97,7 @@ export default function getClasses(constants, classes) {
     )),
 
     // TODO: check later (bools?)
-    cardHeaderListGroupItemFirstChild: (nListGroup, nListGroupItem) => selectorNextChild(nListGroup, (
+    cardHeaderListGroupItemFirstChild: (nListGroup, nListGroupItem) => selectorNotFirstChild(nListGroup, (
       selectorFirstChild(nListGroupItem, {
         borderTop: 0,
       })
