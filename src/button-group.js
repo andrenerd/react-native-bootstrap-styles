@@ -12,29 +12,45 @@ export default function getClasses(constants, classes) {
     position: 'relative',
     // display: inline-flex,
     // vertical-align: middle; // match .btn alignment given font-size hack above
+
+    // > .btn {
+    //   position: relative;
+    //   flex: 1 1 auto;
+
+    //   // Bring the hover, focused, and "active" buttons to the front to overlay
+    //   // the borders properly
+    //   @include hover() {
+    //     z-index: 1;
+    //   }
+    //   &:focus,
+    //   &:active,
+    //   &.active {
+    //     z-index: 1;
+    //   }
+    // }
   },
 
-  // .btn-group-vertical {
-  //   position: relative;
-  //   display: inline-flex;
-  //   vertical-align: middle; // match .btn alignment given font-size hack above
+  btnGroupVertical: {
+    position: 'relative',
+    // display: inline-flex;
+    // vertical-align: middle; // match .btn alignment given font-size hack above
 
-  //   > .btn {
-  //     position: relative;
-  //     flex: 1 1 auto;
+    // > .btn {
+    //   position: relative;
+    //   flex: 1 1 auto;
 
-  //     // Bring the hover, focused, and "active" buttons to the front to overlay
-  //     // the borders properly
-  //     @include hover() {
-  //       z-index: 1;
-  //     }
-  //     &:focus,
-  //     &:active,
-  //     &.active {
-  //       z-index: 1;
-  //     }
-  //   }
-  // }
+    //   // Bring the hover, focused, and "active" buttons to the front to overlay
+    //   // the borders properly
+    //   @include hover() {
+    //     z-index: 1;
+    //   }
+    //   &:focus,
+    //   &:active,
+    //   &.active {
+    //     z-index: 1;
+    //   }
+    // }
+  },
 
   btnToolbar: {
     display: 'flex',
