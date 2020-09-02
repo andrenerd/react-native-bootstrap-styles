@@ -1,4 +1,5 @@
 import { mixinBorderLeftRadius, mixinBorderRightRadius } from './mixins/border-radius';
+import { mixinBorderTopRadius, mixinBorderBottomRadius } from './mixins/border-radius';
 import { selectorNotFirstChild, selectorNotLastChild } from './mixins/selectors';
 
 export default function getClasses(constants, classes) {
@@ -10,8 +11,8 @@ export default function getClasses(constants, classes) {
 
   btnGroup: {
     position: 'relative',
-    // display: inline-flex,
-    // vertical-align: middle; // match .btn alignment given font-size hack above
+    // ignored / display: inline-flex,
+    // ignored /vertical-align: middle; // match .btn alignment given font-size hack above
 
     // > .btn {
     //   position: relative;
@@ -32,15 +33,22 @@ export default function getClasses(constants, classes) {
 
   btnGroupVertical: {
     position: 'relative',
-    // display: inline-flex;
-    // vertical-align: middle; // match .btn alignment given font-size hack above
+    // ignored / display: inline-flex;
+    // ignored / vertical-align: middle; // match .btn alignment given font-size hack above
+
+    flexDirection: 'column',
+    // ignored / alignItems: 'flex-start',
+    // ignored / justifyContent: 'center',
+
+    //   > .btn,
+    //   > .btn-group {
+    //     width: 100%;
+    //   }
 
     // > .btn {
     //   position: relative;
     //   flex: 1 1 auto;
 
-    //   // Bring the hover, focused, and "active" buttons to the front to overlay
-    //   // the borders properly
     //   @include hover() {
     //     z-index: 1;
     //   }
@@ -58,7 +66,6 @@ export default function getClasses(constants, classes) {
     justifyContent: 'flex-start',
   },
 
-  // // Optional: Group multiple button groups together for a toolbar
   // .btn-toolbar {
   //   .input-group {
   //     width: auto;
@@ -73,17 +80,8 @@ export default function getClasses(constants, classes) {
     selectorNotLastChild(n, length, mixinBorderRightRadius(constants, 0)),
   ),
 
-  // // Sizing
-  // //
-  // // Remix the default button sizing classes into new ones for easier manipulation.
-
-  // .btn-group-sm > .btn { @extend .btn-sm; }
-  // .btn-group-lg > .btn { @extend .btn-lg; }
-
-
-  // //
-  // // Split button dropdowns
-  // //
+  // ignored / .btn-group-sm > .btn { @extend .btn-sm; }
+  // ignored / .btn-group-lg > .btn { @extend .btn-lg; }
 
   // .dropdown-toggle-split {
   //   padding-right: $btn-padding-x * .75;
@@ -110,7 +108,6 @@ export default function getClasses(constants, classes) {
   //   padding-left: $btn-padding-x-lg * .75;
   // }
 
-
   // // The clickable button for toggling the menu
   // // Set the same inset shadow as the :active state
   // .btn-group.show .dropdown-toggle {
@@ -122,38 +119,13 @@ export default function getClasses(constants, classes) {
   //   }
   // }
 
-
-  // //
-  // // Vertical button groups
-  // //
-
-  // .btn-group-vertical {
-  //   flex-direction: column;
-  //   align-items: flex-start;
-  //   justify-content: center;
-
-  //   > .btn,
-  //   > .btn-group {
-  //     width: 100%;
-  //   }
-
-  //   > .btn:not(:first-child),
-  //   > .btn-group:not(:first-child) {
-  //     margin-top: -$btn-border-width;
-  //   }
-
-  //   // Reset rounded corners
-  //   > .btn:not(:last-child):not(.dropdown-toggle),
-  //   > .btn-group:not(:last-child) > .btn {
-  //     @include border-bottom-radius(0);
-  //   }
-
-  //   > .btn:not(:first-child),
-  //   > .btn-group:not(:first-child) > .btn {
-  //     @include border-top-radius(0);
-  //   }
-  // }
-
+  btnGroupVerticalBtn: (n, length) => Object.assign({},
+    selectorNotFirstChild(n, length, {
+      marginTop: -BTN_BORDER_WIDTH,
+    }),
+    selectorNotFirstChild(n, mixinBorderTopRadius(constants, 0)),
+    selectorNotLastChild(n, length, mixinBorderBottomRadius(constants, 0)),
+  ),
 
   // // Checkbox and radio options
   // //
