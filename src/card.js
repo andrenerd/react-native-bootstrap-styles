@@ -1,7 +1,6 @@
-import { mediaBreakpointUp, mediaBreakpointDown } from './mixins/helpers';
 import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius } from './mixins/border-radius';
+import { selectorFirstChild, selectorNotFirstChild, selectorMediaUp } from './mixins/selectors';
 import { mixinBoxShadow } from './mixins/box-shadow';
-import { selectorFirstChild, selectorNotFirstChild } from './mixins/selectors';
 
 export default function getClasses(constants, classes) {
   const {
@@ -120,10 +119,6 @@ export default function getClasses(constants, classes) {
       mixinBorderRadius(constants, 0, 0, CARD_INNER_BORDER_RADIUS, CARD_INNER_BORDER_RADIUS),
     )),
 
-    // //
-    // // Header navs
-    // //
-
     cardHeaderTabs: {
       marginRight: -CARD_SPACER_X / 2,
       marginBottom: -CARD_SPACER_Y,
@@ -135,8 +130,6 @@ export default function getClasses(constants, classes) {
       marginRight: -CARD_SPACER_X / 2,
       marginLeft: -CARD_SPACER_X / 2,
     },
-
-    // Card image
 
     cardImgOverlay: {
       position: 'absolute',
@@ -162,53 +155,20 @@ export default function getClasses(constants, classes) {
       alignSelf: 'stretch', // TEST / width: 100%
     }, mixinBorderBottomRadius(constants, CARD_INNER_BORDER_RADIUS)),
 
-    // Card deck
-
-    // see cardDeckCard,
-    // .card-deck {
-    //   .card {
-    //     margin-bottom: $card-deck-margin;
-    //   }
-
-    //   @include media-breakpoint-up(sm) {
-    //     display: flex;
-    //     flex-flow: row wrap;
-    //     margin-right: -$card-deck-margin;
-    //     margin-left: -$card-deck-margin;
-
-    //     .card {
-    //       // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
-    //       flex: 1 0 0%;
-    //       margin-right: $card-deck-margin;
-    //       margin-bottom: 0; // Override the default
-    //       margin-left: $card-deck-margin;
-    //     }
-    //   }
-    // }
-
-    cardDeck: {
-      // TODO: wrap it in selector: media-breakpoint-up(sm)
+    cardDeck: selectorMediaUp('Sm', SCREENS, {
       flexDirection: 'row',
       flexWrap: 'wrap',
       marginRight: -CARD_DECK_MARGIN,
       marginLeft: -CARD_DECK_MARGIN,
-    },
+    }),
 
     cardDeckCard: Object.assign({
       marginBottom: CARD_DECK_MARGIN,
-    }, mediaBreakpointUp('Sm', SCREENS, {
-        // flex-flow: row wrap;
-        marginRight: -CARD_DECK_MARGIN,
-        marginLeft: -CARD_DECK_MARGIN,
-
-        // TODO
-        // .card {
-        //   // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
-        //   flex: 1 0 0%;
-        //   margin-right: $card-deck-margin;
-        //   margin-bottom: 0; // Override the default
-        //   margin-left: $card-deck-margin;
-        // }
+    }, selectorMediaUp('Sm', SCREENS, {
+        // flex: 1 0 0%;
+        marginRight: CARD_DECK_MARGIN,
+        marginBottom: 0,
+        marginLeft: CARD_DECK_MARGIN,
     })),
 
     // //

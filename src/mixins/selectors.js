@@ -53,12 +53,10 @@ export const selectorPreviousChild = (indexOrBool, lengthOrStyle = {}, style = {
   )
 );
 
-// experimental
 export const selectorMediaUp = (screen, screens, style = {}) => (
   !screen || screens.indexOf(screen) > -1 ? style : false
 );
 
-// experimental
 export const selectorMediaDown = (screen, screens, style = {}) => (
   !screen || screens.indexOf(screen) == -1 ? style : false
 );
