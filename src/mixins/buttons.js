@@ -1,3 +1,4 @@
+import Color from 'color';
 import { mixinBorderRadius } from './border-radius';
 import { colorYiq } from './helpers';
 
@@ -56,6 +57,7 @@ export const mixinButtonVariant = (
   //   }
   // }
 
+  // see mixinButtonVariantActive
   // &:not(:disabled):not(.disabled):active,
   // &:not(:disabled):not(.disabled).active,
   // .show > &.dropdown-toggle {
@@ -84,22 +86,32 @@ export const mixinButtonVariantText = (
   color: colorYiq(constants, backgroundColor),
 });
 
-export const mixinButtonVariantDisabled = (
+export const mixinButtonVariantActive = (
   constants,
   backgroundColor,
   borderColor,
 ) => ({
-  // see mixinButtonVariantText / color: color-yiq($background);
-  backgroundColor: backgroundColor,
-  borderColor: borderColor,
-  // reserved
-  // // Remove CSS gradients if they're enabled
-  // @if $enable-gradients {
-  //   background-image: none;
-  // }
+  backgroundColor: Color(backgroundColor).darken(0.2).rgb().string(), // see TouchableHighlight.activeOpacity
+  borderColor: Color(borderColor).darken(0.2).rgb().string(), // see TouchableHighlight.activeOpacity
 });
 
-export const mixinButtonVariantDisabledText = mixinButtonVariantText;
+// obsoleted
+// export const mixinButtonVariantDisabled = (
+//   constants,
+//   backgroundColor,
+//   borderColor,
+// ) => ({
+//   // see mixinButtonVariantText / color: color-yiq($background);
+//   backgroundColor: backgroundColor,
+//   borderColor: borderColor,
+//   // reserved
+//   // // Remove CSS gradients if they're enabled
+//   // @if $enable-gradients {
+//   //   background-image: none;
+//   // }
+// });
+
+// obsoleted / export const mixinButtonVariantDisabledText = mixinButtonVariantText;
 
 export const mixinButtonOutlineVariant = (
   constants,
@@ -147,15 +159,17 @@ export const mixinButtonOutlineVariantText = (
   color: color,
 });
 
-export const mixinButtonOutlineVariantDisabled = (
-  constants,
-) => ({
-  backgroundColor: 'transparent',
-});
+// obsoleted
+// export const mixinButtonOutlineVariantDisabled = (
+//   constants,
+// ) => ({
+//   backgroundColor: 'transparent',
+// });
 
-export const mixinButtonOutlineVariantDisabledText = (
-  constants,
-  color,
-) => ({
-  color: color,
-});
+// obsoleted
+// export const mixinButtonOutlineVariantDisabledText = (
+//   constants,
+//   color,
+// ) => ({
+//   color: color,
+// });

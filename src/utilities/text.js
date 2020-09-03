@@ -1,6 +1,6 @@
 import Color from 'color';
 import { colorLevel } from '../mixins/helpers';
-import { mediaBreakpointUp } from '../mixins/helpers';
+import { selectorMediaUp } from '../mixins/selectors';
 
 export default function getClasses(constants, classes) {
   const {
@@ -61,7 +61,7 @@ export default function getClasses(constants, classes) {
   // text%screen%value, / ex: floatLgRight
   SCREENS_INFIXES.forEach((itemScreen) => {
     Object.keys(ALIGN_TYPES).forEach(item => {
-      _classes['float' + itemScreen + item] = mediaBreakpointUp(itemScreen, SCREENS_INFIXES, {
+      _classes['float' + itemScreen + item] = selectorMediaUp(itemScreen, SCREENS_INFIXES, {
         textAlign: ALIGN_TYPES[item],
       });
     });

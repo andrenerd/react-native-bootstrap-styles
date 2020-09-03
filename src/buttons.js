@@ -1,8 +1,7 @@
 import { mixinButtonSize, mixinButtonSizeText, mixinButtonVariant, mixinButtonVariantText } from './mixins/buttons';
-import { mixinButtonVariantDisabled, mixinButtonVariantDisabledText } from './mixins/buttons';
-import { mixinButtonOutlineVariant, mixinButtonOutlineVariantText } from './mixins/buttons';
-import { mixinButtonOutlineVariantDisabled, mixinButtonOutlineVariantDisabledText } from './mixins/buttons';
+import { mixinButtonVariantActive, mixinButtonOutlineVariant, mixinButtonOutlineVariantText } from './mixins/buttons';
 import { mixinBoxShadow } from './mixins/box-shadow';
+import { selectorNotFirstChild } from './mixins/selectors';
 
 export default function getClasses(constants, classes) {
   const {
@@ -25,6 +24,7 @@ export default function getClasses(constants, classes) {
     BTN_FONT_FAMILY,
     BTN_FONT_SIZE,
     BTN_FONT_WEIGHT,
+    BTN_ACTIVE_OPACITY,
     BTN_DISABLED_OPACITY,
     BTN_LINK_DISABLED_COLOR,
     BTN_OUTLINE_BACKGROUND_COLOR,
@@ -170,10 +170,9 @@ export default function getClasses(constants, classes) {
     },
 
     // experimental
-    btnBlockNextChild: nOrBool => selectorNextChild(nOrBool, {
+    btnBlockNextChild: nOrBool => selectorNotFirstChild(nOrBool, {
       marginTop: BTN_BLOCK_SPACING_Y,
     }),
-
   };
 
   // btn%color / ex: btnPrimary
@@ -186,6 +185,7 @@ export default function getClasses(constants, classes) {
     );
 
     classes['btn' + classColor + 'Text'] = mixinButtonVariantText(constants, THEME_COLORS[item]);
+    classes['btn' + classColor + 'Active'] = mixinButtonVariantActive(constants, THEME_COLORS[item], THEME_COLORS[item]);
     // obsoleted / classes['btn' + classColor + 'Disabled'] = mixinButtonVariantDisabled(constants, THEME_COLORS[item], THEME_COLORS[item]);
     // obsoleted / classes['btn' + classColor + 'DisabledText'] = mixinButtonVariantDisabledText(constants, THEME_COLORS[item]);
   });

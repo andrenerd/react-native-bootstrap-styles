@@ -1,4 +1,4 @@
-import { mediaBreakpointUp, mediaBreakpointDown } from '../mixins/helpers';
+import { selectorMediaUp } from '../mixins/selectors';
 
 export default function getClasses(constants, classes) {
   const {
@@ -27,7 +27,7 @@ export default function getClasses(constants, classes) {
   // d%screen%value, / ex: dLgNone
   SCREENS_INFIXES.forEach((itemScreen) => {
     Object.keys(TYPES).forEach(item => {
-      _classes['d' + itemScreen + item] = mediaBreakpointUp(itemScreen, SCREENS_INFIXES, {
+      _classes['d' + itemScreen + item] = selectorMediaUp(itemScreen, SCREENS_INFIXES, {
         display: TYPES[item],
       });
     });
