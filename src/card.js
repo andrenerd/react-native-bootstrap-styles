@@ -187,7 +187,11 @@ export default function getClasses(constants, classes) {
     // }
 
     cardDeck: {
-      // TODO
+      // TODO: wrap it in selector: media-breakpoint-up(sm)
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      marginRight: -CARD_DECK_MARGIN,
+      marginLeft: -CARD_DECK_MARGIN,
     },
 
     cardDeckCard: Object.assign({
