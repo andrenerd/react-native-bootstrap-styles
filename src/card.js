@@ -1,5 +1,5 @@
 import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius } from './mixins/border-radius';
-import { selectorFirstChild, selectorNotFirstChild, selectorMediaUp } from './mixins/selectors';
+import { selectorFirstChild, selectorNotFirstChild, selectorLastChild, selectorMediaUp } from './mixins/selectors';
 import { mixinBoxShadow } from './mixins/box-shadow';
 
 export default function getClasses(constants, classes) {
@@ -9,6 +9,7 @@ export default function getClasses(constants, classes) {
 
     CARD_BG,
     CARD_CAP_BG,
+    CARD_COLOR,
     CARD_SPACER_X,
     CARD_SPACER_Y,
     CARD_BORDER_WIDTH,
@@ -42,14 +43,14 @@ export default function getClasses(constants, classes) {
     ),
 
     cardBody: {
-      flex: 1, // experimental
+      flex: 1, // experimental / flex: 1 1 auto;
       paddingHorizontal: CARD_SPACER_X,
-      paddingVertical: CARD_SPACER_Y,
+      paddingVertical: CARD_SPACER_X, // former: CARD_SPACER_Y,
+      color: CARD_COLOR,
     },
 
     cardTitle: {
       marginBottom: CARD_SPACER_Y,
-      paddingHorizontal: CARD_SPACER_X,
     },
 
     cardSubtitle: {
@@ -57,9 +58,10 @@ export default function getClasses(constants, classes) {
       marginBottom: 0,
     },
 
-    // .card-text:last-child {
-    //   marginBottom: 0;
-    // }
+    // nb. seem useless: an issue is in the origin module
+    cardTextLastChild: (nOrBool, length) => selectorLastChild(nOrBool, length, {
+      marginBottom: 0,
+    }),
 
     // .card-link {
     //   @include hover {
