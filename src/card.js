@@ -173,9 +173,7 @@ export default function getClasses(constants, classes) {
         marginLeft: CARD_DECK_MARGIN,
     })),
 
-    // //
-    // // Card groups
-    // //
+    // Card groups
 
     // .card-group {
     //   // The child selector allows nested `.card` within `.card-group`
@@ -235,29 +233,25 @@ export default function getClasses(constants, classes) {
     //   }
     // }
 
+    cardGroupCard: {
+      marginBottom: CARD_GROUP_MARGIN,
+    },
 
-    // //
-    // // Columns
-    // //
+    // Columns
 
-    // .card-columns {
-    //   .card {
-    //     margin-bottom: $card-columns-margin;
-    //   }
+    cardColumnsCard: Object.assign({
+      marginBottom: CARD_COLUMNS_MARGIN,
+    }, selectorMediaUp('Sm', SCREENS, {
+      // todo: set / display: inline-block; // Don't let them vertically span multiple columns
+      width: '100%',
+    })),
 
-    //   @include media-breakpoint-up(sm) {
-    //     column-count: $card-columns-count;
-    //     column-gap: $card-columns-gap;
-    //     orphans: 1;
-    //     widows: 1;
-
-    //     .card {
-    //       display: inline-block; // Don't let them vertically span multiple columns
-    //       width: 100%; // Don't let their width change
-    //     }
-    //   }
-    // }
-
+    cardColumns: selectorMediaUp('Sm', SCREENS, {
+      // columnCount: $card-columns-count;
+      // column-gap: $card-columns-gap;
+      // orphans: 1;
+      // widows: 1;
+    }),
 
     // //
     // // Accordion
