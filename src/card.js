@@ -178,13 +178,8 @@ export default function getClasses(constants, classes) {
     // .card-group {
     //   // The child selector allows nested `.card` within `.card-group`
     //   // to display properly.
-    //   > .card {
-    //     margin-bottom: $card-group-margin;
-    //   }
 
     //   @include media-breakpoint-up(sm) {
-    //     display: flex;
-    //     flex-flow: row wrap;
     //     // The child selector allows nested `.card` within `.card-group`
     //     // to display properly.
     //     > .card {
@@ -233,9 +228,12 @@ export default function getClasses(constants, classes) {
     //   }
     // }
 
-    cardGroupCard: {
+    cardGroupCard: Object.assign({
       marginBottom: CARD_GROUP_MARGIN,
-    },
+    }, selectorMediaUp('Sm', SCREENS, {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+    })),
 
     // Columns
 
