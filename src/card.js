@@ -183,10 +183,6 @@ export default function getClasses(constants, classes) {
     //     // The child selector allows nested `.card` within `.card-group`
     //     // to display properly.
     //     > .card {
-    //       // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
-    //       flex: 1 0 0%;
-    //       margin-bottom: 0;
-
     //       + .card {
     //         margin-left: 0;
     //         border-left: 0;
@@ -228,12 +224,17 @@ export default function getClasses(constants, classes) {
     //   }
     // }
 
-    cardGroupCard: Object.assign({
+    cardGroup: Object.assign({
       marginBottom: CARD_GROUP_MARGIN,
     }, selectorMediaUp('Sm', SCREENS, {
       flexDirection: 'row',
       flexWrap: 'wrap',
     })),
+
+    cardGroupCard: selectorMediaUp('Sm', SCREENS, {
+      // irrelevant? / flex: 1 0 0%;
+      marginBottom: 0,
+    }),
 
     // Columns
 
