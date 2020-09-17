@@ -14,7 +14,27 @@ Original class names are transformed from "dashed" to "camelcase" format, for ex
 Documentation with snippets and live samples: [alpha version](https://expo.io/@andrenerd/react-native-bootstrap-styles).  
 
 
-Hello world app with the styles:  
+Basic "Hello world" example:  
+```
+import React, { Component } from 'react';
+import { View, Text } from 'react-native';
+import BootstrapStyleSheet from 'react-native-bootstrap-styles';
+
+const bootstrapStyleSheet = new BootstrapStyleSheet();
+const { s, c } = bootstrapStyleSheet;
+
+class Hello extends Component {
+  render() {
+    return (
+      <View style={[s.body]}>
+        <Text style={[s.text, s.textPrimary]}>Hello world! 🤓🚀🚀🚀</Text>
+      </View>
+    );
+  }
+}
+```
+
+Advanced "Hello world" example with custom styles:
 
 ```
 import React, { Component } from 'react';
@@ -23,11 +43,11 @@ import BootstrapStyleSheet from 'react-native-bootstrap-styles';
 
 const
   BODY_COLOR = '#000022',
-  TEXT_MUTED = '#888888';
+  TEXT_PRIMARY = '#882288';
 
 // custom constants
 const constants = {
-  BODY_COLOR, TEXT_MUTED,
+  BODY_COLOR, TEXT_PRIMARY,
 };
 
 // custom classes
@@ -38,14 +58,15 @@ const classes = {
 };
 
 const bootstrapStyleSheet = new BootstrapStyleSheet(constants, classes);
-const {styles: s, constants: c} = bootstrapStyleSheet;
+const { styles: s, constants: c } = bootstrapStyleSheet;
 
 class Hello extends Component {
   render() {
     return (
       <View style={[s.body]}>
         <View style={[s.container, s.h100, s.justifyContentCenter]}>
-          <Text style={[s.text, s.h3, s.textPrimary, s.myXs1, s.myMd3]}>Hello world!</Text>
+          <Text style={[s.text, s.title]}>Hello world!</Text>
+          <Text style={[s.text, s.textPrimary, s.myXs1, s.myMd3]}>Hello second world!</Text>
           <Text style={[s.text, s.py3, {fontSize: 5 * c.REM}]}>🤓🚀🚀🚀</Text>
         </View>
       </View>

@@ -1,5 +1,5 @@
 import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius } from './mixins/border-radius';
-import { selectorFirstChild, selectorNotFirstChild, selectorMediaUp } from './mixins/selectors';
+import { selectorFirstChild, selectorNotFirstChild, selectorLastChild, selectorMediaUp } from './mixins/selectors';
 import { mixinBoxShadow } from './mixins/box-shadow';
 
 export default function getClasses(constants, classes) {
@@ -9,6 +9,7 @@ export default function getClasses(constants, classes) {
 
     CARD_BG,
     CARD_CAP_BG,
+    CARD_COLOR,
     CARD_SPACER_X,
     CARD_SPACER_Y,
     CARD_BORDER_WIDTH,
@@ -42,14 +43,14 @@ export default function getClasses(constants, classes) {
     ),
 
     cardBody: {
-      flex: 1, // experimental
+      flex: 1, // experimental / flex: 1 1 auto;
       paddingHorizontal: CARD_SPACER_X,
-      paddingVertical: CARD_SPACER_Y,
+      paddingVertical: CARD_SPACER_X, // former: CARD_SPACER_Y,
+      color: CARD_COLOR,
     },
 
     cardTitle: {
       marginBottom: CARD_SPACER_Y,
-      paddingHorizontal: CARD_SPACER_X,
     },
 
     cardSubtitle: {
@@ -57,9 +58,10 @@ export default function getClasses(constants, classes) {
       marginBottom: 0,
     },
 
-    // .card-text:last-child {
-    //   marginBottom: 0;
-    // }
+    // nb. seem useless: an issue is in the origin module
+    cardTextLastChild: (nOrBool, length) => selectorLastChild(nOrBool, length, {
+      marginBottom: 0,
+    }),
 
     // .card-link {
     //   @include hover {
@@ -171,31 +173,15 @@ export default function getClasses(constants, classes) {
         marginLeft: CARD_DECK_MARGIN,
     })),
 
-    // //
-    // // Card groups
-    // //
+    // Card groups
 
     // .card-group {
     //   // The child selector allows nested `.card` within `.card-group`
     //   // to display properly.
-    //   > .card {
-    //     margin-bottom: $card-group-margin;
-    //   }
 
     //   @include media-breakpoint-up(sm) {
-    //     display: flex;
-    //     flex-flow: row wrap;
     //     // The child selector allows nested `.card` within `.card-group`
     //     // to display properly.
-    //     > .card {
-    //       // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
-    //       flex: 1 0 0%;
-    //       margin-bottom: 0;
-
-    //       + .card {
-    //         margin-left: 0;
-    //         border-left: 0;
-    //       }
 
     //       // Handle rounded corners
     //       @if $enable-rounded {
@@ -233,29 +219,38 @@ export default function getClasses(constants, classes) {
     //   }
     // }
 
+    cardGroup: Object.assign({
+      marginBottom: CARD_GROUP_MARGIN,
+    }, selectorMediaUp('Sm', SCREENS, {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+    })),
 
-    // //
-    // // Columns
-    // //
+    cardGroupCard: selectorMediaUp('Sm', SCREENS, {
+      // irrelevant? / flex: 1 0 0%;
+      marginBottom: 0,
+    }),
 
-    // .card-columns {
-    //   .card {
-    //     margin-bottom: $card-columns-margin;
-    //   }
+    cardGroupCardCard: {
+      marginLeft: 0,
+      borderLeftWidth: 0,
+    },
 
-    //   @include media-breakpoint-up(sm) {
-    //     column-count: $card-columns-count;
-    //     column-gap: $card-columns-gap;
-    //     orphans: 1;
-    //     widows: 1;
+    // Columns
 
-    //     .card {
-    //       display: inline-block; // Don't let them vertically span multiple columns
-    //       width: 100%; // Don't let their width change
-    //     }
-    //   }
-    // }
+    cardColumnsCard: Object.assign({
+      marginBottom: CARD_COLUMNS_MARGIN,
+    }, selectorMediaUp('Sm', SCREENS, {
+      // todo: set / display: inline-block; // Don't let them vertically span multiple columns
+      width: '100%',
+    })),
 
+    cardColumns: selectorMediaUp('Sm', SCREENS, {
+      // columnCount: $card-columns-count;
+      // column-gap: $card-columns-gap;
+      // orphans: 1;
+      // widows: 1;
+    }),
 
     // //
     // // Accordion

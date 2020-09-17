@@ -79,7 +79,7 @@ class BootstrapStyleSheet {
   ]
 
   // TODO: test "mode" (light/dark)
-  constructor(constants, classes) {
+  constructor(constants = {}, classes = {}) {
     this._dimensions(Dimensions.get('window'));
     this._constructorConstants(constants);
     this._constructorClasses(classes);
@@ -204,6 +204,7 @@ class BootstrapStyleSheet {
       const itemIndex = SCREENS.indexOf(item);
       this.constants['SCREEN_UP_' + item.toUpperCase()] = itemIndex > -1;
       this.constants['SCREEN_DOWN_' + item.toUpperCase()] = itemIndex == -1 || itemIndex == SCREENS.length - 1;
+      this.c = this.constants;
     });
   }
 
@@ -221,6 +222,7 @@ class BootstrapStyleSheet {
     this.styles = Object.assign(this.styles || {},
       StyleSheet.create(this._classes),
     );
+    this.s = this.styles;
   }
 
   _dimensions(dimensions) {

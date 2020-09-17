@@ -483,7 +483,10 @@ export default function getConstants(constants) {
     CARD_BORDER_RADIUS = _('CARD_BORDER_RADIUS', BORDER_RADIUS),
     CARD_BORDER_COLOR = BORDER_COLOR, // rgba($black, .125)
     CARD_INNER_BORDER_RADIUS = CARD_BORDER_RADIUS - CARD_BORDER_WIDTH,
-    CARD_CAP_BG = GRAY_100, // rgba($black, .03)
+    CARD_CAP_BG = Color(BLACK).alpha(0.03).rgb().string(),
+    CARD_CAP_COLOR = null, // what?
+    CARD_HEIGHT = null, // what?
+    CARD_COLOR = null, // what?
     CARD_BG = WHITE,
 
     // OBSOLETED / CARD_SHADOW_COLOR = SHADOW_COLOR,
