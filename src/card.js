@@ -182,11 +182,6 @@ export default function getClasses(constants, classes) {
     //   @include media-breakpoint-up(sm) {
     //     // The child selector allows nested `.card` within `.card-group`
     //     // to display properly.
-    //     > .card {
-    //       + .card {
-    //         margin-left: 0;
-    //         border-left: 0;
-    //       }
 
     //       // Handle rounded corners
     //       @if $enable-rounded {
@@ -235,6 +230,11 @@ export default function getClasses(constants, classes) {
       // irrelevant? / flex: 1 0 0%;
       marginBottom: 0,
     }),
+
+    cardGroupCardCard: {
+      marginLeft: 0,
+      borderLeftWidth: 0,
+    },
 
     // Columns
 
