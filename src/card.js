@@ -6,6 +6,7 @@ export default function getClasses(constants, classes) {
   const {
     SCREENS,
     SCREENS_INFIXES,
+    ENABLE_ROUNDED,
 
     CARD_BG,
     CARD_CAP_BG,
