@@ -1,5 +1,5 @@
-import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius } from './mixins/border-radius';
-import { selectorFirstChild, selectorNotFirstChild, selectorLastChild, selectorMediaUp } from './mixins/selectors';
+import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius, mixinBorderRightRadius } from './mixins/border-radius';
+import { selectorFirstChild, selectorNotFirstChild, selectorLastChild, selectorNotLastChild, selectorMediaUp } from './mixins/selectors';
 import { mixinBoxShadow } from './mixins/box-shadow';
 
 export default function getClasses(constants, classes) {
@@ -174,52 +174,6 @@ export default function getClasses(constants, classes) {
         marginLeft: CARD_DECK_MARGIN,
     })),
 
-    // Card groups
-
-    // .card-group {
-    //   // The child selector allows nested `.card` within `.card-group`
-    //   // to display properly.
-
-    //   @include media-breakpoint-up(sm) {
-    //     // The child selector allows nested `.card` within `.card-group`
-    //     // to display properly.
-
-    //       // Handle rounded corners
-    //       @if $enable-rounded {
-    //         &:not(:last-child) {
-    //           @include border-right-radius(0);
-
-    //           .card-img-top,
-    //           .card-header {
-    //             // stylelint-disable-next-line property-blacklist
-    //             border-top-right-radius: 0;
-    //           }
-    //           .card-img-bottom,
-    //           .card-footer {
-    //             // stylelint-disable-next-line property-blacklist
-    //             border-bottom-right-radius: 0;
-    //           }
-    //         }
-
-    //         &:not(:first-child) {
-    //           @include border-left-radius(0);
-
-    //           .card-img-top,
-    //           .card-header {
-    //             // stylelint-disable-next-line property-blacklist
-    //             border-top-left-radius: 0;
-    //           }
-    //           .card-img-bottom,
-    //           .card-footer {
-    //             // stylelint-disable-next-line property-blacklist
-    //             border-bottom-left-radius: 0;
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-
     cardGroup: Object.assign({
       marginBottom: CARD_GROUP_MARGIN,
     }, selectorMediaUp('Sm', SCREENS, {
@@ -227,10 +181,44 @@ export default function getClasses(constants, classes) {
       flexWrap: 'wrap',
     })),
 
-    cardGroupCard: selectorMediaUp('Sm', SCREENS, {
+    cardGroupCard: (n, length) => selectorMediaUp('Sm', SCREENS, Object.assign({
       // irrelevant? / flex: 1 0 0%;
       marginBottom: 0,
-    }),
+    },
+      selectorNotLastChild(n, length, mixinBorderRightRadius(constants, 0)),
+    )),
+
+    cardGroupCardCardImgTop: (n, length) => selectorMediaUp('Sm', SCREENS,
+      selectorNotLastChild(n, length, {borderTopRightRadius: 0}),
+    ),
+
+    cardGroupCardCardHeader: (n, length) => selectorMediaUp('Sm', SCREENS,
+      selectorNotLastChild(n, length, {borderTopRightRadius: 0}),
+    ),
+
+    cardGroupCardCardImgBottom: (n, length) => selectorMediaUp('Sm', SCREENS,
+      selectorNotLastChild(n, length, {borderBottomRightRadius: 0}),
+    ),
+
+    cardGroupCardCardImgFooter: (n, length) => selectorMediaUp('Sm', SCREENS,
+      selectorNotLastChild(n, length, {borderBottomRightRadius: 0}),
+    ),
+
+    cardGroupCardCardImgTop: (n, length) => selectorMediaUp('Sm', SCREENS,
+      selectorNotFirstChild(n, length, {borderTopLeftRadius: 0}),
+    ),
+
+    cardGroupCardCardHeader: (n, length) => selectorMediaUp('Sm', SCREENS,
+      selectorNotFirstChild(n, length, {borderTopLeftRadius: 0}),
+    ),
+
+    cardGroupCardCardImgBottom: (n, length) => selectorMediaUp('Sm', SCREENS,
+      selectorNotFirstChild(n, length, {borderBottomLeftRadius: 0}),
+    ),
+
+    cardGroupCardCardImgFooter: (n, length) => selectorMediaUp('Sm', SCREENS,
+      selectorNotFirstChild(n, length, {borderBottomLeftRadius: 0}),
+    ),
 
     cardGroupCardCard: {
       marginLeft: 0,
