@@ -241,23 +241,8 @@ export default function getClasses(constants, classes) {
       // widows: 1;
     }),
 
-    // //
-    // // Accordion
-    // //
-
     // .accordion {
     //   > .card {
-    //     overflow: hidden;
-
-    //     &:not(:last-of-type) {
-    //       border-bottom: 0;
-    //       @include border-bottom-radius(0);
-    //     }
-
-    //     &:not(:first-of-type) {
-    //       @include border-top-radius(0);
-    //     }
-
     //     > .card-header {
     //       @include border-radius(0);
     //       margin-bottom: -$card-border-width;
@@ -265,6 +250,19 @@ export default function getClasses(constants, classes) {
     //   }
     // }
 
+    // custom naming
+    cardAccordionCard: (n, length) => Object.assign({
+      overflow: 'hidden',
+    },
+      selectorNotLastChild(n, length, Object.assign({
+        borderBottom: 0,
+      },
+        mixinBorderBottomRadius(constants, 0),
+      )),
+      selectorNotFirstChild(n,
+        mixinBorderTopRadius(constants, 0),
+      ),
+    ),
   };
 
   return _classes;
