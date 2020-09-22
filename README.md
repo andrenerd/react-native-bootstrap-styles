@@ -15,7 +15,7 @@ Documentation with snippets and live samples: [alpha version](https://expo.io/@a
 
 
 Basic "Hello world" example:  
-```
+```jsx
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import BootstrapStyleSheet from 'react-native-bootstrap-styles';
@@ -36,7 +36,7 @@ class Hello extends Component {
 
 Advanced "Hello world" example with custom styles:
 
-```
+```jsx
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import BootstrapStyleSheet from 'react-native-bootstrap-styles';
@@ -87,7 +87,7 @@ Check the full list of constants in the source code:
 [./src/constants.js](./src/constants.js)
 
 Extra dynamic parameters available as `constants` or properties of the `bootstrapStyleSheet` object:
-```
+```js
 DIMENSIONS_WIDTH, // ex. 750
 DIMENSIONS_HEIGHT, //  ex. 1334
 DIMENSIONS_MAX, //  ex. 1334
@@ -110,7 +110,7 @@ Styles, containing "media queries", are automatically updated on dimentions, ori
 
 Here is an example:
 
-```
+```jsx
 class App extends Component {
 
   componentDidMount() {
@@ -197,7 +197,7 @@ What's implemented or neat to:
 
 
 TouchableHighlight as button:
-```
+```jsx
 <TouchableHighlight onPress={this.onPress} style=[{s.btnTouchable}]>
   <View style={[s.btn, s.btnPrimary]}>
     <Text style={[s.btnText, s.btnPrimaryText]}>Signup</Text>
@@ -206,7 +206,7 @@ TouchableHighlight as button:
 ```
 
 Links as default and outline buttons with some optional tweaks (see `underlayColor`):
-```
+```jsx
 // import { Link } from 'react-router-native';
 <Link to="/submit" component={TouchableHighlight} underlayColor={c.BLACK} style={[s.btnTouchable]}>
   <View style={[s.btn, s.btnPrimary]}>
@@ -226,7 +226,7 @@ Links as default and outline buttons with some optional tweaks (see `underlayCol
 ### Card
 
 Basic card:
-```
+```jsx
 <View style={[s.card]}>
   <View style={[s.cardBody]}>
     <Text style={[s.text]}>Hello Card!</Text>
@@ -239,7 +239,7 @@ Basic card:
 ### Modal
 
 Basic modal (temporal approach, till higher level component added to the lib):
-```
+```jsx
 <Modal
   animationType={animationType}
   transparent={transparent}
@@ -263,7 +263,7 @@ Basic modal (temporal approach, till higher level component added to the lib):
 ### Progress bar
 
 Basic progress bar
-```
+```jsx
 <View style={[s.progress]}>
   <View style={[s.progressBar, {width: `${progress * 100}%`}]} />
 </View>
@@ -278,7 +278,7 @@ Basic progress bar
 ### Selectors  
 
 An attempt to mimic CSS selectors for group pseudo-classes, such as `:first-child`, and media queries:
-```
+```jsx
 <View style={[s.flexRow]}>
   {
     group.map((item, index) => (
