@@ -241,15 +241,6 @@ export default function getClasses(constants, classes) {
       // widows: 1;
     }),
 
-    // .accordion {
-    //   > .card {
-    //     > .card-header {
-    //       @include border-radius(0);
-    //       margin-bottom: -$card-border-width;
-    //     }
-    //   }
-    // }
-
     // custom naming
     cardAccordionCard: (n, length) => Object.assign({
       overflow: 'hidden',
@@ -263,6 +254,12 @@ export default function getClasses(constants, classes) {
         mixinBorderTopRadius(constants, 0),
       ),
     ),
+
+    // custom naming
+    cardAccordionCardHeader: {
+      borderRadius: 0,
+      marginBottom: -CARD_BORDER_WIDTH,
+    },
   };
 
   return _classes;
