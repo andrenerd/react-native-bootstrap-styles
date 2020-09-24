@@ -503,6 +503,26 @@ export default function getConstants(constants) {
     CARD_COLUMNS_GAP = 1.25 * REM,
     CARD_COLUMNS_MARGIN = CARD_SPACER_Y,
 
+    // Toasts
+
+    TOAST_MAX_WIDTH = 350, // 350px,
+    TOAST_PADDING_X = .75 * REM,
+    TOAST_PADDING_Y = .25 * REM,
+    TOAST_FONT_SIZE = .875 * REM,
+    TOAST_COLOR = null,
+    TOAST_BACKGROUND_COLOR = Color(BLACK).alpha(0.85).rgb().string(),
+    TOAST_BORDER_WIDTH = 1, // px,
+    TOAST_BORDER_COLOR = Color(BLACK).alpha(0.1).rgb().string(),
+    TOAST_BORDER_RADIUS = .25 * REM,
+    TOAST_CONTENT_SHADOW_COLOR = BLACK, // SHADOW_COLOR,
+    TOAST_CONTENT_SHADOW_OPACITY = .1, // SHADOW_OPACITY,
+    TOAST_CONTENT_SHADOW_OFFSET = {width: 0, height: .25 * REM}, // 0SHADOW_OFFSET
+    TOAST_CONTENT_SHADOW_RADIUS = .75 * REM,
+
+    TOAST_HEADER_COLOR = GRAY_600,
+    TOAST_HEADER_BACKGROUND_COLOR = Color(BLACK).alpha(0.85).rgb().string(),
+    TOAST_HEADER_BORDER_COLOR = Color(BLACK).alpha(0.05).rgb().string(),
+
     // Modals
 
     MODAL_INNER_PADDING = 1 * SPACER * REM,
