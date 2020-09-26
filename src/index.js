@@ -33,6 +33,7 @@ import getClassesButtons from './buttons';
 import getClassesForms from './forms';
 import getClassesCard from './card';
 import getClassesListGroup from './list-group';
+import getClassesToasts from './toasts';
 import getClassesModal from './modal';
 import getClassesProgress from './progress';
 import getClassesReboot from './reboot';
@@ -72,6 +73,7 @@ class BootstrapStyleSheet {
     getClassesForms,
     getClassesCard,
     getClassesListGroup,
+    getClassesToasts,
     getClassesModal,
     getClassesProgress,
     getClassesReboot,

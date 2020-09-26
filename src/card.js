@@ -43,6 +43,25 @@ export default function getClasses(constants, classes) {
       // OBSOLETED / mixinBoxShadow(constants, CARD_SHADOW_COLOR, CARD_SHADOW_OFFSET, CARD_SHADOW_OPACITY, CARD_SHADOW_RADIUS),
     ),
 
+    cardListGroup: {
+      borderTopWidth: CARD_BORDER_WIDTH,
+      borderTopColor: CARD_BORDER_COLOR,
+      borderBottomWidth: CARD_BORDER_WIDTH,
+      borderBottomColor: CARD_BORDER_COLOR,
+    },
+
+    cardListGroupFirstChild: (nOrBool) => selectorFirstChild(nOrBool, [{
+      borderTopWidth: 0,
+    },
+      mixinBorderTopRadius(constants, CARD_INNER_BORDER_RADIUS),
+    ]),
+
+    cardListGroupLastChild: (nOrBool, length) => selectorFirstChild(nOrBool, length, [{
+      borderBottomWidth: 0,
+    },
+      mixinBorderBottomRadius(constants, CARD_INNER_BORDER_RADIUS),
+    ]),
+
     cardBody: {
       flex: 1, // experimental / flex: 1 1 auto;
       paddingHorizontal: CARD_SPACER_X,
@@ -241,15 +260,6 @@ export default function getClasses(constants, classes) {
       // widows: 1;
     }),
 
-    // .accordion {
-    //   > .card {
-    //     > .card-header {
-    //       @include border-radius(0);
-    //       margin-bottom: -$card-border-width;
-    //     }
-    //   }
-    // }
-
     // custom naming
     cardAccordionCard: (n, length) => Object.assign({
       overflow: 'hidden',
@@ -263,6 +273,12 @@ export default function getClasses(constants, classes) {
         mixinBorderTopRadius(constants, 0),
       ),
     ),
+
+    // custom naming
+    cardAccordionCardHeader: {
+      borderRadius: 0,
+      marginBottom: -CARD_BORDER_WIDTH,
+    },
   };
 
   return _classes;
