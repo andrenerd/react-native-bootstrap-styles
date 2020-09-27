@@ -1,4 +1,4 @@
-import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius, mixinBorderRightRadius } from './mixins/border-radius';
+import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius, mixinBorderLeftRadius, mixinBorderRightRadius } from './mixins/border-radius';
 import { selectorFirstChild, selectorNotFirstChild, selectorLastChild, selectorNotLastChild, selectorMediaUp } from './mixins/selectors';
 import { mixinBoxShadow } from './mixins/box-shadow';
 
@@ -50,13 +50,13 @@ export default function getClasses(constants, classes) {
       borderBottomColor: CARD_BORDER_COLOR,
     },
 
-    cardListGroupFirstChild: (nOrBool) => selectorFirstChild(nOrBool, [{
+    cardListGroupFirstChild: (indexOrBool) => selectorFirstChild(indexOrBool, [{
       borderTopWidth: 0,
     },
       mixinBorderTopRadius(constants, CARD_INNER_BORDER_RADIUS),
     ]),
 
-    cardListGroupLastChild: (nOrBool, length) => selectorFirstChild(nOrBool, length, [{
+    cardListGroupLastChild: (indexOrBool, length) => selectorFirstChild(indexOrBool, length, [{
       borderBottomWidth: 0,
     },
       mixinBorderBottomRadius(constants, CARD_INNER_BORDER_RADIUS),
@@ -79,7 +79,7 @@ export default function getClasses(constants, classes) {
     },
 
     // nb. seem useless: an issue is in the origin module
-    cardTextLastChild: (nOrBool, length) => selectorLastChild(nOrBool, length, {
+    cardTextLastChild: (indexOrBool, length) => selectorLastChild(indexOrBool, length, {
       marginBottom: 0,
     }),
 
@@ -113,7 +113,7 @@ export default function getClasses(constants, classes) {
       // }
     },
 
-    cardHeaderFirstChild: nOrBool => selectorFirstChild(nOrBool, Object.assign({},
+    cardHeaderFirstChild: indexOrBool => selectorFirstChild(indexOrBool, Object.assign({},
       mixinBorderRadius(constants, CARD_INNER_BORDER_RADIUS, CARD_INNER_BORDER_RADIUS, 0, 0),
     )),
 
@@ -137,7 +137,7 @@ export default function getClasses(constants, classes) {
       // }
     },
 
-    cardFooterLastChild: (nOrBool, lengthOrNone) => selectorLastChild(nOrBool, lengthOrNone, Object.assign({},
+    cardFooterLastChild: (indexOrBool, lengthOrNone) => selectorLastChild(indexOrBool, lengthOrNone, Object.assign({},
       mixinBorderRadius(constants, 0, 0, CARD_INNER_BORDER_RADIUS, CARD_INNER_BORDER_RADIUS),
     )),
 
@@ -200,49 +200,36 @@ export default function getClasses(constants, classes) {
       flexWrap: 'wrap',
     })),
 
-    cardGroupCard: (n, length) => selectorMediaUp('Sm', SCREENS, Object.assign({
+    // todo: bug with "hairline" space between grouped cards. "outside" borders
+    cardGroupCard: (index, length) => selectorMediaUp('Sm', SCREENS, Object.assign({
       // irrelevant? / flex: 1 0 0%;
       marginBottom: 0,
-    },
-      selectorNotLastChild(n, length, mixinBorderRightRadius(constants, 0)),
+    }, ENABLE_ROUNDED ? Object.assign({},
+        selectorNotFirstChild(index, {marginLeft: 0, borderLeftWidth: 0}), // from .card + .card
+        selectorNotFirstChild(index, mixinBorderLeftRadius(constants, 0)),
+        selectorNotLastChild(index, length, mixinBorderRightRadius(constants, 0)),
+      ) : {},
     )),
 
-    cardGroupCardCardImgTop: (n, length) => selectorMediaUp('Sm', SCREENS,
-      selectorNotLastChild(n, length, {borderTopRightRadius: 0}),
-    ),
+    cardGroupCardCardImgTop: (index, length) => ENABLE_ROUNDED && selectorMediaUp('Sm', SCREENS, Object.assign({},
+      selectorNotLastChild(index, length, {borderTopRightRadius: 0}),
+      selectorNotFirstChild(index, {borderTopLeftRadius: 0}),
+    )),
 
-    cardGroupCardCardHeader: (n, length) => selectorMediaUp('Sm', SCREENS,
-      selectorNotLastChild(n, length, {borderTopRightRadius: 0}),
-    ),
+    cardGroupCardCardHeader: (index, length) => ENABLE_ROUNDED && sselectorMediaUp('Sm', SCREENS, Object.assign({},
+      selectorNotLastChild(index, length, {borderTopRightRadius: 0}),
+      selectorNotFirstChild(index, {borderTopLeftRadius: 0}),
+    )),
 
-    cardGroupCardCardImgBottom: (n, length) => selectorMediaUp('Sm', SCREENS,
-      selectorNotLastChild(n, length, {borderBottomRightRadius: 0}),
-    ),
+    cardGroupCardCardImgBottom: (index, length) => selectorMediaUp('Sm', SCREENS, Object.assign({},
+      selectorNotLastChild(index, length, {borderBottomRightRadius: 0}),
+      selectorNotFirstChild(index, {borderBottomLeftRadius: 0}),
+    )),
 
-    cardGroupCardCardImgFooter: (n, length) => selectorMediaUp('Sm', SCREENS,
-      selectorNotLastChild(n, length, {borderBottomRightRadius: 0}),
-    ),
-
-    cardGroupCardCardImgTop: (n, length) => selectorMediaUp('Sm', SCREENS,
-      selectorNotFirstChild(n, length, {borderTopLeftRadius: 0}),
-    ),
-
-    cardGroupCardCardHeader: (n, length) => selectorMediaUp('Sm', SCREENS,
-      selectorNotFirstChild(n, length, {borderTopLeftRadius: 0}),
-    ),
-
-    cardGroupCardCardImgBottom: (n, length) => selectorMediaUp('Sm', SCREENS,
-      selectorNotFirstChild(n, length, {borderBottomLeftRadius: 0}),
-    ),
-
-    cardGroupCardCardImgFooter: (n, length) => selectorMediaUp('Sm', SCREENS,
-      selectorNotFirstChild(n, length, {borderBottomLeftRadius: 0}),
-    ),
-
-    cardGroupCardCard: {
-      marginLeft: 0,
-      borderLeftWidth: 0,
-    },
+    cardGroupCardCardImgFooter: (index, length) => selectorMediaUp('Sm', SCREENS, Object.assign({},
+      selectorNotLastChild(index, length, {borderBottomRightRadius: 0}),
+      selectorNotFirstChild(index, {borderBottomLeftRadius: 0}),
+    )),
 
     // Columns
 
@@ -261,15 +248,15 @@ export default function getClasses(constants, classes) {
     }),
 
     // custom naming
-    cardAccordionCard: (n, length) => Object.assign({
+    cardAccordionCard: (index, length) => Object.assign({
       overflow: 'hidden',
     },
-      selectorNotLastChild(n, length, Object.assign({
+      selectorNotLastChild(index, length, Object.assign({
         borderBottom: 0,
       },
         mixinBorderBottomRadius(constants, 0),
       )),
-      selectorNotFirstChild(n,
+      selectorNotFirstChild(index,
         mixinBorderTopRadius(constants, 0),
       ),
     ),
