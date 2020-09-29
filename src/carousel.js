@@ -1,6 +1,19 @@
 export default function getClasses(constants, classes) {
   const {
     ENABLE_GRADIENTS,
+
+    CAROUSEL_CONTROL_COLOR,
+    CAROUSEL_CONTROL_WIDTH,
+    CAROUSEL_CONTROL_OPACITY,
+    CAROUSEL_CONTROL_HOVER_OPACITY,
+    CAROUSEL_INDICATOR_WIDTH,
+    CAROUSEL_INDICATOR_HEIGHT,
+    CAROUSEL_INDICATOR_HIT_AREA_HEIGHT,
+    CAROUSEL_INDICATOR_SPACER,
+    CAROUSEL_INDICATOR_ACTIVE_BG,
+    CAROUSEL_CAPTION_WIDTH,
+    CAROUSEL_CAPTION_COLOR,
+    CAROUSEL_CONTROL_ICON_WIDTH,
   } = constants;
 
   const _classes = {
@@ -17,9 +30,9 @@ export default function getClasses(constants, classes) {
     //   // OBSOLETED / mixinBoxShadow(constants, CARD_SHADOW_COLOR, CARD_SHADOW_OFFSET, CARD_SHADOW_OPACITY, CARD_SHADOW_RADIUS),
     // ),
 
-    // .carousel {
-    //   position: relative;
-    // }
+    carousel: {
+      position: 'relative',
+    },
 
     // .carousel.pointer-event {
     //   touch-action: pan-y;
