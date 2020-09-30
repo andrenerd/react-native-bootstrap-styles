@@ -38,12 +38,12 @@ export default function getClasses(constants, classes) {
     //   touch-action: pan-y;
     // }
 
-    // .carousel-inner {
-    //   position: relative;
-    //   width: 100%;
-    //   overflow: hidden;
-    //   @include clearfix();
-    // }
+    carouselInner: {
+      position: 'relative',
+      width: '100%',
+      overflow: 'hidden',
+      // irrelevant / @include clearfix();
+    },
 
     // .carousel-item {
     //   position: relative;
