@@ -45,15 +45,15 @@ export default function getClasses(constants, classes) {
       // irrelevant / @include clearfix();
     },
 
-    // .carousel-item {
-    //   position: relative;
-    //   display: none;
-    //   float: left;
-    //   width: 100%;
-    //   margin-right: -100%;
-    //   backface-visibility: hidden;
-    //   @include transition($carousel-transition);
-    // }
+    carouselItem: {
+      position: 'relative',
+      display: 'none',
+      flexDirection: 'row', // float: left,
+      width: '100%',
+      marginRight: '-100%',
+      backfaceVisibility: 'hidden',
+      // reserved / @include transition($carousel-transition);
+    },
 
     // .carousel-item.active,
     // .carousel-item-next,
