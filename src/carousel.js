@@ -17,19 +17,6 @@ export default function getClasses(constants, classes) {
   } = constants;
 
   const _classes = {
-    // card: Object.assign({
-    //   flex: 1, // experimental
-    //   flexDirection: 'column',
-    //   backgroundColor: CARD_BG,
-    //   borderWidth: CARD_BORDER_WIDTH,
-    //   borderColor: CARD_BORDER_COLOR,
-    // },
-    //   mixinBorderRadius(constants, CARD_BORDER_RADIUS),
-    //   // OBSOLETED / mixinBorderTopRadius(constants, CARD_BORDER_RADIUS),
-    //   // OBSOLETED / mixinBorderBottomRadius(constants, CARD_BORDER_RADIUS),
-    //   // OBSOLETED / mixinBoxShadow(constants, CARD_SHADOW_COLOR, CARD_SHADOW_OFFSET, CARD_SHADOW_OPACITY, CARD_SHADOW_RADIUS),
-    // ),
-
     carousel: {
       position: 'relative',
     },
@@ -98,48 +85,6 @@ export default function getClasses(constants, classes) {
     //   }
     // }
 
-
-    // //
-    // // Left/right controls for nav
-    // //
-
-    // .carousel-control-prev,
-    // .carousel-control-next {
-    //   position: absolute;
-    //   top: 0;
-    //   bottom: 0;
-    //   z-index: 1;
-    //   // Use flex for alignment (1-3)
-    //   display: flex; // 1. allow flex styles
-    //   align-items: center; // 2. vertically center contents
-    //   justify-content: center; // 3. horizontally center contents
-    //   width: $carousel-control-width;
-    //   color: $carousel-control-color;
-    //   text-align: center;
-    //   opacity: $carousel-control-opacity;
-    //   @include transition($carousel-control-transition);
-
-    //   // Hover/focus state
-    //   @include hover-focus() {
-    //     color: $carousel-control-color;
-    //     text-decoration: none;
-    //     outline: 0;
-    //     opacity: $carousel-control-hover-opacity;
-    //   }
-    // }
-    // .carousel-control-prev {
-    //   left: 0;
-    //   @if $enable-gradients {
-    //     background-image: linear-gradient(90deg, rgba($black, .25), rgba($black, .001));
-    //   }
-    // }
-    // .carousel-control-next {
-    //   right: 0;
-    //   @if $enable-gradients {
-    //     background-image: linear-gradient(270deg, rgba($black, .25), rgba($black, .001));
-    //   }
-    // }
-
     // // Icons for within
     // .carousel-control-prev-icon,
     // .carousel-control-next-icon {
@@ -198,11 +143,6 @@ export default function getClasses(constants, classes) {
     //   }
     // }
 
-
-    // // Optional captions
-    // //
-    // //
-
     // .carousel-caption {
     //   position: absolute;
     //   right: (100% - $carousel-caption-width) / 2;
@@ -215,6 +155,41 @@ export default function getClasses(constants, classes) {
     //   text-align: center;
     // }
   };
+
+  _classes.carouselControlPrev = _classes.carouselControlNext = {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    zIndex: 1,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: CAROUSEL_CONTROL_WIDTH,
+    color: CAROUSEL_CAPTION_COLOR,
+    textAlign: 'center',
+    opacity: CAROUSEL_CONTROL_OPACITY,
+    // reserved / @include transition($carousel-control-transition);
+
+    // Hover/focus state
+    // @include hover-focus() {
+    //   color: $carousel-control-color;
+    //   text-decoration: none;
+    //   outline: 0;
+    //   opacity: $carousel-control-hover-opacity;
+    // }
+  };
+
+  _classes.carouselControlPrev = Object.assign(_classes.carouselControlPrev, {
+    left: 0,
+  }, ENABLE_GRADIENTS ? {
+    // reserved / backgroundImage: linear-gradient(90deg, rgba($black, .25), rgba($black, .001));
+  } : {});
+
+  _classes.carouselControlNext = Object.assign(_classes.carouselControlNext, {
+    right: 0,
+  }, ENABLE_GRADIENTS ? {
+    // reserved / background-image: linear-gradient(270deg, rgba($black, .25), rgba($black, .001));
+  } : {});
 
   return _classes;
 };
