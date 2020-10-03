@@ -42,11 +42,15 @@ export default function getClasses(constants, classes) {
       // reserved / @include transition($carousel-transition);
     },
 
-    // .carousel-item.active,
-    // .carousel-item-next,
-    // .carousel-item-prev {
-    //   display: block;
-    // }
+    carouselItemActive: {
+      display: 'flex',
+    },
+    carouselItemNext: {
+      display: 'flex',
+    },
+    carouselItemPrev: {
+      display: 'flex',
+    },
 
     // .carousel-item-next:not(.carousel-item-left),
     // .active.carousel-item-right {
