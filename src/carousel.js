@@ -110,42 +110,40 @@ export default function getClasses(constants, classes) {
     // // Add an ordered list with the following class and add a list item for each
     // // slide your carousel holds.
 
-    // .carousel-indicators {
-    //   position: absolute;
-    //   right: 0;
-    //   bottom: 0;
-    //   left: 0;
-    //   z-index: 15;
-    //   display: flex;
-    //   justify-content: center;
-    //   padding-left: 0; // override <ol> default
-    //   // Use the .carousel-control's width as margin so we don't overlay those
-    //   margin-right: $carousel-control-width;
-    //   margin-left: $carousel-control-width;
-    //   list-style: none;
+    carouselIndicators: {
+      position: 'absolute',
+      right: 0,
+      bottom: 0,
+      left: 0,
+      zIndex: 15,
+      justifyContent: 'center',
+      paddingLeft: 0, // override <ol> default
+      marginRight: CAROUSEL_CONTROL_WIDTH,
+      marginLeft: CAROUSEL_CONTROL_WIDTH,
+      // non applicable / listStyle: 'none',
 
-    //   li {
-    //     box-sizing: content-box;
-    //     flex: 0 1 auto;
-    //     width: $carousel-indicator-width;
-    //     height: $carousel-indicator-height;
-    //     margin-right: $carousel-indicator-spacer;
-    //     margin-left: $carousel-indicator-spacer;
-    //     text-indent: -999px;
-    //     cursor: pointer;
-    //     background-color: $carousel-indicator-active-bg;
-    //     background-clip: padding-box;
-    //     // Use transparent borders to increase the hit area by 10px on top and bottom.
-    //     border-top: $carousel-indicator-hit-area-height solid transparent;
-    //     border-bottom: $carousel-indicator-hit-area-height solid transparent;
-    //     opacity: .5;
-    //     @include transition($carousel-indicator-transition);
-    //   }
+      // li {
+      //   box-sizing: content-box;
+      //   flex: 0 1 auto;
+      //   width: $carousel-indicator-width;
+      //   height: $carousel-indicator-height;
+      //   margin-right: $carousel-indicator-spacer;
+      //   margin-left: $carousel-indicator-spacer;
+      //   text-indent: -999px;
+      //   cursor: pointer;
+      //   background-color: $carousel-indicator-active-bg;
+      //   background-clip: padding-box;
+      //   // Use transparent borders to increase the hit area by 10px on top and bottom.
+      //   border-top: $carousel-indicator-hit-area-height solid transparent;
+      //   border-bottom: $carousel-indicator-hit-area-height solid transparent;
+      //   opacity: .5;
+      //   @include transition($carousel-indicator-transition);
+      // }
 
-    //   .active {
-    //     opacity: 1;
-    //   }
-    // }
+      // .active {
+      //   opacity: 1;
+      // }
+    },
 
     // .carousel-caption {
     //   position: absolute;
