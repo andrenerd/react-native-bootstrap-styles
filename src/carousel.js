@@ -139,10 +139,10 @@ export default function getClasses(constants, classes) {
       //   opacity: .5;
       //   @include transition($carousel-indicator-transition);
       // }
+    },
 
-      // .active {
-      //   opacity: 1;
-      // }
+    carouselIndicatorsActive: {
+      opacity: 1,
     },
 
     // .carousel-caption {
