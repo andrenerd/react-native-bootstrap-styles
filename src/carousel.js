@@ -145,17 +145,17 @@ export default function getClasses(constants, classes) {
       opacity: 1,
     },
 
-    // .carousel-caption {
-    //   position: absolute;
-    //   right: (100% - $carousel-caption-width) / 2;
-    //   bottom: 20px;
-    //   left: (100% - $carousel-caption-width) / 2;
-    //   z-index: 10;
-    //   padding-top: 20px;
-    //   padding-bottom: 20px;
-    //   color: $carousel-caption-color;
-    //   text-align: center;
-    // }
+    carouselCaption: {
+      position: 'absolute',
+      // right: (100% - $carousel-caption-width) / 2;
+      // bottom: 20px;
+      // left: (100% - $carousel-caption-width) / 2;
+      // z-index: 10;
+      // padding-top: 20px;
+      // padding-bottom: 20px;
+      // color: $carousel-caption-color;
+      // text-align: center;
+    },
   };
 
   _classes.carouselControlPrev = _classes.carouselControlNext = {
