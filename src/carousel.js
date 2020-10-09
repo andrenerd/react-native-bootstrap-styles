@@ -89,22 +89,6 @@ export default function getClasses(constants, classes) {
     //   }
     // }
 
-    // // Icons for within
-    // .carousel-control-prev-icon,
-    // .carousel-control-next-icon {
-    //   display: inline-block;
-    //   width: $carousel-control-icon-width;
-    //   height: $carousel-control-icon-width;
-    //   background: no-repeat 50% / 100% 100%;
-    // }
-    // .carousel-control-prev-icon {
-    //   background-image: escape-svg($carousel-control-prev-icon-bg);
-    // }
-    // .carousel-control-next-icon {
-    //   background-image: escape-svg($carousel-control-next-icon-bg);
-    // }
-
-
     // // Optional indicator pips
     // //
     // // Add an ordered list with the following class and add a list item for each
@@ -192,6 +176,16 @@ export default function getClasses(constants, classes) {
   }, ENABLE_GRADIENTS ? {
     // reserved / background-image: linear-gradient(270deg, rgba($black, .25), rgba($black, .001));
   } : {});
+
+  _classes.carouselControlPrevIcon = _classes.carouselControlNextIcon = {
+    // non applicable / display: inline-block;
+    width: CAROUSEL_CONTROL_ICON_WIDTH,
+    height: CAROUSEL_CONTROL_ICON_WIDTH,
+    // reserved / background: no-repeat 50% / 100% 100%;
+  };
+
+   // _classes.carouselControlPrevIcon.backgroundImage = escape-svg($carousel-control-prev-icon-bg);
+   // _classes.carouselControlNextIcon.backgroundImage = escape-svg($carousel-control-next-icon-bg);
 
   return _classes;
 };
