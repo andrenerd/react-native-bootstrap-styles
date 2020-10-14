@@ -56,27 +56,29 @@ export default function getClasses(constants, classes) {
 
   };
 
-  // btn%color / ex: btnPrimary
-  // Object.keys(THEME_COLORS).forEach((item) => {
-  //   const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
-  //   classes['btn' + classColor] = mixinButtonVariant(constants, THEME_COLORS[item], THEME_COLORS[item]);
-  // });
+  // alert%color / ex: alertPrimary
+  Object.keys(THEME_COLORS).forEach((item) => {
+    const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
 
-  // @include alert-variant(theme-color-level($color, $alert-bg-level), theme-color-level($color, $alert-border-level), theme-color-level($color, $alert-color-level));
+    // temporal
+    const background = classColor; // theme-color-level($color, $alert-bg-level)
+    const border = classColor; // theme-color-level($color, $alert-border-level)
+    const color = classColor; // theme-color-level($color, $alert-color-level)
 
-  // @mixin alert-variant($background, $border, $color) {
-  //   color: $color;
-  //   @include gradient-bg($background);
-  //   border-color: $border;
+    classes['alert' + classColor] = {
+      color: color;
+      borderColor: border;
+      // @include gradient-bg($background);
+    }
 
-  //   hr {
-  //     border-top-color: darken($border, 5%);
-  //   }
+    classes['alert' + classColor + 'Hr'] = {
+      borderTopColor: Color($border).darken(0.05).rgb().string(),
+    }
 
-  //   .alert-link {
-  //     color: darken($color, 10%);
-  //   }
-  // }
+    classes['alert' + classColor + 'Link'] = {
+      borderTopColor: Color($color).darken(0.10).rgb().string(),
+    }
+  });
 
   return _classes;
 };
