@@ -63,7 +63,7 @@ export default function getClasses(constants, classes) {
     // temporal
     const background = classColor; // theme-color-level($color, $alert-bg-level)
     const border = classColor; // theme-color-level($color, $alert-border-level)
-    const color = classColor; // theme-color-level($color, $alert-color-level)
+    // const color = themeColorLevel(classColor, ALERT_COLOR_LEVEL); // theme-color-level($color, $alert-color-level)
 
     classes['alert' + classColor] = {
       color: color;
