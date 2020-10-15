@@ -126,22 +126,23 @@ export default function getClasses(constants, classes) {
     },
 
     carouselIndicatorsItem: {
-      //   box-sizing: content-box;
-      //   flex: 0 1 auto;
+      // box-sizing: content-box;
+      // flex: 0 1 auto;
       width: CAROUSEL_INDICATOR_WIDTH,
       height: CAROUSEL_INDICATOR_WIDTH,
-      //   margin-right: $carousel-indicator-spacer;
-      //   margin-left: $carousel-indicator-spacer;
-      //   text-indent: -999px;
-      //   cursor: pointer;
-      //   background-color: $carousel-indicator-active-bg;
-      //   background-clip: padding-box;
-      //   // Use transparent borders to increase the hit area by 10px on top and bottom.
-      //   border-top: $carousel-indicator-hit-area-height solid transparent;
-      //   border-bottom: $carousel-indicator-hit-area-height solid transparent;
-      //   opacity: .5;
-      //   @include transition($carousel-indicator-transition);
-      // }
+      marginRight: CAROUSEL_INDICATOR_SPACER,
+      marginLeft: CAROUSEL_INDICATOR_SPACER,
+      // text-indent: -999px;
+      // non applicable / cursor: pointer;
+      backgroundColor: CAROUSEL_INDICATOR_ACTIVE_BG,
+      // background-clip: padding-box;
+      borderStyle: 'solid',
+      borderTopColor: 'transparent',
+      borderTopWidth: CAROUSEL_INDICATOR_HIT_AREA_HEIGHT,
+      borderBottomColor: 'transparent',
+      borderBottomWidth: CAROUSEL_INDICATOR_HIT_AREA_HEIGHT,
+      opacity: .5,
+      // @include transition($carousel-indicator-transition);
     },
 
     carouselIndicatorsActive: {
