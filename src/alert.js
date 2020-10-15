@@ -1,4 +1,7 @@
+import Color from 'color';
+
 import { mixinBorderRadius } from './mixins/border-radius';
+import { colorLevel } from './mixins/helpers';
 
 export default function getClasses(constants, classes) {
   const {
@@ -60,23 +63,22 @@ export default function getClasses(constants, classes) {
   Object.keys(THEME_COLORS).forEach((item) => {
     const classColor = item.charAt(0).toUpperCase() + item.slice(1).toLowerCase();
 
-    // temporal
-    const background = classColor; // theme-color-level($color, $alert-bg-level)
-    const border = classColor; // theme-color-level($color, $alert-border-level)
-    // const color = themeColorLevel(classColor, ALERT_COLOR_LEVEL); // theme-color-level($color, $alert-color-level)
+    const background = colorLevel(constants, THEME_COLORS[item], ALERT_BG_LEVEL); // theme-color-level($color, $alert-bg-level)
+    const border = colorLevel(constants, THEME_COLORS[item], ALERT_BORDER_LEVEL); // theme-color-level($color, $alert-border-level)
+    const color = colorLevel(constants, THEME_COLORS[item], ALERT_COLOR_LEVEL); // theme-color-level($color, $alert-color-level)
 
     classes['alert' + classColor] = {
-      color: color;
-      borderColor: border;
-      // @include gradient-bg($background);
+      color: color,
+      borderColor: border,
+      // todo / @include gradient-bg($background);
     }
 
     classes['alert' + classColor + 'Hr'] = {
-      borderTopColor: Color($border).darken(0.05).rgb().string(),
+      borderTopColor: Color(border).darken(0.05).rgb().string(),
     }
 
     classes['alert' + classColor + 'Link'] = {
-      borderTopColor: Color($color).darken(0.10).rgb().string(),
+      borderTopColor: Color(color).darken(0.10).rgb().string(),
     }
   });
 
