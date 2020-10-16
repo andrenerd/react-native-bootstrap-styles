@@ -653,6 +653,33 @@ export default function getConstants(constants) {
     CLOSE_COLOR = BLACK,
     // CLOSE_TEXT_SHADOW = 0 1px 0 $white,
 
+    // Code
+
+    // $code-font-size:                    87.5% !default;
+    // $code-color:                        $pink !default;
+
+    // $kbd-padding-y:                     .2rem !default;
+    // $kbd-padding-x:                     .4rem !default;
+    // $kbd-font-size:                     $code-font-size !default;
+    // $kbd-color:                         $white !default;
+    // $kbd-bg:                            $gray-900 !default;
+
+    // $pre-color:                         $gray-900 !default;
+    // $pre-scrollable-max-height:         340px !default;
+
+    // Utilities
+
+    // $displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex !default;
+    OVERFLOWS = ['visible', 'hidden'],
+    // $positions: static, relative, absolute, fixed, sticky !default;
+    // $user-selects: all, auto, none !default;
+
+    // Printing
+
+    // $print-page-size:                   a3 !default;
+    // $print-body-min-width:              map-get($grid-breakpoints, "lg") !default;
+
+
   } = constants || {};
 
   return {
@@ -805,5 +832,7 @@ export default function getConstants(constants) {
 
     CLOSE_FONT_SIZE, CLOSE_FONT_WEIGHT, CLOSE_COLOR,
     // CLOSE_TEXT_SHADOW = 0 1px 0 $white,
+
+    OVERFLOWS,
   };
 };
