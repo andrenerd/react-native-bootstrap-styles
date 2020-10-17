@@ -28,7 +28,7 @@ import getClassesOverflow from './utilities/overflow';
 
 import getClassesType from './type';
 import getClassesGrid from './grid';
-import getClassesAlert from './alert';
+import getClassesAlerts from './alerts';
 import getClassesButtonGroup from './button-group';
 import getClassesButtons from './buttons';
 import getClassesForms from './forms';
@@ -69,7 +69,7 @@ class BootstrapStyleSheet {
 
     getClassesType,
     getClassesGrid,
-    getClassesAlert,
+    getClassesAlerts,
     getClassesButtonGroup,
     getClassesButtons,
     getClassesForms,

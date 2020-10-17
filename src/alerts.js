@@ -61,7 +61,6 @@ export default function getClasses(constants, classes) {
       paddingHorizontal: ALERT_PADDING_X,
       // TODO: color: inherit;
     },
-
   };
 
   // alert%color / ex: alertPrimary
@@ -74,7 +73,7 @@ export default function getClasses(constants, classes) {
 
     classes['alert' + classColor] = {
       borderColor: border,
-      // todo / @include gradient-bg($background);
+      backgroundColor: background, // @include gradient-bg($background);
     }
 
     classes['alert' + classColor + 'Text'] = {
