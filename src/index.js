@@ -24,10 +24,11 @@ import getClassesSizing from './utilities/sizing';
 import getClassesSpacing from './utilities/spacing';
 import getClassesBorders from './utilities/borders';
 import getClassesDisplay from './utilities/display';
+import getClassesOverflow from './utilities/overflow';
 
 import getClassesType from './type';
 import getClassesGrid from './grid';
-import getClassesAlert from './alert';
+import getClassesAlerts from './alerts';
 import getClassesButtonGroup from './button-group';
 import getClassesButtons from './buttons';
 import getClassesForms from './forms';
@@ -64,10 +65,11 @@ class BootstrapStyleSheet {
     getClassesSpacing,
     getClassesBorders,
     getClassesDisplay,
+    getClassesOverflow,
 
     getClassesType,
     getClassesGrid,
-    getClassesAlert,
+    getClassesAlerts,
     getClassesButtonGroup,
     getClassesButtons,
     getClassesForms,

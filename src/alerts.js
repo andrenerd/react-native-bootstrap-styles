@@ -24,6 +24,7 @@ export default function getClasses(constants, classes) {
   const _classes = {
     alert: Object.assign({
       position: 'relative',
+      width: '100%',
       paddingVertical: ALERT_PADDING_Y,
       paddingHorizontal: ALERT_PADDING_X,
       marginBottom: ALERT_MARGIN_BOTTOM,
@@ -33,6 +34,10 @@ export default function getClasses(constants, classes) {
     },
       mixinBorderRadius(constants, ALERT_BORDER_RADIUS),
     ),
+
+    alertText: Object.assign({}, classes.text, {
+      // pass
+    }),
 
     alerLink: {
       fontWeight: ALERT_LINK_FONT_WEIGHT,
@@ -56,7 +61,6 @@ export default function getClasses(constants, classes) {
       paddingHorizontal: ALERT_PADDING_X,
       // TODO: color: inherit;
     },
-
   };
 
   // alert%color / ex: alertPrimary
@@ -68,9 +72,12 @@ export default function getClasses(constants, classes) {
     const color = colorLevel(constants, THEME_COLORS[item], ALERT_COLOR_LEVEL); // theme-color-level($color, $alert-color-level)
 
     classes['alert' + classColor] = {
-      color: color,
       borderColor: border,
-      // todo / @include gradient-bg($background);
+      backgroundColor: background, // @include gradient-bg($background);
+    }
+
+    classes['alert' + classColor + 'Text'] = {
+      color: color,
     }
 
     classes['alert' + classColor + 'Hr'] = {
