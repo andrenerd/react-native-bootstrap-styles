@@ -669,7 +669,7 @@ export default function getConstants(constants) {
 
     // Utilities
 
-    // $displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex !default;
+    DISPLAYS = ['none', 'flex'],
     OVERFLOWS = ['visible', 'hidden'],
     // $positions: static, relative, absolute, fixed, sticky !default;
     // $user-selects: all, auto, none !default;
