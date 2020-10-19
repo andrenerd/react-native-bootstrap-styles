@@ -833,6 +833,6 @@ export default function getConstants(constants) {
     CLOSE_FONT_SIZE, CLOSE_FONT_WEIGHT, CLOSE_COLOR,
     // CLOSE_TEXT_SHADOW = 0 1px 0 $white,
 
-    OVERFLOWS,
+    DISPLAYS, OVERFLOWS,
   };
 };
