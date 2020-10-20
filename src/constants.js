@@ -671,7 +671,7 @@ export default function getConstants(constants) {
 
     DISPLAYS = ['none', 'flex'],
     OVERFLOWS = ['visible', 'hidden'],
-    // $positions: static, relative, absolute, fixed, sticky !default;
+    POSITIONS = ['absolute', 'relative'],
     // $user-selects: all, auto, none !default;
 
     // Printing
@@ -833,6 +833,6 @@ export default function getConstants(constants) {
     CLOSE_FONT_SIZE, CLOSE_FONT_WEIGHT, CLOSE_COLOR,
     // CLOSE_TEXT_SHADOW = 0 1px 0 $white,
 
-    DISPLAYS, OVERFLOWS,
+    DISPLAYS, OVERFLOWS, POSITIONS,
   };
 };
