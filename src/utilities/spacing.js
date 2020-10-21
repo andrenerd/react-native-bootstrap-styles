@@ -1,6 +1,5 @@
 export default function getClasses(constants, classes) {
   const {
-    REM,
     SPACERS,
     SCREENS_INFIXES,
   } = constants;
@@ -32,13 +31,13 @@ export default function getClasses(constants, classes) {
   SCREENS_INFIXES.forEach((itemScreen) => {
     Object.keys(SPACERS).forEach((itemSpacer) => {
       Object.keys(SPACERS_TYPES).forEach((itemType) => {
-        _classes[SPACERS_TYPES[itemType] + itemScreen + itemSpacer] = {[itemType]: SPACERS[itemSpacer] * REM};
-        _classes[SPACERS_TYPES[itemType] + 'y' + itemScreen + itemSpacer] = {[itemType + 'Vertical']: SPACERS[itemSpacer] * REM};
-        _classes[SPACERS_TYPES[itemType] + 'x' + itemScreen + itemSpacer] = {[itemType + 'Horizontal']: SPACERS[itemSpacer] * REM};
-        _classes[SPACERS_TYPES[itemType] + 't' + itemScreen + itemSpacer] = {[itemType + 'Top']: SPACERS[itemSpacer] * REM};
-        _classes[SPACERS_TYPES[itemType] + 'b' + itemScreen + itemSpacer] = {[itemType + 'Bottom']: SPACERS[itemSpacer] * REM};
-        _classes[SPACERS_TYPES[itemType] + 'r' + itemScreen + itemSpacer] = {[itemType + 'Right']: SPACERS[itemSpacer] * REM};
-        _classes[SPACERS_TYPES[itemType] + 'l' + itemScreen + itemSpacer] = {[itemType + 'Left']: SPACERS[itemSpacer] * REM};
+        _classes[SPACERS_TYPES[itemType] + itemScreen + itemSpacer] = {[itemType]: SPACERS[itemSpacer]};
+        _classes[SPACERS_TYPES[itemType] + 'y' + itemScreen + itemSpacer] = {[itemType + 'Vertical']: SPACERS[itemSpacer]};
+        _classes[SPACERS_TYPES[itemType] + 'x' + itemScreen + itemSpacer] = {[itemType + 'Horizontal']: SPACERS[itemSpacer]};
+        _classes[SPACERS_TYPES[itemType] + 't' + itemScreen + itemSpacer] = {[itemType + 'Top']: SPACERS[itemSpacer]};
+        _classes[SPACERS_TYPES[itemType] + 'b' + itemScreen + itemSpacer] = {[itemType + 'Bottom']: SPACERS[itemSpacer]};
+        _classes[SPACERS_TYPES[itemType] + 'r' + itemScreen + itemSpacer] = {[itemType + 'Right']: SPACERS[itemSpacer]};
+        _classes[SPACERS_TYPES[itemType] + 'l' + itemScreen + itemSpacer] = {[itemType + 'Left']: SPACERS[itemSpacer]};
       });
     });
   });

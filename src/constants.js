@@ -82,7 +82,7 @@ export default function getConstants(constants) {
 
     // Spacing
 
-    SPACER = _('SPACER', 1),
+    SPACER = _('SPACER', REM),
     SPACERS = _('SPACERS', {
       0: 0,
       1: (SPACER * 0.25),
@@ -169,7 +169,7 @@ export default function getConstants(constants) {
     // Grid
 
     GRID_COLUMNS = 12,
-    GRID_GUTTER_WIDTH = _('GRID_GUTTER_WIDTH', SPACER * 1.5 * REM),
+    GRID_GUTTER_WIDTH = _('GRID_GUTTER_WIDTH', SPACER * 1.5),
     GRID_ROW_COLUMNS = 6,
 
     // Components
@@ -230,7 +230,7 @@ export default function getConstants(constants) {
     H5_FONT_SIZE = 1.25 * REM,
     H6_FONT_SIZE = 1 * REM,
 
-    HEADINGS_MARGIN_BOTTOM = SPACER / 2 * REM,
+    HEADINGS_MARGIN_BOTTOM = SPACER / 2,
     HEADINGS_FONT_FAMILY = FONT_FAMILY_BASE,
     HEADINGS_FONT_WEIGHT = FONT_WEIGHT_BASE,
     HEADINGS_COLOR = BODY_COLOR,
@@ -477,8 +477,8 @@ export default function getConstants(constants) {
 
     // Cards
 
-    CARD_SPACER_Y = _('CARD_SPACER_Y', 0.75 * SPACER * REM),
-    CARD_SPACER_X = _('CARD_SPACER_X', 1.25 * SPACER * REM),
+    CARD_SPACER_Y = _('CARD_SPACER_Y', 0.75 * SPACER),
+    CARD_SPACER_X = _('CARD_SPACER_X', 1.25 * SPACER),
     CARD_BORDER_WIDTH = _('CARD_BORDER_WIDTH', BORDER_WIDTH),
     CARD_BORDER_RADIUS = _('CARD_BORDER_RADIUS', BORDER_RADIUS),
     CARD_BORDER_COLOR = BORDER_COLOR, // rgba($black, .125)
@@ -524,8 +524,8 @@ export default function getConstants(constants) {
 
     // Modals
 
-    MODAL_INNER_PADDING = 1 * SPACER * REM,
-    MODAL_DIALOG_MARGIN = 1 * SPACER * REM,
+    MODAL_INNER_PADDING = 1 * SPACER,
+    MODAL_DIALOG_MARGIN = 1 * SPACER,
     // $modal-dialog-margin-y-sm-up: 30px,
     MODAL_TITLE_LINE_HEIGHT = LINE_HEIGHT_BASE,
     MODAL_CONTENT_BG = WHITE,

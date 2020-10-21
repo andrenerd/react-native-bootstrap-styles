@@ -43,7 +43,7 @@ export default function getClasses(constants, classes) {
       fontWeight: ALERT_LINK_FONT_WEIGHT,
     },
 
-    // // Headings for larger alerts
+    // obsoleted
     // .alert-heading {
     //   // Specified to prevent conflicts of changing $headings-color
     //   color: inherit;
