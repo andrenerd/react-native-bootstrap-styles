@@ -39,7 +39,7 @@ export default function getClasses(constants, classes) {
       // pass
     }),
 
-    alerLink: {
+    alertLink: {
       fontWeight: ALERT_LINK_FONT_WEIGHT,
     },
 
@@ -85,7 +85,7 @@ export default function getClasses(constants, classes) {
     }
 
     classes['alert' + classColor + 'Link'] = {
-      borderTopColor: Color(color).darken(0.10).rgb().string(),
+      color: Color(color).darken(0.10).rgb().string(),
     }
   });
 
