@@ -655,8 +655,8 @@ export default function getConstants(constants) {
 
     // Code
 
-    // $code-font-size:                    87.5% !default;
-    // $code-color:                        $pink !default;
+    CODE_FONT_SIZE = _('CODE_FONT_SIZE', FONT_SIZE_BASE * 0.875),
+    CODE_COLOR = PINK,
 
     // $kbd-padding-y:                     .2rem !default;
     // $kbd-padding-x:                     .4rem !default;
@@ -667,18 +667,13 @@ export default function getConstants(constants) {
     // $pre-color:                         $gray-900 !default;
     // $pre-scrollable-max-height:         340px !default;
 
-    // Utilities
-
     DISPLAYS = ['none', 'flex'],
     OVERFLOWS = ['visible', 'hidden'],
     POSITIONS = ['absolute', 'relative'],
-    // $user-selects: all, auto, none !default;
-
-    // Printing
+    // non-applicable / $user-selects: all, auto, none !default;
 
     // $print-page-size:                   a3 !default;
     // $print-body-min-width:              map-get($grid-breakpoints, "lg") !default;
-
 
   } = constants || {};
 
