@@ -418,7 +418,7 @@ export default function getConstants(constants) {
     INPUT_HEIGHT_BORDER = INPUT_BORDER_WIDTH * 2,
 
     INPUT_HEIGHT_INNER = INPUT_LINE_HEIGHT + INPUT_PADDING_Y * 2,
-    INPUT_HEIGHT = INPUT_LINE_HEIGHT + INPUT_PADDING_Y * 2 + INPUT_HEIGHT_BORDER,
+    INPUT_HEIGHT = INPUT_HEIGHT_INNER + INPUT_HEIGHT_BORDER,
 
     // $input-height-inner:                    add($input-line-height * 1em, $input-padding-y * 2) !default;
     // $input-height-inner-half:               add($input-line-height * .5em, $input-padding-y) !default;

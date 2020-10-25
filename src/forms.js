@@ -61,7 +61,7 @@ export default function getClasses(constants, classes) {
       fontFamily: INPUT_FONT_FAMILY,
       fontSize: INPUT_FONT_SIZE,
       fontWeight: INPUT_FONT_WEIGHT,
-      lineHeight: INPUT_LINE_HEIGHT,
+      // excessive??, harmful!! / lineHeight: INPUT_LINE_HEIGHT,
       color: INPUT_COLOR,
       backgroundColor: INPUT_BG,
       // background-clip: padding-box;
@@ -207,6 +207,11 @@ export default function getClasses(constants, classes) {
     formText: {
       // display: block;
       marginTop: FORM_TEXT_MARGIN_TOP,
+    },
+
+    formLabelText: {
+      // non-applicable / display: inline-block;
+      marginBottom: LABEL_MARGIN_BOTTOM,
     },
 
     formRow: {

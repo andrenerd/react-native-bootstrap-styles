@@ -47,11 +47,6 @@ export default function getClasses(constants, classes) {
     hidden: {
       display: 'none',
     },
-
-    label: {
-      // non-applicable / display: inline-block;
-      marginBottom: LABEL_MARGIN_BOTTOM,
-    },
   };
 
   // aliases
