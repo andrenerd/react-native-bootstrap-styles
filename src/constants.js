@@ -417,16 +417,18 @@ export default function getConstants(constants) {
 
     INPUT_HEIGHT_BORDER = INPUT_BORDER_WIDTH * 2,
 
-    // $input-height-inner:                    ($font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2),
-    // $input-height:                          calc(#{$input-height-inner} + #{$input-height-border}),
+    INPUT_HEIGHT_INNER = INPUT_LINE_HEIGHT + INPUT_PADDING_Y * 2,
+    INPUT_HEIGHT = INPUT_LINE_HEIGHT + INPUT_PADDING_Y * 2 + INPUT_HEIGHT_BORDER,
 
-    // $input-height-inner-sm:                 ($font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2),
-    // $input-height-sm:                       calc(#{$input-height-inner-sm} + #{$input-height-border}),
+    // $input-height-inner:                    add($input-line-height * 1em, $input-padding-y * 2) !default;
+    // $input-height-inner-half:               add($input-line-height * .5em, $input-padding-y) !default;
+    // $input-height-inner-quarter:            add($input-line-height * .25em, $input-padding-y / 2) !default;
 
-    // $input-height-inner-lg:                 ($font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2),
-    // $input-height-lg:                       calc(#{$input-height-inner-lg} + #{$input-height-border}),
+    // $input-height:                          add($input-line-height * 1em, add($input-padding-y * 2, $input-height-border, false)) !default;
+    // $input-height-sm:                       add($input-line-height-sm * 1em, add($input-padding-y-sm * 2, $input-height-border, false)) !default;
+    // $input-height-lg:                       add($input-line-height-lg * 1em, add($input-padding-y-lg * 2, $input-height-border, false)) !default;
 
-    // $input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out,
+    // $input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 
     FORM_TEXT_MARGIN_TOP = 0.25 * REM,
 
@@ -754,6 +756,7 @@ export default function getConstants(constants) {
     INPUT_PADDING_Y_LG, INPUT_PADDING_X_LG, INPUT_FONT_SIZE_LG, INPUT_LINE_HEIGHT_LG,
 
     INPUT_BG, INPUT_DISABLED_BG, INPUT_COLOR,
+    INPUT_HEIGHT,
     INPUT_BORDER_COLOR, INPUT_BORDER_WIDTH,
     INPUT_BORDER_RADIUS, INPUT_BORDER_RADIUS_LG, INPUT_BORDER_RADIUS_SM,
     INPUT_PLACEHOLDER_COLOR, INPUT_PLAINTEXT_COLOR, INPUT_HEIGHT_BORDER,

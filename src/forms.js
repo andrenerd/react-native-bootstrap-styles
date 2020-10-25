@@ -10,6 +10,7 @@ export default function getClasses(constants, classes) {
     INPUT_FONT_FAMILY,
     INPUT_FONT_SIZE,
     INPUT_FONT_WEIGHT,
+    INPUT_HEIGHT,
     INPUT_BORDER_COLOR,
     INPUT_BORDER_WIDTH,
     INPUT_BORDER_RADIUS,
@@ -54,7 +55,7 @@ export default function getClasses(constants, classes) {
   const _classes = {
     formControl: Object.assign({
       width: '100%',
-      // height: $input-height;
+      height: INPUT_HEIGHT,
       paddingVertical: INPUT_PADDING_Y,
       paddingHorizontal: INPUT_PADDING_X,
       fontFamily: INPUT_FONT_FAMILY,
