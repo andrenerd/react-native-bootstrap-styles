@@ -69,10 +69,10 @@ export default function getClasses(constants, classes) {
 
     // Misc
 
-    // .initialism {
-    //   @include font-size(90%);
-    //   text-transform: uppercase;
-    // }
+    initialism: {
+      // reserved / @include font-size(90%),
+      textTransform: 'uppercase',
+    },
 
     blockquote: {
       marginBottom: SPACER,
