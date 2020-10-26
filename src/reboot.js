@@ -11,6 +11,7 @@ export default function getClasses(constants, classes) {
     LINK_DECORATION_LINE,
     LINK_DECORATION_COLOR,
     LINK_DECORATION_STYLE,
+    LABEL_MARGIN_BOTTOM,
   } = constants;
 
   const _classes = {

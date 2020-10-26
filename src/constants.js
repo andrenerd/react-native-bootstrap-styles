@@ -403,27 +403,32 @@ export default function getConstants(constants) {
     INPUT_BORDER_RADIUS_LG = BORDER_RADIUS_LG,
     INPUT_BORDER_RADIUS_SM = BORDER_RADIUS_SM,
 
-    // $input-focus-bg:                        $input-bg,
-    // $input-focus-border-color:              lighten($component-active-bg, 25%),
-    // $input-focus-color:                     $input-color,
-    // $input-focus-width:                     INPUT_BTN_FOCUS_width,
-    // $input-focus-box-shadow:                INPUT_BTN_FOCUS_box-shadow,
+    INPUT_FOCUS_BG = INPUT_BG,
+    INPUT_FOCUS_BORDER_COLOR = Color(COMPONENT_ACTIVE_BG).lighten(0.25).rgb().string(),
+    INPUT_FOCUS_COLOR = INPUT_COLOR,
+    INPUT_FOCUS_WIDTH = INPUT_BTN_FOCUS_WIDTH,
+    INPUT_FOCUS_BOX_SHADOW_RADIUS = INPUT_BTN_FOCUS_BOX_SHADOW_RADIUS,
+    INPUT_FOCUS_BOX_SHADOW_OFFSET = INPUT_BTN_FOCUS_BOX_SHADOW_OFFSET,
+    INPUT_FOCUS_BOX_SHADOW_COLOR = INPUT_BTN_FOCUS_BOX_SHADOW_COLOR,
+    INPUT_FOCUS_BOX_SHADOW_OPACITY = INPUT_BTN_FOCUS_BOX_SHADOW_OPACITY,
 
     INPUT_PLACEHOLDER_COLOR = GRAY_600,
     INPUT_PLAINTEXT_COLOR = BODY_COLOR,
 
     INPUT_HEIGHT_BORDER = INPUT_BORDER_WIDTH * 2,
 
-    // $input-height-inner:                    ($font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2),
-    // $input-height:                          calc(#{$input-height-inner} + #{$input-height-border}),
+    INPUT_HEIGHT_INNER = INPUT_LINE_HEIGHT + INPUT_PADDING_Y * 2,
+    INPUT_HEIGHT = INPUT_HEIGHT_INNER + INPUT_HEIGHT_BORDER,
 
-    // $input-height-inner-sm:                 ($font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2),
-    // $input-height-sm:                       calc(#{$input-height-inner-sm} + #{$input-height-border}),
+    // $input-height-inner:                    add($input-line-height * 1em, $input-padding-y * 2) !default;
+    // $input-height-inner-half:               add($input-line-height * .5em, $input-padding-y) !default;
+    // $input-height-inner-quarter:            add($input-line-height * .25em, $input-padding-y / 2) !default;
 
-    // $input-height-inner-lg:                 ($font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2),
-    // $input-height-lg:                       calc(#{$input-height-inner-lg} + #{$input-height-border}),
+    // $input-height:                          add($input-line-height * 1em, add($input-padding-y * 2, $input-height-border, false)) !default;
+    // $input-height-sm:                       add($input-line-height-sm * 1em, add($input-padding-y-sm * 2, $input-height-border, false)) !default;
+    // $input-height-lg:                       add($input-line-height-lg * 1em, add($input-padding-y-lg * 2, $input-height-border, false)) !default;
 
-    // $input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out,
+    // $input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 
     FORM_TEXT_MARGIN_TOP = 0.25 * REM,
 
@@ -655,8 +660,8 @@ export default function getConstants(constants) {
 
     // Code
 
-    // $code-font-size:                    87.5% !default;
-    // $code-color:                        $pink !default;
+    CODE_FONT_SIZE = _('CODE_FONT_SIZE', FONT_SIZE_BASE * 0.875),
+    CODE_COLOR = PINK,
 
     // $kbd-padding-y:                     .2rem !default;
     // $kbd-padding-x:                     .4rem !default;
@@ -667,18 +672,13 @@ export default function getConstants(constants) {
     // $pre-color:                         $gray-900 !default;
     // $pre-scrollable-max-height:         340px !default;
 
-    // Utilities
-
     DISPLAYS = ['none', 'flex'],
     OVERFLOWS = ['visible', 'hidden'],
     POSITIONS = ['absolute', 'relative'],
-    // $user-selects: all, auto, none !default;
-
-    // Printing
+    // non-applicable / $user-selects: all, auto, none !default;
 
     // $print-page-size:                   a3 !default;
     // $print-body-min-width:              map-get($grid-breakpoints, "lg") !default;
-
 
   } = constants || {};
 
@@ -756,10 +756,14 @@ export default function getConstants(constants) {
     INPUT_PADDING_Y_LG, INPUT_PADDING_X_LG, INPUT_FONT_SIZE_LG, INPUT_LINE_HEIGHT_LG,
 
     INPUT_BG, INPUT_DISABLED_BG, INPUT_COLOR,
+    INPUT_HEIGHT,
     INPUT_BORDER_COLOR, INPUT_BORDER_WIDTH,
     INPUT_BORDER_RADIUS, INPUT_BORDER_RADIUS_LG, INPUT_BORDER_RADIUS_SM,
     INPUT_PLACEHOLDER_COLOR, INPUT_PLAINTEXT_COLOR, INPUT_HEIGHT_BORDER,
     INPUT_SHADOW_COLOR, INPUT_SHADOW_OPACITY, INPUT_SHADOW_OFFSET, INPUT_SHADOW_RADIUS,
+    INPUT_FOCUS_BG, INPUT_FOCUS_BORDER_COLOR, INPUT_FOCUS_COLOR, INPUT_FOCUS_WIDTH,
+    INPUT_FOCUS_BOX_SHADOW_RADIUS, INPUT_FOCUS_BOX_SHADOW_OFFSET,
+    INPUT_FOCUS_BOX_SHADOW_COLOR, INPUT_FOCUS_BOX_SHADOW_OPACITY,
 
     FORM_TEXT_MARGIN_TOP, FORM_CHECK_INPUT_GUTTER, FORM_CHECK_INPUT_MARGIN_Y, FORM_CHECK_INPUT_MARGIN_X,
     FORM_CHECK_INLINE_MARGIN_X, FORM_CHECK_INLINE_INPUT_MARGIN_X, FORM_GRID_GUTTER_WIDTH, FORM_GROUP_MARGIN_BOTTOM,

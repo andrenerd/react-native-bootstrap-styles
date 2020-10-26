@@ -10,6 +10,7 @@ export default function getClasses(constants, classes) {
     INPUT_FONT_FAMILY,
     INPUT_FONT_SIZE,
     INPUT_FONT_WEIGHT,
+    INPUT_HEIGHT,
     INPUT_BORDER_COLOR,
     INPUT_BORDER_WIDTH,
     INPUT_BORDER_RADIUS,
@@ -33,6 +34,14 @@ export default function getClasses(constants, classes) {
     INPUT_LINE_HEIGHT_LG,
     INPUT_PLAINTEXT_COLOR,
     INPUT_PLACEHOLDER_COLOR,
+    INPUT_FOCUS_BG,
+    INPUT_FOCUS_BORDER_COLOR,
+    INPUT_FOCUS_COLOR,
+    INPUT_FOCUS_WIDTH,
+    INPUT_FOCUS_BOX_SHADOW_RADIUS,
+    INPUT_FOCUS_BOX_SHADOW_OFFSET,
+    INPUT_FOCUS_BOX_SHADOW_COLOR,
+    INPUT_FOCUS_BOX_SHADOW_OPACITY,
     FORM_TEXT_MARGIN_TOP,
     FORM_CHECK_INPUT_GUTTER,
     FORM_CHECK_INPUT_MARGIN_Y,
@@ -46,13 +55,13 @@ export default function getClasses(constants, classes) {
   const _classes = {
     formControl: Object.assign({
       width: '100%',
-      // height: $input-height;
+      height: INPUT_HEIGHT,
       paddingVertical: INPUT_PADDING_Y,
       paddingHorizontal: INPUT_PADDING_X,
       fontFamily: INPUT_FONT_FAMILY,
       fontSize: INPUT_FONT_SIZE,
       fontWeight: INPUT_FONT_WEIGHT,
-      lineHeight: INPUT_LINE_HEIGHT,
+      // excessive??, harmful!! / lineHeight: INPUT_LINE_HEIGHT,
       color: INPUT_COLOR,
       backgroundColor: INPUT_BG,
       // background-clip: padding-box;
@@ -198,6 +207,11 @@ export default function getClasses(constants, classes) {
     formText: {
       // display: block;
       marginTop: FORM_TEXT_MARGIN_TOP,
+    },
+
+    formLabelText: {
+      // non-applicable / display: inline-block;
+      marginBottom: LABEL_MARGIN_BOTTOM,
     },
 
     formRow: {
