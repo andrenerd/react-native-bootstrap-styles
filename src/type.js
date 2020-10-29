@@ -20,11 +20,12 @@ export default function getClasses(constants, classes) {
     HR_BORDER_COLOR,
     MARK_PADDING, MARK_BG,
     BLOCKQUOTE_FONT_SIZE,
+
+    LEAD_FONT_SIZE,
+    LEAD_FONT_WEIGHT,
   } = constants;
 
   const _classes = {
-
-    // Horizontal rules
 
     hr: {
       marginTop: HR_MARGIN_Y,
@@ -34,8 +35,6 @@ export default function getClasses(constants, classes) {
       borderTopColor: HR_BORDER_COLOR,
       borderStyle: 'solid',
     },
-
-    // Emphasis
 
     // TODO: Could be a selector or not to be at all
     // small,
@@ -48,8 +47,6 @@ export default function getClasses(constants, classes) {
       padding: MARK_PADDING,
       backgroundColor: MARK_BG,
     },
-
-    // Lists
 
     listUnstyled: Object.assign({},
       mixinListUnstyled,
@@ -66,8 +63,6 @@ export default function getClasses(constants, classes) {
     //     margin-right: $list-inline-padding;
     //   }
     // }
-
-    // Misc
 
     initialism: {
       // reserved / @include font-size(90%),
@@ -88,6 +83,11 @@ export default function getClasses(constants, classes) {
     //     content: "\2014\00A0"; // em dash, nbsp
     //   }
     // },
+
+    lead: {
+      fontSize: LEAD_FONT_SIZE,
+      fontweight: LEAD_FONT_WEIGHT,
+    },
   };
 
   // h1, h2, h3, ...
@@ -103,12 +103,6 @@ export default function getClasses(constants, classes) {
       // RESERVED / lineHeight: HEADINGS_SIZES[index] / FONT_SIZE_BASE * LINE_HEIGHT_BASE,
     };
   });
-
-  // RESERVED
-  // .lead {
-  //   font-size: $lead-font-size;
-  //   font-weight: $lead-font-weight;
-  // }
 
   // // Type display classes
   // .display-1 {

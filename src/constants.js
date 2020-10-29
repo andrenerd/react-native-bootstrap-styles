@@ -235,8 +235,8 @@ export default function getConstants(constants) {
     HEADINGS_FONT_WEIGHT = FONT_WEIGHT_BASE,
     HEADINGS_COLOR = BODY_COLOR,
 
-    // $lead-font-size:              $font-size-base * 1.25 !default;
-    // $lead-font-weight:            300 !default;
+    LEAD_FONT_SIZE = FONT_SIZE_BASE * 1.25,
+    LEAD_FONT_WEIGHT = 300,
 
     // $small-font-size = _('LINE_HEIGHT_BASE', 0.8);
 
@@ -717,6 +717,7 @@ export default function getConstants(constants) {
     FONT_WEIGHT_BASE, LINE_HEIGHT_BASE,
     H1_FONT_SIZE, H2_FONT_SIZE, H3_FONT_SIZE, H4_FONT_SIZE, H5_FONT_SIZE, H6_FONT_SIZE,
     HEADINGS_MARGIN_BOTTOM, HEADINGS_FONT_FAMILY, HEADINGS_FONT_WEIGHT, HEADINGS_COLOR,
+    LEAD_FONT_SIZE, LEAD_FONT_WEIGHT,
 
     TEXT_MUTED,
     BLOCKQUOTE_FONT_SIZE,
