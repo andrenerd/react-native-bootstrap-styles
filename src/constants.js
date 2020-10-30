@@ -663,7 +663,7 @@ export default function getConstants(constants) {
     CODE_FONT_SIZE = _('CODE_FONT_SIZE', FONT_SIZE_BASE * 0.875),
     CODE_COLOR = PINK,
 
-    // $kbd-padding-y:                     .2rem !default;
+    KBD_PADDING_Y = 0.2 * REM,
     // $kbd-padding-x:                     .4rem !default;
     // $kbd-font-size:                     $code-font-size !default;
     // $kbd-color:                         $white !default;
