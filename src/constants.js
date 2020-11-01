@@ -665,7 +665,7 @@ export default function getConstants(constants) {
 
     KBD_PADDING_Y = 0.2 * REM,
     KBD_PADDING_X = 0.4 * REM,
-    // $kbd-font-size:                     $code-font-size !default;
+    KBD_FONT_SIZE = CODE_FONT_SIZE,
     // $kbd-color:                         $white !default;
     // $kbd-bg:                            $gray-900 !default;
 
