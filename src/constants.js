@@ -235,8 +235,8 @@ export default function getConstants(constants) {
     HEADINGS_FONT_WEIGHT = FONT_WEIGHT_BASE,
     HEADINGS_COLOR = BODY_COLOR,
 
-    // $lead-font-size:              $font-size-base * 1.25 !default;
-    // $lead-font-weight:            300 !default;
+    LEAD_FONT_SIZE = FONT_SIZE_BASE * 1.25,
+    LEAD_FONT_WEIGHT = '300',
 
     // $small-font-size = _('LINE_HEIGHT_BASE', 0.8);
 
@@ -663,11 +663,11 @@ export default function getConstants(constants) {
     CODE_FONT_SIZE = _('CODE_FONT_SIZE', FONT_SIZE_BASE * 0.875),
     CODE_COLOR = PINK,
 
-    // $kbd-padding-y:                     .2rem !default;
-    // $kbd-padding-x:                     .4rem !default;
-    // $kbd-font-size:                     $code-font-size !default;
-    // $kbd-color:                         $white !default;
-    // $kbd-bg:                            $gray-900 !default;
+    KBD_PADDING_Y = 0.2 * REM,
+    KBD_PADDING_X = 0.4 * REM,
+    KBD_FONT_SIZE = CODE_FONT_SIZE,
+    KBD_COLOR = WHITE,
+    KBD_BG = GRAY_900,
 
     // $pre-color:                         $gray-900 !default;
     // $pre-scrollable-max-height:         340px !default;
@@ -717,6 +717,7 @@ export default function getConstants(constants) {
     FONT_WEIGHT_BASE, LINE_HEIGHT_BASE,
     H1_FONT_SIZE, H2_FONT_SIZE, H3_FONT_SIZE, H4_FONT_SIZE, H5_FONT_SIZE, H6_FONT_SIZE,
     HEADINGS_MARGIN_BOTTOM, HEADINGS_FONT_FAMILY, HEADINGS_FONT_WEIGHT, HEADINGS_COLOR,
+    LEAD_FONT_SIZE, LEAD_FONT_WEIGHT,
 
     TEXT_MUTED,
     BLOCKQUOTE_FONT_SIZE,
@@ -837,6 +838,8 @@ export default function getConstants(constants) {
     CLOSE_FONT_SIZE, CLOSE_FONT_WEIGHT, CLOSE_COLOR,
     // CLOSE_TEXT_SHADOW = 0 1px 0 $white,
 
+    KBD_PADDING_Y, KBD_PADDING_X,
+    KBD_FONT_SIZE, KBD_COLOR, KBD_BG,
     DISPLAYS, OVERFLOWS, POSITIONS,
   };
 };
