@@ -667,7 +667,7 @@ export default function getConstants(constants) {
     KBD_PADDING_X = 0.4 * REM,
     KBD_FONT_SIZE = CODE_FONT_SIZE,
     KBD_COLOR = WHITE,
-    // $kbd-bg:                            $gray-900 !default;
+    KBD_BG = GRAY_900,
 
     // $pre-color:                         $gray-900 !default;
     // $pre-scrollable-max-height:         340px !default;
@@ -838,6 +838,8 @@ export default function getConstants(constants) {
     CLOSE_FONT_SIZE, CLOSE_FONT_WEIGHT, CLOSE_COLOR,
     // CLOSE_TEXT_SHADOW = 0 1px 0 $white,
 
+    KBD_PADDING_Y, KBD_PADDING_X,
+    KBD_FONT_SIZE, KBD_COLOR, KBD_BG,
     DISPLAYS, OVERFLOWS, POSITIONS,
   };
 };
