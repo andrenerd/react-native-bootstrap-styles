@@ -86,7 +86,7 @@ export default function getClasses(constants, classes) {
 
     lead: {
       fontSize: LEAD_FONT_SIZE,
-      fontweight: LEAD_FONT_WEIGHT,
+      fontWeight: LEAD_FONT_WEIGHT,
     },
   };
 

@@ -236,7 +236,7 @@ export default function getConstants(constants) {
     HEADINGS_COLOR = BODY_COLOR,
 
     LEAD_FONT_SIZE = FONT_SIZE_BASE * 1.25,
-    LEAD_FONT_WEIGHT = 300,
+    LEAD_FONT_WEIGHT = '300',
 
     // $small-font-size = _('LINE_HEIGHT_BASE', 0.8);
 
