@@ -13,6 +13,8 @@ export default function getClasses(constants, classes) {
   const _classes = {
 
     kbd: Object.assign({
+      paddingHorizontal: KBD_PADDING_X,
+      paddingVertical: KBD_PADDING_Y,
       // padding: $kbd-padding-y $kbd-padding-x;
       // @include font-size($kbd-font-size);
       // color: $kbd-color;
