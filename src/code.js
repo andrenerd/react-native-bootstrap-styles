@@ -16,7 +16,7 @@ export default function getClasses(constants, classes) {
       paddingHorizontal: KBD_PADDING_X,
       paddingVertical: KBD_PADDING_Y,
       color: KBD_COLOR,
-      // background-color: $kbd-bg;
+      backgroundColor: KBD_BG,
       // @include border-radius($border-radius-sm);
       // @include box-shadow($kbd-box-shadow);
 
