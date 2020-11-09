@@ -666,12 +666,7 @@ export default function getConstants(constants) {
     KBD_FONT_SIZE = CODE_FONT_SIZE,
     KBD_COLOR = WHITE,
     KBD_BG = GRAY_900,
-    KBD_BOX_SHADOW = GRAY_900,
-    KBD_BOX_SHADOW_COLOR = Color(BLACK).alpha(0.25).rgb().string(),
-    // KBD_BOX_SHADOW_OPACITY = _SHADOW_OPACITY,
-    // KBD_BOX_SHADOW_OFFSET = {width: 0, height: 0},
-    // KBD_BOX_SHADOW_RADIUS = INPUT_BTN_FOCUS_WIDTH,
-    // $kbd-box-shadow:              inset 0 -.1rem 0 rgba($black, .25) !default;
+    // not supported /  $kbd-box-shadow: inset 0 -.1rem 0 rgba($black, .25) !default;
 
     // $pre-color:                         $gray-900 !default;
     // $pre-scrollable-max-height:         340px !default;
