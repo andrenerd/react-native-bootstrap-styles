@@ -444,6 +444,27 @@ export default function getConstants(constants) {
     // INPUT_COLOR_ADDON_BG = _('INPUT_COLOR_ADDON_BG', GRAY_200),
     // INPUT_COLOR_ADDON_BORDER_COLOR = INPUT_BORDER_COLOR,
 
+    // Navs
+
+    NAV_LINK_PADDING_Y = 0.5 * REM,
+    NAV_LINK_PADDING_X = 1 * REM,
+    NAV_LINK_DISABLED_COLOR = GRAY_600,
+
+    // $nav-tabs-border-color:             $gray-300 !default;
+    // $nav-tabs-border-width:             $border-width !default;
+    // $nav-tabs-border-radius:            $border-radius !default;
+    // $nav-tabs-link-hover-border-color:  $gray-200 $gray-200 $nav-tabs-border-color !default;
+    // $nav-tabs-link-active-color:        $gray-700 !default;
+    // $nav-tabs-link-active-bg:           $body-bg !default;
+    // $nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg !default;
+
+    // $nav-pills-border-radius:           $border-radius !default;
+    // $nav-pills-link-active-color:       $component-active-color !default;
+    // $nav-pills-link-active-bg:          $component-active-bg !default;
+
+    // $nav-divider-color:                 $gray-200 !default;
+    // $nav-divider-margin-y:              $spacer / 2 !default;
+
     // Pagination
 
     PAGINATION_PADDING_Y =.5 * REM,
