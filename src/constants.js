@@ -450,7 +450,7 @@ export default function getConstants(constants) {
     NAV_LINK_PADDING_X = 1 * REM,
     NAV_LINK_DISABLED_COLOR = GRAY_600,
 
-    // $nav-tabs-border-color:             $gray-300 !default;
+    NAV_TABS_BORDER_COLOR = GRAY_300,
     // $nav-tabs-border-width:             $border-width !default;
     // $nav-tabs-border-radius:            $border-radius !default;
     // $nav-tabs-link-hover-border-color:  $gray-200 $gray-200 $nav-tabs-border-color !default;
