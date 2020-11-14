@@ -452,8 +452,7 @@ export default function getConstants(constants) {
 
     NAV_TABS_BORDER_COLOR = GRAY_300,
     NAV_TABS_BORDER_WIDTH = BORDER_WIDTH,
-    // $nav-tabs-border-width:             $border-width !default;
-    // $nav-tabs-border-radius:            $border-radius !default;
+    NAV_TABS_BORDER_RADIUS = BORDER_RADIUS,
     // $nav-tabs-link-hover-border-color:  $gray-200 $gray-200 $nav-tabs-border-color !default;
     // $nav-tabs-link-active-color:        $gray-700 !default;
     // $nav-tabs-link-active-bg:           $body-bg !default;
