@@ -463,7 +463,7 @@ export default function getConstants(constants) {
     // $nav-pills-link-active-bg:          $component-active-bg !default;
 
     NAV_DIVIDER_COLOR = GRAY_200,
-    // $nav-divider-margin-y:              $spacer / 2 !default;
+    NAV_DIVIDER_MARGIN_Y = SPACER / 2,
 
     // Pagination
 
