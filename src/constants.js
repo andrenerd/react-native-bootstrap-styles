@@ -458,7 +458,7 @@ export default function getConstants(constants) {
     // $nav-tabs-link-active-bg:           $body-bg !default;
     // $nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg !default;
 
-    // $nav-pills-border-radius:           $border-radius !default;
+    NAV_PILLS_BORDER_RADIUS = BORDER_RADIUS,
     // $nav-pills-link-active-color:       $component-active-color !default;
     // $nav-pills-link-active-bg:          $component-active-bg !default;
 
