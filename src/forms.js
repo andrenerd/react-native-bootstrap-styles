@@ -11,6 +11,8 @@ export default function getClasses(constants, classes) {
     INPUT_FONT_SIZE,
     INPUT_FONT_WEIGHT,
     INPUT_HEIGHT,
+    INPUT_HEIGHT_SM,
+    INPUT_HEIGHT_LG,
     INPUT_BORDER_COLOR,
     INPUT_BORDER_WIDTH,
     INPUT_BORDER_RADIUS,
@@ -141,13 +143,10 @@ export default function getClasses(constants, classes) {
       fontSize: INPUT_FONT_SIZE_SM,
     },
 
+    // with formControl
     formControlPlaintext: {
-      width: '100%',
-      paddingVertical: INPUT_PADDING_Y,
       paddingHorizontal: 0,
       marginBottom: 0, // match inputs if this class comes on inputs with default margins
-      fontSize: INPUT_FONT_SIZE,
-      lineHeight: INPUT_LINE_HEIGHT,
       color: INPUT_PLAINTEXT_COLOR,
       backgroundColor: 'transparent',
       borderStyle: 'solid',
@@ -158,32 +157,34 @@ export default function getClasses(constants, classes) {
       borderRightWidth: 0,
     },
 
-    formControlPlaintextFormControlSm: {
+    formControlPlaintextSm: {
       paddingRight: 0,
       paddingLeft: 0,
     },
 
-    formControlPlaintextFormControlLg: {
+    formControlPlaintextLg: {
       paddingRight: 0,
       paddingLeft: 0,
     },
 
+    // with formControl
     formControlSm: Object.assign({
-      height: INPUT_LINE_HEIGHT_SM,
+      height: INPUT_HEIGHT_SM,
       paddingVertical: INPUT_PADDING_Y_SM,
       paddingHorizontal: INPUT_PADDING_X_SM,
       fontSize: INPUT_FONT_SIZE_SM,
-      lineHeight: INPUT_LINE_HEIGHT_SM,
+      // excessive??, harmful!! / lineHeight: INPUT_LINE_HEIGHT_SM,
     },
       mixinBorderRadius(constants, INPUT_BORDER_RADIUS_SM),
     ),
 
+    // with formControl
     formControlLg: Object.assign({
-      height: INPUT_LINE_HEIGHT_LG,
+      height: INPUT_HEIGHT_LG,
       paddingVertical: INPUT_PADDING_Y_LG,
       paddingHorizontal: INPUT_PADDING_X_LG,
       fontSize: INPUT_FONT_SIZE_LG,
-      lineHeight: INPUT_LINE_HEIGHT_LG,
+      // excessive??, harmful!! / lineHeight: INPUT_LINE_HEIGHT_LG,
     },
       mixinBorderRadius(constants, INPUT_BORDER_RADIUS_LG),
     ),
@@ -204,14 +205,24 @@ export default function getClasses(constants, classes) {
       marginBottom: FORM_GROUP_MARGIN_BOTTOM,
     },
 
-    formText: {
+    formText: Object.assign({}, classes.text, {
       // display: block;
       marginTop: FORM_TEXT_MARGIN_TOP,
-    },
+    }),
 
-    formLabelText: {
+    formLabelText: Object.assign({}, classes.text, {
       // non-applicable / display: inline-block;
       marginBottom: LABEL_MARGIN_BOTTOM,
+    }),
+
+    // with formLabel
+    formLabelSmText: {
+      fontSize: INPUT_FONT_SIZE_SM,
+    },
+
+    // with formLabel
+    formLabelLgText: {
+      fontSize: INPUT_FONT_SIZE_LG,
     },
 
     formRow: {
@@ -286,7 +297,7 @@ export default function getClasses(constants, classes) {
       flexWrap: 'wrap',
       alignItems: 'center',  // Prevent shorter elements from growing to same height as others (e.g., small buttons growing to normal sized button height)
     },
- 
+
     // todo check it later / useless?
     formInlineFormCheck: {
       width: '100%',

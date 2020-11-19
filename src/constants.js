@@ -416,15 +416,16 @@ export default function getConstants(constants) {
     INPUT_HEIGHT_BORDER = INPUT_BORDER_WIDTH * 2,
 
     INPUT_HEIGHT_INNER = INPUT_LINE_HEIGHT + INPUT_PADDING_Y * 2,
+    INPUT_HEIGHT_INNER_SM = INPUT_LINE_HEIGHT_SM + INPUT_PADDING_Y_SM * 2,
+    INPUT_HEIGHT_INNER_LG = INPUT_LINE_HEIGHT_LG + INPUT_PADDING_Y_LG * 2,
+
     INPUT_HEIGHT = INPUT_HEIGHT_INNER + INPUT_HEIGHT_BORDER,
+    INPUT_HEIGHT_SM = INPUT_HEIGHT_INNER_SM + INPUT_HEIGHT_BORDER,
+    INPUT_HEIGHT_LG = INPUT_HEIGHT_INNER_LG + INPUT_HEIGHT_BORDER,
 
     // $input-height-inner:                    add($input-line-height * 1em, $input-padding-y * 2) !default;
     // $input-height-inner-half:               add($input-line-height * .5em, $input-padding-y) !default;
     // $input-height-inner-quarter:            add($input-line-height * .25em, $input-padding-y / 2) !default;
-
-    // $input-height:                          add($input-line-height * 1em, add($input-padding-y * 2, $input-height-border, false)) !default;
-    // $input-height-sm:                       add($input-line-height-sm * 1em, add($input-padding-y-sm * 2, $input-height-border, false)) !default;
-    // $input-height-lg:                       add($input-line-height-lg * 1em, add($input-padding-y-lg * 2, $input-height-border, false)) !default;
 
     // $input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 
@@ -778,7 +779,7 @@ export default function getConstants(constants) {
     INPUT_PADDING_Y_LG, INPUT_PADDING_X_LG, INPUT_FONT_SIZE_LG, INPUT_LINE_HEIGHT_LG,
 
     INPUT_BG, INPUT_DISABLED_BG, INPUT_COLOR,
-    INPUT_HEIGHT,
+    INPUT_HEIGHT, INPUT_HEIGHT_SM, INPUT_HEIGHT_LG,
     INPUT_BORDER_COLOR, INPUT_BORDER_WIDTH,
     INPUT_BORDER_RADIUS, INPUT_BORDER_RADIUS_LG, INPUT_BORDER_RADIUS_SM,
     INPUT_PLACEHOLDER_COLOR, INPUT_PLAINTEXT_COLOR, INPUT_HEIGHT_BORDER,

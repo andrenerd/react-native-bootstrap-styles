@@ -157,6 +157,29 @@ Among non-impelemented features: `.row-cols-*`, `.offset-*-*`, `.order-*-*`.
 
 
 
+## Text
+
+As there is no such things as "tag-based" styles, "inheritance" and "nesting" for styles in React Native. Extra text classes defined, that should be applied to all Text tags, for example:
+```
+<Text style="{[s.text]}">Text</Text>
+<Text style="{[s.text, s.textSmall]}">Text</Text>
+<Text style="{[s.text, s.textMuted]}">Text</Text>
+<Text style="{[s.text, s.textWhite]}">Text</Text>
+<Text style="{[s.text, s.textBlack50]}">Text</Text>
+...
+```
+
+Text styles for elements already include base `s.text` style instructions and can be used without it:
+```
+<Text style="{[s.btnText]}">Button text</Text>
+<Text style="{[s.formText]}">Form text</Text>
+<Text style="{[s.formLabelText]}">Form label text</Text>
+<Text style="{[s.navLinkText]}">Nav link</Text>
+...
+```
+
+
+
 ## Content and Utilities
 
 Check the related chapter in the Bootstrap [documentation](https://getbootstrap.com/docs/4.5/utilities/) to get the list of all the utilities.
