@@ -252,8 +252,6 @@ export default function getConstants(constants) {
     MARK_PADDING = 0.2 * REM,
 
     // $dt-font-weight:              $font-weight-bold !default;
-
-    // $kbd-box-shadow:              inset 0 -.1rem 0 rgba($black, .25) !default;
     // $nested-kbd-font-weight:      $font-weight-bold !default;
 
     LIST_INLINE_PADDING = 0.5 * REM,
@@ -418,15 +416,16 @@ export default function getConstants(constants) {
     INPUT_HEIGHT_BORDER = INPUT_BORDER_WIDTH * 2,
 
     INPUT_HEIGHT_INNER = INPUT_LINE_HEIGHT + INPUT_PADDING_Y * 2,
+    INPUT_HEIGHT_INNER_SM = INPUT_LINE_HEIGHT_SM + INPUT_PADDING_Y_SM * 2,
+    INPUT_HEIGHT_INNER_LG = INPUT_LINE_HEIGHT_LG + INPUT_PADDING_Y_LG * 2,
+
     INPUT_HEIGHT = INPUT_HEIGHT_INNER + INPUT_HEIGHT_BORDER,
+    INPUT_HEIGHT_SM = INPUT_HEIGHT_INNER_SM + INPUT_HEIGHT_BORDER,
+    INPUT_HEIGHT_LG = INPUT_HEIGHT_INNER_LG + INPUT_HEIGHT_BORDER,
 
     // $input-height-inner:                    add($input-line-height * 1em, $input-padding-y * 2) !default;
     // $input-height-inner-half:               add($input-line-height * .5em, $input-padding-y) !default;
     // $input-height-inner-quarter:            add($input-line-height * .25em, $input-padding-y / 2) !default;
-
-    // $input-height:                          add($input-line-height * 1em, add($input-padding-y * 2, $input-height-border, false)) !default;
-    // $input-height-sm:                       add($input-line-height-sm * 1em, add($input-padding-y-sm * 2, $input-height-border, false)) !default;
-    // $input-height-lg:                       add($input-line-height-lg * 1em, add($input-padding-y-lg * 2, $input-height-border, false)) !default;
 
     // $input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 
@@ -445,6 +444,28 @@ export default function getConstants(constants) {
     // INPUT_COLOR_ADDON_COLOR = INPUT_COLOR,
     // INPUT_COLOR_ADDON_BG = _('INPUT_COLOR_ADDON_BG', GRAY_200),
     // INPUT_COLOR_ADDON_BORDER_COLOR = INPUT_BORDER_COLOR,
+
+    // Navs
+
+    NAV_LINK_PADDING_Y = 0.5 * REM,
+    NAV_LINK_PADDING_X = 1 * REM,
+    NAV_LINK_DISABLED_COLOR = GRAY_600,
+
+    NAV_TABS_BORDER_COLOR = GRAY_300,
+    NAV_TABS_BORDER_WIDTH = BORDER_WIDTH,
+    NAV_TABS_BORDER_RADIUS = BORDER_RADIUS,
+    // $nav-tabs-link-hover-border-color:  $gray-200 $gray-200 $nav-tabs-border-color !default;
+    NAV_TABS_LINK_ACTIVE_COLOR = GRAY_700,
+    // $nav-tabs-link-active-color:        $gray-700 !default;
+    // $nav-tabs-link-active-bg:           $body-bg !default;
+    // $nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg !default;
+
+    NAV_PILLS_BORDER_RADIUS = BORDER_RADIUS,
+    // $nav-pills-link-active-color:       $component-active-color !default;
+    // $nav-pills-link-active-bg:          $component-active-bg !default;
+
+    NAV_DIVIDER_COLOR = GRAY_200,
+    NAV_DIVIDER_MARGIN_Y = SPACER / 2,
 
     // Pagination
 
@@ -668,6 +689,7 @@ export default function getConstants(constants) {
     KBD_FONT_SIZE = CODE_FONT_SIZE,
     KBD_COLOR = WHITE,
     KBD_BG = GRAY_900,
+    // not supported /  $kbd-box-shadow: inset 0 -.1rem 0 rgba($black, .25) !default;
 
     // $pre-color:                         $gray-900 !default;
     // $pre-scrollable-max-height:         340px !default;
@@ -757,7 +779,7 @@ export default function getConstants(constants) {
     INPUT_PADDING_Y_LG, INPUT_PADDING_X_LG, INPUT_FONT_SIZE_LG, INPUT_LINE_HEIGHT_LG,
 
     INPUT_BG, INPUT_DISABLED_BG, INPUT_COLOR,
-    INPUT_HEIGHT,
+    INPUT_HEIGHT, INPUT_HEIGHT_SM, INPUT_HEIGHT_LG,
     INPUT_BORDER_COLOR, INPUT_BORDER_WIDTH,
     INPUT_BORDER_RADIUS, INPUT_BORDER_RADIUS_LG, INPUT_BORDER_RADIUS_SM,
     INPUT_PLACEHOLDER_COLOR, INPUT_PLAINTEXT_COLOR, INPUT_HEIGHT_BORDER,
