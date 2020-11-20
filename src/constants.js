@@ -441,6 +441,16 @@ export default function getConstants(constants) {
     FORM_GRID_GUTTER_WIDTH = 10,
     FORM_GROUP_MARGIN_BOTTOM = 1 * REM,
 
+    FORM_FEEDBACK_MARGIN_TOP = FORM_TEXT_MARGIN_TOP,
+    FORM_FEEDBACK_FONT_SIZE = FORM_TEXT_MARGIN_TOP,
+    FORM_FEEDBACK_VALID_COLOR = THEME_COLORS['SUCCESS'],
+    FORM_FEEDBACK_INVALID_COLOR = THEME_COLORS['DANGER'],
+
+    // $form-feedback-icon-valid-color:    $form-feedback-valid-color !default;
+    // $form-feedback-icon-valid:          url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'><path fill='#{$form-feedback-icon-valid-color}' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/></svg>") !default;
+    // $form-feedback-icon-invalid-color:  $form-feedback-invalid-color !default;
+    // $form-feedback-icon-invalid:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='#{$form-feedback-icon-invalid-color}' viewBox='0 0 12 12'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='#{$form-feedback-icon-invalid-color}' stroke='none'/></svg>") !default;
+
     // INPUT_COLOR_ADDON_COLOR = INPUT_COLOR,
     // INPUT_COLOR_ADDON_BG = _('INPUT_COLOR_ADDON_BG', GRAY_200),
     // INPUT_COLOR_ADDON_BORDER_COLOR = INPUT_BORDER_COLOR,
@@ -790,6 +800,8 @@ export default function getConstants(constants) {
 
     FORM_TEXT_MARGIN_TOP, FORM_CHECK_INPUT_GUTTER, FORM_CHECK_INPUT_MARGIN_Y, FORM_CHECK_INPUT_MARGIN_X,
     FORM_CHECK_INLINE_MARGIN_X, FORM_CHECK_INLINE_INPUT_MARGIN_X, FORM_GRID_GUTTER_WIDTH, FORM_GROUP_MARGIN_BOTTOM,
+    FORM_FEEDBACK_MARGIN_TOP, FORM_FEEDBACK_FONT_SIZE,
+    FORM_FEEDBACK_VALID_COLOR, FORM_FEEDBACK_INVALID_COLOR,
 
     PAGINATION_PADDING_Y, PAGINATION_PADDING_X,
     PAGINATION_PADDING_Y_SM, PAGINATION_PADDING_X_SM,
