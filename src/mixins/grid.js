@@ -23,7 +23,7 @@ export const mixinMakeRow = (
   constants,
   gutter = null,
 ) => (constants.ENABLE_GRID_CLASSES ? {
-  flexDirection: 'row',
+  flexWrap: 'wrap',
   marginRight: -(gutter || constants.GRID_GUTTER_WIDTH) / 2,
   marginLeft: -(gutter || constants.GRID_GUTTER_WIDTH) / 2,
 } : {});
