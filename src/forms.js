@@ -357,16 +357,39 @@ export default function getClasses(constants, classes) {
   };
 
   [
-    {state: 'valid', color: FORM_FEEDBACK_VALID_COLOR, icon: FORM_FEEDBACK_ICON_VALID},
-    {state: 'invalid', color: FORM_FEEDBACK_INVALID_COLOR, icon: FORM_FEEDBACK_ICON_INVALID},
+    {state: 'valid', color: FORM_FEEDBACK_VALID_COLOR}, // icon: FORM_FEEDBACK_ICON_VALID},
+    {state: 'invalid', color: FORM_FEEDBACK_INVALID_COLOR}, // icon: FORM_FEEDBACK_ICON_INVALID},
   ].forEach((item) => {
     _classes[item.state + 'Feedback'] = {
         width: '100%',
         marginTop: FORM_FEEDBACK_MARGIN_TOP,
-        color: state.color,
+        color: item.color,
     };
 
     _classes[item.state + 'FeedbackText'] = _classes[item.state + 'Feedback'];
+
+    _classes['is' + item.state.charAt(0).toUpperCase() + item.state.slice(1).toLowerCase()] = {
+      borderColor: item.color,
+    };
+
+    //   .form-control {
+    //     @include form-validation-state-selector($state) {
+    //       border-color: $color;
+
+    //       @if $enable-validation-icons {
+    //         padding-right: $input-height-inner;
+    //         background-image: escape-svg($icon);
+    //         background-repeat: no-repeat;
+    //         background-position: right $input-height-inner-quarter center;
+    //         background-size: $input-height-inner-half $input-height-inner-half;
+    //       }
+
+    //       &:focus {
+    //         border-color: $color;
+    //         box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
+    //       }
+    //     }
+    //   }
 
     //   .#{$state}-tooltip {
     //     position: absolute;
@@ -387,25 +410,6 @@ export default function getClasses(constants, classes) {
     //     ~ .#{$state}-feedback,
     //     ~ .#{$state}-tooltip {
     //       display: block;
-    //     }
-    //   }
-
-    //   .form-control {
-    //     @include form-validation-state-selector($state) {
-    //       border-color: $color;
-
-    //       @if $enable-validation-icons {
-    //         padding-right: $input-height-inner;
-    //         background-image: escape-svg($icon);
-    //         background-repeat: no-repeat;
-    //         background-position: right $input-height-inner-quarter center;
-    //         background-size: $input-height-inner-half $input-height-inner-half;
-    //       }
-
-    //       &:focus {
-    //         border-color: $color;
-    //         box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
-    //       }
     //     }
     //   }
 
