@@ -441,6 +441,11 @@ export default function getConstants(constants) {
     FORM_GRID_GUTTER_WIDTH = 10,
     FORM_GROUP_MARGIN_BOTTOM = 1 * REM,
 
+    INPUT_GROUP_ADDON_COLOR = INPUT_COLOR,
+    // $input-group-addon-color:               $input-color !default;
+    // $input-group-addon-bg:                  $gray-200 !default;
+    // $input-group-addon-border-color:        $input-border-color !default;
+
     FORM_FEEDBACK_MARGIN_TOP = FORM_TEXT_MARGIN_TOP,
     FORM_FEEDBACK_FONT_SIZE = FORM_TEXT_MARGIN_TOP,
     FORM_FEEDBACK_VALID_COLOR = THEME_COLORS['SUCCESS'],
