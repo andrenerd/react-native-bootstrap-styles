@@ -442,8 +442,7 @@ export default function getConstants(constants) {
     FORM_GROUP_MARGIN_BOTTOM = 1 * REM,
 
     INPUT_GROUP_ADDON_COLOR = INPUT_COLOR,
-    // $input-group-addon-color:               $input-color !default;
-    // $input-group-addon-bg:                  $gray-200 !default;
+    INPUT_GROUP_ADDON_BG = GRAY_200,
     // $input-group-addon-border-color:        $input-border-color !default;
 
     FORM_FEEDBACK_MARGIN_TOP = FORM_TEXT_MARGIN_TOP,
