@@ -443,7 +443,7 @@ export default function getConstants(constants) {
 
     INPUT_GROUP_ADDON_COLOR = INPUT_COLOR,
     INPUT_GROUP_ADDON_BG = GRAY_200,
-    // $input-group-addon-border-color:        $input-border-color !default;
+    INPUT_GROUP_ADDON_BORDER_COLOR = INPUT_BORDER_COLOR,
 
     FORM_FEEDBACK_MARGIN_TOP = FORM_TEXT_MARGIN_TOP,
     FORM_FEEDBACK_FONT_SIZE = FORM_TEXT_MARGIN_TOP,
