@@ -52,6 +52,10 @@ export default function getClasses(constants, classes) {
     FORM_CHECK_INLINE_INPUT_MARGIN_X,
     FORM_GRID_GUTTER_WIDTH,
     FORM_GROUP_MARGIN_BOTTOM,
+    FORM_FEEDBACK_MARGIN_TOP,
+    FORM_FEEDBACK_FONT_SIZE,
+    FORM_FEEDBACK_VALID_COLOR,
+    FORM_FEEDBACK_INVALID_COLOR,
   } = constants;
 
   const _classes = {
@@ -226,8 +230,6 @@ export default function getClasses(constants, classes) {
     },
 
     formRow: {
-      // display: flex;
-      flexWrap: 'wrap',
       marginRight: -FORM_GRID_GUTTER_WIDTH / 2,
       marginLeft: -FORM_GRID_GUTTER_WIDTH / 2,
 
@@ -278,17 +280,6 @@ export default function getClasses(constants, classes) {
     //     margin-right: $form-check-inline-input-margin-x;
     //     margin-left: 0;
     //   }
-    // }
-
-    // // Form validation
-    // //
-    // // Provide feedback to users when form field values are valid or invalid. Works
-    // // primarily for client-side validation via scoped `:invalid` and `:valid`
-    // // pseudo-classes but also includes `.is-invalid` and `.is-valid` classes for
-    // // server side validation.
-
-    // @each $state, $data in $form-validation-states {
-    //   @include form-validation-state($state, map-get($data, color), map-get($data, icon));
     // }
 
     formInline: {
@@ -364,6 +355,149 @@ export default function getClasses(constants, classes) {
       marginBottom: 0,
     }),
   };
+
+  [
+    {state: 'valid', color: FORM_FEEDBACK_VALID_COLOR}, // icon: FORM_FEEDBACK_ICON_VALID},
+    {state: 'invalid', color: FORM_FEEDBACK_INVALID_COLOR}, // icon: FORM_FEEDBACK_ICON_INVALID},
+  ].forEach((item) => {
+    _classes[item.state + 'Feedback'] = {
+        width: '100%',
+        marginTop: FORM_FEEDBACK_MARGIN_TOP,
+        color: item.color,
+    };
+
+    _classes[item.state + 'FeedbackText'] = _classes[item.state + 'Feedback'];
+
+    _classes['is' + item.state.charAt(0).toUpperCase() + item.state.slice(1).toLowerCase()] = {
+      borderColor: item.color,
+    };
+
+    //   .form-control {
+    //     @include form-validation-state-selector($state) {
+    //       border-color: $color;
+
+    //       @if $enable-validation-icons {
+    //         padding-right: $input-height-inner;
+    //         background-image: escape-svg($icon);
+    //         background-repeat: no-repeat;
+    //         background-position: right $input-height-inner-quarter center;
+    //         background-size: $input-height-inner-half $input-height-inner-half;
+    //       }
+
+    //       &:focus {
+    //         border-color: $color;
+    //         box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
+    //       }
+    //     }
+    //   }
+
+    //   .#{$state}-tooltip {
+    //     position: absolute;
+    //     top: 100%;
+    //     z-index: 5;
+    //     display: none;
+    //     max-width: 100%; // Contain to parent when possible
+    //     padding: $form-feedback-tooltip-padding-y $form-feedback-tooltip-padding-x;
+    //     margin-top: .1rem;
+    //     @include font-size($form-feedback-tooltip-font-size);
+    //     line-height: $form-feedback-tooltip-line-height;
+    //     color: color-yiq($color);
+    //     background-color: rgba($color, $form-feedback-tooltip-opacity);
+    //     @include border-radius($form-feedback-tooltip-border-radius);
+    //   }
+
+    //   @include form-validation-state-selector($state) {
+    //     ~ .#{$state}-feedback,
+    //     ~ .#{$state}-tooltip {
+    //       display: block;
+    //     }
+    //   }
+
+    //   // stylelint-disable-next-line selector-no-qualifying-type
+    //   textarea.form-control {
+    //     @include form-validation-state-selector($state) {
+    //       @if $enable-validation-icons {
+    //         padding-right: $input-height-inner;
+    //         background-position: top $input-height-inner-quarter right $input-height-inner-quarter;
+    //       }
+    //     }
+    //   }
+
+    //   .custom-select {
+    //     @include form-validation-state-selector($state) {
+    //       border-color: $color;
+
+    //       @if $enable-validation-icons {
+    //         padding-right: $custom-select-feedback-icon-padding-right;
+    //         background: $custom-select-background, escape-svg($icon) $custom-select-bg no-repeat $custom-select-feedback-icon-position / $custom-select-feedback-icon-size;
+    //       }
+
+    //       &:focus {
+    //         border-color: $color;
+    //         box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
+    //       }
+    //     }
+    //   }
+
+    //   .form-check-input {
+    //     @include form-validation-state-selector($state) {
+    //       ~ .form-check-label {
+    //         color: $color;
+    //       }
+
+    //       ~ .#{$state}-feedback,
+    //       ~ .#{$state}-tooltip {
+    //         display: block;
+    //       }
+    //     }
+    //   }
+
+    //   .custom-control-input {
+    //     @include form-validation-state-selector($state) {
+    //       ~ .custom-control-label {
+    //         color: $color;
+
+    //         &::before {
+    //           border-color: $color;
+    //         }
+    //       }
+
+    //       &:checked {
+    //         ~ .custom-control-label::before {
+    //           border-color: lighten($color, 10%);
+    //           @include gradient-bg(lighten($color, 10%));
+    //         }
+    //       }
+
+    //       &:focus {
+    //         ~ .custom-control-label::before {
+    //           box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
+    //         }
+
+    //         &:not(:checked) ~ .custom-control-label::before {
+    //           border-color: $color;
+    //         }
+    //       }
+    //     }
+    //   }
+
+    //   // custom file
+    //   .custom-file-input {
+    //     @include form-validation-state-selector($state) {
+    //       ~ .custom-file-label {
+    //         border-color: $color;
+    //       }
+
+    //       &:focus {
+    //         ~ .custom-file-label {
+    //           border-color: $color;
+    //           box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+  });
 
   return _classes;
 };

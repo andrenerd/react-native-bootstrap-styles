@@ -159,7 +159,7 @@ Among non-impelemented features: `.row-cols-*`, `.offset-*-*`, `.order-*-*`.
 
 ## Text
 
-As there is no such things as "tag-based" styles, "inheritance" and "nesting" for styles in React Native. Extra text classes defined, that should be applied to all Text tags, for example:
+As there is no such things as "tag-based" styles, "inheritance" and "nesting" for styles in React Native. Extra text classes defined, that should be applied to all `Text` tags, for example:
 ```
 <Text style="{[s.text]}">Text</Text>
 <Text style="{[s.text, s.textSmall]}">Text</Text>
