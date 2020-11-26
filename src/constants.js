@@ -705,7 +705,7 @@ export default function getConstants(constants) {
     KBD_BG = GRAY_900,
     // not supported /  $kbd-box-shadow: inset 0 -.1rem 0 rgba($black, .25) !default;
 
-    // $pre-color:                         $gray-900 !default;
+    PRE_COLOR = GRAY_900,
     // $pre-scrollable-max-height:         340px !default;
 
     DISPLAYS = ['none', 'flex'],
