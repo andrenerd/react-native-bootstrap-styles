@@ -75,30 +75,26 @@ export default function getClasses(constants, classes) {
       borderWidth: LIST_GROUP_BORDER_WIDTH,
       borderColor: LIST_GROUP_BORDER_COLOR,
       borderStyle: 'solid',
-      color: LIST_GROUP_COLOR,
-      textDecorationLine: LINK_DECORATION_LINE,
-      textDecorationColor: LINK_DECORATION_COLOR,
-      textDecorationStyle: LINK_DECORATION_STYLE,
     },
 
+    // should it be a function?
     listGroupItemDisabled: {
-      color: LIST_GROUP_DISABLED_COLOR,
       backgroundColor: LIST_GROUP_DISABLED_BG,
     },
 
+    // should it be a function?
     listGroupItemActive: {
       zIndex: 2, // make sense?
-      color: LIST_GROUP_ACTIVE_COLOR,
       backgroundColor: LIST_GROUP_ACTIVE_BG,
       borderColor: LIST_GROUP_ACTIVE_BORDER_COLOR,
     },
 
-    listGroupItemText: {
+    listGroupItemText: Object.assign({}, classes.text, {
       color: LIST_GROUP_COLOR,
       textDecorationLine: LINK_DECORATION_LINE,
       textDecorationColor: LINK_DECORATION_COLOR,
       textDecorationStyle: LINK_DECORATION_STYLE,
-    },
+    }),
 
     listGroupItemDisabledText: {
       color: LIST_GROUP_DISABLED_COLOR,
@@ -110,7 +106,7 @@ export default function getClasses(constants, classes) {
 
     listGroupItemFirstChild: nOrBool => selectorFirstChild(nOrBool,
       [{
-        borderBottomWidth: LIST_GROUP_BORDER_WIDTH,
+        borderTopWidth: LIST_GROUP_BORDER_WIDTH,
       }, mixinBorderTopRadius(constants, LIST_GROUP_BORDER_RADIUS)],
     ),
 
