@@ -71,7 +71,7 @@ export default function getClasses(constants, classes) {
       paddingVertical: LIST_GROUP_ITEM_PADDING_Y,
       paddingHorizontal: LIST_GROUP_ITEM_PADDING_X,
       backgroundColor: LIST_GROUP_BG,
-      borderTopWidth: 0,
+      borderBottomWidth: 0,
       borderWidth: LIST_GROUP_BORDER_WIDTH,
       borderColor: LIST_GROUP_BORDER_COLOR,
       borderStyle: 'solid',
@@ -106,12 +106,13 @@ export default function getClasses(constants, classes) {
 
     listGroupItemFirstChild: nOrBool => selectorFirstChild(nOrBool,
       [{
-        borderTopWidth: LIST_GROUP_BORDER_WIDTH,
       }, mixinBorderTopRadius(constants, LIST_GROUP_BORDER_RADIUS)],
     ),
 
     listGroupItemLastChild: (nOrBool, lengthOrNone) => selectorLastChild(nOrBool, lengthOrNone,
-      [mixinBorderBottomRadius(constants, LIST_GROUP_BORDER_RADIUS)],
+      [{
+        borderBottomWidth: LIST_GROUP_BORDER_WIDTH,
+      }, mixinBorderBottomRadius(constants, LIST_GROUP_BORDER_RADIUS)],
     ),
 
     // experimental
