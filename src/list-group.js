@@ -160,6 +160,7 @@ export default function getClasses(constants, classes) {
       selectorMediaUp(itemScreen, SCREENS, {
         borderBottomWidth: LIST_GROUP_BORDER_WIDTH,
         borderRightWidth: 0,
+        flex: 1, // experimental // for flexWrap
       })
     );
 
