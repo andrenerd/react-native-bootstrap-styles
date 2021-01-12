@@ -10,7 +10,7 @@ export default function getConstants(constants) {
     // Options
 
     ENABLE_ROUNDED = _('ENABLE_ROUNDED', true),
-    ENABLE_SHADOWS = _('ENABLE_SHADOWS', true),
+    ENABLE_SHADOWS = _('ENABLE_SHADOWS', false),
     ENABLE_GRADIENTS = _('ENABLE_GRADIENTS', true), // todo: "activate"
     // $enable-transitions:        true,
     ENABLE_GRID_CLASSES = _('ENABLE_GRID_CLASSES', true),
@@ -186,20 +186,20 @@ export default function getConstants(constants) {
 
     ROUNDED_PILL = 50 * REM,
 
-    SHADOW_COLOR_SM = BLACK,
-    SHADOW_OPACITY_SM = 0.075,
-    SHADOW_OFFSET_SM = {width: 0, height: 0.125 * REM},
-    SHADOW_RADIUS_SM = 0.25 * REM,
-
     SHADOW_COLOR = _('SHADOW_COLOR', BLACK),
-    SHADOW_OPACITY = _('SHADOW_OPACITY', 0.15),
+    SHADOW_OPACITY = _('SHADOW_OPACITY', 0.125), // was 0.15
     SHADOW_OFFSET = _('SHADOW_OFFSET', {width: 0, height: 0.5 * REM}),
-    SHADOW_RADIUS = _('SHADOW_RADIUS', 1 * REM),
+    SHADOW_RADIUS = _('SHADOW_RADIUS', 0.75 * REM), // was 1.5
 
-    SHADOW_COLOR_LG = BLACK,
-    SHADOW_OPACITY_LG = 0.175,
+    SHADOW_COLOR_SM = SHADOW_COLOR,
+    SHADOW_OPACITY_SM = 0.1, // was 0.075,
+    SHADOW_OFFSET_SM = {width: 0, height: 0.125 * REM},
+    SHADOW_RADIUS_SM = 0.5 * REM,
+
+    SHADOW_COLOR_LG = SHADOW_COLOR,
+    SHADOW_OPACITY_LG = 0.15, // was 0.175,
     SHADOW_OFFSET_LG = {width: 0, height: 1 * REM},
-    SHADOW_RADIUS_LG = 3 * REM,
+    SHADOW_RADIUS_LG = 1.5 * REM, // was 3
 
     COMPONENT_ACTIVE_COLOR =_('COMPONENT_ACTIVE_COLOR', WHITE),
     COMPONENT_ACTIVE_BG = _('COMPONENT_ACTIVE_BG', PRIMARY),
