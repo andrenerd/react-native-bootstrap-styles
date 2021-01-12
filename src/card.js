@@ -50,17 +50,19 @@ export default function getClasses(constants, classes) {
       borderBottomColor: CARD_BORDER_COLOR,
     },
 
-    cardListGroupFirstChild: (indexOrBool) => selectorFirstChild(indexOrBool, [{
-      borderTopWidth: 0,
-    },
-      mixinBorderTopRadius(constants, CARD_INNER_BORDER_RADIUS),
-    ]),
+    // obsoleted
+    // cardListGroupFirstChild: (indexOrBool) => selectorFirstChild(indexOrBool, [{
+    //   borderTopWidth: 0,
+    // },
+    //   mixinBorderTopRadius(constants, CARD_INNER_BORDER_RADIUS),
+    // ]),
 
-    cardListGroupLastChild: (indexOrBool, length) => selectorFirstChild(indexOrBool, length, [{
-      borderBottomWidth: 0,
-    },
-      mixinBorderBottomRadius(constants, CARD_INNER_BORDER_RADIUS),
-    ]),
+    // obsoleted
+    // cardListGroupLastChild: (indexOrBool, length) => selectorFirstChild(indexOrBool, length, [{
+    //   borderBottomWidth: 0,
+    // },
+    //   mixinBorderBottomRadius(constants, CARD_INNER_BORDER_RADIUS),
+    // ]),
 
     cardBody: {
       flex: 1, // experimental / flex: 1 1 auto;
