@@ -128,10 +128,13 @@ export default function getClasses(constants, classes) {
     ),
 
     listGroupFlushItem: {
-      borderTopWidth: 0,
       borderLeftWidth: 0,
       borderRightWidth: 0,
     },
+
+    listGroupFlushItemFirstChild: (nOrBool, lengthOrNone) => selectorLastChild(nOrBool, lengthOrNone, {
+      borderTopWidth: 0,
+    }),
 
     listGroupFlushItemLastChild: (nOrBool, lengthOrNone) => selectorLastChild(nOrBool, lengthOrNone, {
       borderBottomWidth: 0,
@@ -160,6 +163,7 @@ export default function getClasses(constants, classes) {
       selectorMediaUp(itemScreen, SCREENS, {
         borderBottomWidth: LIST_GROUP_BORDER_WIDTH,
         borderRightWidth: 0,
+        flex: 1, // experimental // for flexWrap
       })
     );
 

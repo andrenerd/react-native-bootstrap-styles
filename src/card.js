@@ -1,5 +1,5 @@
 import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius, mixinBorderLeftRadius, mixinBorderRightRadius } from './mixins/border-radius';
-import { selectorFirstChild, selectorNotFirstChild, selectorLastChild, selectorNotLastChild, selectorMediaUp } from './mixins/selectors';
+import { selectorFirstChild, selectorNotFirstChild, selectorLastChild, selectorNotLastChild, selectorMediaUp, selectorMediaDown } from './mixins/selectors';
 import { mixinBoxShadow } from './mixins/box-shadow';
 
 export default function getClasses(constants, classes) {
@@ -50,17 +50,19 @@ export default function getClasses(constants, classes) {
       borderBottomColor: CARD_BORDER_COLOR,
     },
 
-    cardListGroupFirstChild: (indexOrBool) => selectorFirstChild(indexOrBool, [{
-      borderTopWidth: 0,
-    },
-      mixinBorderTopRadius(constants, CARD_INNER_BORDER_RADIUS),
-    ]),
+    // obsoleted
+    // cardListGroupFirstChild: (indexOrBool) => selectorFirstChild(indexOrBool, [{
+    //   borderTopWidth: 0,
+    // },
+    //   mixinBorderTopRadius(constants, CARD_INNER_BORDER_RADIUS),
+    // ]),
 
-    cardListGroupLastChild: (indexOrBool, length) => selectorFirstChild(indexOrBool, length, [{
-      borderBottomWidth: 0,
-    },
-      mixinBorderBottomRadius(constants, CARD_INNER_BORDER_RADIUS),
-    ]),
+    // obsoleted
+    // cardListGroupLastChild: (indexOrBool, length) => selectorFirstChild(indexOrBool, length, [{
+    //   borderBottomWidth: 0,
+    // },
+    //   mixinBorderBottomRadius(constants, CARD_INNER_BORDER_RADIUS),
+    // ]),
 
     cardBody: {
       flex: 1, // experimental / flex: 1 1 auto;
@@ -201,35 +203,63 @@ export default function getClasses(constants, classes) {
     })),
 
     // todo: bug with "hairline" space between grouped cards. "outside" borders
-    cardGroupCard: (index, length) => selectorMediaUp('Sm', SCREENS, Object.assign({
-      // irrelevant? / flex: 1 0 0%;
-      marginBottom: 0,
-    }, ENABLE_ROUNDED ? Object.assign({},
-        selectorNotFirstChild(index, {marginLeft: 0, borderLeftWidth: 0}), // from .card + .card
-        selectorNotFirstChild(index, mixinBorderLeftRadius(constants, 0)),
-        selectorNotLastChild(index, length, mixinBorderRightRadius(constants, 0)),
-      ) : {},
-    )),
+    cardGroupCard: (index, length) => Object.assign({},
+      selectorMediaUp('Sm', SCREENS, Object.assign({
+        // irrelevant? / flex: 1 0 0%;
+        marginBottom: 0,
+      }, ENABLE_ROUNDED ? Object.assign({},
+          selectorNotFirstChild(index, {marginLeft: 0, borderLeftWidth: 0}), // from .card + .card
+          selectorNotFirstChild(index, mixinBorderLeftRadius(constants, 0)),
+          selectorNotLastChild(index, length, mixinBorderRightRadius(constants, 0)),
+        ) : {},
+      )),
+      selectorMediaDown('Sm', SCREENS, Object.assign({
+        // pass
+      }, ENABLE_ROUNDED ? Object.assign({},
+          selectorNotFirstChild(index, mixinBorderTopRadius(constants, 0)),
+          selectorNotLastChild(index, length, mixinBorderBottomRadius(constants, 0)),
+        ) : {},
+      )),
+    ),
 
-    cardGroupCardCardImgTop: (index, length) => ENABLE_ROUNDED && selectorMediaUp('Sm', SCREENS, Object.assign({},
-      selectorNotLastChild(index, length, {borderTopRightRadius: 0}),
-      selectorNotFirstChild(index, {borderTopLeftRadius: 0}),
-    )),
+    cardGroupCardCardImgTop: (index, length) => ENABLE_ROUNDED && Object.assign({},
+      selectorMediaUp('Sm', SCREENS, Object.assign({},
+        selectorNotLastChild(index, length, {borderTopRightRadius: 0}),
+        selectorNotFirstChild(index, {borderTopLeftRadius: 0}),
+      )),
+      selectorMediaDown('Sm', SCREENS, Object.assign({},
+        selectorNotFirstChild(index, mixinBorderTopRadius(constants, 0)),
+      )),
+    ),
 
-    cardGroupCardCardHeader: (index, length) => ENABLE_ROUNDED && sselectorMediaUp('Sm', SCREENS, Object.assign({},
-      selectorNotLastChild(index, length, {borderTopRightRadius: 0}),
-      selectorNotFirstChild(index, {borderTopLeftRadius: 0}),
-    )),
+    cardGroupCardCardHeader: (index, length) => ENABLE_ROUNDED && Object.assign({},
+      selectorMediaUp('Sm', SCREENS, Object.assign({},
+        selectorNotLastChild(index, length, {borderTopRightRadius: 0}),
+        selectorNotFirstChild(index, {borderTopLeftRadius: 0}),
+      )),
+      selectorMediaDown('Sm', SCREENS, Object.assign({},
+        selectorNotFirstChild(index, mixinBorderTopRadius(constants, 0)),
+      )),
+    ),
+    cardGroupCardCardImgBottom: (index, length) => Object.assign({},
+      selectorMediaUp('Sm', SCREENS, Object.assign({},
+        selectorNotLastChild(index, length, {borderBottomRightRadius: 0}),
+        selectorNotFirstChild(index, {borderBottomLeftRadius: 0}),
+      )),
+      selectorMediaDown('Sm', SCREENS, Object.assign({},
+          selectorNotLastChild(index, length, mixinBorderBottomRadius(constants, 0)),
+      )),
+    ),
 
-    cardGroupCardCardImgBottom: (index, length) => selectorMediaUp('Sm', SCREENS, Object.assign({},
-      selectorNotLastChild(index, length, {borderBottomRightRadius: 0}),
-      selectorNotFirstChild(index, {borderBottomLeftRadius: 0}),
-    )),
-
-    cardGroupCardCardImgFooter: (index, length) => selectorMediaUp('Sm', SCREENS, Object.assign({},
-      selectorNotLastChild(index, length, {borderBottomRightRadius: 0}),
-      selectorNotFirstChild(index, {borderBottomLeftRadius: 0}),
-    )),
+    cardGroupCardCardImgFooter: (index, length) => Object.assign({},
+      selectorMediaUp('Sm', SCREENS, Object.assign({},
+        selectorNotLastChild(index, length, {borderBottomRightRadius: 0}),
+        selectorNotFirstChild(index, {borderBottomLeftRadius: 0}),
+      )),
+      selectorMediaDown('Sm', SCREENS, Object.assign({},
+          selectorNotLastChild(index, length, mixinBorderBottomRadius(constants, 0)),
+      )),
+    ),
 
     // Columns
 
