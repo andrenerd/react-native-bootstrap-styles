@@ -1,5 +1,5 @@
 // TODO: rename the file to "variables", keeping backward compatibility
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 import Color from 'color';
 
 export default function getConstants(constants) {
@@ -186,16 +186,19 @@ export default function getConstants(constants) {
 
     ROUNDED_PILL = 50 * REM,
 
+    SHADOW = _('SHADOW', Platform.OS === 'android' ? {elevation: 7} : {}),
     SHADOW_COLOR = _('SHADOW_COLOR', BLACK),
     SHADOW_OPACITY = _('SHADOW_OPACITY', 0.125), // was 0.15
     SHADOW_OFFSET = _('SHADOW_OFFSET', {width: 0, height: 0.5 * REM}),
     SHADOW_RADIUS = _('SHADOW_RADIUS', 0.75 * REM), // was 1.5
 
+    SHADOW_SM = _('SHADOW_SM', Platform.OS === 'android' ? {elevation: 1} : {}),
     SHADOW_COLOR_SM = SHADOW_COLOR,
     SHADOW_OPACITY_SM = 0.1, // was 0.075,
     SHADOW_OFFSET_SM = {width: 0, height: 0.125 * REM},
     SHADOW_RADIUS_SM = 0.5 * REM,
 
+    SHADOW_LG = _('SHADOW_LG', Platform.OS === 'android' ? {elevation: 15} : {}),
     SHADOW_COLOR_LG = SHADOW_COLOR,
     SHADOW_OPACITY_LG = 0.15, // was 0.175,
     SHADOW_OFFSET_LG = {width: 0, height: 1 * REM},
@@ -205,9 +208,8 @@ export default function getConstants(constants) {
     COMPONENT_ACTIVE_BG = _('COMPONENT_ACTIVE_BG', PRIMARY),
 
     // Fonts
-
     FONT_FAMILY_SANS_SERIF = _('FONT_FAMILY_SANS_SERIF', 'System'), // iOS: 'San Francisco'
-    FONT_FAMILY_MONOSPACE = _('FONT_FAMILY_MONOSPACE', 'Courier New'), // iOS: 'Courier New',
+    FONT_FAMILY_MONOSPACE = _('FONT_FAMILY_MONOSPACE', Platform.OS === 'ios' ? 'Courier New' : 'monospace'), // ios: 'Courier New' //  android: 'monospace'
     FONT_FAMILY_BASE = _('FONT_FAMILY_BASE', FONT_FAMILY_SANS_SERIF),
     FONT_FAMILY_BASE_LIGHT = _('FONT_FAMILY_BASE_LIGHT', FONT_FAMILY_SANS_SERIF),
     FONT_FAMILY_BASE_BOLD = _('FONT_FAMILY_BASE_BOLD', FONT_FAMILY_SANS_SERIF),
@@ -740,6 +742,7 @@ export default function getConstants(constants) {
     LINE_HEIGHT_LG, LINE_HEIGHT_SM,
     BORDER_WIDTH, BORDER_COLOR, BORDER_RADIUS, BORDER_RADIUS_LG, BORDER_RADIUS_SM,
     ROUNDED_PILL,
+    SHADOW, SHADOW_SM, SHADOW_LG,
     SHADOW_COLOR, SHADOW_OPACITY, SHADOW_OFFSET, SHADOW_RADIUS,
     SHADOW_COLOR_SM, SHADOW_OPACITY_SM, SHADOW_OFFSET_SM, SHADOW_RADIUS_SM,
     SHADOW_COLOR_LG, SHADOW_OPACITY_LG, SHADOW_OFFSET_LG, SHADOW_RADIUS_LG,
