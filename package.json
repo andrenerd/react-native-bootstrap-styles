@@ -15,7 +15,7 @@
     "form",
     "button"
   ],
-  "version": "4.5-0-o",
+  "version": "4.5.0-o",
   "description": "Bootstrap style library for React Native",
   "author": "Andrei Vasin (aka Savva) <andreid.31415@gmail.com>",
   "license": "MIT",
