@@ -180,9 +180,9 @@ export default function getConstants(constants) {
     BORDER_WIDTH = _('BORDER_WIDTH', StyleSheet.hairlineWidth), // 1
     BORDER_COLOR = _('BORDER_COLOR', GRAY_300),
 
-    BORDER_RADIUS = _('BORDER_RADIUS', 0.25 * REM),
-    BORDER_RADIUS_LG = _('BORDER_RADIUS_LG', 0.3 * REM),
-    BORDER_RADIUS_SM = _('BORDER_RADIUS_SM', 0.2 * REM),
+    BORDER_RADIUS = _('BORDER_RADIUS', 0.3 * REM), // was 0.25
+    BORDER_RADIUS_LG = _('BORDER_RADIUS_LG', 0.5 * REM), // was 0.3
+    BORDER_RADIUS_SM = _('BORDER_RADIUS_SM', 0.15 * REM), // was 0.2
 
     ROUNDED_PILL = 50 * REM,
 
