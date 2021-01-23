@@ -188,17 +188,17 @@ export default function getConstants(constants) {
 
     SHADOW_COLOR = _('SHADOW_COLOR', BLACK),
     SHADOW_OPACITY = _('SHADOW_OPACITY', 0.125), // was 0.15
-    SHADOW_OFFSET = _('SHADOW_OFFSET', {width: 0, height: 0.5 * REM}),
+    SHADOW_OFFSET = _('SHADOW_OFFSET', Platform.OS === 'android' ? {elevation: 3} : {width: 0, height: 0.5 * REM}),
     SHADOW_RADIUS = _('SHADOW_RADIUS', 0.75 * REM), // was 1.5
 
     SHADOW_COLOR_SM = SHADOW_COLOR,
     SHADOW_OPACITY_SM = 0.1, // was 0.075,
-    SHADOW_OFFSET_SM = {width: 0, height: 0.125 * REM},
+    SHADOW_OFFSET_SM =  Platform.OS === 'android' ? {elevation: 1} : {width: 0, height: 0.125 * REM},
     SHADOW_RADIUS_SM = 0.5 * REM,
 
     SHADOW_COLOR_LG = SHADOW_COLOR,
     SHADOW_OPACITY_LG = 0.15, // was 0.175,
-    SHADOW_OFFSET_LG = {width: 0, height: 1 * REM},
+    SHADOW_OFFSET_LG =  Platform.OS === 'android' ? {elevation: 7} : {width: 0, height: 1 * REM},
     SHADOW_RADIUS_LG = 1.5 * REM, // was 3
 
     COMPONENT_ACTIVE_COLOR =_('COMPONENT_ACTIVE_COLOR', WHITE),

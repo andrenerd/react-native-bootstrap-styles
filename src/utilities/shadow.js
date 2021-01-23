@@ -6,32 +6,32 @@ export default function getClasses(constants, classes) {
   } = constants;
 
   const _classes = {
-    shadow: {
+    shadow: Object.assign({}, SHADOW_OFFSET, { // for android
       shadowColor: SHADOW_COLOR,
       shadowOffset: SHADOW_OFFSET,
       shadowOpacity: SHADOW_OPACITY,
       shadowRadius: SHADOW_RADIUS,
-    },
+    }),
 
-    shadowSm: {
+    shadowSm: Object.assign({}, SHADOW_OFFSET_SM, { // for android
       shadowColor: SHADOW_COLOR_SM,
       shadowOffset: SHADOW_OFFSET_SM,
       shadowOpacity: SHADOW_OPACITY_SM,
       shadowRadius: SHADOW_RADIUS_SM,
-    },
+    }),
 
-    shadowLg: {
+    shadowLg: Object.assign({}, SHADOW_OFFSET_LG, { // for android
       shadowColor: SHADOW_COLOR_LG,
       shadowOffset: SHADOW_OFFSET_LG,
       shadowOpacity: SHADOW_OPACITY_LG,
       shadowRadius: SHADOW_RADIUS_LG,
-    },
+    }),
 
-    shadowNone: {
+    shadowNone: Object.assign({}, {elevation: 0}, { // for android
       shadowOffset: {width: 0, height: 0},
       shadowOpacity: 0,
       shadowRadius: 0,
-    },
+    }),
   };
 
   return _classes;
