@@ -186,16 +186,21 @@ Check the related chapter in the Bootstrap [documentation](https://getbootstrap.
 
 What's implemented or near to:  
 - align 
-- background 
 - borders 
+- code 
+- colors 
 - display 
 - flex 
+- overflow 
+- shadow 
 - sizing 
 - spacing 
-- text  
-
-also:  
 - tables
+- text 
+- visibility 
+
+
+Check live examples with code snippets in [the app](https://expo.io/@andrenerd/react-native-bootstrap-styles).  
 
 
 
@@ -206,91 +211,20 @@ Bootstrap calls them components. The term is changed to not mess with React comp
 Check the related chapter in the Bootstrap [documentation](https://getbootstrap.com/docs/4.5/components/) to get the list of all the elements (ie components).
 
 What's implemented or neat to: 
+- alerts 
 - buttons 
+- button group
 - cards 
+- carousel 
 - forms 
+- list group
 - modal 
 - pagination 
 - progress 
+- tables
+- toasts
 
-
-
-
-### Buttons
-
-
-TouchableHighlight as button:
-```jsx
-<TouchableHighlight onPress={this.onPress} style=[{s.btnTouchable}]>
-  <View style={[s.btn, s.btnPrimary]}>
-    <Text style={[s.btnText, s.btnPrimaryText]}>Signup</Text>
-  </View>
-</TouchableHighlight>
-```
-
-Links as default and outline buttons with some optional tweaks (see `underlayColor`):
-```jsx
-// import { Link } from 'react-router-native';
-<Link to="/submit" component={TouchableHighlight} underlayColor={c.BLACK} style={[s.btnTouchable]}>
-  <View style={[s.btn, s.btnPrimary]}>
-    <Text style={[s.btnText, s.btnPrimaryText]}>Submit</Text>
-  </View>
-</Link>
-
-<Link to="/cancel" component={TouchableHighlight} underlayColor={c.BLACK} style={[s.btnTouchable, s.mt3]}>
-  <View style={[s.btn, s.btnOutlinePrimary]}>
-    <Text style={[s.btnText, s.btnOutlinePrimaryText]}>Cancel</Text>
-  </View>
-</Link>
-```
-
-
-
-### Card
-
-Basic card:
-```jsx
-<View style={[s.card]}>
-  <View style={[s.cardBody]}>
-    <Text style={[s.text]}>Hello Card!</Text>
-  </View>
-</View>
-```
-
-
-
-### Modal
-
-Basic modal (temporal approach, till higher level component added to the lib):
-```jsx
-<Modal
-  animationType={animationType}
-  transparent={transparent}
-  visible={this.state.modal}
-  onRequestClose={this.hide}
-  onShow={this.onShown}
-  onDismiss={this.onHidden}
->
-  <View style={[s.modal]}>
-    <View style={[s.modalDialog]}>
-      <View style={[s.modalContent]}>
-        <Text style={[s.text]>Hello Modal!</Text>
-      </View>
-    </View>
-  </View>
-</Modal>
-```
-
-
-
-### Progress bar
-
-Basic progress bar
-```jsx
-<View style={[s.progress]}>
-  <View style={[s.progressBar, {width: `${progress * 100}%`}]} />
-</View>
-```
+Check live examples with code snippets in [the app](https://expo.io/@andrenerd/react-native-bootstrap-styles).  
 
 
 
