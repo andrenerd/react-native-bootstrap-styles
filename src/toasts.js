@@ -30,11 +30,11 @@ export default function getClasses(constants, classes) {
       borderWidth: TOAST_BORDER_WIDTH,
       borderStyle: 'solid',
       borderColor: TOAST_BORDER_COLOR,
-      shadowColor: TOAST_BOX_SHADOW_COLOR,
-      shadowOffset: TOAST_BOX_SHADOW_OFFSET,
-      shadowOpacity: TOAST_BOX_SHADOW_OPACITY,
-      shadowRadius: TOAST_BOX_SHADOW_RADIUS,
-      opacity: 0,
+      // shadowColor: TOAST_BOX_SHADOW_COLOR,
+      // shadowOffset: TOAST_BOX_SHADOW_OFFSET,
+      // shadowOpacity: TOAST_BOX_SHADOW_OPACITY,
+      // shadowRadius: TOAST_BOX_SHADOW_RADIUS,
+      opacity: 0, // origin: 0
       // not supported / backdrop-filter: blur(10px); // check: BlurView, react-native-blur
       // not supported /  backgroundClip: padding-box,
     },
