@@ -1,4 +1,4 @@
-import { mixinBorderRadius } from './mixins/border-radius';
+import { mixinBorderRadius, mixinBorderTopRadius, mixinBorderBottomRadius } from './mixins/border-radius';
 
 export default function getClasses(constants, classes) {
   const {
@@ -46,7 +46,7 @@ export default function getClasses(constants, classes) {
       marginBottom: TOAST_PADDING_X,
     }),
 
-    toastHeader: {
+    toastHeader: Object.assign({
       alignItems: 'center',
       paddingVertical: TOAST_PADDING_Y,
       paddingHorizontal: TOAST_PADDING_X,
@@ -57,6 +57,8 @@ export default function getClasses(constants, classes) {
       borderColor: TOAST_HEADER_BORDER_COLOR,
       // not supported / background-clip: padding-box;
     },
+      mixinBorderTopRadius(constants, TOAST_BORDER_RADIUS),
+    ),
 
     toastBody: {
       padding: TOAST_PADDING_X, // apply to both vertical and horizontal

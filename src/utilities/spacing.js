@@ -5,23 +5,7 @@ export default function getClasses(constants, classes) {
   } = constants;
 
   const _classes = {
-    // .m#{$infix}-auto { margin: auto !important; }
-    // .mt#{$infix}-auto,
-    // .my#{$infix}-auto {
-    //   margin-top: auto !important;
-    // }
-    // .mr#{$infix}-auto,
-    // .mx#{$infix}-auto {
-    //   margin-right: auto !important;
-    // }
-    // .mb#{$infix}-auto,
-    // .my#{$infix}-auto {
-    //   margin-bottom: auto !important;
-    // }
-    // .ml#{$infix}-auto,
-    // .mx#{$infix}-auto {
-    //   margin-left: auto !important;
-    // }
+    // pass
   };
 
   // p/m%screen%size
@@ -40,6 +24,14 @@ export default function getClasses(constants, classes) {
         _classes[SPACERS_TYPES[itemType] + 'l' + itemScreen + itemSpacer] = {[itemType + 'Left']: SPACERS[itemSpacer]};
       });
     });
+
+    _classes['m' + itemScreen + 'Auto'] = {margin: 'auto'};
+    _classes['my' + itemScreen + 'Auto'] = {marginVertical: 'auto'};
+    _classes['mx' + itemScreen + 'Auto'] = {marginHorizontal: 'auto'};
+    _classes['mt' + itemScreen + 'Auto'] = {marginTop: 'auto'};
+    _classes['mb' + itemScreen + 'Auto'] = {marginBottom: 'auto'};
+    _classes['mr' + itemScreen + 'Auto'] = {marginRight: 'auto'};
+    _classes['ml' + itemScreen + 'Auto'] = {marginLeft: 'auto'};
   });
 
   return _classes;
