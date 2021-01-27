@@ -50,7 +50,6 @@ export default function getClasses(constants, classes) {
       alignItems: 'center',
       paddingVertical: TOAST_PADDING_Y,
       paddingHorizontal: TOAST_PADDING_X,
-      color: TOAST_HEADER_COLOR,
       backgroundColor: TOAST_HEADER_BACKGROUND_COLOR,
       borderWidth: TOAST_BORDER_WIDTH,
       borderStyle: 'solid',
@@ -59,6 +58,10 @@ export default function getClasses(constants, classes) {
     },
       mixinBorderTopRadius(constants, TOAST_BORDER_RADIUS),
     ),
+
+    toastHeaderText: {
+      color: TOAST_HEADER_COLOR,
+    },
 
     toastBody: {
       padding: TOAST_PADDING_X, // apply to both vertical and horizontal

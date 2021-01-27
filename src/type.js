@@ -18,6 +18,8 @@ export default function getClasses(constants, classes) {
     HR_MARGIN_Y,
     HR_BORDER_WIDTH,
     HR_BORDER_COLOR,
+    FONT_SIZE_SM,
+    FONT_SIZE_LG,
     MARK_PADDING, MARK_BG,
     BLOCKQUOTE_FONT_SIZE,
 
@@ -36,12 +38,13 @@ export default function getClasses(constants, classes) {
       borderStyle: 'solid',
     },
 
-    // TODO: Could be a selector or not to be at all
-    // small,
-    // .small {
-    //   @include font-size($small-font-size);
-    //   font-weight: $font-weight-normal;
-    // }
+    textSmall: {
+      fontSize: FONT_SIZE_SM,
+    },
+
+    textLarge: {
+      fontSize: FONT_SIZE_LG,
+    },
 
     mark: {
       padding: MARK_PADDING,
@@ -125,6 +128,10 @@ export default function getClasses(constants, classes) {
   //   font-weight: $display4-weight;
   //   line-height: $display-line-height;
   // }
+
+  // aliases
+  _classes.small = _classes.textSmall
+  _classes.large = _classes.textLarge
 
   return _classes;
 };
