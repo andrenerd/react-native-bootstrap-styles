@@ -14,12 +14,6 @@ export default function getClasses(constants, classes) {
 
   const _classes = ENABLE_GRID_CLASSES ? {
 
-    // TODO: add later
-    // container: Object.assign({},
-    //   mixinMakeContainer(constants),
-    //   mixinMakeContainerMaxWidths(constants),
-    // ),
-
     containerFluid: Object.assign({},
       mixinMakeContainer(constants),
     ),
@@ -59,7 +53,7 @@ export default function getClasses(constants, classes) {
 
   if (ENABLE_GRID_CLASSES) {
     const SCREENS_INFIXES_ALL = [''].concat(Object.keys(GRID_BREAKPOINTS));
-    const gridColumnsArray = Array.from(Array(GRID_COLUMNS).keys());
+    const gridColumnsArray = Array.from(Array(GRID_COLUMNS + 1).keys());
 
     SCREENS_INFIXES_ALL.forEach((itemScreen) => {
       _classes['row' + itemScreen] = Object.assign(mixinMakeRow(constants),
