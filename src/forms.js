@@ -241,8 +241,8 @@ export default function getClasses(constants, classes) {
     },
 
     formCol: {
-      paddingRight: FORM_GRID_GUTTER_WIDTH / 2,
-      paddingLeft: FORM_GRID_GUTTER_WIDTH / 2,
+      // harmful for alignment / paddingRight: FORM_GRID_GUTTER_WIDTH / 2,
+      // harmful for alignment / paddingLeft: FORM_GRID_GUTTER_WIDTH / 2,
     },
 
     // .form-check {

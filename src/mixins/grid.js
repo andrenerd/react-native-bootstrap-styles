@@ -43,10 +43,10 @@ export const mixinMakeCol = (
   gutter = null,
 ) => (constants.ENABLE_GRID_CLASSES ? {
   flexDirection: 'column', // critical / why? / TODO: document it
-  // OBSOLETED / flexBasis: 0, // harmful
-  // OBSOLETED / flexGrow: 1, // harmful
-  paddingRight: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
-  paddingLeft: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
+  // harmful / flexBasis: 0,
+  // harmful / flexGrow: 1,
+  // harmful for alignment / paddingRight: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
+  // harmful for alignment / paddingLeft: (gutter || constants.GRID_GUTTER_WIDTH) / 2,
   minWidth: 0, // excessive?
   maxWidth: '100%', // excessive?
 } : {});

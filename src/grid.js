@@ -78,6 +78,11 @@ export default function getClasses(constants, classes) {
       // _classes['col' + itemScreen + 'Auto'] = mixinMakeCol(constants);
     });
 
+    _classes['colPadding'] = {
+      paddingRight: GRID_GUTTER_WIDTH / 2,
+      paddingLeft: GRID_GUTTER_WIDTH / 2,
+    }
+
     // Row columns
     // .row-cols-*
     // SKIPPED
