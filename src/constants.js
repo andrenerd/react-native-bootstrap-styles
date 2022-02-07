@@ -122,6 +122,7 @@ export default function getConstants(constants) {
       Md: 768, // medium phones
       Lg: 1024, // large phones and small tablets
       Xl: 1536, // tablets and other gadgets
+      // Xxl: 1536, // tablets and other gadgets
     }),
 
     // experimental
@@ -131,6 +132,7 @@ export default function getConstants(constants) {
       Md: 1024,
       Lg: 1536,
       Xl: 2048,
+      // Xxl: 2048,
     }),
 
     GRID_BREAKPOINTS = GRID_BREAKPOINTS_HORIZONTAL,

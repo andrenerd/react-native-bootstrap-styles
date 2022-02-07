@@ -179,22 +179,6 @@ export default function getClasses(constants, classes) {
       alignSelf: 'stretch', // TEST / width: 100%
     }, mixinBorderBottomRadius(constants, CARD_INNER_BORDER_RADIUS)),
 
-    cardDeck: selectorMediaUp('Sm', SCREENS, {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      marginRight: -CARD_DECK_MARGIN,
-      marginLeft: -CARD_DECK_MARGIN,
-    }),
-
-    cardDeckCard: Object.assign({
-      marginBottom: CARD_DECK_MARGIN,
-    }, selectorMediaUp('Sm', SCREENS, {
-        // flex: 1 0 0%;
-        marginRight: CARD_DECK_MARGIN,
-        marginBottom: 0,
-        marginLeft: CARD_DECK_MARGIN,
-    })),
-
     cardGroup: Object.assign({
       marginBottom: CARD_GROUP_MARGIN,
     }, selectorMediaUp('Sm', SCREENS, {
